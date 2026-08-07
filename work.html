@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Talk The Taste">
+    <meta name="geo.region" content="AE-DU">
+    <meta name="geo.placename" content="Dubai">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | Creative Projects &amp; Case Studies | Talk The Taste Dubai</title>
+    <meta name="description" content="Browse TTT's portfolio of creative work — brand identities, websites, social media campaigns, mobile apps, and video productions for Dubai businesses.">
+    <link rel="canonical" href="https://talkthetaste.com/work.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Google Analytics 4, replace G-XXXXXXXXXX with your Measurement ID -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script> -->
+    <style>
+        .filter-bar { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:56px; }
+        .filter-btn { background:transparent;border:1px solid var(--border);color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;letter-spacing:.5px;padding:8px 18px;border-radius:100px;cursor:none;transition:all .25s; }
+        .filter-btn:hover { border-color:var(--text);color:var(--text); }
+        .filter-btn.active { background:var(--text);border-color:var(--text);color:var(--bg); }
+
+        .projects-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:2px; }
+        .proj-card { border-radius:0;overflow:hidden;position:relative;cursor:pointer;background:var(--surface);transition:background .3s; }
+        .proj-card:first-child { border-radius:20px 0 0 0; }
+        .proj-card:nth-child(3) { border-radius:0 20px 0 0; }
+        .proj-card:nth-last-child(3):first-child ~ .proj-card:last-child,.proj-card:nth-last-child(2):nth-child(3n+1) ~ .proj-card:nth-last-child(1) { border-radius:0 0 20px 0; }
+        .proj-card:hover { background:var(--bg-alt); }
+        .proj-thumb { padding-top:65%;position:relative;overflow:hidden; }
+        .proj-thumb-bg { position:absolute;inset:0;transition:transform .7s cubic-bezier(.16,1,.3,1);overflow:hidden; }
+        .proj-thumb-bg img { width:100%;height:100%;object-fit:cover;display:block; }
+        .proj-card:hover .proj-thumb-bg { transform:scale(1.04); }
+        .proj-thumb-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(26,25,23,.6) 0%,transparent 55%); }
+        .proj-thumb-placeholder { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-xmuted);background:var(--bg-alt); }
+        .proj-arrow { position:absolute;top:16px;right:16px;width:36px;height:36px;border:1px solid rgba(250,250,248,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.8);transition:all .3s;color:var(--bg); }
+        .proj-card:hover .proj-arrow { opacity:1;transform:scale(1); }
+        .proj-body { padding:24px 24px 28px; }
+        .proj-cat { font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-xmuted);margin-bottom:8px; }
+        .proj-title { font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;line-height:1.25;margin-bottom:10px;color:var(--text); }
+        .proj-desc { font-size:13px;color:var(--text-muted);line-height:1.65;margin-bottom:16px; }
+        .proj-tags { display:flex;flex-wrap:wrap;gap:6px; }
+        .proj-tag { background:var(--bg-alt);border:1px solid var(--border);color:var(--text-muted);font-size:11px;padding:4px 12px;border-radius:100px; }
+
+        /* Project modal */
+        .modal-overlay { position:fixed;inset:0;background:rgba(26,25,23,.7);z-index:2000;opacity:0;visibility:hidden;transition:all .3s;display:flex;align-items:center;justify-content:center;padding:40px;backdrop-filter:blur(8px); }
+        .modal-overlay.open { opacity:1;visibility:visible; }
+        .modal { background:var(--surface);border:1px solid var(--border);border-radius:28px;width:100%;max-width:760px;max-height:85vh;overflow-y:auto;position:relative;transform:translateY(20px);transition:transform .4s; }
+        .modal-overlay.open .modal { transform:none; }
+        .modal-close { position:absolute;top:20px;right:20px;width:36px;height:36px;border:1px solid var(--border);border-radius:50%;background:var(--bg);display:flex;align-items:center;justify-content:center;cursor:none;transition:all .25s;color:var(--text-muted);font-size:18px;line-height:1;z-index:5; }
+        .modal-close:hover { border-color:var(--text);color:var(--text);background:var(--bg-alt); }
+        .modal-thumb { padding-top:45%;position:relative;border-radius:20px 20px 0 0;overflow:hidden; }
+        .modal-thumb-bg { position:absolute;inset:0;overflow:hidden;background:var(--bg-alt); }
+        .modal-thumb-bg img { width:100%;height:100%;object-fit:cover;display:block; }
+        .modal-body { padding:36px 40px 44px; }
+        .modal-cat { font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-xmuted);margin-bottom:12px; }
+        .modal-title { font-family:'Cormorant Garamond',serif;font-size:clamp(24px,3vw,36px);font-weight:700;letter-spacing:-1px;margin-bottom:20px;color:var(--text); }
+        .modal-content { font-size:15px;color:var(--text-muted);line-height:1.85; }
+        .modal-content h2 { font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--text);margin:28px 0 12px; }
+        .modal-content p { margin-bottom:16px; }
+        .modal-content img { max-width:100%;height:auto;border-radius:12px;margin:16px 0;object-fit:contain;display:block; }
+        .modal-tags { display:flex;flex-wrap:wrap;gap:8px;margin-top:28px; }
+
+        @media(max-width:900px) { .projects-grid{grid-template-columns:1fr 1fr} }
+        @media(max-width:640px) { .projects-grid{grid-template-columns:1fr} .modal{border-radius:20px} .modal-body{padding:24px 24px 32px} }
+    </style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="cur-ring"></div>
+
+<nav id="nav">
+        <a href="https://wa.me/+971565390316" class="nav-wa-mobile" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="TTT" class="logo-img" onerror="this.style.display='none'">
+        <!--<span class="nav-logo-text">TTT</span>-->
+    </a>
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
+    <ul class="mobile-menu-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="mobile-menu-bottom">
+        <a href="contact.html" class="btn-primary">Let's Talk →</a>
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+    </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="eyebrow reveal">Our Portfolio</div>
+    <h1 class="reveal">Work that<br>speaks for itself.</h1>
+    <p class="reveal reveal-delay-1">From full brand launches to viral social campaigns, every project we take on is built to move the needle. Here's a selection of what we've done.</p>
+</section>
+
+<!-- PROJECTS -->
+<section class="sec">
+    <div class="filter-bar reveal" id="filterBar"></div>
+    <div class="projects-grid" id="projectsGrid"></div>
+</section>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="modal">
+        <button class="modal-close" id="modalClose">×</button>
+        <div class="modal-thumb"><div class="modal-thumb-bg" id="modalThumb"></div></div>
+        <div class="modal-body">
+            <div class="modal-cat" id="modalCat"></div>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-content" id="modalContent"></div>
+            <div class="modal-tags" id="modalTags"></div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div>
+            <a href="index.html" class="footer-logo nav-logo">
+                <img src="assets/logo.png" class="logo-img" alt="Talk The Taste">
+            </a>
+            <p class="footer-brand-desc">Dubai's full-service creative agency. Marketing, branding, web, apps, and video, all under one roof.</p>
+        </div>
+        <div>
+            <div class="footer-heading">Services</div>
+            <ul class="footer-links">
+                <li><a href="services.html">Marketing</a></li>
+                <li><a href="services.html">Social Media</a></li>
+                <li><a href="services.html">Web Design</a></li>
+                <li><a href="services.html">Mobile Apps</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="footer-heading">Company</div>
+            <ul class="footer-links">
+                <li><a href="work.html">Our Work</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="footer-heading">Contact</div>
+            <ul class="footer-links">
+                <li><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></li>
+                <li><a href="tel:+971529972969">+971 52 997 2969</a></li>
+                <li>Dubai, UAE</li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2025 Talk The Taste. All rights reserved.</span>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/talkthetaste/" target="_blank" class="social-btn" title="Instagram">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/ttt-mm/" class="social-btn" title="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            </a>
+        </div>
+        <span>Dubai, UAE · California, USA</span>
+    </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+(function() {
+    const cur = document.getElementById('cur'), ring = document.getElementById('cur-ring');
+    let mx=0,my=0,rx=0,ry=0;
+    window.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    (function follow(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(follow);})();
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 64), {passive:true});
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    document.addEventListener('mouseover', e => {
+        if (e.target.closest('a,button,.proj-card,.filter-btn')) { cur.classList.add('active'); ring.classList.add('active'); }
+        else { cur.classList.remove('active'); ring.classList.remove('active'); }
+    });
+
+    let allProjects = TTT.getProjects();
+    let activeFilter = 'all';
+
+    const filterBar = document.getElementById('filterBar');
+
+    function renderFilters() {
+        const cats = ['all', ...new Set(allProjects.map(p => p.category).filter(Boolean))];
+        if (!cats.includes(activeFilter)) activeFilter = 'all';
+        filterBar.innerHTML = cats.map(c =>
+            `<button class="filter-btn ${c === activeFilter ? 'active' : ''}" data-cat="${c}">${c === 'all' ? 'All Projects' : c}</button>`
+        ).join('');
+        filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeFilter = btn.dataset.cat;
+                renderProjects();
+            });
+        });
+    }
+
+    function renderProjects() {
+        const grid = document.getElementById('projectsGrid');
+        const filtered = activeFilter === 'all' ? allProjects : allProjects.filter(p => p.category === activeFilter);
+        if (!filtered.length) {
+            grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📂</div><h3>No projects yet</h3><p>Projects added in the admin panel will appear here.</p></div>`;
+            return;
+        }
+        const arrowSVG = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>`;
+        grid.innerHTML = filtered.map((p, i) => {
+            const thumbContent = p.image
+                ? `<img src="${p.image}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`
+                : `<div class="proj-deco"><span class="proj-deco-text">${String(i+1).padStart(2,'0')}</span></div>`;
+            const bgStyle = p.image
+                ? 'background:#111;'
+                : `background:linear-gradient(135deg,${p.color1||'#0c0c24'} 0%,${p.color2||'#18103c'} 60%);`;
+            return `
+            <div class="proj-card reveal" data-id="${p.id}" style="transition-delay:${(i%3)*0.1}s">
+                <div class="proj-thumb">
+                    <div class="proj-thumb-bg" style="${bgStyle}">
+                        ${thumbContent}
+                    </div>
+                    <div class="proj-thumb-overlay"></div>
+                    <div class="proj-arrow">${arrowSVG}</div>
+                </div>
+                <div class="proj-body">
+                    <div class="proj-cat">${p.category || ''}</div>
+                    <div class="proj-title">${p.title}</div>
+                    <div class="proj-desc">${p.description || ''}</div>
+                    <div class="proj-tags">${(p.tags||[]).map(t => `<span class="proj-tag">${t}</span>`).join('')}</div>
+                </div>
+            </div>`;
+        }).join('');
+        grid.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+        grid.querySelectorAll('.proj-card').forEach(card => {
+            card.addEventListener('click', () => openModal(card.dataset.id));
+        });
+    }
+
+    function refreshProjectData() {
+        allProjects = TTT.getProjects();
+        renderFilters();
+        renderProjects();
+    }
+
+    refreshProjectData();
+    document.addEventListener('ttt:data:ready', refreshProjectData);
+
+    const urlId = new URLSearchParams(location.search).get('id');
+    if (urlId) setTimeout(() => openModal(urlId), 600);
+
+    function openModal(id) {
+        const p = TTT.getProject(id);
+        if (!p) return;
+        const thumb = document.getElementById('modalThumb');
+        if (p.image) {
+            thumb.innerHTML = `<img src="${p.image}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`;
+            thumb.style.background = '';
+        } else {
+            thumb.innerHTML = '';
+            thumb.style.background = `linear-gradient(135deg,${p.color1||'#0c0c24'} 0%,${p.color2||'#18103c'} 60%)`;
+        }
+        document.getElementById('modalCat').textContent = p.category || '';
+        document.getElementById('modalTitle').textContent = p.title;
+        document.getElementById('modalContent').innerHTML = p.fullDesc || `<p>${p.description || ''}</p>`;
+        document.getElementById('modalTags').innerHTML = (p.tags||[]).map(t => `<span class="proj-tag">${t}</span>`).join('');
+        document.getElementById('modalOverlay').classList.add('open');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        document.getElementById('modalOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+    }
+
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.getElementById('modalOverlay').addEventListener('click', e => { if(e.target === document.getElementById('modalOverlay')) closeModal(); });
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+})();
+</script>
+<script src="js/transitions.js"></script>
+</body>
+</html>

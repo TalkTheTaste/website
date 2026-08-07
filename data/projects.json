@@ -1,0 +1,56 @@
+[
+  {
+    "id": "mnplq1qa_r8kbpuf",
+    "title": "On-Demand Delivery App",
+    "category": "Mobile App",
+    "tags": [
+      "Mobile App",
+      "iOS",
+      "Android"
+    ],
+    "description": "Native iOS and Android on-demand delivery platform built from MVP to full launch.",
+    "fullDesc": "<p>We designed and built a full-featured on-demand delivery platform from the ground up — native iOS and Android apps, a web-based merchant dashboard, and a driver app. The platform launched with 12 restaurant partners and processed over 1,000 orders in its first month.</p>",
+    "image": "assets/site/delivery-web-app.jpg",
+    "color1": "#001508",
+    "color2": "#002912",
+    "featured": true,
+    "date": "2024-09-20",
+    "createdAt": 1775625745474
+  },
+  {
+    "id": "mnplq1qa_tmzomjg",
+    "title": "Social Growth Campaign — F&B Brand",
+    "category": "Social Media",
+    "tags": [
+      "Social Media",
+      "Content",
+      "Ads"
+    ],
+    "description": "3x engagement growth in 90 days through strategic content and paid advertising.",
+    "fullDesc": "<p>This F&B brand came to us struggling with flat social media engagement. Within 90 days of our social media management, we tripled their engagement rate and doubled their follower count through strategic content creation, community management, and targeted paid campaigns.</p>",
+    "image": "assets/site/social-growth-campaign.jpg",
+    "color1": "#1a0800",
+    "color2": "#2d1500",
+    "featured": true,
+    "date": "2024-10-05",
+    "createdAt": 1775625745474
+  },
+  {
+    "id": "mnplq1qa_h6qf44m",
+    "title": "Full Brand Launch — Dubai Restaurant Group",
+    "category": "Branding",
+    "tags": [
+      "Branding",
+      "Web",
+      "Strategy"
+    ],
+    "description": "Complete brand identity, website, and go-to-market strategy for a Dubai F&B group.",
+    "fullDesc": "<p>We partnered with this Dubai restaurant group from concept to launch — developing the visual identity, brand guidelines, website, social media presence, and marketing strategy that positioned them as one of the city's most talked-about dining destinations.</p><p>The project included logo design, color system, typography, interior signage, menu design, a custom website with online booking, and a 90-day social media launch campaign.</p>",
+    "image": "assets/site/restaurant-brand-launch.jpg",
+    "color1": "#0c0c24",
+    "color2": "#18103c",
+    "featured": true,
+    "date": "2024-11-10",
+    "createdAt": 1775625745474
+  }
+]

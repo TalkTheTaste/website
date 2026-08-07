@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Talk The Taste">
+    <meta name="geo.region" content="AE-DU">
+    <meta name="geo.placename" content="Dubai">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | Transparent Agency Packages | Talk The Taste Dubai</title>
+    <meta name="description" content="Clear, transparent pricing for marketing, social media, web design, and full-service creative packages. No hidden fees. TTT Dubai.">
+    <link rel="canonical" href="https://talkthetaste.com/pricing.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Google Analytics 4, replace G-XXXXXXXXXX with your Measurement ID -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script> -->
+    <style>
+        *, *::before, *::after { margin:0;padding:0;box-sizing:border-box; }
+        :root {
+            --gold:#E8C830;--gold-dim:rgba(232,200,48,.12);--gold-border:rgba(232,200,48,.3);
+            --bg:#FAFAF8;--bg-alt:#F3F2EF;--surface:#FFFFFF;--border:#E4E2DE;--border-dark:#C8C5BF;
+            --text:#1A1917;--text-muted:#6B6760;--text-xmuted:#9C9892;
+            --dark:#1A1917;
+            /* aliases */
+            --black:#1A1917;--white:#FAFAF8;--gray:#6B6760;--gray-light:#9C9892;
+        }
+        body { font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased; }
+        a { color:inherit;text-decoration:none; }
+
+        /* CURSOR */
+        .cursor{width:9px;height:9px;background:var(--text);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,background .3s;}
+        .cursor-ring{width:32px;height:32px;border:1px solid rgba(26,25,23,.2);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);}
+        .cursor.active{transform:translate(-50%,-50%) scale(2.5);background:var(--gold);}
+        .cursor-ring.active{transform:translate(-50%,-50%) scale(1.5);opacity:.35;}
+
+        /* NAV */
+        #nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:28px 64px;display:flex;align-items:center;justify-content:space-between;transition:padding .4s,background .4s,border-color .4s,box-shadow .4s;border-bottom:1px solid transparent;}
+        #nav.scrolled{background:rgba(250,250,248,.96);backdrop-filter:blur(20px) saturate(160%);padding:16px 64px;border-bottom-color:var(--border);box-shadow:0 1px 0 var(--border);}
+        .nav-logo{display:flex;align-items:center;}
+        .nav-menu{display:flex;list-style:none;gap:40px;}
+        .nav-menu a{font-size:13px;font-weight:500;color:var(--text-muted);letter-spacing:.15px;transition:color .25s;position:relative;}
+        .nav-menu a:hover,.nav-menu a.active{color:var(--text);}
+        .nav-menu a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1.5px;background:var(--text);border-radius:1px;}
+        .nav-right{display:flex;align-items:center;gap:10px;}
+        .nav-wa{width:38px;height:38px;border:1px solid rgba(37,211,102,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#1DA851;transition:all .25s;background:rgba(37,211,102,.06);}
+        .nav-wa:hover{background:rgba(37,211,102,.16);border-color:rgba(37,211,102,.6);transform:scale(1.08);}
+        .nav-wa svg{width:17px;height:17px;fill:#1DA851;}
+        .nav-cta{background:var(--text);color:var(--bg);font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:700;padding:10px 22px;border-radius:100px;letter-spacing:.2px;transition:all .25s;white-space:nowrap;}
+        .nav-cta:hover{background:var(--gold);color:var(--text);transform:translateY(-1px);}
+        .logo-img{height:34px;width:auto;max-width:160px;object-fit:contain;display:block;transition:opacity .3s;}
+        .nav-logo:hover .logo-img{opacity:.7;}
+
+        /* HERO */
+        .pricing-hero{padding:160px 64px 80px;border-bottom:1px solid var(--border);text-align:center;background:var(--bg);}
+        .pricing-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,7vw,90px);font-weight:700;line-height:.98;letter-spacing:-3px;margin-bottom:24px;color:var(--text);}
+        .pricing-hero p{font-size:18px;color:var(--text-muted);line-height:1.7;max-width:560px;margin:0 auto 52px;}
+        .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--text-xmuted);margin-bottom:24px;}
+        .eyebrow::before,.eyebrow::after{content:'';width:16px;height:1px;background:var(--text-xmuted);}
+
+        /* TOGGLE */
+        .region-toggle{display:inline-flex;align-items:center;gap:0;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:4px;margin-bottom:0;}
+        .toggle-btn{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;padding:10px 28px;border-radius:100px;border:none;background:transparent;color:var(--text-muted);cursor:none;transition:all .25s;letter-spacing:.3px;display:flex;align-items:center;gap:8px;}
+        .toggle-btn.active{background:var(--text);color:var(--bg);}
+        .toggle-btn:not(.active):hover{color:var(--text);}
+        .toggle-flag{font-size:16px;}
+
+        /* SECTION */
+        .pricing-sec{padding:100px 64px;}
+        .pricing-sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:700;letter-spacing:-2px;margin-bottom:12px;}
+        .pricing-sec-sub{font-size:15px;color:var(--gray);line-height:1.7;margin-bottom:60px;max-width:540px;}
+
+        /* PACKAGES GRID */
+        .packages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;}
+        .pkg-card{border:none;border-radius:0;padding:44px 36px;background:var(--surface);position:relative;overflow:hidden;transition:background .3s;display:flex;flex-direction:column;}
+        .pkg-card:first-child{border-radius:20px 0 0 20px;}
+        .pkg-card:last-child{border-radius:0 20px 20px 0;}
+        .pkg-card:hover{background:var(--bg-alt);}
+        .pkg-card.featured{background:var(--dark);color:var(--bg);}
+        .pkg-card.featured:hover{background:#242220;}
+        .pkg-featured-badge{position:absolute;top:24px;right:24px;background:var(--gold);color:var(--text);font-family:'Cormorant Garamond',serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:100px;}
+        .pkg-card::before{display:none;}
+        .pkg-icon{font-size:28px;margin-bottom:20px;}
+        .pkg-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:8px;line-height:1.15;color:inherit;}
+        .pkg-tagline{font-size:13px;color:var(--text-muted);line-height:1.6;margin-bottom:28px;flex:0;}
+        .pkg-card.featured .pkg-tagline{color:rgba(250,250,248,.5);}
+        .pkg-price{margin-bottom:32px;}
+        .pkg-price-main{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--text);line-height:1;display:flex;align-items:baseline;gap:6px;}
+        .pkg-card.featured .pkg-price-main{color:var(--gold);}
+        .pkg-price-curr{font-size:22px;font-weight:700;margin-top:4px;}
+        .pkg-price-period{font-size:13px;color:var(--text-muted);margin-top:6px;}
+        .pkg-card.featured .pkg-price-period{color:rgba(250,250,248,.4);}
+        .pkg-price-us{font-size:13px;color:var(--text-muted);margin-top:4px;}
+        .pkg-divider{height:1px;background:var(--border);margin:0 0 28px;}
+        .pkg-card.featured .pkg-divider{background:rgba(250,250,248,.1);}
+        .pkg-features{list-style:none;display:flex;flex-direction:column;gap:13px;flex:1;}
+        .pkg-feature{display:flex;gap:12px;align-items:flex-start;font-size:13px;color:var(--text-muted);line-height:1.5;}
+        .pkg-card.featured .pkg-feature{color:rgba(250,250,248,.6);}
+        .pkg-check{width:18px;height:18px;border-radius:50%;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+        .pkg-card.featured .pkg-check{background:rgba(250,250,248,.08);border-color:rgba(250,250,248,.15);}
+        .pkg-check svg{width:9px;height:9px;stroke:var(--text);stroke-width:2.5;fill:none;}
+        .pkg-card.featured .pkg-check svg{stroke:rgba(250,250,248,.7);}
+        .pkg-note{font-size:11px;color:var(--text-xmuted);margin-top:4px;padding-left:30px;line-height:1.5;}
+        .pkg-cta{margin-top:36px;display:block;text-align:center;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;padding:14px 24px;border-radius:100px;border:1.5px solid var(--border-dark);color:var(--text);transition:all .25s;}
+        .pkg-cta:hover{background:var(--text);color:var(--bg);border-color:var(--text);}
+        .pkg-card.featured .pkg-cta{background:var(--gold);color:var(--text);border-color:var(--gold);}
+        .pkg-card.featured .pkg-cta:hover{background:var(--bg);color:var(--text);border-color:var(--bg);}
+
+        /* SHOOTS GRID */
+        .shoots-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;}
+        .shoot-card{border:none;border-radius:0;padding:36px 32px;background:var(--surface);transition:background .3s;}
+        .shoot-card:first-child{border-radius:20px 0 0 20px;}
+        .shoot-card:last-child{border-radius:0 20px 20px 0;}
+        .shoot-card:hover{background:var(--bg-alt);}
+        .shoot-tier{font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--text-xmuted);margin-bottom:12px;}
+        .shoot-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:6px;color:var(--text);}
+        .shoot-duration{font-size:13px;color:var(--text-muted);margin-bottom:20px;}
+        .shoot-price{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--text);line-height:1;margin-bottom:4px;}
+        .shoot-price span{font-size:16px;color:var(--text-muted);font-weight:500;}
+        .shoot-alt{font-size:13px;color:var(--text-muted);margin-bottom:20px;}
+        .shoot-details{list-style:none;display:flex;flex-direction:column;gap:8px;}
+        .shoot-detail{font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;}
+        .shoot-detail::before{content:'→';color:var(--text);font-size:11px;font-weight:700;}
+
+        /* UGC */
+        .ugc-card{border:none;border-radius:20px;padding:52px;background:var(--dark);position:relative;overflow:hidden;color:var(--bg);}
+        .ugc-card::before{content:'USA ONLY';position:absolute;top:28px;right:28px;font-family:'Cormorant Garamond',serif;font-size:10px;font-weight:700;letter-spacing:2px;background:rgba(250,250,248,.08);border:1px solid rgba(250,250,248,.12);border-radius:100px;padding:5px 14px;color:rgba(250,250,248,.5);}
+        .ugc-top{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;margin-bottom:40px;}
+        .ugc-price{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:700;color:var(--gold);line-height:1;white-space:nowrap;}
+        .ugc-period{font-size:14px;color:rgba(250,250,248,.45);margin-top:6px;}
+        .ugc-features{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+        .ugc-feature{padding:24px;background:rgba(250,250,248,.04);border:none;border-radius:0;transition:background .3s;}
+        .ugc-feature:first-child{border-radius:12px 0 0 12px;}
+        .ugc-feature:last-child{border-radius:0 12px 12px 0;}
+        .ugc-feature:hover{background:rgba(250,250,248,.08);}
+        .ugc-feature-icon{font-size:22px;margin-bottom:12px;}
+        .ugc-feature-title{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;margin-bottom:6px;color:var(--bg);}
+        .ugc-feature-desc{font-size:12px;color:rgba(250,250,248,.5);line-height:1.6;}
+
+        /* CTA BAND */
+        .pricing-cta{padding:100px 64px;text-align:center;background:var(--dark);}
+        .pricing-cta h2{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1;letter-spacing:-2px;margin-bottom:20px;color:var(--bg);}
+        .pricing-cta h2 span{color:var(--gold);}
+        .pricing-cta p{font-size:16px;color:rgba(250,250,248,.45);max-width:480px;margin:0 auto 40px;line-height:1.7;}
+        .pricing-cta-btns{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;}
+        .btn-gold{background:var(--gold);color:var(--text);font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:700;padding:16px 32px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;transition:all .3s ease;white-space:nowrap;}
+        .btn-gold:hover{background:var(--bg);color:var(--text);transform:translateY(-2px);}
+        .btn-ghost{color:rgba(250,250,248,.45);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:all .25s;}
+        .btn-ghost:hover{color:var(--bg);}
+
+        /* SECTION */
+        .pricing-sec{padding:100px 64px;background:var(--bg-alt);}
+        .pricing-sec:nth-child(odd){background:var(--bg);}
+        .pricing-sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:700;letter-spacing:-2px;margin-bottom:12px;color:var(--text);}
+        .pricing-sec-sub{font-size:15px;color:var(--text-muted);line-height:1.7;margin-bottom:60px;max-width:540px;}
+
+        /* FOOTER */
+        footer{background:var(--dark);color:var(--bg);padding:72px 64px 40px;}
+        .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:64px;}
+        .footer-brand-desc{font-size:14px;color:rgba(250,250,248,.45);line-height:1.75;margin-top:24px;max-width:260px;}
+        .footer-logo{display:inline-flex;align-items:center;gap:12px;}
+        .footer-logo .logo-img{height:30px;filter:brightness(0) invert(1);}
+        .footer-heading{font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(250,250,248,.35);margin-bottom:20px;}
+        .footer-links{list-style:none;display:flex;flex-direction:column;gap:12px;}
+        .footer-links a{font-size:13px;color:rgba(250,250,248,.55);transition:color .25s;}
+        .footer-links a:hover{color:var(--bg);}
+        .footer-bottom{padding-top:32px;border-top:1px solid rgba(250,250,248,.08);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:rgba(250,250,248,.3);}
+        .footer-socials{display:flex;gap:8px;}
+        .social-btn{width:32px;height:32px;border:1px solid rgba(250,250,248,.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(250,250,248,.4);transition:all .25s;}
+        .social-btn:hover{border-color:rgba(250,250,248,.3);color:var(--bg);}
+        .social-btn svg{width:13px;height:13px;stroke:currentColor;stroke-width:1.8;fill:none;}
+
+        /* REVEAL */
+        .reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s ease;}
+        .reveal.in{opacity:1;transform:none;}
+        .reveal-delay-1{transition-delay:.08s;}
+        .reveal-delay-2{transition-delay:.16s;}
+        .reveal-delay-3{transition-delay:.24s;}
+
+        /* RESPONSIVE */
+        @media(max-width:1200px){
+            #nav,#nav.scrolled{padding-left:40px;padding-right:40px;}
+            .pricing-hero,.pricing-sec,.pricing-cta{padding-left:40px;padding-right:40px;}
+            footer{padding:60px 40px 32px;}
+            .footer-top{grid-template-columns:1fr 1fr;gap:40px;}
+        }
+        @media(max-width:1000px){
+            .packages-grid{grid-template-columns:1fr;}
+            .shoots-grid{grid-template-columns:1fr;}
+            .ugc-top{grid-template-columns:1fr;}
+            .ugc-features{grid-template-columns:1fr 1fr;}
+        }
+        @media(max-width:900px){
+            .nav-menu{display:none;}
+            .footer-top{grid-template-columns:1fr;gap:32px;}
+            .footer-bottom{flex-direction:column;gap:16px;text-align:center;}
+        }
+        @media(max-width:640px){
+            #nav,#nav.scrolled{padding:16px 24px;}
+            .pricing-hero{padding:140px 24px 72px;}
+            .pricing-sec,.pricing-cta{padding:72px 24px;}
+            .pricing-hero h1{letter-spacing:-1.5px;}
+            .ugc-features{grid-template-columns:1fr;}
+            .ugc-card{padding:32px 24px;}
+            footer{padding:52px 24px 28px;}
+        }
+    </style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="cur-ring"></div>
+
+<nav id="nav">
+        <a href="https://wa.me/+971565390316" class="nav-wa-mobile" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="TTT" class="logo-img" onerror="this.style.display='none'">
+        <!--<span class="nav-logo-text">TTT</span>-->
+    </a>
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html" class="active">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
+    <ul class="mobile-menu-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="mobile-menu-bottom">
+        <a href="contact.html" class="btn-primary">Let's Talk →</a>
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+    </div>
+</div>
+
+<!-- HERO -->
+<section class="pricing-hero">
+    <div class="eyebrow reveal">Transparent Pricing</div>
+    <h1 class="reveal">Investment in<br>your growth.</h1>
+    <p class="reveal reveal-delay-1">No hidden fees. No surprises. Choose your region and find the package that fits your ambition, whether you're in Dubai or the US.</p>
+    <div class="region-toggle reveal reveal-delay-2" id="regionToggle">
+            <button class="toggle-btn active" id="btnUAE" onclick="setRegion('UAE')">
+                <span class="toggle-flag">🇦🇪</span> UAE — AED
+            </button>
+            <button class="toggle-btn" id="btnUS" onclick="setRegion('US')">
+                <span class="toggle-flag">🇺🇸</span> USA — USD
+            </button>
+        </div>
+</section>
+
+<!-- MANAGEMENT PACKAGES -->
+<section class="pricing-sec" style="background:var(--bg);">
+    <div class="eyebrow reveal">Social Media Management</div>
+    <div class="pricing-sec-title reveal">Monthly Packages</div>
+    <p class="pricing-sec-sub reveal reveal-delay-1">Full-service social media management with professional content creation, photography, and videography, everything your brand needs to dominate online.</p>
+
+    <div class="packages-grid reveal">
+        <!-- SIGNATURE -->
+        <div class="pkg-card">
+            <!--<div class="pkg-icon">🌟</div>-->
+            <div class="pkg-name">Signature Visibility Program</div>
+            <div class="pkg-tagline">Perfect for brands ready to build a strong, consistent presence.</div>
+            <div class="pkg-price">
+                <div class="pkg-price-main">
+                    <span class="pkg-price-curr price-curr"></span>
+                    <span class="price-val" data-aed="4,000" data-usd="1,500">4,000</span>
+                </div>
+                <div class="pkg-price-period">per month</div>
+                <div class="pkg-price-us alt-price" style="display:none"></div>
+            </div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-features">
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Brand audit and basic marketing consultation</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Website optimization support at no additional cost</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Standard SEO optimization</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Menu and pricing presentation guidance</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Strategic content creation and posting plan</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>10–12 professional photos</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>4 professionally edited video reels</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>10 static social media posts</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>15 creative story posts</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>One photography &amp; videography shoot session
+                    <div class="pkg-note shoot-note-usd" style="display:none;">+ $500 additional for USA shoots</div>
+                </li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Account management with limited social media ads support</li>
+            </ul>
+            <a href="https://wa.me/+971565390316" target="_blank" class="pkg-cta">Get Started →</a>
+        </div>
+
+        <!-- GROWTH -->
+        <div class="pkg-card featured">
+            <div class="pkg-featured-badge">Most Popular</div>
+            <!--<div class="pkg-icon">🚀</div>-->
+            <div class="pkg-name">Growth Acceleration Program</div>
+            <div class="pkg-tagline">For brands serious about scaling fast with premium content.</div>
+            <div class="pkg-price">
+                <div class="pkg-price-main">
+                    <span class="pkg-price-curr price-curr"></span>
+                    <span class="price-val" data-aed="7,000" data-usd="2,000">7,000</span>
+                </div>
+                <div class="pkg-price-period">per month</div>
+                <div class="pkg-price-us alt-price" style="display:none"></div>
+            </div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-features">
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>In-depth brand audit and marketing consultation</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Website redesign and optimization support</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>SEO optimization under Gold Package framework</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Menu and pricing design support</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Advanced content creation and posting strategy</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>15–18 professional photos</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>5–6 high-quality video reels</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>14 static social media posts</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>25 creative story posts</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>One professional shoot session
+                    <div class="pkg-note shoot-note-usd" style="display:none;">+ $500 additional for USA shoots</div>
+                </li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Account management with unlimited social media ads management</li>
+            </ul>
+            <a href="https://wa.me/+971565390316" target="_blank" class="pkg-cta">Get Started →</a>
+        </div>
+
+        <!-- ELITE -->
+        <div class="pkg-card">
+            <!--<div class="pkg-icon">👑</div>-->
+            <div class="pkg-name">Elite Brand Dominance Program</div>
+            <div class="pkg-tagline">For brands that demand total market dominance. No limits.</div>
+            <div class="pkg-price">
+                <div class="pkg-price-main">
+                    <span class="pkg-price-curr price-curr"></span>
+                    <span class="price-val" data-aed="10,000" data-usd="3,000">10,000</span>
+                </div>
+                <div class="pkg-price-period">per month</div>
+                <div class="pkg-price-us alt-price" style="display:none"></div>
+            </div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-features">
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Website redesign and advanced optimization at no additional cost</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Platinum SEO with performance focus</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Menu, pricing &amp; promotional material design support</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Full-scale content creation and campaign execution</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>20+ professional photos</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>8 high-impact video reels + 1 cinematic brand video</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>18 static social media posts</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>30 creative story posts</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Two professional shoot sessions
+                    <div class="pkg-note shoot-note-usd" style="display:none;">+ $900 additional for USA shoots</div>
+                </li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Dedicated account management with unlimited ads + Google Ads support</li>
+            </ul>
+            <a href="https://wa.me/+971565390316" target="_blank" class="pkg-cta">Get Started →</a>
+        </div>
+    </div>
+</section>
+
+<!-- SHOOTS -->
+<section class="pricing-sec">
+    <div class="eyebrow reveal">Photography &amp; Videography</div>
+    <div class="pricing-sec-title reveal">Shoot Packages</div>
+    <p class="pricing-sec-sub reveal reveal-delay-1">One-off shoot sessions, ideal for brands that need fresh content without a monthly commitment. Each session is fully managed by our creative team.</p>
+
+    <div class="shoots-grid reveal">
+        <div class="shoot-card">
+            <div class="shoot-tier">Bronze</div>
+            <div class="shoot-name">Bronze Shoot</div>
+            <div class="shoot-duration">1 hour session</div>
+            <div class="shoot-price">
+                <span class="shoot-price-aed">450 <span>AED</span></span>
+                <span class="shoot-price-usd" style="display:none;">200 <span>USD</span></span>
+            </div>
+            <div class="shoot-alt shoot-alt-aed">≈ $200 USD</div>
+            <div class="shoot-alt shoot-alt-usd" style="display:none;">≈ 450 AED</div>
+            <ul class="shoot-details">
+                <li class="shoot-detail">10 professional photos</li>
+                <li class="shoot-detail">1 edited video reel</li>
+                <li class="shoot-detail">Full creative direction</li>
+            </ul>
+        </div>
+        <div class="shoot-card" style="border-color:var(--gold-border);">
+            <div class="shoot-tier">Silver</div>
+            <div class="shoot-name">Silver Shoot</div>
+            <div class="shoot-duration">2 hour session</div>
+            <div class="shoot-price">
+                <span class="shoot-price-aed">1,000 <span>AED</span></span>
+                <span class="shoot-price-usd" style="display:none;">300 <span>USD</span></span>
+            </div>
+            <div class="shoot-alt shoot-alt-aed">≈ $300 USD</div>
+            <div class="shoot-alt shoot-alt-usd" style="display:none;">≈ 1,000 AED</div>
+            <ul class="shoot-details">
+                <li class="shoot-detail">15 professional photos</li>
+                <li class="shoot-detail">2 edited video reels</li>
+                <li class="shoot-detail">Full creative direction</li>
+                <li class="shoot-detail">Multiple locations/setups</li>
+            </ul>
+        </div>
+        <div class="shoot-card">
+            <div class="shoot-tier">Gold</div>
+            <div class="shoot-name">Gold Shoot</div>
+            <div class="shoot-duration">3 hour session</div>
+            <div class="shoot-price">
+                <span class="shoot-price-aed">1,500 <span>AED</span></span>
+                <span class="shoot-price-usd" style="display:none;">450 <span>USD</span></span>
+            </div>
+            <div class="shoot-alt shoot-alt-aed">≈ $450 USD</div>
+            <div class="shoot-alt shoot-alt-usd" style="display:none;">≈ 1,500 AED</div>
+            <ul class="shoot-details">
+                <li class="shoot-detail">20 professional photos</li>
+                <li class="shoot-detail">3 edited video reels</li>
+                <li class="shoot-detail">Full creative direction</li>
+                <li class="shoot-detail">Multiple locations &amp; setups</li>
+                <li class="shoot-detail">Priority editing turnaround</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- UGC -->
+<section class="pricing-sec" style="background:var(--bg);">
+    <div class="eyebrow reveal">Creator Network</div>
+    <div class="pricing-sec-title reveal">UGC Creators</div>
+    <p class="pricing-sec-sub reveal reveal-delay-1">Exclusively available for US-based restaurants and food brands. We connect you with vetted local creators who organically promote your brand to real, local audiences.</p>
+
+    <div class="ugc-card reveal">
+        <div class="ugc-top">
+            <div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:8px;">UGC Creator Program</div>
+                <p style="font-size:15px;color:var(--gray);line-height:1.7;max-width:460px;">End-to-end management of local content creators who visit your location, create authentic content, and post it to their real audiences on TikTok and Instagram.</p>
+            </div>
+            <div>
+                <div class="ugc-price">$550</div>
+                <div class="ugc-period">per month · USA only</div>
+            </div>
+        </div>
+        <div class="ugc-features">
+            <div class="ugc-feature">
+                <div class="ugc-feature-icon">👥</div>
+                <div class="ugc-feature-title">5 Creator Visits / Month</div>
+                <div class="ugc-feature-desc">Vetted local creators with genuine local audiences visit your location each month.</div>
+            </div>
+            <div class="ugc-feature">
+                <div class="ugc-feature-icon">🎬</div>
+                <div class="ugc-feature-title">High-Quality Video Content</div>
+                <div class="ugc-feature-desc">Organically posted TikToks and Instagram Reels that feel authentic, not like ads.</div>
+            </div>
+            <div class="ugc-feature">
+                <div class="ugc-feature-icon">📍</div>
+                <div class="ugc-feature-title">Google &amp; Yelp Visibility</div>
+                <div class="ugc-feature-desc">Drive more visits, reviews, and discoverability on the platforms that matter most.</div>
+            </div>
+            <div class="ugc-feature">
+                <div class="ugc-feature-icon">📊</div>
+                <div class="ugc-feature-title">Performance Dashboard</div>
+                <div class="ugc-feature-desc">Track views, shares, reach, and growth across all creator posts in real time.</div>
+            </div>
+            <div class="ugc-feature">
+                <div class="ugc-feature-icon">🤝</div>
+                <div class="ugc-feature-title">End-to-End Management</div>
+                <div class="ugc-feature-desc">We handle all creator outreach, booking, briefing, and content delivery for you.</div>
+            </div>
+            <div class="ugc-feature" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-color:var(--gold-border);background:var(--gold-dim);">
+                <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;margin-bottom:12px;color:var(--gold);">Ready to grow<br>in the US market?</div>
+                <a href="https://wa.me/+971565390316" target="_blank" class="btn-gold" style="font-size:13px;padding:12px 24px;">Start Now →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="pricing-cta">
+    <div class="pricing-cta-glow"></div>
+    <div style="position:relative;z-index:1;">
+        <div class="eyebrow reveal" style="justify-content:center;">Not sure which plan?</div>
+        <h2 class="reveal">Let's Figure It<br>Out <span style="color:var(--gold)">Together.</span></h2>
+        <p class="reveal reveal-delay-1">Message us on WhatsApp or send us a note. We'll recommend the right package for your budget and goals, no pressure, no sales pitch.</p>
+        <div class="pricing-cta-btns reveal reveal-delay-2">
+            <a href="https://wa.me/+971565390316" target="_blank" class="btn-gold">
+                WhatsApp Us
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="contact.html" class="btn-ghost">
+                Send a Message →
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div>
+            <a href="index.html" class="footer-logo nav-logo">
+                <img src="assets/logo.png" class="logo-img" alt="Talk The Taste">
+            </a>
+            <p class="footer-brand-desc">Dubai's full-service creative agency. Marketing, branding, web, apps, and video, all under one roof.</p>
+        </div>
+        <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="services.html">Marketing</a></li><li><a href="services.html">Social Media</a></li><li><a href="services.html">Web Design</a></li><li><a href="services.html">Videography</a></li></ul></div>
+        <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="work.html">Our Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><div class="footer-heading">Contact</div><ul class="footer-links"><li><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></li><li><a href="tel:+971529972969">+971 52 997 2969</a></li><li><a href="https://wa.me/+971565390316" target="_blank">WhatsApp</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2025 Talk The Taste. All rights reserved.</span>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/talkthetaste/" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.linkedin.com/company/ttt-mm/" class="social-btn" title="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            </a>
+        </div>
+        <span>Dubai, UAE · California, USA</span>
+    </div>
+</footer>
+
+<script>
+(function() {
+    // Cursor
+    const cur = document.getElementById('cur'), ring = document.getElementById('cur-ring');
+    let mx=0,my=0,rx=0,ry=0;
+    window.addEventListener('mousemove', e => { mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'; });
+    (function follow(){ rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(follow); })();
+    document.querySelectorAll('a,button,.pkg-card,.shoot-card').forEach(el => {
+        el.addEventListener('mouseenter',()=>{cur.classList.add('active');ring.classList.add('active');});
+        el.addEventListener('mouseleave',()=>{cur.classList.remove('active');ring.classList.remove('active');});
+    });
+
+    // Nav scroll
+    window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>64),{passive:true});
+
+    // Reveal
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} });
+    }, { threshold:0.07, rootMargin:'0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // 3D tilt
+    document.querySelectorAll('.pkg-card,.shoot-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const r=card.getBoundingClientRect();
+            const x=((e.clientX-r.left)/r.width-.5)*12;
+            const y=((e.clientY-r.top)/r.height-.5)*-12;
+            card.style.transition='transform 0.08s ease';
+            card.style.transform=`perspective(800px) rotateX(${y}deg) rotateY(${x}deg) translateY(-6px)`;
+        });
+        card.addEventListener('mouseleave',()=>{
+            card.style.transition='transform 0.55s cubic-bezier(.16,1,.3,1)';
+            card.style.transform='';
+        });
+    });
+
+    // Region toggle
+    window.currentRegion = 'UAE';
+    window.setRegion = function(region) {
+        window.currentRegion = region;
+        document.getElementById('btnUAE').classList.toggle('active', region === 'UAE');
+        document.getElementById('btnUS').classList.toggle('active', region === 'US');
+
+        // Update package prices
+        document.querySelectorAll('.price-curr').forEach(el => {
+            el.textContent = region === 'UAE' ? 'AED ' : '$';
+        });
+        document.querySelectorAll('.price-val').forEach(el => {
+            el.textContent = region === 'UAE' ? el.dataset.aed : el.dataset.usd;
+        });
+        document.querySelectorAll('.alt-price').forEach(el => {
+            if (region === 'UAE') {
+                el.style.display = 'none';
+            } else {
+                // For US, show the AED equivalent note
+                el.style.display = 'block';
+                el.textContent = '';
+            }
+        });
+
+        // Show/hide USD shoot notes
+        document.querySelectorAll('.shoot-note-usd').forEach(el => {
+            el.style.display = region === 'US' ? 'block' : 'none';
+        });
+
+        // Update shoot prices
+        document.querySelectorAll('.shoot-price-aed').forEach(el => el.style.display = region === 'UAE' ? '' : 'none');
+        document.querySelectorAll('.shoot-price-usd').forEach(el => el.style.display = region === 'US' ? '' : 'none');
+        document.querySelectorAll('.shoot-alt-aed').forEach(el => el.style.display = region === 'UAE' ? '' : 'none');
+        document.querySelectorAll('.shoot-alt-usd').forEach(el => el.style.display = region === 'US' ? '' : 'none');
+
+        // UGC card (USD only — always show, but note if UAE selected)
+        const ugcSection = document.querySelector('.ugc-card');
+        if (ugcSection) {
+            ugcSection.style.opacity = region === 'UAE' ? '0.6' : '1';
+        }
+    };
+
+    // Initialize AED view
+    document.querySelectorAll('.price-curr').forEach(el => el.textContent = 'AED ');
+
+    // Magnetic CTA buttons
+    document.querySelectorAll('.btn-gold,.nav-cta').forEach(btn => {
+        btn.addEventListener('mousemove', e => {
+            const r=btn.getBoundingClientRect();
+            const x=(e.clientX-r.left-r.width/2)*.28;
+            const y=(e.clientY-r.top-r.height/2)*.28;
+            btn.style.transform=`translate(${x}px,${y}px) scale(1.04)`;
+        });
+        btn.addEventListener('mouseleave',()=>{ btn.style.transform=''; });
+    });
+})();
+</script>
+<script src="js/transitions.js"></script>
+</body>
+</html>

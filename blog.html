@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Talk The Taste">
+    <meta name="geo.region" content="AE-DU">
+    <meta name="geo.placename" content="Dubai">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Marketing Insights &amp; Creative Tips | Talk The Taste Dubai</title>
+    <meta name="description" content="Marketing insights, creative tips, and digital strategy from Dubai's creative agency. Learn how to grow your brand in the UAE and beyond.">
+    <link rel="canonical" href="https://talkthetaste.com/blog.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Google Analytics 4, replace G-XXXXXXXXXX with your Measurement ID -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script> -->
+    <style>
+        .blog-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:2px; }
+        .blog-card { background:var(--surface);overflow:hidden;transition:background .3s; }
+        .blog-card:first-child { border-radius:20px 0 0 20px; }
+        .blog-card:last-child  { border-radius:0 20px 20px 0; }
+        .blog-card:hover { background:var(--bg-alt); transform:none; }
+        .blog-card-head { height:200px;position:relative;overflow:hidden; }
+        .blog-card-head-bg { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--bg-alt); }
+        .blog-card-head-bg img { width:100%;height:100%;object-fit:cover;display:block; }
+        .blog-card-head-cat { font-family:'Cormorant Garamond',serif;font-size:10px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--text-muted);background:rgba(250,250,248,.92);border:none;border-radius:100px;padding:5px 14px;position:absolute;top:16px;left:16px;z-index:1; }
+        .blog-card-body { padding:24px; }
+        .blog-card-date { font-size:11px;color:var(--text-xmuted);margin-bottom:10px; }
+        .blog-card-title { font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;line-height:1.3;margin-bottom:12px;color:var(--text);transition:color .25s; }
+        .blog-card:hover .blog-card-title { color:var(--text); }
+        .blog-card-excerpt { font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:20px; }
+        .blog-card-author { display:flex;align-items:center;gap:10px;padding-top:16px;border-top:1px solid var(--border); }
+        .blog-card-avatar { width:32px;height:32px;border-radius:50%;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:var(--text);flex-shrink:0; }
+        .blog-card-meta { font-size:12px;color:var(--text-muted); }
+        .blog-card-meta strong { color:var(--text);font-weight:600; }
+        .blog-card-link { display:block;text-decoration:none;color:inherit; }
+
+        /* Featured post */
+        .featured-post { background:var(--surface);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;gap:0;margin-bottom:56px;transition:border-color .25s,box-shadow .25s;text-decoration:none;color:inherit; }
+        .featured-post:hover { border-color:var(--border-dark);box-shadow:0 4px 32px rgba(26,25,23,.06); }
+        .featured-post-img { position:relative;overflow:hidden;min-height:380px;background:var(--bg-alt); }
+        .featured-post-img-bg { position:absolute;inset:0;transition:transform .7s cubic-bezier(.16,1,.3,1); }
+        .featured-post-img-bg img { width:100%;height:100%;object-fit:cover;display:block; }
+        .featured-post:hover .featured-post-img-bg { transform:scale(1.03); }
+        .featured-post-body { padding:48px 44px;display:flex;flex-direction:column;justify-content:center; }
+        .featured-label { font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--text-xmuted);margin-bottom:16px;display:flex;align-items:center;gap:8px; }
+        .featured-label::before { content:'';width:16px;height:1px;background:var(--text-xmuted); }
+        .featured-title { font-family:'Cormorant Garamond',serif;font-size:clamp(22px,2.5vw,32px);font-weight:700;line-height:1.2;letter-spacing:-1px;margin-bottom:16px;color:var(--text);transition:color .25s; }
+        .featured-post:hover .featured-title { color:var(--text); }
+        .featured-excerpt { font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:28px; }
+
+        /* Category filter */
+        .filter-bar { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:48px; }
+        .filter-btn { background:transparent;border:1px solid var(--border);color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;letter-spacing:.5px;padding:8px 18px;border-radius:100px;cursor:none;transition:all .25s; }
+        .filter-btn:hover { border-color:var(--text);color:var(--text); }
+        .filter-btn.active { background:var(--text);border-color:var(--text);color:var(--bg); }
+
+        /* Placeholder gradients (light neutral) */
+        .bg-blue  { background:linear-gradient(135deg,#E8EDF5,#D4DEF0); }
+        .bg-brown { background:linear-gradient(135deg,#F5EDE8,#EDD9CE); }
+        .bg-green { background:linear-gradient(135deg,#E8F3ED,#D1E8D9); }
+        .bg-purple{ background:linear-gradient(135deg,#EDE8F5,#DDD1F0); }
+        .bg-red   { background:linear-gradient(135deg,#F5E8E8,#F0D1D1); }
+
+        @media(max-width:1000px){ .featured-post{grid-template-columns:1fr} .featured-post-img{min-height:220px} }
+        @media(max-width:900px){ .blog-grid{grid-template-columns:1fr 1fr} }
+        @media(max-width:640px){ .blog-grid{grid-template-columns:1fr} .blog-card{border-radius:0} .blog-card:first-child{border-radius:20px 20px 0 0} .blog-card:last-child{border-radius:0 0 20px 20px} }
+    </style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="cur-ring"></div>
+
+<nav id="nav">
+        <a href="https://wa.me/+971565390316" class="nav-wa-mobile" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="TTT" class="logo-img" onerror="this.style.display='none'">
+        <!--<span class="nav-logo-text">TTT</span>-->
+    </a>
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
+    <ul class="mobile-menu-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="mobile-menu-bottom">
+        <a href="contact.html" class="btn-primary">Let's Talk →</a>
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+    </div>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+    <div class="eyebrow reveal">Insights & Ideas</div>
+    <h1 class="reveal">The TTT Journal.</h1>
+    <p class="reveal reveal-delay-1">Marketing strategy, creative thinking, and growth insights from the team that lives and breathes brand-building every day.</p>
+</section>
+
+<section class="sec">
+    <!-- Featured post -->
+    <div id="featuredPost" class="reveal"></div>
+
+    <!-- Filter + grid -->
+    <div class="filter-bar reveal" id="filterBar"></div>
+    <div class="blog-grid" id="blogGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-top">
+        <div>
+            <a href="index.html" class="footer-logo nav-logo">
+                <img src="assets/logo.png" class="logo-img" alt="Talk The Taste">
+            </a>
+            <p class="footer-brand-desc">Dubai's full-service creative agency. Marketing, branding, web, apps, and video, all under one roof.</p>
+        </div>
+        <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="services.html">Marketing</a></li><li><a href="services.html">Social Media</a></li><li><a href="services.html">Web Design</a></li><li><a href="services.html">Mobile Apps</a></li></ul></div>
+        <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="work.html">Our Work</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><div class="footer-heading">Contact</div><ul class="footer-links"><li><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></li><li><a href="tel:+971529972969">+971 52 997 2969</a></li><li>Dubai, UAE</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2025 Talk The Taste. All rights reserved.</span>
+        <div class="footer-socials"><a href="https://www.instagram.com/talkthetaste/" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.linkedin.com/company/ttt-mm/" class="social-btn" title="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            </a></div>
+        <span>Dubai, UAE · California, USA</span>
+    </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+(function() {
+    const cur = document.getElementById('cur'), ring = document.getElementById('cur-ring');
+    let mx=0,my=0,rx=0,ry=0;
+    window.addEventListener('mousemove', e => { mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'; });
+    (function follow(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(follow);})();
+    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY>64), {passive:true});
+    const obs = new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    document.addEventListener('mouseover', e => {
+        if(e.target.closest('a,button,.blog-card,.filter-btn,.featured-post')){cur.classList.add('active');ring.classList.add('active');}
+        else{cur.classList.remove('active');ring.classList.remove('active');}
+    });
+
+    const bgs = ['bg-blue','bg-brown','bg-green','bg-purple','bg-red'];
+    let allPosts = TTT.getPosts();
+    let activeFilter = 'all';
+    let featuredPost = null;
+
+    const fp = document.getElementById('featuredPost');
+
+    function renderFeaturedPost() {
+        featuredPost = allPosts.find(p=>p.featured) || allPosts[0];
+        if (featuredPost) {
+            const thumb = featuredPost.thumbnail
+                ? `<img src="${featuredPost.thumbnail}" alt="${featuredPost.title}" style="width:100%;height:100%;object-fit:cover;display:block;">`
+                : '';
+            fp.style.display = '';
+            fp.innerHTML = `
+                <a href="post.html?id=${featuredPost.slug}" class="featured-post">
+                    <div class="featured-post-img">
+                        <div class="featured-post-img-bg ${bgs[0]}">${thumb}</div>
+                    </div>
+                    <div class="featured-post-body">
+                        <div class="featured-label">Featured Post</div>
+                        <div class="featured-title">${featuredPost.title}</div>
+                        <div class="featured-excerpt">${featuredPost.excerpt || ''}</div>
+                        <div style="display:flex;align-items:center;gap:14px;">
+                            <div class="blog-card-avatar">${(featuredPost.author||'T')[0].toUpperCase()}</div>
+                            <div>
+                                <div style="font-size:13px;font-weight:600;color:var(--white)">${featuredPost.author||'TTT Team'}</div>
+                                <div style="font-size:11px;color:var(--gray)">${TTT.formatDate(featuredPost.date)} · ${featuredPost.category||''}</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            `;
+            obs.observe(fp);
+        } else {
+            fp.style.display = 'none';
+        }
+    }
+
+    const filterBar = document.getElementById('filterBar');
+
+    function renderFilters() {
+        const cats = ['all', ...new Set(allPosts.map(p=>p.category).filter(Boolean))];
+        if (!cats.includes(activeFilter)) activeFilter = 'all';
+        filterBar.innerHTML = cats.map(c=>`<button class="filter-btn ${c===activeFilter?'active':''}" data-cat="${c}">${c==='all'?'All Posts':c}</button>`).join('');
+        filterBar.querySelectorAll('.filter-btn').forEach(btn=>{
+            btn.addEventListener('click',()=>{
+                filterBar.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+                btn.classList.add('active');
+                activeFilter = btn.dataset.cat;
+                renderPosts();
+            });
+        });
+    }
+
+    function renderPosts() {
+        const grid = document.getElementById('blogGrid');
+        let posts = activeFilter==='all' ? allPosts : allPosts.filter(p=>p.category===activeFilter);
+        if (featuredPost && activeFilter==='all') posts = posts.filter(p=>p.id!==featuredPost.id);
+        if (!posts.length) {
+            grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">✍️</div><h3>No posts yet</h3><p>Write your first blog post in the <a href="admin.html" style="color:var(--gold)">admin panel</a>.</p></div>`;
+            return;
+        }
+        grid.innerHTML = posts.map((p, i) => {
+            const thumbHtml = p.thumbnail
+                ? `<img src="${p.thumbnail}" alt="${p.title}" style="width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0;">`
+                : `<span style="font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:700;color:rgba(255,255,255,.03);">${String(i+1).padStart(2,'0')}</span>`;
+            const bgClass = p.thumbnail ? '' : bgs[i % bgs.length];
+            return `
+            <a href="post.html?id=${p.slug}" class="blog-card-link">
+                <div class="blog-card reveal" style="transition-delay:${(i%3)*.1}s">
+                    <div class="blog-card-head">
+                        <div class="blog-card-head-bg ${bgClass}" style="position:absolute;inset:0;">
+                            ${thumbHtml}
+                        </div>
+                        <div class="blog-card-head-cat">${p.category||''}</div>
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-date">${TTT.formatDate(p.date)}</div>
+                        <div class="blog-card-title">${p.title}</div>
+                        <div class="blog-card-excerpt">${p.excerpt||''}</div>
+                        <div class="blog-card-author">
+                            <div class="blog-card-avatar">${(p.author||'T')[0].toUpperCase()}</div>
+                            <div class="blog-card-meta"><strong>${p.author||'TTT Team'}</strong><br>${p.category||''}</div>
+                        </div>
+                    </div>
+                </div>
+            </a>`;
+        }).join('');
+        grid.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    }
+
+    function refreshPostData() {
+        allPosts = TTT.getPosts();
+        renderFeaturedPost();
+        renderFilters();
+        renderPosts();
+    }
+
+    refreshPostData();
+    document.addEventListener('ttt:data:ready', refreshPostData);
+})();
+</script>
+<script src="js/transitions.js"></script>
+</body>
+</html>

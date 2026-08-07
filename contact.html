@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Talk The Taste">
+    <meta name="geo.region" content="AE-DU">
+    <meta name="geo.placename" content="Dubai">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Start Your Project | Talk The Taste Dubai</title>
+    <meta name="description" content="Ready to grow your brand? Contact TTT Dubai's creative agency to discuss your marketing, web, or content project. WhatsApp: +971565390316">
+    <link rel="canonical" href="https://talkthetaste.com/contact.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Google Analytics 4, replace G-XXXXXXXXXX with your Measurement ID -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script> -->
+    <style>
+        .contact-layout { display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start; }
+        .contact-info { position:sticky;top:100px; }
+        .contact-info h2 { font-family:'Cormorant Garamond',serif;font-size:clamp(32px,3.5vw,48px);font-weight:700;letter-spacing:-1.5px;line-height:1.1;margin-bottom:20px;color:var(--text); }
+        .contact-info p { font-size:15px;color:var(--text-muted);line-height:1.75;margin-bottom:40px; }
+        .contact-item { display:flex;align-items:flex-start;gap:16px;padding:20px 0;border-bottom:1px solid var(--border); }
+        .contact-item:first-of-type { border-top:1px solid var(--border); }
+        .contact-icon { width:40px;height:40px;border-radius:10px;background:var(--bg-alt);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px; }
+        .contact-item-label { font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-xmuted);margin-bottom:4px; }
+        .contact-item-val { font-size:14px;color:var(--text);font-weight:500; }
+        .contact-item-val a { color:var(--text);transition:color .25s; }
+        .contact-item-val a:hover { color:var(--text-muted); }
+
+        /* Form */
+        .contact-form { background:var(--surface);border:1px solid var(--border);border-radius:28px;padding:48px; }
+        .form-row { display:grid;grid-template-columns:1fr 1fr;gap:20px; }
+        .form-group { margin-bottom:20px; }
+        .form-label { display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px; }
+        .form-input, .form-textarea, .form-select {
+            width:100%;background:var(--bg);border:1px solid var(--border);border-radius:12px;
+            padding:14px 18px;font-size:14px;color:var(--text);
+            font-family:'Inter',sans-serif;transition:border-color .25s,box-shadow .25s;
+            outline:none;
+        }
+        .form-input::placeholder, .form-textarea::placeholder { color:var(--text-xmuted); }
+        .form-input:focus, .form-textarea:focus, .form-select:focus { border-color:var(--border-dark);box-shadow:0 0 0 3px rgba(26,25,23,.05); }
+        .form-textarea { min-height:140px;resize:vertical; }
+        .form-select { cursor:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B6760' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center; }
+        .form-submit { width:100%;border:none;padding:18px;font-size:15px;font-weight:700;border-radius:100px;cursor:none;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Cormorant Garamond',serif; }
+        .form-note { font-size:12px;color:var(--text-xmuted);text-align:center;margin-top:16px; }
+        .success-msg { display:none;text-align:center;padding:40px;background:var(--bg-alt);border:1px solid var(--border);border-radius:20px;margin-top:24px; }
+        .success-msg .check { font-size:40px;margin-bottom:12px; }
+        .success-msg h3 { font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;margin-bottom:8px;color:var(--text); }
+        .success-msg p { font-size:14px;color:var(--text-muted); }
+
+        @media(max-width:1000px){ .contact-layout{grid-template-columns:1fr} .contact-info{position:relative;top:auto} }
+        @media(max-width:640px){ .form-row{grid-template-columns:1fr} .contact-form{padding:28px 24px} }
+    </style>
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="cur-ring"></div>
+
+<nav id="nav">
+        <a href="https://wa.me/+971565390316" class="nav-wa-mobile" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="TTT" class="logo-img" onerror="this.style.display='none'">
+        <!--<span class="nav-logo-text">TTT</span>-->
+    </a>
+    <ul class="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
+    <ul class="mobile-menu-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="mobile-menu-bottom">
+        <a href="contact.html" class="btn-primary">Let's Talk →</a>
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+    </div>
+</div>
+
+<section class="page-hero">
+    <div class="eyebrow reveal">Get In Touch</div>
+    <h1 class="reveal">Let's build something<br>legendary.</h1>
+    <p class="reveal reveal-delay-1">Tell us about your project. We'll get back to you within one business day.</p>
+</section>
+
+<section class="sec">
+    <div class="contact-layout">
+        <div class="contact-info reveal">
+            <div class="badge"><span class="badge-dot"></span>Currently accepting new projects</div>
+            <h2>We'd love to<br>hear from you.</h2>
+            <p>Whether you have a specific project in mind or just want to explore what's possible, reach out. We love a good conversation.</p>
+            <div class="contact-item">
+                <div class="contact-icon">✉️</div>
+                <div>
+                    <div class="contact-item-label">Email</div>
+                    <div class="contact-item-val"><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📞</div>
+                <div>
+                    <div class="contact-item-label">Phone / WhatsApp</div>
+                    <div class="contact-item-val"><a href="tel:+971529972969">+971 52 997 2969</a></div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <div class="contact-item-label">Locations</div>
+                    <div class="contact-item-val">Dubai, UAE &amp; California, USA</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📸</div>
+                <div>
+                    <div class="contact-item-label">Instagram</div>
+                    <div class="contact-item-val"><a href="https://www.instagram.com/talkthetaste/" target="_blank">@talkthetaste</a></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="reveal reveal-delay-1">
+            <div class="contact-form">
+                <div style="margin-bottom:32px;">
+                    <h2 style="font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;margin-bottom:8px;">Start a Conversation</h2>
+                    <p style="font-size:14px;color:var(--gray);">Fill out the form and we'll be in touch shortly.</p>
+                </div>
+                <form id="contactForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="fname">First Name *</label>
+                            <input class="form-input" type="text" id="fname" placeholder="Sarah" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="lname">Last Name *</label>
+                            <input class="form-input" type="text" id="lname" placeholder="Johnson">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email Address *</label>
+                        <input class="form-input" type="email" id="email" placeholder="sarah@yourcompany.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="company">Company / Brand</label>
+                        <input class="form-input" type="text" id="company" placeholder="Your company name">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="service">Service You're Interested In</label>
+                        <select class="form-select" id="service">
+                            <option value="">Select a service...</option>
+                            <option>Marketing Strategy & Management</option>
+                            <option>Social Media Marketing</option>
+                            <option>Videography & Visual Production</option>
+                            <option>Web Design & Development</option>
+                            <option>Mobile App Development</option>
+                            <option>Custom Software Development</option>
+                            <option>Branding & Identity</option>
+                            <option>Content Creation</option>
+                            <option>Full-Service Package</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="budget">Estimated Budget</label>
+                        <select class="form-select" id="budget">
+                            <option value="">Select a range...</option>
+                            <option>Under AED 10,000</option>
+                            <option>AED 10,000 – 30,000</option>
+                            <option>AED 30,000 – 75,000</option>
+                            <option>AED 75,000 – 150,000</option>
+                            <option>AED 150,000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="message">Tell Us About Your Project *</label>
+                        <textarea class="form-textarea" id="message" placeholder="Describe your project, goals, and timeline..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-gold form-submit" id="submitBtn">
+                        Send Message
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </button>
+                    <p class="form-note">We respond to all inquiries within 1 business day.</p>
+                </form>
+                <div class="success-msg" id="successMsg">
+                    <div class="check">✅</div>
+                    <h3>Message Received!</h3>
+                    <p>Thanks for reaching out. We'll be in touch within one business day. In the meantime, follow us on <a href="https://www.instagram.com/talkthetaste/" target="_blank" style="color:var(--gold)">@talkthetaste</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-top">
+        <div>
+            <a href="index.html" class="footer-logo nav-logo">
+                <img src="assets/logo.png" class="logo-img" alt="Talk The Taste">
+            </a>
+            <p class="footer-brand-desc">Dubai's full-service creative agency. Marketing, branding, web, apps, and video, all under one roof.</p>
+        </div>
+        <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="services.html">Marketing</a></li><li><a href="services.html">Social Media</a></li><li><a href="services.html">Web Design</a></li></ul></div>
+        <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="work.html">Our Work</a></li><li><a href="blog.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div><div class="footer-heading">Contact</div><ul class="footer-links"><li><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></li><li><a href="tel:+971529972969">+971 52 997 2969</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2025 Talk The Taste. All rights reserved.</span>
+        <div class="footer-socials"><a href="https://www.instagram.com/talkthetaste/" target="_blank" class="social-btn"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.linkedin.com/company/ttt-mm/" class="social-btn" title="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
+            </a></div>
+        <span>Dubai, UAE · California, USA</span>
+    </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script>
+(function(){
+    const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+    let mx=0,my=0,rx=0,ry=0;
+    window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+    (function follow(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(follow);})();
+    window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>64),{passive:true});
+    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    document.addEventListener('mouseover',e=>{
+        if(e.target.closest('a,button,input,select,textarea')){cur.classList.add('active');ring.classList.add('active');}
+        else{cur.classList.remove('active');ring.classList.remove('active');}
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', async function(e){
+        e.preventDefault();
+        const fname   = document.getElementById('fname').value.trim();
+        const lname   = document.getElementById('lname').value.trim();
+        const email   = document.getElementById('email').value.trim();
+        const company = document.getElementById('company').value.trim();
+        const service = document.getElementById('service').value;
+        const budget  = document.getElementById('budget').value;
+        const message = document.getElementById('message').value.trim();
+
+        if (!fname || !email || !message) {
+            alert('Please fill in all required fields (First Name, Email, Message).');
+            return;
+        }
+
+        const btn = document.getElementById('submitBtn');
+        btn.textContent = 'Sending…';
+        btn.disabled = true;
+
+        // 1. Save lead locally and submit it to Cloudflare/CallMeBot
+        const lead = TTT.saveLead({ fname, lname, email, company, service, budget, message });
+        if (lead.remoteSaved) await lead.remoteSaved;
+
+        // 2. Optional Web3Forms email fallback
+        const settings = TTT.getSettings();
+        const w3key = settings.web3formsKey || '';
+        if (w3key) {
+            try {
+                await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: w3key,
+                        subject: `New Lead from ${fname} ${lname} — Talk The Taste`,
+                        from_name: `${fname} ${lname}`,
+                        email: email,
+                        company: company || '—',
+                        service: service || '—',
+                        budget: budget || '—',
+                        message: message,
+                    })
+                });
+            } catch(err) {
+                // Email failed silently — lead is still saved in admin
+            }
+        }
+
+        // 3. Show success
+        this.style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+    });
+})();
+</script>
+<script src="js/transitions.js"></script>
+</body>
+</html>

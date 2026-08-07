@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Talk The Taste">
+    <meta name="geo.region" content="AE-DU">
+    <meta name="geo.placename" content="Dubai">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talk The Taste | Dubai's Creative Agency | Marketing, Web &amp; Video</title>
+    <meta name="description" content="TTT is Dubai's full-service creative agency offering marketing strategy, social media management, web design, mobile apps, custom software and video production. We make brands impossible to ignore.">
+    <link rel="canonical" href="https://talkthetaste.com/">
+    <meta property="og:title" content="Talk The Taste | Dubai's Creative Agency">
+    <meta property="og:description" content="Dubai's full-service creative agency. Strategy, content, web, software, and video — everything your brand needs in one focused team.">
+    <meta property="og:image" content="https://talkthetaste.com/assets/logo.png">
+    <meta property="og:url" content="https://talkthetaste.com/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Talk The Taste | Dubai's Creative Agency">
+    <meta name="twitter:description" content="Dubai's full-service creative agency. Strategy, content, web, software, and video.">
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="apple-touch-icon" href="assets/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Google Analytics 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script> -->
+    <style>
+
+        /* ============================================================
+           PRELOADER
+        ============================================================ */
+        #preloader {
+            position: fixed; inset: 0; z-index: 100000;
+            background: var(--dark);
+            display: flex; align-items: center; justify-content: center;
+            overflow: hidden;
+        }
+        .pre-curtain {
+            position: absolute; left: 0; right: 0; height: 50%;
+            background: var(--dark); z-index: 2;
+            transition: transform 0.8s cubic-bezier(0.76,0,0.24,1);
+        }
+        .pre-curtain-top { top: 0; }
+        .pre-curtain-bot { bottom: 0; }
+        #preloader.done .pre-curtain-top { transform: translateY(-101%); }
+        #preloader.done .pre-curtain-bot { transform: translateY(101%); }
+        .pre-inner {
+            position: relative; z-index: 3;
+            display: flex; flex-direction: column;
+            align-items: center; gap: 18px; text-align: center;
+        }
+        .pre-logo-img {
+            height: 48px; width: auto;
+            /*filter: brightness(0) invert(1);*/
+            opacity: 0; transform: translateY(12px);
+            transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+        }
+        #preloader.pre-active .pre-logo-img { opacity: 1; transform: none; }
+        .pre-logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 28px; font-weight: 700;
+            letter-spacing: -1px;
+            color: #fff;
+            opacity: 0; transform: translateY(12px);
+            transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s;
+            display: none;
+        }
+        #preloader.pre-active .pre-logo-text { opacity: 1; transform: none; }
+        .pre-tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: 9px; font-weight: 600;
+            letter-spacing: 4px; text-transform: uppercase;
+            color: rgba(255,255,255,0.28);
+            opacity: 0; transform: translateY(6px);
+            transition: opacity 0.5s ease 0.28s, transform 0.5s ease 0.28s;
+        }
+        #preloader.pre-active .pre-tagline { opacity: 1; transform: none; }
+        .pre-progress-wrap {
+            width: 160px; height: 1px;
+            background: rgba(255,255,255,0.08); overflow: hidden;
+            opacity: 0; transition: opacity 0.4s ease 0.4s;
+        }
+        #preloader.pre-active .pre-progress-wrap { opacity: 1; }
+        .pre-progress-fill {
+            height: 100%; background: var(--gold); width: 0%;
+            transition: width 0.05s linear;
+        }
+
+        /* ============================================================
+           HERO
+        ============================================================ */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 0 64px;
+            background:
+                linear-gradient(90deg, rgba(6,6,6,.92) 0%, rgba(6,6,6,.72) 48%, rgba(6,6,6,.42) 100%),
+                url('assets/site/home-hero.jpg') center/cover no-repeat;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-top-bar {
+            padding-top: 116px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 56px;
+            border-bottom: 1px solid var(--border);
+        }
+        .hero-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; font-weight: 500;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--text-muted);
+            opacity: 0; animation: hFadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards;
+        }
+        .hero-year {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; font-weight: 500;
+            letter-spacing: 2px;
+            color: var(--text-xmuted);
+            opacity: 0; animation: hFadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+        }
+        .hero-center {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 56px 0;
+        }
+        .hero-headline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(80px, 11vw, 150px);
+            font-weight: 700;
+            line-height: 0.9;
+            letter-spacing: -4px;
+            color: var(--text);
+            opacity: 0; animation: hFadeUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.55s forwards;
+        }
+        .hero-bottom-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 44px 0;
+            border-top: 1px solid var(--border);
+            gap: 48px;
+            opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.75s forwards;
+        }
+        .hero-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px; color: var(--text-muted);
+            line-height: 1.75; max-width: 380px;
+        }
+        .hero-actions {
+            display: flex; gap: 16px;
+            align-items: center; flex-shrink: 0;
+        }
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--border);
+            opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+        }
+        .stat-item {
+            padding: 28px 0;
+            display: flex; flex-direction: column; gap: 6px;
+            border-right: 1px solid var(--border);
+        }
+        .stat-item:last-child { border-right: none; }
+        .stat-item:not(:first-child) { padding-left: 32px; }
+        .stat-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px; font-weight: 700;
+            letter-spacing: -1.5px; color: var(--text); line-height: 1;
+        }
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; font-weight: 500;
+            color: var(--text-xmuted);
+            text-transform: uppercase; letter-spacing: 1.5px;
+        }
+
+        @keyframes hFadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: none; }
+        }
+            to   { transform: translateX(-50%); }
+        }
+
+        /* ============================================================
+           SERVICES
+        ============================================================ */
+        #services { background: var(--bg); }
+        .svc-header {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 72px;
+            align-items: start;
+        }
+        .svc-list { border-top: 1px solid var(--border); }
+        .svc-row {
+            display: grid;
+            grid-template-columns: 60px 280px 1fr 40px;
+            align-items: center;
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.2s, padding-left 0.2s, padding-right 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+        .svc-row:hover {
+            background: var(--bg-off);
+            padding-left: 16px;
+            padding-right: 16px;
+        }
+        .svc-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; font-weight: 600;
+            color: var(--text-xmuted); letter-spacing: 1px;
+        }
+        .svc-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 20px; font-weight: 600;
+            color: var(--text); letter-spacing: -0.3px;
+        }
+        .svc-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px; color: var(--text-muted);
+            line-height: 1.5; max-width: 380px;
+        }
+        .svc-arrow {
+            font-size: 18px; color: var(--text-xmuted);
+            text-align: right;
+            transition: transform 0.2s, color 0.2s;
+        }
+        .svc-row:hover .svc-arrow {
+            transform: translateX(6px);
+            color: var(--text);
+        }
+
+        /* ============================================================
+           WORK
+        ============================================================ */
+        #work { background: var(--bg-off); }
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 48px;
+        }
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+        }
+        .work-card {
+            background: var(--surface);
+            overflow: hidden;
+        }
+        .work-card-img {
+            width: 100%; aspect-ratio: 4/3;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+        }
+        .work-card:hover .work-card-img { transform: scale(1.03); }
+        .work-card-info {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            border-top: 1px solid var(--border);
+        }
+        .work-card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px; font-weight: 600;
+            color: var(--text); letter-spacing: -0.3px;
+            margin-top: 6px;
+        }
+        .work-year {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px; color: var(--text-xmuted);
+            flex-shrink: 0;
+        }
+
+        /* ============================================================
+           ABOUT DARK
+        ============================================================ */
+        .about-dark {
+            background: var(--dark);
+            color: #fff;
+        }
+        .about-dark-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+        .about-dark-headline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(36px, 4vw, 56px);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            line-height: 1.05;
+            color: #fff;
+            margin: 24px 0;
+        }
+        .about-dark-sub {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.8;
+            max-width: 440px;
+        }
+        .about-dark .btn-primary {
+            background: var(--gold); color: #fff;
+            margin-top: 40px;
+        }
+        .about-dark .btn-primary:hover { background: #fff; color: var(--text); }
+        .about-dark-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2px;
+            align-self: center;
+        }
+        .about-stat {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 36px 28px;
+            display: flex; flex-direction: column; gap: 10px;
+        }
+        .about-stat-num {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px; font-weight: 700;
+            letter-spacing: -2px; color: #fff; line-height: 1;
+        }
+        .about-stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            color: rgba(255,255,255,0.38);
+            line-height: 1.5;
+        }
+
+        /* ============================================================
+           PROCESS
+        ============================================================ */
+        #process { background: var(--bg); }
+        .process-header {
+            margin-bottom: 64px;
+        }
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-top: 1px solid var(--border);
+        }
+        .process-step {
+            padding: 40px 32px 40px 0;
+            border-right: 1px solid var(--border);
+        }
+        .process-step:last-child { border-right: none; }
+        .process-step:not(:first-child) { padding-left: 32px; }
+        .ps-num {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px; font-weight: 600;
+            letter-spacing: 2px; color: var(--text-xmuted);
+            margin-bottom: 32px; display: block;
+        }
+        .ps-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 22px; font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--text); margin-bottom: 14px;
+        }
+        .ps-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px; color: var(--text-muted); line-height: 1.7;
+        }
+
+        /* ============================================================
+           TESTIMONIAL
+        ============================================================ */
+        .testimonial-section { background: var(--bg-off); }
+        .testimonial-inner { max-width: 760px; }
+        .testimonial-quote {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(24px, 3vw, 38px);
+            font-weight: 400;
+            line-height: 1.35;
+            letter-spacing: -0.5px;
+            color: var(--text);
+            margin: 32px 0 40px;
+            border: none;
+            font-style: normal;
+        }
+        .testimonial-author { display: flex; align-items: center; gap: 16px; }
+        .testimonial-avatar {
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: var(--border);
+            flex-shrink: 0;
+        }
+        .testimonial-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px; font-weight: 600; color: var(--text);
+        }
+        .testimonial-role {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px; color: var(--text-muted); margin-top: 2px;
+        }
+
+        /* ============================================================
+           CTA DARK SECTION
+        ============================================================ */
+        .cta-section { background: var(--dark); }
+        .cta-inner { max-width: 700px; }
+        .cta-headline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(48px, 7vw, 96px);
+            font-weight: 700;
+            letter-spacing: -3px;
+            line-height: 0.95;
+            color: #fff;
+            margin: 24px 0 48px;
+        }
+        .cta-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+        .cta-btn-gold { background: var(--gold) !important; color: #fff !important; }
+        .cta-btn-gold:hover { background: #fff !important; color: var(--text) !important; }
+
+        /* ============================================================
+           RESPONSIVE
+        ============================================================ */
+        @media(max-width:1100px) {
+            #hero { padding: 0 40px; }
+            .hero-headline { letter-spacing: -3px; }
+            .svc-row { grid-template-columns: 52px 220px 1fr 36px; }
+            .work-grid { grid-template-columns: 1fr 1fr; }
+            .about-dark-grid { gap: 60px; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .process-step:nth-child(2) { border-right: none; }
+            .process-step:nth-child(3) { border-right: 1px solid var(--border); }
+            .process-step:nth-child(1),
+            .process-step:nth-child(2) { border-bottom: 1px solid var(--border); }
+        }
+        @media(max-width:900px) {
+            .svc-header { grid-template-columns: 1fr; gap: 24px; }
+            .svc-row { grid-template-columns: 44px 1fr 28px; }
+            .svc-desc { display: none; }
+            .about-dark-grid { grid-template-columns: 1fr; gap: 48px; }
+            .about-dark-right { grid-template-columns: 1fr 1fr; }
+        }
+        @media(max-width:768px) {
+            #hero { padding: 0 24px; }
+            .hero-top-bar { padding-top: 100px; padding-bottom: 40px; }
+            .hero-headline { font-size: clamp(56px, 13vw, 100px); letter-spacing: -3px; }
+            .hero-bottom-bar { flex-direction: column; align-items: flex-start; gap: 32px; padding: 32px 0; }
+            .hero-actions { flex-wrap: wrap; }
+            .hero-stats { grid-template-columns: repeat(2, 1fr); }
+            .hero-stats .stat-item:nth-child(2) { border-right: none; }
+            .hero-stats .stat-item:nth-child(1),
+            .hero-stats .stat-item:nth-child(2) { border-bottom: 1px solid var(--border); }
+            .work-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+            .work-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .process-step { border-right: none; border-bottom: 1px solid var(--border); }
+            .process-step:last-child { border-bottom: none; }
+            .process-step:not(:first-child) { padding-left: 0; }
+        }
+        @media(max-width:480px) {
+            .svc-row { grid-template-columns: 36px 1fr 24px; gap: 12px; }
+            .svc-num { font-size: 10px; }
+            .svc-name { font-size: 17px; }
+            .about-dark-right { grid-template-columns: 1fr; }
+        }
+
+    </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Talk The Taste",
+  "alternateName": "TTT",
+  "url": "https://talkthetaste.com",
+  "logo": "https://talkthetaste.com/assets/logo.png",
+  "image": "https://talkthetaste.com/assets/logo.png",
+  "description": "Dubai's full-service creative agency offering marketing strategy, social media management, web design, mobile apps, custom software and video production.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dubai",
+    "addressCountry": "AE"
+  },
+  "telephone": "+971565390316",
+  "priceRange": "$$",
+  "openingHours": "Mo-Fr 09:00-18:00",
+  "sameAs": [
+    "https://www.instagram.com/talkthetaste/",
+    "https://www.linkedin.com/company/ttt-mm/"
+  ],
+  "areaServed": {
+    "@type": "Place",
+    "name": "Dubai, United Arab Emirates"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Creative Agency Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Marketing Strategy"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Social Media Management"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Web Design & Development"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mobile App Development"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Video Production"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Brand Identity"}}
+    ]
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Talk The Taste",
+  "url": "https://talkthetaste.com",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://talkthetaste.com/blog.html?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+</head>
+<body>
+
+<!-- ============================================================
+     PRELOADER
+============================================================ -->
+<div id="preloader">
+    <div class="pre-curtain pre-curtain-top"></div>
+    <div class="pre-curtain pre-curtain-bot"></div>
+    <div class="pre-inner">
+        <img src="assets/logo.png" alt="TTT" class="pre-logo-img"
+             onerror="this.style.display='none';document.querySelector('.pre-logo-text').style.display='block'">
+        <span class="pre-logo-text">TTT</span>
+        <div class="pre-tagline">Talk The Taste · Dubai</div>
+        <div class="pre-progress-wrap">
+            <div class="pre-progress-fill" id="preProgressFill"></div>
+        </div>
+    </div>
+</div>
+
+<!-- ============================================================
+     CURSOR
+============================================================ -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============================================================
+     NAVIGATION — 3-COLUMN GRID
+============================================================ -->
+<nav id="nav">
+        <a href="https://wa.me/+971565390316" class="nav-wa-mobile" target="_blank" rel="noopener" aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="index.html" class="nav-logo">
+        <img src="assets/logo.png" alt="TTT" class="logo-img" onerror="this.style.display='none'">
+        <!--<span class="nav-logo-text">TTT</span>-->
+    </a>
+    <ul class="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="nav-right">
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a href="contact.html" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+</nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
+    <ul class="mobile-menu-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+    </ul>
+    <div class="mobile-menu-bottom">
+        <a href="contact.html" class="btn-primary">Let's Talk →</a>
+        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+    </div>
+</div>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+    <div class="hero-top-bar">
+        <span class="hero-label">Dubai's Creative Agency</span>
+        <span class="hero-year">Est. 2018</span>
+    </div>
+
+    <div class="hero-center">
+        <h1 class="hero-headline">
+            We make<br>
+            brands<br>
+            impossible<br>
+            to ignore.
+        </h1>
+    </div>
+
+    <div class="hero-bottom-bar">
+        <p class="hero-sub">Strategy, content, web, software, and video: everything your brand needs, in one focused team.</p>
+        <div class="hero-actions">
+            <a href="contact.html" class="btn-primary">Start a project →</a>
+            <a href="work.html" class="btn-text-link">View our work</a>
+        </div>
+    </div>
+
+    <div class="hero-stats">
+        <div class="stat-item">
+            <span class="stat-num" data-target="80" data-suffix="+">80+</span>
+            <span class="stat-label">Brands grown</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num" data-target="6" data-suffix="+">6+</span>
+            <span class="stat-label">Years in Dubai</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num" data-target="12" data-suffix="M+">12M+</span>
+            <span class="stat-label">Content views</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-num" data-target="4.9" data-suffix="">4.9</span>
+            <span class="stat-label">Client rating</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICES
+============================================================ -->
+<section id="services" class="sec">
+    <div class="svc-header">
+        <div class="svc-header-left">
+            <span class="eyebrow">What we do</span>
+            <h2 class="sec-title reveal">Full-service.<br>No compromises.</h2>
+        </div>
+        <div class="svc-header-right">
+            <p class="sec-sub reveal reveal-delay-1">Every discipline under one roof, so your brand moves fast without losing coherence.</p>
+            <a href="services.html" class="btn-text-link reveal reveal-delay-2" style="margin-top:24px;display:inline-flex">All services →</a>
+        </div>
+    </div>
+
+    <div class="svc-list">
+        <div class="svc-row reveal">
+            <span class="svc-num">01</span>
+            <span class="svc-name">Marketing Strategy</span>
+            <span class="svc-desc">Data-driven plans that connect brands with their ideal audience.</span>
+            <!--<span class="svc-arrow">→</span>-->
+        </div>
+        <div class="svc-row reveal reveal-delay-1">
+            <span class="svc-num">02</span>
+            <span class="svc-name">Social Media & Content</span>
+            <span class="svc-desc">Scroll-stopping content that drives engagement and brand love.</span>
+            <!--<span class="svc-arrow">→</span>-->
+        </div>
+        <div class="svc-row reveal reveal-delay-2">
+            <span class="svc-num">03</span>
+            <span class="svc-name">Branding & Identity</span>
+            <span class="svc-desc">Visual systems that make your brand recognizable and memorable.</span>
+            <!--<span class="svc-arrow">→</span>-->
+        </div>
+        <div class="svc-row reveal reveal-delay-3">
+            <span class="svc-num">04</span>
+            <span class="svc-name">Web Design & Development</span>
+            <span class="svc-desc">High-performance websites and apps built to convert.</span>
+            <!--<span class="svc-arrow">→</span>-->
+        </div>
+        <div class="svc-row reveal reveal-delay-4">
+            <span class="svc-num">05</span>
+            <span class="svc-name">Custom Software</span>
+            <span class="svc-desc">Bespoke digital tools that scale with your business.</span>
+            <!--<span class="svc-arrow">→</span>-->
+        </div>
+        <div class="svc-row reveal">
+            <span class="svc-num">06</span>
+            <span class="svc-name">Video Production</span>
+            <span class="svc-desc">Cinematic content that tells your story with impact.</span>
+            <!--<span class="svc-arrow">→</span>-->
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     WORK
+============================================================ -->
+<section id="work" class="sec sec-alt">
+    <div class="work-header">
+        <span class="eyebrow">Selected Work</span>
+        <a href="work.html" class="btn-text-link">View all projects →</a>
+    </div>
+
+    <div class="work-grid" id="homeWorkGrid">
+        <div class="work-card reveal">
+            <div class="work-card-img" style="background: #E8EAF0;"></div>
+            <div class="work-card-info">
+                <div>
+                    <div class="card-tag">Branding · Strategy</div>
+                    <h3 class="work-card-title">Restaurant Brand Identity</h3>
+                </div>
+                <span class="work-year">2024</span>
+            </div>
+        </div>
+        <div class="work-card reveal reveal-delay-1">
+            <div class="work-card-img" style="background: #EAE8E0;"></div>
+            <div class="work-card-info">
+                <div>
+                    <div class="card-tag">Web · Software</div>
+                    <h3 class="work-card-title">E-Commerce Platform</h3>
+                </div>
+                <span class="work-year">2024</span>
+            </div>
+        </div>
+        <div class="work-card reveal reveal-delay-2">
+            <div class="work-card-img" style="background: #E0E8EA;"></div>
+            <div class="work-card-info">
+                <div>
+                    <div class="card-tag">Social · Content</div>
+                    <h3 class="work-card-title">Social Media Campaign</h3>
+                </div>
+                <span class="work-year">2023</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     ABOUT / STATS (DARK)
+============================================================ -->
+<section class="about-dark sec">
+    <div class="about-dark-grid">
+        <div class="about-dark-left reveal">
+            <span class="eyebrow" style="color:rgba(255,255,255,0.3)">About TTT</span>
+            <h2 class="about-dark-headline">Great brands aren't built by committees.</h2>
+            <p class="about-dark-sub">We're a tight, senior team based in Dubai: no juniors, no outsourcing, no account managers playing telephone. Just smart people doing exceptional work.</p>
+            <a href="services.html" class="btn-primary" style="display:inline-flex;margin-top:40px">See what we do →</a>
+        </div>
+        <div class="about-dark-right reveal reveal-delay-2">
+            <div class="about-stat">
+                <span class="about-stat-num">80+</span>
+                <span class="about-stat-label">Brands we've helped grow</span>
+            </div>
+            <div class="about-stat">
+                <span class="about-stat-num">6+</span>
+                <span class="about-stat-label">Years operating in Dubai</span>
+            </div>
+            <div class="about-stat">
+                <span class="about-stat-num">12M+</span>
+                <span class="about-stat-label">Content views delivered</span>
+            </div>
+            <div class="about-stat">
+                <span class="about-stat-num">4.9★</span>
+                <span class="about-stat-label">Average client rating</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     PROCESS
+============================================================ -->
+<section id="process" class="sec">
+    <div class="process-header">
+        <span class="eyebrow">How we work</span>
+        <h2 class="sec-title reveal">Four steps.<br>Zero fluff.</h2>
+    </div>
+    <div class="process-steps">
+        <div class="process-step reveal">
+            <span class="ps-num">01</span>
+            <div class="ps-title">Discover</div>
+            <p class="ps-desc">We learn your business, your audience, and where your biggest opportunity lies before touching a single deliverable.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+            <span class="ps-num">02</span>
+            <div class="ps-title">Strategy</div>
+            <p class="ps-desc">A clear plan: positioning, messaging, channels, timelines, and KPIs aligned to your real commercial goals.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+            <span class="ps-num">03</span>
+            <div class="ps-title">Create</div>
+            <p class="ps-desc">Design, build, shoot, post. Our in-house team delivers every element to a standard you can be proud of.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-3">
+            <span class="ps-num">04</span>
+            <div class="ps-title">Launch</div>
+            <p class="ps-desc">Data-led iteration every month. What's working gets more fuel. What isn't gets fixed. No vanity metrics.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     TESTIMONIAL
+============================================================ -->
+<section class="sec testimonial-section">
+    <div class="testimonial-inner reveal">
+        <span class="eyebrow">What clients say</span>
+        <blockquote class="testimonial-quote">
+            "TTT transformed how our brand shows up in Dubai. In 90 days, our content reach tripled and we started getting inbound leads from Instagram for the first time."
+        </blockquote>
+        <div class="testimonial-author">
+            <div class="testimonial-avatar"></div>
+            <div>
+                <div class="testimonial-name">Ahmed Al Mansouri</div>
+                <div class="testimonial-role">CEO, Palette Restaurant Group</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     CTA DARK SECTION
+============================================================ -->
+<section class="cta-section sec">
+    <div class="cta-inner reveal">
+        <span class="eyebrow" style="color:rgba(255,255,255,0.28)">Start today</span>
+        <h2 class="cta-headline">Ready to be<br>impossible to ignore?</h2>
+        <div class="cta-actions">
+            <a href="contact.html" class="btn-primary cta-btn-gold">Start a project →</a>
+            <a href="work.html" class="btn-outline-white">View our work</a>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer>
+    <div class="footer-top">
+        <div>
+            <a href="index.html" class="footer-logo">
+                <img src="assets/logo.png" alt="Talk The Taste" class="logo-img"
+                     onerror="this.style.display='none';this.insertAdjacentHTML('afterend','<span class=\'logo-text\'>TTT</span>')">
+            </a>
+            <p class="footer-brand-desc">Dubai's full-service creative agency for brands ready to grow.</p>
+        </div>
+        <div>
+            <div class="footer-heading">Services</div>
+            <ul class="footer-links">
+                <li><a href="services.html">Marketing & Social</a></li>
+                <li><a href="services.html">Brand Identity</a></li>
+                <li><a href="services.html">Web Design</a></li>
+                <li><a href="services.html">Video & Photography</a></li>
+                <li><a href="services.html">Custom Software</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="footer-heading">Company</div>
+            <ul class="footer-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="work.html">Work</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="footer-heading">Contact</div>
+            <ul class="footer-links">
+                <li><a href="https://wa.me/+971565390316" target="_blank" rel="noopener">WhatsApp ↗</a></li>
+                <li><a href="mailto:hello@talkthetaste.com">hello@talkthetaste.com</a></li>
+                <li><a href="#">Dubai, UAE</a></li>
+                <li><a href="https://www.instagram.com/talkthetaste/" target="_blank" rel="noopener">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/company/ttt-mm/" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <span>© 2026 Talk The Taste. All rights reserved.</span>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/talkthetaste/" class="social-btn" title="Instagram" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/ttt-mm/" class="social-btn" title="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="https://wa.me/+971565390316" class="social-btn" title="WhatsApp" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            </a>
+        </div>
+    </div>
+</footer>
+
+<script src="js/transitions.js"></script>
+<script src="js/data.js"></script>
+<script>
+
+/* ---- PRELOADER ---- */
+(function() {
+    const pre = document.getElementById('preloader');
+    const fill = document.getElementById('preProgressFill');
+
+    if (sessionStorage.getItem('ttt_visited')) {
+        pre.style.display = 'none';
+        return;
+    }
+    sessionStorage.setItem('ttt_visited', '1');
+
+    requestAnimationFrame(() => pre.classList.add('pre-active'));
+
+    let pct = 0;
+    const interval = setInterval(() => {
+        pct = Math.min(pct + Math.random() * 18 + 6, 95);
+        fill.style.width = pct + '%';
+    }, 90);
+
+    setTimeout(() => {
+        clearInterval(interval);
+        fill.style.width = '100%';
+        setTimeout(() => pre.classList.add('done'), 180);
+        setTimeout(() => { pre.style.display = 'none'; }, 1000);
+    }, 900);
+})();
+
+/* ---- CURSOR ---- */
+(function() {
+    const c = document.getElementById('cursor');
+    const r = document.getElementById('cursorRing');
+    let rx = 0, ry = 0, cx = 0, cy = 0;
+
+    document.addEventListener('mousemove', e => {
+        cx = e.clientX; cy = e.clientY;
+        c.style.left = cx + 'px'; c.style.top = cy + 'px';
+    });
+
+    (function animateRing() {
+        rx += (cx - rx) * 0.14;
+        ry += (cy - ry) * 0.14;
+        r.style.left = rx + 'px'; r.style.top = ry + 'px';
+        requestAnimationFrame(animateRing);
+    })();
+
+    document.querySelectorAll('a, button, [role=button], .svc-row, .work-card').forEach(el => {
+        el.addEventListener('mouseenter', () => { c.classList.add('active'); r.classList.add('active'); });
+        el.addEventListener('mouseleave', () => { c.classList.remove('active'); r.classList.remove('active'); });
+    });
+})();
+
+/* ---- SCROLLED NAV ---- */
+(function() {
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+})();
+
+/* ---- REVEAL ---- */
+(function() {
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                obs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+})();
+
+
+// Animate stat numbers when they come into view
+function animateCount(el, target, suffix) {
+    const duration = 1800;
+    const start = performance.now();
+    const isDecimal = target % 1 !== 0;
+    const update = (now) => {
+        const elapsed = Math.min((now - start) / duration, 1);
+        const ease = 1 - Math.pow(1 - elapsed, 3);
+        const current = isDecimal ? (target * ease).toFixed(1) : Math.floor(target * ease);
+        el.textContent = current + suffix;
+        if (elapsed < 1) requestAnimationFrame(update);
+    };
+    requestAnimationFrame(update);
+}
+
+// Observe stat numbers
+const statObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+        if (e.isIntersecting) {
+            const el = e.target;
+            const raw = el.dataset.target;
+            const suffix = el.dataset.suffix || '';
+            animateCount(el, parseFloat(raw), suffix);
+            statObs.unobserve(el);
+        }
+    });
+}, { threshold: 0.5 });
+document.querySelectorAll('[data-target]').forEach(el => statObs.observe(el));
+
+/* ---- WORK GRID from CMS (optional) ---- */
+(function() {
+    function renderHomeWork() {
+        if (typeof TTT === 'undefined') return;
+        const projects = TTT.getProjects ? TTT.getProjects() : (TTT.data && TTT.data.projects);
+        if (!projects || !projects.length) return;
+
+        const grid = document.getElementById('homeWorkGrid');
+        const display = projects.slice(0, 3);
+        grid.innerHTML = display.map((p, i) => `
+            <div class="work-card${i === 0 ? ' reveal' : ' reveal reveal-delay-' + i}">
+                ${p.image || p.thumbnail
+                    ? `<div class="work-card-img"><img src="${p.image || p.thumbnail}" alt="${p.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>`
+                    : `<div class="work-card-img" style="background:#E8EAF0;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-xmuted)">${p.client || p.title}</div>`
+                }
+                <div class="work-card-info">
+                    <div>
+                        <div class="card-tag">${p.category || 'Creative'}</div>
+                        <h3 class="work-card-title">${p.title}</h3>
+                    </div>
+                    <span class="work-year">${p.year || '2024'}</span>
+                </div>
+            </div>
+        `).join('');
+
+        // Re-observe newly added reveal elements
+        document.querySelectorAll('#homeWorkGrid .reveal').forEach(el => {
+            const obs2 = new IntersectionObserver(entries => {
+                entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs2.unobserve(e.target); } });
+            }, { threshold: 0.12 });
+            obs2.observe(el);
+        });
+    }
+
+    try {
+        renderHomeWork();
+        document.addEventListener('ttt:data:ready', renderHomeWork);
+    } catch(e) {}
+})();
+
+
+</script>
+</body>
+</html>
