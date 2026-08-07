@@ -2,5 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /admin.html
 Disallow: /admin
+Disallow: /ttt-client-intake.html
+Disallow: /ttt-client-intake
 
 Sitemap: https://talkthetaste.com/sitemap.xml
+Host: https://talkthetaste.com

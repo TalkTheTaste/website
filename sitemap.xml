@@ -1,39 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://talkthetaste.com/</loc>
-    <lastmod>2026-04-07</lastmod>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://talkthetaste.com/assets/site/home-hero.jpg</image:loc>
+      <image:title>Talk The Taste creative agency Dubai</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://talkthetaste.com/services.html</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://talkthetaste.com/services</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://talkthetaste.com/work.html</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://talkthetaste.com/work</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://talkthetaste.com/assets/site/restaurant-brand-launch.jpg</image:loc>
+      <image:title>Dubai restaurant brand launch case study</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://talkthetaste.com/pricing</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://talkthetaste.com/pricing.html</loc>
-    <lastmod>2026-04-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://talkthetaste.com/blog.html</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://talkthetaste.com/blog</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://talkthetaste.com/contact.html</loc>
-    <lastmod>2026-04-07</lastmod>
+    <loc>https://talkthetaste.com/contact</loc>
+    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://talkthetaste.com/post?id=social-media-strategy-2025</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://talkthetaste.com/assets/site/social-growth-campaign.jpg</image:loc>
+      <image:title>Social media strategy for Dubai brands</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://talkthetaste.com/post?id=website-conversion-elements</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://talkthetaste.com/assets/site/delivery-web-app.jpg</image:loc>
+      <image:title>Website conversion and app design</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://talkthetaste.com/post?id=how-to-brief-a-creative-agency</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://talkthetaste.com/assets/site/restaurant-brand-launch.jpg</image:loc>
+      <image:title>How to brief a creative agency</image:title>
+    </image:image>
   </url>
 </urlset>

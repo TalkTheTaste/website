@@ -19,7 +19,7 @@ const DEFAULT_PROJECTS = [
     category: 'Mobile App',
     tags: ['Mobile App', 'iOS', 'Android'],
     description: 'Native iOS and Android on-demand delivery platform built from MVP to full launch.',
-    fullDesc: '<p>We designed and built a full-featured on-demand delivery platform from the ground up - native iOS and Android apps, a web-based merchant dashboard, and a driver app. The platform launched with 12 restaurant partners and processed over 1,000 orders in its first month.</p>',
+    fullDesc: '<p>We designed and built a full-featured on-demand delivery platform from the ground up — native iOS and Android apps, a web-based merchant dashboard, and a driver app. The platform launched with 12 restaurant partners and processed over 1,000 orders in its first month.</p>',
     image: 'assets/site/delivery-web-app.jpg',
     color1: '#001508',
     color2: '#002912',
@@ -29,7 +29,7 @@ const DEFAULT_PROJECTS = [
   },
   {
     id: 'mnplq1qa_tmzomjg',
-    title: 'Social Growth Campaign - F&B Brand',
+    title: 'Social Growth Campaign — F&B Brand',
     category: 'Social Media',
     tags: ['Social Media', 'Content', 'Ads'],
     description: '3x engagement growth in 90 days through strategic content and paid advertising.',
@@ -43,11 +43,11 @@ const DEFAULT_PROJECTS = [
   },
   {
     id: 'mnplq1qa_h6qf44m',
-    title: 'Full Brand Launch - Dubai Restaurant Group',
+    title: 'Full Brand Launch — Dubai Restaurant Group',
     category: 'Branding',
     tags: ['Branding', 'Web', 'Strategy'],
     description: 'Complete brand identity, website, and go-to-market strategy for a Dubai F&B group.',
-    fullDesc: "<p>We partnered with this Dubai restaurant group from concept to launch - developing the visual identity, brand guidelines, website, social media presence, and marketing strategy that positioned them as one of the city's most talked-about dining destinations.</p><p>The project included logo design, color system, typography, interior signage, menu design, a custom website with online booking, and a 90-day social media launch campaign.</p>",
+    fullDesc: "<p>We partnered with this Dubai restaurant group from concept to launch — developing the visual identity, brand guidelines, website, social media presence, and marketing strategy that positioned them as one of the city's most talked-about dining destinations.</p><p>The project included logo design, color system, typography, interior signage, menu design, a custom website with online booking, and a 90-day social media launch campaign.</p>",
     image: 'assets/site/restaurant-brand-launch.jpg',
     color1: '#0c0c24',
     color2: '#18103c',
@@ -63,7 +63,7 @@ const DEFAULT_POSTS = [
     title: 'Why Your Brand Needs a Social Media Strategy in 2025',
     slug: 'social-media-strategy-2025',
     excerpt: "Most brands post without a plan. Here's why that's costing you and what a real social media strategy looks like.",
-    content: "<h2>The Problem With Posting Without a Plan</h2><p>Most brands treat social media like a bulletin board - they post when they remember, share what feels relevant, and hope for engagement. But in 2025, the algorithm doesn't reward randomness. It rewards consistency, quality, and strategic intent.</p><h2>What a Real Strategy Looks Like</h2><p>A genuine social media strategy starts with your audience. Who are they? What do they care about? When are they online? Only after answering these questions should you think about content.</p><p>From there, you need a content mix: educational posts, behind-the-scenes content, social proof, and direct calls to action. Not every post should sell - but every post should serve.</p>",
+    content: "<h2>The Problem With Posting Without a Plan</h2><p>Most brands treat social media like a bulletin board — they post when they remember, share what feels relevant, and hope for engagement. But in 2025, the algorithm doesn't reward randomness. It rewards consistency, quality, and strategic intent.</p><h2>What a Real Strategy Looks Like</h2><p>A genuine social media strategy starts with your audience. Who are they? What do they care about? When are they online? Only after answering these questions should you think about content.</p><p>From there, you need a content mix: educational posts, behind-the-scenes content, social proof, and direct calls to action. Not every post should sell — but every post should serve.</p>",
     thumbnail: 'assets/site/social-growth-campaign.jpg',
     category: 'Social Media',
     author: 'TTT Team',
@@ -89,7 +89,7 @@ const DEFAULT_POSTS = [
     title: 'How to Brief a Creative Agency (And Get Amazing Results)',
     slug: 'how-to-brief-a-creative-agency',
     excerpt: 'The quality of what you get from a creative agency is directly proportional to the quality of the brief you give them.',
-    content: "<h2>Why the Brief Matters</h2><p>Creative agencies don't produce great work in a vacuum - they produce great work in response to clear direction. The brief is the foundation. A weak brief produces generic output. A strong brief produces work that genuinely moves your business forward.</p><h2>What to Include</h2><p>Include business context, the specific problem, the audience, success metrics, and constraints. Brief the problem clearly, then let the creative team solve it.</p>",
+    content: "<h2>Why the Brief Matters</h2><p>Creative agencies don't produce great work in a vacuum — they produce great work in response to clear direction. The brief is the foundation. A weak brief produces generic output. A strong brief produces work that genuinely moves your business forward.</p><h2>What to Include</h2><p>Include business context, the specific problem, the audience, success metrics, and constraints. Brief the problem clearly, then let the creative team solve it.</p>",
     thumbnail: 'assets/site/restaurant-brand-launch.jpg',
     category: 'Marketing',
     author: 'TTT Team',
@@ -210,45 +210,35 @@ function logout(request) {
 
 async function submitLead(request, env) {
   const body = await request.json().catch(() => ({}));
-  const phone = normalizePhone(body.phone || `${body.countryCode || ''}${body.phoneRaw || ''}`);
-  const validationErrors = validateLead(body, phone);
-  if (validationErrors.length) {
-    return json({ ok: false, error: 'Validation failed', fields: validationErrors }, 400);
-  }
-
   const list = await readStore(env, 'leads');
   const lead = {
     id: Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 7),
-    fname: cleanText(body.fname),
-    lname: cleanText(body.lname),
-    email: cleanText(body.email).toLowerCase(),
-    countryCode: cleanText(body.countryCode),
-    phone,
-    phoneRaw: cleanText(body.phoneRaw),
-    company: cleanText(body.company),
-    service: cleanText(body.service),
-    budget: cleanText(body.budget),
-    message: cleanText(body.message),
+    fname: body.fname || '',
+    lname: body.lname || '',
+    email: body.email || '',
+    company: body.company || '',
+    service: body.service || '',
+    budget: body.budget || '',
+    message: body.message || '',
     date: new Date().toISOString().slice(0, 10),
     createdAt: Date.now(),
     read: false,
   };
   list.unshift(lead);
   await writeStore(env, 'leads', list);
-  const notification = await notifyCallMeBot(env, lead);
-  return json({ ok: true, id: lead.id, notification });
+  await notifyCallMeBot(env, lead);
+  return json({ ok: true, id: lead.id });
 }
 
 async function notifyCallMeBot(env, lead) {
   const phone = env.CALLMEBOT_PHONE;
   const apikey = env.CALLMEBOT_APIKEY;
-  if (!phone || !apikey) return { ok: false, skipped: true, reason: 'Missing CallMeBot configuration' };
+  if (!phone || !apikey) return;
 
   const text = [
     'New Talk The Taste lead',
     `Name: ${[lead.fname, lead.lname].filter(Boolean).join(' ') || '-'}`,
     `Email: ${lead.email || '-'}`,
-    `Phone: ${lead.phone || '-'}`,
     `Company: ${lead.company || '-'}`,
     `Service: ${lead.service || '-'}`,
     `Budget: ${lead.budget || '-'}`,
@@ -263,35 +253,10 @@ async function notifyCallMeBot(env, lead) {
   const response = await fetch(url.toString(), {
     headers: { 'User-Agent': 'talkthetaste-cloudflare-pages' },
   });
-  const body = await response.text().catch(() => '');
 
   if (!response.ok) {
-    console.warn('CallMeBot notification failed', response.status, body);
-    return { ok: false, status: response.status, body: body.slice(0, 300) };
+    console.warn('CallMeBot notification failed', response.status);
   }
-
-  return { ok: true, status: response.status, body: body.slice(0, 300) };
-}
-
-function validateLead(body, phone) {
-  const errors = [];
-  if (!cleanText(body.fname)) errors.push('fname');
-  if (!cleanText(body.lname)) errors.push('lname');
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanText(body.email))) errors.push('email');
-  if (!/^\+[1-9]\d{6,14}$/.test(phone)) errors.push('phone');
-  if (cleanText(body.message).length < 10) errors.push('message');
-  return errors;
-}
-
-function normalizePhone(value) {
-  const raw = cleanText(value);
-  const hasPlus = raw.trim().startsWith('+');
-  const digits = raw.replace(/\D/g, '');
-  return digits ? `${hasPlus ? '+' : '+'}${digits}` : '';
-}
-
-function cleanText(value) {
-  return String(value || '').trim().slice(0, 2000);
 }
 
 async function saveBody(request, env, key, fallback) {

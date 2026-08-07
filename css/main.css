@@ -1,5 +1,5 @@
 /* ============================================================
-   TTT DUBAI — SHARED STYLESHEET
+   TTT DUBAI - SHARED STYLESHEET
    Design: Bold editorial grotesque, Pentagram/Collins inspired
    Fonts: Space Grotesk (headlines) + Inter (body/UI)
    Used across all public pages.
@@ -20,7 +20,7 @@
     --text-muted:   #706E69;
     --text-xmuted:  #9E9C97;
 
-    /* Gold — darker, refined warm gold */
+    /* Gold - darker, refined warm gold */
     --gold:         #BF8D2C;
 
     /* Dark sections */
@@ -77,7 +77,7 @@ button { cursor: none; font-family: inherit; }
 .cursor-ring.active { transform: translate(-50%,-50%) scale(1.5); opacity: 0.35; }
 
 /* ============================================================
-   NAVIGATION — 3-COLUMN GRID
+   NAVIGATION - 3-COLUMN GRID
 ============================================================ */
 #nav {
     position: fixed; top: 0; left: 0; right: 0;
@@ -241,7 +241,7 @@ footer {
 }
 
 /* ============================================================
-   BUTTONS — SHARP EDGES, 4px RADIUS
+   BUTTONS - SHARP EDGES, 4px RADIUS
 ============================================================ */
 .btn-primary {
     background: var(--text); color: #fff;
@@ -308,7 +308,7 @@ footer {
     color: #fff;
 }
 
-/* Ghost/text button — no border-radius, just text + arrow */
+/* Ghost/text button - no border-radius, just text + arrow */
 .btn-ghost,
 .btn-text-link {
     font-family: 'Inter', sans-serif;
@@ -366,7 +366,7 @@ footer {
     flex-shrink: 0;
 }
 
-/* Section title — Space Grotesk */
+/* Section title - Space Grotesk */
 .sec-title {
     font-family: 'Space Grotesk', sans-serif;
     font-size: clamp(42px, 5.5vw, 72px);
@@ -479,6 +479,38 @@ footer {
 }
 .empty-state p { font-size: 14px; line-height: 1.7; }
 .empty-icon { font-size: 48px; }
+
+/* ============================================================
+   FAQ / ANSWER BLOCKS
+============================================================ */
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+}
+.faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 32px;
+}
+.faq-item:nth-child(1) { border-radius: 20px 0 0 0; }
+.faq-item:nth-child(2) { border-radius: 0 20px 0 0; }
+.faq-item:nth-last-child(2) { border-radius: 0 0 0 20px; }
+.faq-item:last-child { border-radius: 0 0 20px 0; }
+.faq-item h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--text);
+    margin-bottom: 12px;
+}
+.faq-item p {
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-muted);
+}
 
 
 /* ---- MOBILE NAV ---- */
@@ -597,6 +629,12 @@ footer {
     .nav-menu { display: none; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .faq-item,
+    .faq-item:nth-child(1),
+    .faq-item:nth-child(2),
+    .faq-item:nth-last-child(2),
+    .faq-item:last-child { border-radius: 0; }
 }
 @media(max-width:640px) {
     #nav, #nav.scrolled { padding: 16px 24px; }

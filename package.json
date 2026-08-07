@@ -1,7 +1,7 @@
 {
   "name": "ttt-website",
   "version": "1.0.0",
-  "description": "Talk The Taste — Dubai Creative Agency",
+  "description": "Talk The Taste - Dubai Creative Agency",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

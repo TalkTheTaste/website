@@ -78,7 +78,7 @@ app.get('/api/auth/check', (req, res) => {
     res.json({ loggedIn: !!req.session.admin });
 });
 
-// ── SYNC (admin init — loads everything at once) ─────────────
+// ── SYNC (admin init - loads everything at once) ─────────────
 app.get('/api/sync', auth, (req, res) => {
     res.json({
         projects: read(FILES.projects),
