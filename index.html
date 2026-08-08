@@ -207,7 +207,7 @@
          HERO
       ============================================================ */
       #hero {
-          min-height: 100vh;
+          min-height: 100svh;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -220,11 +220,11 @@
           overflow: hidden;
       }
       .hero-top-bar {
-          padding-top: 116px;
+          padding-top: 92px;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding-bottom: 56px;
+          padding-bottom: 28px;
           border-bottom: 1px solid var(--border);
       }
       .hero-label {
@@ -245,11 +245,11 @@
           flex: 1;
           display: flex;
           align-items: center;
-          padding: 56px 0;
+          padding: 26px 0;
       }
       .hero-headline {
           font-family: 'Space Grotesk', sans-serif;
-          font-size: clamp(80px, 11vw, 150px);
+          font-size: clamp(58px, 9.2vw, 124px);
           font-weight: 700;
           line-height: 0.9;
           letter-spacing: -4px;
@@ -260,15 +260,15 @@
           display: flex;
           justify-content: space-between;
           align-items: flex-end;
-          padding: 44px 0;
+          padding: 24px 0;
           border-top: 1px solid var(--border);
           gap: 48px;
           opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.75s forwards;
       }
       .hero-sub {
           font-family: 'Inter', sans-serif;
-          font-size: 16px; color: var(--text-muted);
-          line-height: 1.75; max-width: 380px;
+          font-size: 15px; color: var(--text-muted);
+          line-height: 1.58; max-width: 520px;
       }
       .hero-actions {
           display: flex; gap: 16px;
@@ -276,7 +276,7 @@
       }
       .hero-proof {
           display: flex; gap: 10px; flex-wrap: wrap;
-          margin-top: 18px;
+          margin-top: 12px;
       }
       .proof-pill {
           font-family: 'Inter', sans-serif;
@@ -294,7 +294,7 @@
           opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
       }
       .stat-item {
-          padding: 28px 0;
+          padding: 18px 0;
           display: flex; flex-direction: column; gap: 6px;
           border-right: 1px solid var(--border);
       }
@@ -302,12 +302,12 @@
       .stat-item:not(:first-child) { padding-left: 32px; }
       .stat-num {
           font-family: 'Space Grotesk', sans-serif;
-          font-size: 36px; font-weight: 700;
+          font-size: 30px; font-weight: 700;
           letter-spacing: -1.5px; color: var(--text); line-height: 1;
       }
       .stat-label {
           font-family: 'Inter', sans-serif;
-          font-size: 11px; font-weight: 500;
+          font-size: 10px; font-weight: 500;
           color: var(--text-xmuted);
           text-transform: uppercase; letter-spacing: 1.5px;
       }
@@ -608,14 +608,20 @@
       }
       @media(max-width:768px) {
           #hero { padding: 0 24px; }
-          .hero-top-bar { padding-top: 100px; padding-bottom: 40px; }
-          .hero-headline { font-size: clamp(56px, 13vw, 100px); letter-spacing: -3px; }
-          .hero-bottom-bar { flex-direction: column; align-items: flex-start; gap: 32px; padding: 32px 0; }
+          .hero-top-bar { padding-top: 82px; padding-bottom: 20px; }
+          .hero-center { padding: 20px 0; }
+          .hero-headline { font-size: clamp(44px, 12.2vw, 78px); letter-spacing: -2px; line-height:.92; }
+          .hero-bottom-bar { flex-direction: column; align-items: flex-start; gap: 18px; padding: 18px 0; }
+          .hero-sub { font-size: 14px; line-height: 1.5; }
+          .proof-pill { font-size: 10px; padding: 6px 9px; }
           .hero-actions { flex-wrap: wrap; }
           .audit-band { padding: 42px 24px; }
           .audit-band-inner { grid-template-columns: 1fr; }
           .audit-actions { justify-content: flex-start; }
           .hero-stats { grid-template-columns: repeat(2, 1fr); }
+          .stat-item { padding: 13px 0; }
+          .stat-num { font-size: 25px; }
+          .stat-label { font-size: 9px; }
           .hero-stats .stat-item:nth-child(2) { border-right: none; }
           .hero-stats .stat-item:nth-child(1),
           .hero-stats .stat-item:nth-child(2) { border-bottom: 1px solid var(--border); }
@@ -1046,37 +1052,37 @@
         </p>
       </div>
       <div class="faq-grid">
-        <div class="faq-item reveal">
-          <h3>What services does Talk The Taste provide?</h3>
+        <details class="faq-item reveal">
+          <summary>What services does Talk The Taste provide?</summary>
           <p>
             Talk The Taste provides social media management, branding, marketing
             strategy, web design, mobile app development, custom software and
             video production for businesses in Dubai and the UAE.
           </p>
-        </div>
-        <div class="faq-item reveal reveal-delay-1">
-          <h3>Is Talk The Taste a Dubai agency?</h3>
+        </details>
+        <details class="faq-item reveal reveal-delay-1">
+          <summary>Is Talk The Taste a Dubai agency?</summary>
           <p>
             Yes. Talk The Taste is based in Dubai and works with UAE brands that
             need creative, digital and marketing execution from one team.
           </p>
-        </div>
-        <div class="faq-item reveal reveal-delay-2">
-          <h3>Who is Talk The Taste best for?</h3>
+        </details>
+        <details class="faq-item reveal reveal-delay-2">
+          <summary>Who is Talk The Taste best for?</summary>
           <p>
             TTT is best for restaurants, hospitality brands, startups, service
             businesses and companies that need consistent content, stronger
             brand identity, a better website or a custom digital product.
           </p>
-        </div>
-        <div class="faq-item reveal reveal-delay-3">
-          <h3>How do I start a project?</h3>
+        </details>
+        <details class="faq-item reveal reveal-delay-3">
+          <summary>How do I start a project?</summary>
           <p>
             Send a message through the contact form, WhatsApp +971 56 539 0316
             or email hi@talkthetaste.com. The team will review your goals,
             budget and timeline before recommending the right scope.
           </p>
-        </div>
+        </details>
       </div>
     </section>
 
@@ -1287,7 +1293,7 @@
         })();
 
         document
-          .querySelectorAll("a, button, [role=button], .svc-row, .work-card")
+          .querySelectorAll("a, button, summary, [role=button], .svc-row, .work-card")
           .forEach((el) => {
             el.addEventListener("mouseenter", () => {
               c.classList.add("active");
@@ -1326,6 +1332,22 @@
           { threshold: 0.12 },
         );
         document.querySelectorAll(".reveal").forEach((el) => obs.observe(el));
+      })();
+
+      /* ---- FAQ ACCORDION ---- */
+      (function () {
+        document.querySelectorAll(".faq-grid").forEach((grid) => {
+          grid.addEventListener(
+            "toggle",
+            (event) => {
+              if (!event.target.open) return;
+              grid.querySelectorAll(".faq-item[open]").forEach((item) => {
+                if (item !== event.target) item.removeAttribute("open");
+              });
+            },
+            true,
+          );
+        });
       })();
 
       // Animate stat numbers when they come into view

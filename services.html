@@ -391,22 +391,22 @@
         <h2 class="sec-title reveal" style="text-align:center;">Questions brands ask before hiring us.</h2>
     </div>
     <div class="faq-grid">
-        <div class="faq-item reveal">
-            <h3>Can one agency handle strategy, content, website and software?</h3>
+        <details class="faq-item reveal">
+            <summary>Can one agency handle strategy, content, website and software?</summary>
             <p>Yes. Talk The Taste is built as a creative and digital team, so your brand strategy, content, website, mobile app and software work stay aligned.</p>
-        </div>
-        <div class="faq-item reveal reveal-delay-1">
-            <h3>Do you offer social media management in Dubai?</h3>
+        </details>
+        <details class="faq-item reveal reveal-delay-1">
+            <summary>Do you offer social media management in Dubai?</summary>
             <p>Yes. TTT manages social media strategy, content planning, creative production, posting and campaign optimization for Dubai and UAE businesses.</p>
-        </div>
-        <div class="faq-item reveal reveal-delay-2">
-            <h3>Do you build websites and mobile apps?</h3>
+        </details>
+        <details class="faq-item reveal reveal-delay-2">
+            <summary>Do you build websites and mobile apps?</summary>
             <p>Yes. The team designs and develops websites, landing pages, e-commerce experiences, mobile apps and custom software for brand and business workflows.</p>
-        </div>
-        <div class="faq-item reveal reveal-delay-3">
-            <h3>What industries do you work with?</h3>
+        </details>
+        <details class="faq-item reveal reveal-delay-3">
+            <summary>What industries do you work with?</summary>
             <p>TTT works especially well with restaurants, hospitality, lifestyle brands, startups and service companies that need stronger digital presence and consistent creative output.</p>
-        </div>
+        </details>
     </div>
 </section>
 
@@ -464,8 +464,16 @@
     const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.08});
     document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
     document.addEventListener('mouseover',e=>{
-        if(e.target.closest('a,button')){cur.classList.add('active');ring.classList.add('active');}
+        if(e.target.closest('a,button,summary')){cur.classList.add('active');ring.classList.add('active');}
         else{cur.classList.remove('active');ring.classList.remove('active');}
+    });
+    document.querySelectorAll('.faq-grid').forEach(grid => {
+        grid.addEventListener('toggle', event => {
+            if (!event.target.open) return;
+            grid.querySelectorAll('.faq-item[open]').forEach(item => {
+                if (item !== event.target) item.removeAttribute('open');
+            });
+        }, true);
     });
 })();
 </script>
