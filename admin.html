@@ -203,6 +203,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
     font-family:'Inter',sans-serif;
 }
 .content-editor:focus { border-color:var(--gold); }
+.content-editor:empty::before { content:attr(placeholder); color:var(--gray); pointer-events:none; }
 .editor-toolbar { display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap; }
 .ed-btn {
     background:var(--surface-2); border:1px solid var(--border); border-radius:6px;
@@ -210,6 +211,17 @@ tr:hover td { background:rgba(255,255,255,.015); }
     transition:all .2s;
 }
 .ed-btn:hover { border-color:var(--gold); color:var(--gold); }
+.layout-builder { background:var(--black); border:1px solid var(--border); border-radius:12px; padding:14px; margin-bottom:10px; }
+.layout-help { font-size:11px; color:var(--gray); line-height:1.5; margin-top:6px; }
+.layout-slot-grid { display:grid; grid-template-columns:1fr; gap:10px; margin-top:12px; }
+.layout-slot {
+    border:1px dashed var(--border); border-radius:10px; padding:12px;
+    background:var(--surface-2); display:grid; grid-template-columns:1fr auto; gap:10px; align-items:center;
+}
+.layout-slot-title { font-size:12px; color:var(--gray-light); font-weight:600; }
+.layout-slot-preview { grid-column:1/-1; display:none; margin-top:4px; }
+.layout-slot-preview img { max-height:90px; max-width:100%; border-radius:8px; object-fit:contain; display:block; }
+.schedule-note { font-size:11px; color:var(--gray); line-height:1.5; margin-top:6px; }
 
 /* Btn variants */
 .btn-primary { background:var(--gold); color:var(--black); border:none; border-radius:100px; padding:12px 24px; font-family:'Syne',sans-serif; font-size:13px; font-weight:700; transition:all .3s; }
@@ -417,7 +429,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
                         </div>
                     </div>
                     <table>
-                        <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Service</th><th>Budget</th><th>Date</th><th></th></tr></thead>
+                        <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Interest</th><th>Status</th><th>Source</th><th>Date</th><th></th></tr></thead>
                         <tbody id="leadsTable"></tbody>
                     </table>
                 </div>
@@ -579,6 +591,26 @@ tr:hover td { background:rgba(255,255,255,.015); }
                 </div>
                 <div class="fg"><label>Date</label><input type="date" id="postDate"></div>
             </div>
+            <div class="fg-row">
+                <div class="fg"><label>Publish Status</label>
+                    <select id="postStatus">
+                        <option value="published">Publish now</option>
+                        <option value="scheduled">Schedule</option>
+                        <option value="draft">Draft</option>
+                    </select>
+                </div>
+                <div class="fg"><label>Time Zone</label>
+                    <select id="postScheduleTz">
+                        <option value="Asia/Dubai">Dubai (GST)</option>
+                        <option value="America/Los_Angeles">Los Angeles (PT)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="fg" id="postScheduleWrap" style="display:none;">
+                <label>Scheduled Date &amp; Time</label>
+                <input type="datetime-local" id="postScheduleAt">
+                <div class="schedule-note" id="postScheduleNote">Scheduled posts stay hidden until this date and time.</div>
+            </div>
             <div class="fg"><label>Author</label><input type="text" id="postAuthor" placeholder="TTT Team" value="TTT Team"></div>
             <div class="fg">
                 <label>Thumbnail Image (optional)</label>
@@ -598,6 +630,25 @@ tr:hover td { background:rgba(255,255,255,.015); }
             <div class="fg"><label>Short Excerpt *</label><textarea id="postExcerpt" style="min-height:80px" placeholder="1-2 sentence teaser for the blog listing page..."></textarea></div>
             <div class="fg">
                 <label>Post Content</label>
+                <div class="layout-builder">
+                    <div class="fg-row">
+                        <div class="fg" style="margin-bottom:0;"><label>Layout Block</label>
+                            <select id="postLayoutSelect">
+                                <option value="feature">Feature image + text</option>
+                                <option value="split">Two image split</option>
+                                <option value="trio">Three image story</option>
+                                <option value="gallery">Five image gallery</option>
+                            </select>
+                        </div>
+                        <div class="fg" style="margin-bottom:0;"><label>Layout Heading</label><input type="text" id="postLayoutHeading" placeholder="Optional section heading"></div>
+                    </div>
+                    <div class="fg" style="margin:12px 0 0;"><label>Layout Text</label><textarea id="postLayoutText" style="min-height:70px" placeholder="Optional text for this layout block..."></textarea></div>
+                    <div id="postLayoutSlots" class="layout-slot-grid"></div>
+                    <div style="display:flex;gap:10px;align-items:center;margin-top:12px;">
+                        <button type="button" class="btn-sm" id="insertLayoutBtn">Insert Layout</button>
+                        <span class="layout-help" id="postLayoutHelp">Upload the required image before inserting this block.</span>
+                    </div>
+                </div>
                 <div class="editor-toolbar">
                     <button type="button" class="ed-btn" data-cmd="bold"><b>B</b></button>
                     <button type="button" class="ed-btn" data-cmd="italic"><i>I</i></button>
@@ -703,7 +754,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
 
     // ── COUNTS ─────────────────────────────────────────────────
     function refreshCounts() {
-        const projs = TTT.getProjects(), posts = TTT.getPosts(), leads = TTT.getLeads();
+        const projs = TTT.getProjects(), posts = TTT.getAllPosts(), leads = TTT.getLeads();
         document.getElementById('projCount').textContent = projs.length;
         document.getElementById('postCount').textContent = posts.length;
         const unreadLeads = leads.filter(l=>!l.read).length;
@@ -712,7 +763,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
         document.getElementById('dash-projects').textContent = projs.length;
         document.getElementById('dash-featured-projects').textContent = projs.filter(p=>p.featured).length;
         document.getElementById('dash-posts').textContent = posts.length;
-        document.getElementById('dash-featured-posts').textContent = posts.filter(p=>p.featured).length;
+        document.getElementById('dash-featured-posts').textContent = posts.filter(p=>p.featured && TTT.isPostLive(p)).length;
         document.getElementById('dash-leads').textContent = leads.length;
     }
 
@@ -722,7 +773,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
         document.getElementById('dash-proj-list').innerHTML = projs.length
             ? projs.map(p=>`<tr><td class="td-title">${p.title}</td><td><span class="td-badge">${p.category||''}</span></td></tr>`).join('')
             : `<tr><td colspan="2" class="empty-row">No projects yet</td></tr>`;
-        const posts = TTT.getPosts().slice(0,5);
+        const posts = TTT.getAllPosts().slice(0,5);
         document.getElementById('dash-post-list').innerHTML = posts.length
             ? posts.map(p=>`<tr><td class="td-title">${p.title}</td><td>${TTT.formatDate(p.date)}</td></tr>`).join('')
             : `<tr><td colspan="2" class="empty-row">No posts yet</td></tr>`;
@@ -835,7 +886,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
     document.getElementById('postSearch').addEventListener('input', e => { postSearchTerm = e.target.value.toLowerCase(); renderPosts(); });
 
     function renderPosts() {
-        let list = TTT.getPosts();
+        let list = TTT.getAllPosts();
         if (postSearchTerm) list = list.filter(p => p.title.toLowerCase().includes(postSearchTerm) || (p.category||'').toLowerCase().includes(postSearchTerm));
         const tb = document.getElementById('postTable');
         if (!list.length) { tb.innerHTML = `<tr><td colspan="6" class="empty-row">No posts found. <button class="btn-sm" onclick="openPostForm()" style="margin-left:8px;">Write your first →</button></td></tr>`; return; }
@@ -844,10 +895,10 @@ tr:hover td { background:rgba(255,255,255,.015); }
                 <td class="td-title">${p.title}</td>
                 <td><span class="td-badge">${p.category||''}</span></td>
                 <td style="font-size:12px;color:var(--gray)">${p.author||''}</td>
-                <td>${p.featured ? '<span class="td-badge featured">Featured</span>' : '<span style="font-size:12px;color:var(--gray)"> - </span>'}</td>
-                <td style="font-size:12px;color:var(--gray)">${TTT.formatDate(p.date)}</td>
+                <td>${postStatusBadge(p)}</td>
+                <td style="font-size:12px;color:var(--gray)">${postDateLabel(p)}</td>
                 <td><div class="row-actions">
-                    <a class="btn-sm" href="post.html?id=${p.slug}" target="_blank">View</a>
+                    <a class="btn-sm" href="post.html?id=${p.slug}${TTT.isPostLive(p) ? '' : '&preview=1'}" target="_blank">${TTT.isPostLive(p) ? 'View' : 'Preview'}</a>
                     <button class="btn-sm" onclick="openPostForm('${p.id}')">Edit</button>
                     <button class="btn-sm danger" onclick="deletePost('${p.id}')">Delete</button>
                 </div></td>
@@ -855,8 +906,22 @@ tr:hover td { background:rgba(255,255,255,.015); }
         `).join('');
     }
 
+    function postStatusBadge(p) {
+        if (p.status === 'draft') return '<span style="font-size:12px;color:var(--gray)">Draft</span>';
+        if (p.status === 'scheduled' && !TTT.isPostLive(p)) return '<span class="td-badge">Scheduled</span>';
+        const label = p.featured ? 'Live + Featured' : 'Live';
+        return `<span class="td-badge featured">${label}</span>`;
+    }
+
+    function postDateLabel(p) {
+        if (p.status === 'scheduled' && p.scheduledAt) {
+            return `Publishes ${formatScheduledDisplay(p.scheduledAt, p.scheduledTimezone)}`;
+        }
+        return TTT.formatDate(p.date);
+    }
+
     window.openPostForm = function(id) {
-        const p = id ? TTT.getPost(id) : null;
+        const p = id ? TTT.getAllPosts().find(post => post.id === id) : null;
         document.getElementById('postFormTitle').textContent = p ? 'Edit Post' : 'New Blog Post';
         document.getElementById('postId').value = p ? p.id : '';
         document.getElementById('postTitle').value = p ? p.title : '';
@@ -867,6 +932,11 @@ tr:hover td { background:rgba(255,255,255,.015); }
         document.getElementById('postExcerpt').value = p ? p.excerpt : '';
         document.getElementById('postContent').innerHTML = p ? p.content : '';
         document.getElementById('postFeatured').checked = p ? p.featured : false;
+        document.getElementById('postStatus').value = p ? (p.status || 'published') : 'published';
+        document.getElementById('postScheduleTz').value = p ? (p.scheduledTimezone || 'Asia/Dubai') : 'Asia/Dubai';
+        document.getElementById('postScheduleAt').value = p && p.scheduledAt ? utcToDatetimeLocal(p.scheduledAt, p.scheduledTimezone || 'Asia/Dubai') : '';
+        updateScheduleFields();
+        resetLayoutBuilder();
         // Thumbnail
         const thumbData = p ? (p.thumbnail || '') : '';
         document.getElementById('postThumbData').value = thumbData;
@@ -889,6 +959,155 @@ tr:hover td { background:rgba(255,255,255,.015); }
             document.getElementById('postSlug').value = TTT._slug(this.value);
         }
     });
+
+    const POST_TIMEZONES = {
+        'Asia/Dubai': 'Dubai',
+        'America/Los_Angeles': 'Los Angeles',
+    };
+    const POST_LAYOUTS = {
+        feature: { label:'Feature image + text', images:1, className:'feature' },
+        split: { label:'Two image split', images:2, className:'split' },
+        trio: { label:'Three image story', images:3, className:'trio' },
+        gallery: { label:'Five image gallery', images:5, className:'gallery' },
+    };
+    let layoutImages = [];
+
+    document.getElementById('postStatus').addEventListener('change', updateScheduleFields);
+    document.getElementById('postScheduleTz').addEventListener('change', () => {
+        const currentUtc = datetimeLocalToUtc(document.getElementById('postScheduleAt').value, document.getElementById('postScheduleTz').value);
+        if (currentUtc) document.getElementById('postScheduleNote').textContent = `Publishes at ${formatScheduledDisplay(currentUtc, document.getElementById('postScheduleTz').value)}.`;
+    });
+    document.getElementById('postScheduleAt').addEventListener('input', updateScheduleNote);
+    document.getElementById('postLayoutSelect').addEventListener('change', resetLayoutBuilder);
+    document.getElementById('insertLayoutBtn').addEventListener('click', insertLayoutBlock);
+
+    function updateScheduleFields() {
+        const isScheduled = document.getElementById('postStatus').value === 'scheduled';
+        document.getElementById('postScheduleWrap').style.display = isScheduled ? '' : 'none';
+        if (isScheduled && !document.getElementById('postScheduleAt').value) {
+            const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
+            tomorrow.setMinutes(0, 0, 0);
+            document.getElementById('postScheduleAt').value = tomorrow.toISOString().slice(0,16);
+        }
+        updateScheduleNote();
+    }
+
+    function updateScheduleNote() {
+        const value = document.getElementById('postScheduleAt').value;
+        const zone = document.getElementById('postScheduleTz').value;
+        const utc = datetimeLocalToUtc(value, zone);
+        document.getElementById('postScheduleNote').textContent = utc
+            ? `Publishes at ${formatScheduledDisplay(utc, zone)}.`
+            : 'Scheduled posts stay hidden until this date and time.';
+    }
+
+    function resetLayoutBuilder() {
+        const layout = POST_LAYOUTS[document.getElementById('postLayoutSelect').value] || POST_LAYOUTS.feature;
+        layoutImages = Array(layout.images).fill('');
+        document.getElementById('postLayoutHeading').value = '';
+        document.getElementById('postLayoutText').value = '';
+        renderLayoutSlots();
+    }
+
+    function renderLayoutSlots() {
+        const layout = POST_LAYOUTS[document.getElementById('postLayoutSelect').value] || POST_LAYOUTS.feature;
+        document.getElementById('postLayoutHelp').textContent = `${layout.label} requires ${layout.images} image${layout.images === 1 ? '' : 's'}.`;
+        document.getElementById('postLayoutSlots').innerHTML = layoutImages.map((src, index) => `
+            <div class="layout-slot">
+                <div class="layout-slot-title">Image ${index + 1} of ${layout.images}</div>
+                <label class="btn-sm" style="text-align:center;cursor:pointer;">
+                    Upload
+                    <input type="file" accept="image/*" data-layout-image="${index}" style="display:none">
+                </label>
+                <button type="button" class="btn-sm danger" data-layout-clear="${index}" style="${src ? '' : 'display:none'}">Remove</button>
+                <div class="layout-slot-preview" style="${src ? 'display:block' : ''}">${src ? `<img src="${src}" alt="Layout image ${index + 1}">` : ''}</div>
+            </div>
+        `).join('');
+        document.querySelectorAll('[data-layout-image]').forEach(input => {
+            input.addEventListener('change', function() {
+                const file = this.files[0];
+                const index = Number(this.dataset.layoutImage);
+                if (!file) return;
+                TTT.resizeImage(file, 900, 650, 0.72, (b64) => {
+                    if (!b64) { toast('Image could not be loaded', 'error'); return; }
+                    layoutImages[index] = b64;
+                    renderLayoutSlots();
+                });
+                this.value = '';
+            });
+        });
+        document.querySelectorAll('[data-layout-clear]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                layoutImages[Number(btn.dataset.layoutClear)] = '';
+                renderLayoutSlots();
+            });
+        });
+    }
+
+    function insertLayoutBlock() {
+        const key = document.getElementById('postLayoutSelect').value;
+        const layout = POST_LAYOUTS[key] || POST_LAYOUTS.feature;
+        if (layoutImages.some(src => !src)) {
+            toast(`Upload all ${layout.images} required layout images first`, 'error');
+            return;
+        }
+        const heading = escapeHtml(document.getElementById('postLayoutHeading').value.trim());
+        const text = escapeHtml(document.getElementById('postLayoutText').value.trim()).replace(/\n+/g, '<br>');
+        const images = layoutImages.map((src, i) => `<figure><img src="${src}" alt="${heading || layout.label} image ${i + 1}"></figure>`).join('');
+        const html = `<section class="post-layout-block post-layout-${layout.className}">${heading ? `<h2>${heading}</h2>` : ''}${text ? `<p>${text}</p>` : ''}<div class="post-layout-images">${images}</div></section><p><br></p>`;
+        document.getElementById('postContent').focus();
+        document.execCommand('insertHTML', false, html);
+        resetLayoutBuilder();
+        toast('Layout inserted', 'success');
+    }
+
+    function datetimeLocalToUtc(value, zone) {
+        if (!value) return '';
+        const parts = value.match(/^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})$/);
+        if (!parts) return '';
+        const utcGuess = Date.UTC(+parts[1], +parts[2] - 1, +parts[3], +parts[4], +parts[5]);
+        const offset = getTimeZoneOffset(new Date(utcGuess), zone);
+        const firstPass = utcGuess - offset;
+        const corrected = utcGuess - getTimeZoneOffset(new Date(firstPass), zone);
+        return new Date(corrected).toISOString();
+    }
+
+    function getTimeZoneOffset(date, zone) {
+        const parts = new Intl.DateTimeFormat('en-US', {
+            timeZone: zone, year:'numeric', month:'2-digit', day:'2-digit',
+            hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false,
+        }).formatToParts(date).reduce((acc, part) => {
+            if (part.type !== 'literal') acc[part.type] = part.value;
+            return acc;
+        }, {});
+        const asUtc = Date.UTC(+parts.year, +parts.month - 1, +parts.day, +parts.hour, +parts.minute, +parts.second);
+        return asUtc - date.getTime();
+    }
+
+    function utcToDatetimeLocal(iso, zone) {
+        const parts = new Intl.DateTimeFormat('en-CA', {
+            timeZone: zone, year:'numeric', month:'2-digit', day:'2-digit',
+            hour:'2-digit', minute:'2-digit', hour12:false,
+        }).formatToParts(new Date(iso)).reduce((acc, part) => {
+            if (part.type !== 'literal') acc[part.type] = part.value;
+            return acc;
+        }, {});
+        return `${parts.year}-${parts.month}-${parts.day}T${parts.hour}:${parts.minute}`;
+    }
+
+    function formatScheduledDisplay(iso, zone) {
+        if (!iso) return '';
+        return new Intl.DateTimeFormat('en-US', {
+            timeZone: zone, year:'numeric', month:'short', day:'numeric',
+            hour:'numeric', minute:'2-digit', timeZoneName:'short',
+        }).format(new Date(iso));
+    }
+
+    function escapeHtml(value) {
+        const div = document.createElement('div');
+        div.textContent = value;
+        return div.innerHTML;
+    }
 
     // Editor toolbar
     document.querySelectorAll('.ed-btn[data-cmd]').forEach(btn => {
@@ -923,6 +1142,15 @@ tr:hover td { background:rgba(255,255,255,.015); }
         const title = document.getElementById('postTitle').value.trim();
         if (!title) { toast('Title is required', 'error'); return false; }
         const slug = document.getElementById('postSlug').value.trim() || TTT._slug(title);
+        const status = document.getElementById('postStatus').value;
+        const scheduledTimezone = document.getElementById('postScheduleTz').value;
+        const scheduledAt = status === 'scheduled' ? datetimeLocalToUtc(document.getElementById('postScheduleAt').value, scheduledTimezone) : '';
+        if (status === 'scheduled') {
+            if (!scheduledAt) { toast('Schedule date and time are required', 'error'); return false; }
+            if (!id && new Date(scheduledAt).getTime() <= Date.now()) { toast('Choose a future publish time', 'error'); return false; }
+        }
+        if (!document.getElementById('postExcerpt').value.trim()) { toast('Excerpt is required', 'error'); return false; }
+        if (!document.getElementById('postContent').innerHTML.trim()) { toast('Post content is required', 'error'); return false; }
         const data = {
             title, slug,
             category: document.getElementById('postCat').value,
@@ -932,6 +1160,10 @@ tr:hover td { background:rgba(255,255,255,.015); }
             content: document.getElementById('postContent').innerHTML,
             thumbnail: document.getElementById('postThumbData').value,
             featured: document.getElementById('postFeatured').checked,
+            status,
+            scheduledAt,
+            scheduledTimezone,
+            layout: document.getElementById('postLayoutSelect').value,
         };
         const result = id ? TTT.updatePost(id, data) : TTT.addPost(data);
         if (result === null) {
@@ -948,12 +1180,13 @@ tr:hover td { background:rgba(255,255,255,.015); }
         const now = new Date().toLocaleTimeString();
         const statusEl = document.getElementById('postSaveStatus');
         statusEl.style.display = 'block';
-        statusEl.innerHTML = `<span style="color:#22C55E">✓ Saved at ${now}</span> - <a href="post.html?id=${savedSlug}" target="_blank" style="color:var(--gold)">View post →</a>`;
+        statusEl.innerHTML = `<span style="color:#22C55E">✓ Saved at ${now}</span> - <a href="post.html?id=${savedSlug}${TTT.isPostLive(result) ? '' : '&preview=1'}" target="_blank" style="color:var(--gold)">${TTT.isPostLive(result) ? 'View post' : 'Preview post'} →</a>`;
         renderPosts(); renderDashboard(); refreshCounts(); updateStorageUsage();
         if (andPreview) {
-            window.open('post.html?id=' + savedSlug, '_blank');
+            window.open('post.html?id=' + savedSlug + (TTT.isPostLive(result) ? '' : '&preview=1'), '_blank');
         } else {
-            toast((id ? 'Post updated' : 'Post published') + ' ✓', 'success');
+            const verb = status === 'scheduled' ? 'scheduled' : status === 'draft' ? 'saved as draft' : (id ? 'updated' : 'published');
+            toast(`Post ${verb} ✓`, 'success');
             closeOverlay('postOverlay');
         }
         return true;
@@ -1035,7 +1268,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
 
     // Export
     document.getElementById('exportData').addEventListener('click', () => {
-        const data = { projects: TTT.getProjects(), posts: TTT.getPosts(), settings: TTT.getSettings(), exportedAt: new Date().toISOString() };
+        const data = { projects: TTT.getProjects(), posts: TTT.getAllPosts(), settings: TTT.getSettings(), exportedAt: new Date().toISOString() };
         const blob = new Blob([JSON.stringify(data, null, 2)], { type:'application/json' });
         const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'ttt-data.json'; a.click();
     });
@@ -1057,7 +1290,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
         if (!confirm('This will remove all uploaded images from posts and projects to free up storage space.\n\nText content and all other data will be kept.\n\nContinue?')) return;
         try {
             // Strip thumbnails and inline images from posts
-            const posts = TTT.getPosts().map(p => ({
+            const posts = TTT.getAllPosts().map(p => ({
                 ...p,
                 thumbnail: '',
                 content: (p.content || '').replace(/<img[^>]*src\s*=\s*["']data:[^"']*["'][^>]*>/gi, '')
@@ -1109,7 +1342,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
         );
         const tb = document.getElementById('leadsTable');
         if (!list.length) {
-            tb.innerHTML = `<tr><td colspan="7" class="empty-row">No leads yet. They'll appear here when visitors submit the contact form.</td></tr>`;
+            tb.innerHTML = `<tr><td colspan="8" class="empty-row">No leads yet. They'll appear here when visitors submit the contact form.</td></tr>`;
             return;
         }
         tb.innerHTML = list.map(l => `
@@ -1121,8 +1354,20 @@ tr:hover td { background:rgba(255,255,255,.015); }
                 </td>
                 <td><a href="mailto:${l.email}" style="color:var(--gold);font-size:12px;">${l.email}</a></td>
                 <td style="font-size:12px;color:var(--gray)">${l.phone || ' - '}</td>
-                <td style="font-size:12px;color:var(--gray)">${l.service||' - '}</td>
-                <td style="font-size:12px;color:var(--gray)">${l.budget||' - '}</td>
+                <td style="font-size:12px;color:var(--gray)">
+                    ${l.interest || l.service || ' - '}
+                    ${l.package ? `<div style="font-size:11px;color:var(--gold);margin-top:3px;">${l.package}</div>` : ''}
+                    ${l.budget ? `<div style="font-size:11px;color:var(--gray);margin-top:3px;">${l.budget}</div>` : ''}
+                </td>
+                <td>
+                    <select onchange="updateLeadStatus('${l.id}', this.value)" style="background:var(--black);border:1px solid var(--border);border-radius:8px;color:var(--gray-light);font-size:12px;padding:7px 9px;">
+                        ${['new','contacted','qualified','won','lost'].map(status => `<option value="${status}" ${(l.status || 'new') === status ? 'selected' : ''}>${status[0].toUpperCase() + status.slice(1)}</option>`).join('')}
+                    </select>
+                </td>
+                <td style="font-size:12px;color:var(--gray)">
+                    ${l.source || 'Website'}
+                    ${l.page ? `<div style="font-size:11px;color:var(--gray);margin-top:3px;">${l.page}</div>` : ''}
+                </td>
                 <td style="font-size:12px;color:var(--gray)">${TTT.formatDate(l.date)}</td>
                 <td><div class="row-actions">
                     <button class="btn-sm" onclick="viewLead('${l.id}')">View</button>
@@ -1146,10 +1391,27 @@ tr:hover td { background:rgba(255,255,255,.015); }
             l.company ? `Company: ${l.company}` : '',
             l.service ? `Service: ${l.service}` : '',
             l.budget ? `Budget: ${l.budget}` : '',
+            l.source ? `Source: ${l.source}` : '',
+            l.interest ? `Interest: ${l.interest}` : '',
+            l.package ? `Package: ${l.package}` : '',
+            l.page ? `Page: ${l.page}` : '',
+            `Status: ${l.status || 'new'}`,
             `Date: ${TTT.formatDate(l.date)}`,
             `\nMessage:\n${l.message}`,
         ].filter(Boolean).join('\n');
         alert(msg);
+    };
+
+    window.updateLeadStatus = function(id, status) {
+        const list = TTT.getLeads();
+        const idx = list.findIndex(l => l.id === id);
+        if (idx === -1) return;
+        list[idx].status = status;
+        list[idx].read = true;
+        try { localStorage.setItem(TTT.KEYS.leads, JSON.stringify(list)); } catch(e) {}
+        TTT.API.saveLeads(list);
+        renderLeads(); refreshCounts();
+        toast('Lead status updated', 'success');
     };
 
     window.deleteLead = function(id) {

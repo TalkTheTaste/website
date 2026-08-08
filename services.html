@@ -128,9 +128,16 @@
         .process-dot { width:52px;height:52px;border-radius:50%;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto 24px;font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;color:var(--text); }
         .process-step h3 { font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;margin-bottom:10px;color:var(--text); }
         .process-step p { font-size:13px;color:var(--text-muted);line-height:1.65; }
+        .growth-links { display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:36px; }
+        .growth-link { background:var(--surface);border:1px solid var(--border);padding:26px;border-radius:0;color:inherit;text-decoration:none;transition:background .25s; }
+        .growth-link:first-child { border-radius:16px 0 0 16px; }
+        .growth-link:last-child { border-radius:0 16px 16px 0; }
+        .growth-link:hover { background:var(--bg-alt); }
+        .growth-link h3 { font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text); }
+        .growth-link p { font-size:13px;color:var(--text-muted);line-height:1.6; }
 
-        @media(max-width:1000px){ .services-grid{grid-template-columns:1fr 1fr} .svc-card:nth-child(2n){border-right:none} .svc-card:nth-child(3n){border-right:1px solid var(--border)} .process-grid{grid-template-columns:1fr 1fr;gap:2px} .why-grid{grid-template-columns:1fr} }
-        @media(max-width:640px){ .services-grid{grid-template-columns:1fr} .svc-card{border-right:none} .svc-card:nth-child(n){border-right:none} .process-grid{grid-template-columns:1fr} .process-step{border-radius:0} .process-step:first-child{border-radius:20px 20px 0 0} .process-step:last-child{border-radius:0 0 20px 20px} }
+        @media(max-width:1000px){ .services-grid{grid-template-columns:1fr 1fr} .svc-card:nth-child(2n){border-right:none} .svc-card:nth-child(3n){border-right:1px solid var(--border)} .process-grid{grid-template-columns:1fr 1fr;gap:2px} .why-grid{grid-template-columns:1fr} .growth-links{grid-template-columns:1fr 1fr} }
+        @media(max-width:640px){ .services-grid{grid-template-columns:1fr} .svc-card{border-right:none} .svc-card:nth-child(n){border-right:none} .process-grid{grid-template-columns:1fr} .process-step{border-radius:0} .process-step:first-child{border-radius:20px 20px 0 0} .process-step:last-child{border-radius:0 0 20px 20px} .growth-links{grid-template-columns:1fr}.growth-link,.growth-link:first-child,.growth-link:last-child{border-radius:0} }
     </style>
 </head>
 <body>
@@ -295,11 +302,25 @@
         <div class="svc-card svc-cta">
             <div class="svc-cta-title">Ready to start your project?</div>
             <p>Every service starts with a clear plan. Tell us what you need and we will suggest the right scope.</p>
-            <a href="/contact" class="btn-gold" style="align-self:flex-start">
-                Get in Touch
+            <a href="/contact#free-audit" class="btn-gold" style="align-self:flex-start" data-track="audit_cta_click" data-track-label="Services CTA">
+                Get Free Audit
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
         </div>
+    </div>
+</section>
+
+<!-- GROWTH PAGES -->
+<section class="sec" style="padding-top:0;">
+    <div style="text-align:center;max-width:680px;margin:0 auto 16px;">
+        <div class="eyebrow reveal" style="justify-content:center;">Growth Paths</div>
+        <h2 class="sec-title reveal" style="text-align:center;">Choose the fastest path to more leads.</h2>
+    </div>
+    <div class="growth-links">
+        <a class="growth-link reveal" href="/social-media-marketing-dubai"><h3>Social Media Marketing Dubai</h3><p>Content, reels, ads and monthly management for better reach and enquiries.</p></a>
+        <a class="growth-link reveal reveal-delay-1" href="/web-design-dubai"><h3>Web Design Dubai</h3><p>Premium websites and landing pages built for trust, speed and conversion.</p></a>
+        <a class="growth-link reveal reveal-delay-2" href="/branding-agency-dubai"><h3>Branding Agency Dubai</h3><p>Identity, messaging and launch systems that make the brand feel premium.</p></a>
+        <a class="growth-link reveal reveal-delay-3" href="/restaurant-marketing-dubai"><h3>Restaurant Marketing Dubai</h3><p>Food content, social campaigns and conversion fixes for F&amp;B brands.</p></a>
     </div>
 </section>
 
@@ -399,8 +420,8 @@
         <h2 class="sec-title reveal" style="color:var(--bg);margin-bottom:24px;">Let's build something<br>worth talking about.</h2>
         <p style="font-size:16px;color:rgba(250,250,248,.5);max-width:480px;margin:0 auto 40px;line-height:1.75;" class="reveal reveal-delay-1">Tell us about your project. We'll get back to you within one business day with a clear plan of action.</p>
         <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;" class="reveal reveal-delay-2">
-            <a href="/contact" class="btn-primary" style="background:var(--gold);color:var(--text);">
-                Start a project
+            <a href="/contact#free-audit" class="btn-primary" style="background:var(--gold);color:var(--text);" data-track="audit_cta_click" data-track-label="Services bottom CTA">
+                Get a free audit
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <a href="/work" class="btn-ghost" style="color:rgba(250,250,248,.5);">See our work →</a>
@@ -432,6 +453,7 @@
 </footer>
 
 <script src="js/data.js"></script>
+<script src="js/conversion.js"></script>
 <script>
 (function(){
     const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');

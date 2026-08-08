@@ -40,6 +40,12 @@ if (!fs.existsSync(FILES.settings)) fs.writeFileSync(FILES.settings, JSON.string
 // ── Helpers ──────────────────────────────────────────────────
 function read(file)        { try { return JSON.parse(fs.readFileSync(file, 'utf8')); } catch { return file === FILES.settings ? {} : []; } }
 function write(file, data) { fs.writeFileSync(file, JSON.stringify(data, null, 2)); }
+function isPostLive(post, now = Date.now()) {
+    if (!post) return false;
+    if (post.status === 'draft') return false;
+    if (post.status === 'scheduled') return post.scheduledAt && new Date(post.scheduledAt).getTime() <= now;
+    return true;
+}
 
 // ── Middleware ───────────────────────────────────────────────
 app.use(express.json({ limit: '20mb' }));
@@ -93,7 +99,7 @@ app.get('/api/projects',       (req, res) => res.json(read(FILES.projects)));
 app.post('/api/projects/save', auth, (req, res) => { write(FILES.projects, req.body); res.json({ ok: true }); });
 
 // ── POSTS ────────────────────────────────────────────────────
-app.get('/api/posts',       (req, res) => res.json(read(FILES.posts)));
+app.get('/api/posts',       (req, res) => res.json(read(FILES.posts).filter(isPostLive)));
 app.post('/api/posts/save', auth, (req, res) => { write(FILES.posts, req.body); res.json({ ok: true }); });
 
 // ── SETTINGS ─────────────────────────────────────────────────
@@ -116,10 +122,18 @@ app.post('/api/leads/submit', (req, res) => {
         fname:     req.body.fname   || '',
         lname:     req.body.lname   || '',
         email:     req.body.email   || '',
+        countryCode: req.body.countryCode || '',
         company:   req.body.company || '',
+        phone:     req.body.phone || '',
+        phoneRaw:  req.body.phoneRaw || '',
         service:   req.body.service || '',
         budget:    req.body.budget  || '',
         message:   req.body.message || '',
+        source:    req.body.source  || '',
+        interest:  req.body.interest || '',
+        package:   req.body.package || '',
+        page:      req.body.page    || '',
+        status:    req.body.status  || 'new',
         date:      new Date().toISOString().slice(0, 10),
         createdAt: Date.now(),
         read:      false,
@@ -132,8 +146,11 @@ app.post('/api/leads/submit', (req, res) => {
 // ── CATCH-ALL: serve HTML pages ──────────────────────────────
 app.get('*', (req, res) => {
     const filePath = path.join(ROOT, req.path);
+    const htmlPath = path.join(ROOT, `${req.path}.html`);
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
         res.sendFile(filePath);
+    } else if (fs.existsSync(htmlPath) && fs.statSync(htmlPath).isFile()) {
+        res.sendFile(htmlPath);
     } else {
         res.status(404).sendFile(path.join(ROOT, 'index.html'));
     }

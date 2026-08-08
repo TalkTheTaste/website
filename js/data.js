@@ -115,10 +115,23 @@ const TTT = {
     },
 
     // ── BLOG POSTS ───────────────────────────────────────────────
-    getPosts() {
+    getPosts(options = {}) {
         try {
-            return JSON.parse(localStorage.getItem(this.KEYS.posts) || '[]');
+            const posts = JSON.parse(localStorage.getItem(this.KEYS.posts) || '[]');
+            return options.includeScheduled ? posts : posts.filter(post => this.isPostLive(post));
         } catch { return []; }
+    },
+    getAllPosts() {
+        return this.getPosts({ includeScheduled: true });
+    },
+    isPostLive(post, now = new Date()) {
+        if (!post) return false;
+        if (post.status === 'draft') return false;
+        if (post.status === 'scheduled') {
+            if (!post.scheduledAt) return false;
+            return new Date(post.scheduledAt).getTime() <= now.getTime();
+        }
+        return true;
     },
     savePosts(list) {
         try {
@@ -128,9 +141,9 @@ const TTT = {
             return 'QUOTA: ' + (e.message || e.name || 'Storage full');
         }
     },
-    getPost(id) {
+    getPost(id, options = {}) {
         if (!id) return null;
-        const posts = this.getPosts();
+        const posts = options.includeScheduled ? this.getAllPosts() : this.getPosts();
         // Try slug first (stable), then fall back to ID
         return posts.find(p => p.slug === id) || posts.find(p => p.id === id) || null;
     },
@@ -139,7 +152,7 @@ const TTT = {
         return this.getPosts().find(p => p.slug === slug) || null;
     },
     addPost(data) {
-        const list = this.getPosts();
+        const list = this.getAllPosts();
         // Ensure slug is unique
         let slug = data.slug || this._slug(data.title || 'untitled');
         if (!slug) slug = 'post';
@@ -155,6 +168,10 @@ const TTT = {
             category:  data.category || 'Marketing',
             author:    data.author || 'TTT Team',
             featured:  data.featured || false,
+            status:    data.status || 'published',
+            scheduledAt: data.scheduledAt || '',
+            scheduledTimezone: data.scheduledTimezone || 'Asia/Dubai',
+            layout:    data.layout || 'standard',
             date:      data.date || new Date().toISOString().slice(0,10),
             createdAt: Date.now(),
         };
@@ -163,7 +180,7 @@ const TTT = {
         return err === true ? post : { _error: err };
     },
     updatePost(id, data) {
-        const list = this.getPosts();
+        const list = this.getAllPosts();
         const idx = list.findIndex(p => p.id === id);
         if (idx === -1) return null;
         list[idx] = { ...list[idx], ...data, id, updatedAt: Date.now() };
@@ -171,7 +188,7 @@ const TTT = {
         return err === true ? list[idx] : { _error: err };
     },
     deletePost(id) {
-        const list = this.getPosts().filter(p => p.id !== id);
+        const list = this.getAllPosts().filter(p => p.id !== id);
         this.savePosts(list);
     },
     getFeaturedPosts(limit = 3) {
@@ -200,6 +217,11 @@ const TTT = {
             service:   data.service || '',
             budget:    data.budget || '',
             message:   data.message || '',
+            source:    data.source || '',
+            interest:  data.interest || '',
+            package:   data.package || '',
+            page:      data.page || (typeof location !== 'undefined' ? location.pathname : ''),
+            status:    data.status || 'new',
             date:      new Date().toISOString().slice(0,10),
             createdAt: Date.now(),
             read:      false,
@@ -228,7 +250,7 @@ const TTT = {
             ];
             demos.forEach(d => this.addProject(d));
         }
-        if (this.getPosts().length === 0) {
+        if (this.getAllPosts().length === 0) {
             const p1id = this._uid();
             const p2id = this._uid();
             const p3id = this._uid();
@@ -250,6 +272,10 @@ const TTT = {
                     category:  d.category,
                     author:    d.author,
                     featured:  d.featured,
+                    status:    'published',
+                    scheduledAt: '',
+                    scheduledTimezone: 'Asia/Dubai',
+                    layout:    'standard',
                     date:      d.date,
                     createdAt: Date.now(),
                 });
@@ -429,7 +455,7 @@ TTT.API = {
     async submitLead(lead) {
         try {
             const response = await this.post('/api/leads/submit', lead);
-            return response.ok === true && response.notification && response.notification.ok === true;
+            return response.ok === true;
         } catch(e) {
             console.warn('Lead submit failed', e.message);
             return false;
@@ -480,4 +506,6 @@ TTT.API = {
     };
 })();
 
-TTT.API.initPublic();
+if (!new URLSearchParams(location.search).has('preview')) {
+    TTT.API.initPublic();
+}

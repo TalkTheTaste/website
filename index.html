@@ -274,6 +274,19 @@
           display: flex; gap: 16px;
           align-items: center; flex-shrink: 0;
       }
+      .hero-proof {
+          display: flex; gap: 10px; flex-wrap: wrap;
+          margin-top: 18px;
+      }
+      .proof-pill {
+          font-family: 'Inter', sans-serif;
+          font-size: 11px; font-weight: 600;
+          color: var(--text-muted);
+          border: 1px solid var(--border);
+          border-radius: 999px;
+          padding: 7px 11px;
+          background: rgba(255,255,255,0.64);
+      }
       .hero-stats {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -298,6 +311,31 @@
           color: var(--text-xmuted);
           text-transform: uppercase; letter-spacing: 1.5px;
       }
+      .audit-band {
+          background: var(--dark);
+          color: #fff;
+          padding: 52px 64px;
+      }
+      .audit-band-inner {
+          display: grid;
+          grid-template-columns: 1.2fr auto;
+          gap: 32px;
+          align-items: center;
+      }
+      .audit-band h2 {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: clamp(28px, 3.4vw, 46px);
+          line-height: 1.05;
+          letter-spacing: -1.4px;
+          margin-bottom: 12px;
+      }
+      .audit-band p {
+          color: rgba(255,255,255,0.56);
+          font-size: 15px;
+          line-height: 1.7;
+          max-width: 620px;
+      }
+      .audit-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-end; }
 
       @keyframes hFadeUp {
           from { opacity: 0; transform: translateY(20px); }
@@ -574,6 +612,9 @@
           .hero-headline { font-size: clamp(56px, 13vw, 100px); letter-spacing: -3px; }
           .hero-bottom-bar { flex-direction: column; align-items: flex-start; gap: 32px; padding: 32px 0; }
           .hero-actions { flex-wrap: wrap; }
+          .audit-band { padding: 42px 24px; }
+          .audit-band-inner { grid-template-columns: 1fr; }
+          .audit-actions { justify-content: flex-start; }
           .hero-stats { grid-template-columns: repeat(2, 1fr); }
           .hero-stats .stat-item:nth-child(2) { border-right: none; }
           .hero-stats .stat-item:nth-child(1),
@@ -711,18 +752,23 @@
 
       <div class="hero-center">
         <h1 class="hero-headline">
-          We make<br />
-          brands<br />people<br />remember.
+          We turn<br />
+          attention<br />into<br />enquiries.
         </h1>
       </div>
 
       <div class="hero-bottom-bar">
         <p class="hero-sub">
-          Strategy, content, web, software, and video from one team.
+          Dubai marketing, branding, websites, content and video built to bring better leads, not just better-looking posts.
+          <span class="hero-proof">
+            <span class="proof-pill">80+ brands grown</span>
+            <span class="proof-pill">12M+ content views</span>
+            <span class="proof-pill">Reply within 1 business day</span>
+          </span>
         </p>
         <div class="hero-actions">
-          <a href="/contact" class="btn-primary">Start a project →</a>
-          <a href="/work" class="btn-text-link">View our work</a>
+          <a href="/contact#free-audit" class="btn-primary" data-track="audit_cta_click" data-track-label="Homepage hero audit">Get a free growth audit →</a>
+          <a href="/work" class="btn-text-link">View proof</a>
         </div>
       </div>
 
@@ -742,6 +788,20 @@
         <div class="stat-item">
           <span class="stat-num" data-target="4.9" data-suffix="">4.9</span>
           <span class="stat-label">Client rating</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="audit-band">
+      <div class="audit-band-inner">
+        <div>
+          <span class="eyebrow" style="color:rgba(255,255,255,.32)">Free audit</span>
+          <h2>Want more form fills, WhatsApp clicks and booked calls?</h2>
+          <p>Send us your website or Instagram. We will identify the fastest fixes for stronger trust, clearer offers and more enquiries.</p>
+        </div>
+        <div class="audit-actions">
+          <a href="/contact#free-audit" class="btn-primary cta-btn-gold" data-track="audit_cta_click" data-track-label="Homepage audit band">Request audit →</a>
+          <a href="https://wa.me/971565390316?text=Hi%20TTT%2C%20I%20want%20a%20free%20growth%20audit.%20Here%20is%20my%20website%20or%20Instagram%3A%20" class="btn-outline-white" target="_blank" rel="noopener" data-track="whatsapp_click" data-source="Homepage audit band">WhatsApp now</a>
         </div>
       </div>
     </section>
@@ -1171,6 +1231,7 @@
 
     <script src="js/transitions.js"></script>
     <script src="js/data.js"></script>
+    <script src="js/conversion.js"></script>
     <script>
       /* ---- PRELOADER ---- */
       (function () {

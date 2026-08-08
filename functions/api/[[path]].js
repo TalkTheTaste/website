@@ -151,7 +151,10 @@ async function routeRequest(path, request, env) {
     return saveBody(request, env, 'projects', []);
   }
 
-  if (path === '/posts' && request.method === 'GET') return json(await readStore(env, 'posts'));
+  if (path === '/posts' && request.method === 'GET') {
+    const posts = await readStore(env, 'posts');
+    return json(posts.filter(isPostLive));
+  }
   if (path === '/posts/save' && request.method === 'POST') {
     await requireAuth(request, env);
     return saveBody(request, env, 'posts', []);
@@ -229,6 +232,11 @@ async function submitLead(request, env) {
     service: cleanText(body.service),
     budget: cleanText(body.budget),
     message: cleanText(body.message),
+    source: cleanText(body.source),
+    interest: cleanText(body.interest),
+    package: cleanText(body.package),
+    page: cleanText(body.page),
+    status: cleanText(body.status) || 'new',
     date: new Date().toISOString().slice(0, 10),
     createdAt: Date.now(),
     read: false,
@@ -252,6 +260,10 @@ async function notifyCallMeBot(env, lead) {
     `Company: ${lead.company || '-'}`,
     `Service: ${lead.service || '-'}`,
     `Budget: ${lead.budget || '-'}`,
+    `Source: ${lead.source || '-'}`,
+    `Interest: ${lead.interest || '-'}`,
+    `Package: ${lead.package || '-'}`,
+    `Page: ${lead.page || '-'}`,
     `Message: ${lead.message || '-'}`,
   ].join('\n');
 
@@ -369,6 +381,15 @@ function isOutdatedSeedData(key, value) {
   return value.length > 0 &&
     value.every((project) => seedIds.has(project.id)) &&
     value.every((project) => !project.image);
+}
+
+function isPostLive(post, now = Date.now()) {
+  if (!post) return false;
+  if (post.status === 'draft') return false;
+  if (post.status === 'scheduled') {
+    return post.scheduledAt && new Date(post.scheduledAt).getTime() <= now;
+  }
+  return true;
 }
 
 async function writeStore(env, key, value) {

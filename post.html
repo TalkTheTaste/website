@@ -47,6 +47,21 @@
         .post-content li { margin-bottom:10px; }
         .post-content blockquote { border-left:3px solid var(--border-dark);padding:16px 24px;background:var(--bg-alt);border-radius:0 12px 12px 0;margin:28px 0;font-style:italic;color:var(--text); }
         .post-content img { max-width:100%;height:auto;border-radius:16px;margin:24px 0;display:block;object-fit:contain; }
+        .post-layout-block { margin:40px 0;padding:28px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border); }
+        .post-layout-block h2 { margin-top:0; }
+        .post-layout-images { display:grid;gap:12px;margin-top:18px; }
+        .post-layout-images figure { margin:0;min-width:0; }
+        .post-layout-images img { width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;margin:0;border-radius:14px; }
+        .post-layout-feature .post-layout-images { grid-template-columns:1fr; }
+        .post-layout-feature .post-layout-images img { aspect-ratio:16/8; }
+        .post-layout-split .post-layout-images { grid-template-columns:repeat(2,1fr); }
+        .post-layout-trio .post-layout-images { grid-template-columns:1.2fr .8fr; }
+        .post-layout-trio .post-layout-images figure:first-child { grid-row:span 2; }
+        .post-layout-trio .post-layout-images figure:first-child img { aspect-ratio:4/5; }
+        .post-layout-gallery .post-layout-images { grid-template-columns:repeat(6,1fr); }
+        .post-layout-gallery .post-layout-images figure { grid-column:span 2; }
+        .post-layout-gallery .post-layout-images figure:nth-child(1),
+        .post-layout-gallery .post-layout-images figure:nth-child(2) { grid-column:span 3; }
 
         /* Share */
         .share-row { display:flex;align-items:center;gap:12px;padding-top:40px;margin-top:40px;border-top:1px solid var(--border); }
@@ -75,7 +90,7 @@
         .sidebar-cta p { font-size:13px;color:rgba(250,250,248,.5);line-height:1.65;margin-bottom:20px; }
 
         @media(max-width:1100px){ .post-layout{grid-template-columns:1fr} .sidebar{position:relative;top:auto} }
-        @media(max-width:640px){ .post-hero-img{aspect-ratio:16/9} .post-title{font-size:32px;letter-spacing:-1px} }
+        @media(max-width:640px){ .post-hero-img{aspect-ratio:16/9} .post-title{font-size:32px;letter-spacing:-1px} .post-layout-split .post-layout-images,.post-layout-trio .post-layout-images,.post-layout-gallery .post-layout-images{grid-template-columns:1fr}.post-layout-gallery .post-layout-images figure,.post-layout-gallery .post-layout-images figure:nth-child(1),.post-layout-gallery .post-layout-images figure:nth-child(2){grid-column:auto}.post-layout-trio .post-layout-images figure:first-child{grid-row:auto}.post-layout-feature .post-layout-images img{aspect-ratio:4/3} }
     </style>
 </head>
 <body>
@@ -219,12 +234,13 @@
     // Get post ID from URL
     const params = new URLSearchParams(location.search);
     const id = params.get('id');
+    const wantsPreview = params.get('preview') === '1';
 
     function showNotFound(reason) {
         document.getElementById('postNotFound').style.display = 'block';
         // Debug panel: show what was looked up vs what exists
         try {
-            const allPosts = TTT.getPosts();
+            const allPosts = wantsPreview ? TTT.getAllPosts() : TTT.getPosts();
             const debugEl = document.getElementById('postDebug');
             if (debugEl) {
                 debugEl.innerHTML =
@@ -243,7 +259,7 @@
         } catch(e) {}
     }
 
-    function renderPost() {
+    async function renderPost() {
         document.getElementById('postNotFound').style.display = 'none';
         document.getElementById('postLayout').style.display = 'none';
 
@@ -252,7 +268,9 @@
             return;
         }
 
-        const post = TTT.getPost(id);
+        const canPreview = wantsPreview && (TTT.isLoggedIn() || await TTT.API.checkSession());
+        if (canPreview) await TTT.API.init();
+        const post = TTT.getPost(id, { includeScheduled: canPreview });
         if (!post) {
             showNotFound('getPost returned null');
         } else {
