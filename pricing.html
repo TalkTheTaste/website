@@ -7,19 +7,19 @@
     <meta name="geo.region" content="AE-DU">
     <meta name="geo.placename" content="Dubai">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing | Transparent Agency Packages | Talk The Taste Dubai</title>
-    <meta name="description" content="Clear, transparent pricing for marketing, social media, web design, and creative packages. No hidden fees. TTT Dubai.">
+    <title>Pricing | Global Agency Packages | Talk The Taste</title>
+    <meta name="description" content="Clear pricing for social media, web design, SEO, ecommerce and creative packages for brands worldwide. UAE onsite shoots available.">
     <link rel="canonical" href="https://talkthetaste.com/pricing">
     <meta property="og:locale" content="en_AE">
     <meta property="og:site_name" content="Talk The Taste">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Creative Agency Pricing in Dubai | Talk The Taste">
-    <meta property="og:description" content="Transparent packages for social media management, marketing, web design, branding and creative production in Dubai.">
+    <meta property="og:title" content="Creative Agency Pricing | Talk The Taste">
+    <meta property="og:description" content="Transparent packages for social media management, SEO, web design, ecommerce, branding and creative production worldwide.">
     <meta property="og:url" content="https://talkthetaste.com/pricing">
     <meta property="og:image" content="https://talkthetaste.com/assets/site/home-hero.jpg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Creative Agency Pricing in Dubai | Talk The Taste">
-    <meta name="twitter:description" content="View transparent creative agency packages for UAE and Dubai brands.">
+    <meta name="twitter:title" content="Creative Agency Pricing | Talk The Taste">
+    <meta name="twitter:description" content="View transparent creative agency packages for brands worldwide.">
     <meta name="twitter:image" content="https://talkthetaste.com/assets/site/home-hero.jpg">
     <script type="application/ld+json">
     {
@@ -90,12 +90,9 @@
         .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--text-xmuted);margin-bottom:24px;}
         .eyebrow::before,.eyebrow::after{content:'';width:16px;height:1px;background:var(--text-xmuted);}
 
-        /* TOGGLE */
-        .region-toggle{display:inline-flex;align-items:center;gap:0;background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:4px;margin-bottom:0;}
-        .toggle-btn{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;padding:10px 28px;border-radius:100px;border:none;background:transparent;color:var(--text-muted);cursor:none;transition:all .25s;letter-spacing:.3px;display:flex;align-items:center;gap:8px;}
-        .toggle-btn.active{background:var(--text);color:var(--bg);}
-        .toggle-btn:not(.active):hover{color:var(--text);}
-        .toggle-flag{font-size:16px;}
+        /* GLOBAL PROOF */
+        .global-proof{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:-20px;}
+        .proof-pill{background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:10px 16px;font-size:12px;font-weight:600;color:var(--text-muted);}
 
         /* SECTION */
         .pricing-sec{padding:100px 64px;}
@@ -154,9 +151,17 @@
         .shoot-detail{font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px;}
         .shoot-detail::before{content:'→';color:var(--text);font-size:11px;font-weight:700;}
 
+        /* INFO PANELS */
+        .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:28px;}
+        .info-card{background:var(--surface);padding:28px;border-radius:0;}
+        .info-card:first-child{border-radius:16px 0 0 16px;}
+        .info-card:last-child{border-radius:0 16px 16px 0;}
+        .info-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;margin-bottom:8px;color:var(--text);}
+        .info-copy{font-size:13px;color:var(--text-muted);line-height:1.65;}
+
         /* UGC */
         .ugc-card{border:none;border-radius:20px;padding:52px;background:var(--dark);position:relative;overflow:hidden;color:var(--bg);}
-        .ugc-card::before{content:'USA ONLY';position:absolute;top:28px;right:28px;font-family:'Cormorant Garamond',serif;font-size:10px;font-weight:700;letter-spacing:2px;background:rgba(250,250,248,.08);border:1px solid rgba(250,250,248,.12);border-radius:100px;padding:5px 14px;color:rgba(250,250,248,.5);}
+        .ugc-card::before{content:'SELECT MARKETS';position:absolute;top:28px;right:28px;font-family:'Cormorant Garamond',serif;font-size:10px;font-weight:700;letter-spacing:2px;background:rgba(250,250,248,.08);border:1px solid rgba(250,250,248,.12);border-radius:100px;padding:5px 14px;color:rgba(250,250,248,.5);}
         .ugc-top{display:grid;grid-template-columns:1fr auto;gap:40px;align-items:start;margin-bottom:40px;}
         .ugc-price{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:700;color:var(--gold);line-height:1;white-space:nowrap;}
         .ugc-period{font-size:14px;color:rgba(250,250,248,.45);margin-top:6px;}
@@ -221,6 +226,8 @@
             .shoots-grid{grid-template-columns:1fr;}
             .ugc-top{grid-template-columns:1fr;}
             .ugc-features{grid-template-columns:1fr 1fr;}
+            .info-grid{grid-template-columns:1fr;}
+            .info-card:first-child,.info-card:last-child{border-radius:0;}
         }
         @media(max-width:900px){
             .nav-menu{display:none;}
@@ -287,22 +294,19 @@
 <section class="pricing-hero">
     <div class="eyebrow reveal">Transparent Pricing</div>
     <h1 class="reveal">Packages for<br>clear scopes.</h1>
-    <p class="reveal reveal-delay-1">No hidden fees. No surprises. Choose your region and find the package that fits your ambition, whether you're in Dubai or the US.</p>
-    <div class="region-toggle reveal reveal-delay-2" id="regionToggle">
-            <button class="toggle-btn active" id="btnUAE" onclick="setRegion('UAE')">
-                <span class="toggle-flag">🇦🇪</span> UAE - AED
-            </button>
-            <button class="toggle-btn" id="btnUS" onclick="setRegion('US')">
-                <span class="toggle-flag">🇺🇸</span> USA - USD
-            </button>
-        </div>
+    <p class="reveal reveal-delay-1">No hidden fees. No surprises. We work with brands worldwide, send secure payment links, and keep everything clear before you start.</p>
+    <div class="global-proof reveal reveal-delay-2">
+        <span class="proof-pill">Worldwide clients welcome</span>
+        <span class="proof-pill">Credit card, Apple Pay &amp; Samsung Pay</span>
+        <span class="proof-pill">Bank transfer available</span>
+    </div>
 </section>
 
 <!-- MANAGEMENT PACKAGES -->
 <section class="pricing-sec" style="background:var(--bg);">
     <div class="eyebrow reveal">Social Media Management</div>
     <div class="pricing-sec-title reveal">Monthly Packages</div>
-    <p class="pricing-sec-sub reveal reveal-delay-1">Full-service social media management with professional content creation, photography, and videography, everything your brand needs to dominate online.</p>
+    <p class="pricing-sec-sub reveal reveal-delay-1">Full-service social media management for brands anywhere in the world. UAE clients can include onsite shoots; global clients get strategy, editing, design, posting, reporting and remote creative direction.</p>
 
     <div class="packages-grid reveal">
         <!-- SIGNATURE -->
@@ -312,11 +316,10 @@
             <div class="pkg-tagline">Perfect for brands ready to build a strong, consistent presence.</div>
             <div class="pkg-price">
                 <div class="pkg-price-main">
-                    <span class="pkg-price-curr price-curr"></span>
-                    <span class="price-val" data-aed="4,000" data-usd="1,500">4,000</span>
+                    <span class="pkg-price-curr">AED</span>
+                    <span>4,000</span>
                 </div>
                 <div class="pkg-price-period">per month</div>
-                <div class="pkg-price-us alt-price" style="display:none"></div>
             </div>
             <div class="pkg-divider"></div>
             <ul class="pkg-features">
@@ -329,9 +332,8 @@
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>4 professionally edited video reels</li>
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>10 static social media posts</li>
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>15 creative story posts</li>
-                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>One photography &amp; videography shoot session
-                    <div class="pkg-note shoot-note-usd" style="display:none;">+ $500 additional for USA shoots</div>
-                </li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>One UAE onsite photography &amp; videography shoot session</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Worldwide remote support if you are outside the UAE</li>
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Account management with limited social media ads support</li>
             </ul>
             <a href="/contact?package=Signature%20Visibility%20Program#free-audit" class="pkg-cta" data-track="package_cta_click" data-track-label="Signature Visibility Program">Get Quote →</a>
@@ -345,11 +347,10 @@
             <div class="pkg-tagline">For brands serious about scaling fast with premium content.</div>
             <div class="pkg-price">
                 <div class="pkg-price-main">
-                    <span class="pkg-price-curr price-curr"></span>
-                    <span class="price-val" data-aed="7,000" data-usd="2,000">7,000</span>
+                    <span class="pkg-price-curr">AED</span>
+                    <span>7,000</span>
                 </div>
                 <div class="pkg-price-period">per month</div>
-                <div class="pkg-price-us alt-price" style="display:none"></div>
             </div>
             <div class="pkg-divider"></div>
             <ul class="pkg-features">
@@ -362,9 +363,8 @@
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>5-6 high-quality video reels</li>
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>14 static social media posts</li>
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>25 creative story posts</li>
-                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>One professional shoot session
-                    <div class="pkg-note shoot-note-usd" style="display:none;">+ $500 additional for USA shoots</div>
-                </li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>One UAE onsite professional shoot session</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Worldwide remote content direction and editing workflow</li>
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Account management with unlimited social media ads management</li>
             </ul>
             <a href="/contact?package=Growth%20Acceleration%20Program#free-audit" class="pkg-cta" data-track="package_cta_click" data-track-label="Growth Acceleration Program">Get Quote →</a>
@@ -377,11 +377,10 @@
             <div class="pkg-tagline">For brands that demand total market dominance. No limits.</div>
             <div class="pkg-price">
                 <div class="pkg-price-main">
-                    <span class="pkg-price-curr price-curr"></span>
-                    <span class="price-val" data-aed="10,000" data-usd="3,000">10,000</span>
+                    <span class="pkg-price-curr">AED</span>
+                    <span>10,000</span>
                 </div>
                 <div class="pkg-price-period">per month</div>
-                <div class="pkg-price-us alt-price" style="display:none"></div>
             </div>
             <div class="pkg-divider"></div>
             <ul class="pkg-features">
@@ -393,9 +392,8 @@
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>8 high-impact video reels + 1 cinematic brand video</li>
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>18 static social media posts</li>
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>30 creative story posts</li>
-                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Two professional shoot sessions
-                    <div class="pkg-note shoot-note-usd" style="display:none;">+ $900 additional for USA shoots</div>
-                </li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Two UAE onsite professional shoot sessions</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Worldwide remote campaign execution and content editing</li>
                 <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Dedicated account management with unlimited ads + Google Ads support</li>
             </ul>
             <a href="/contact?package=Elite%20Brand%20Dominance%20Program#free-audit" class="pkg-cta" data-track="package_cta_click" data-track-label="Elite Brand Dominance Program">Get Quote →</a>
@@ -407,7 +405,7 @@
 <section class="pricing-sec">
     <div class="eyebrow reveal">Photography &amp; Videography</div>
     <div class="pricing-sec-title reveal">Shoot Packages</div>
-    <p class="pricing-sec-sub reveal reveal-delay-1">One-off shoot sessions, ideal for brands that need fresh content without a monthly commitment. Each session is fully managed by our creative team.</p>
+    <p class="pricing-sec-sub reveal reveal-delay-1">One-off onsite shoot sessions are available in the UAE only. If you are outside the UAE, we can still support you with remote shot direction, editing, content calendars and publishing.</p>
 
     <div class="shoots-grid reveal">
         <div class="shoot-card">
@@ -415,11 +413,9 @@
             <div class="shoot-name">Bronze Shoot</div>
             <div class="shoot-duration">1 hour session</div>
             <div class="shoot-price">
-                <span class="shoot-price-aed">450 <span>AED</span></span>
-                <span class="shoot-price-usd" style="display:none;">200 <span>USD</span></span>
+                <span>450 <span>AED</span></span>
             </div>
-            <div class="shoot-alt shoot-alt-aed">≈ $200 USD</div>
-            <div class="shoot-alt shoot-alt-usd" style="display:none;">≈ 450 AED</div>
+            <div class="shoot-alt">UAE onsite only</div>
             <ul class="shoot-details">
                 <li class="shoot-detail">10 professional photos</li>
                 <li class="shoot-detail">1 edited video reel</li>
@@ -431,11 +427,9 @@
             <div class="shoot-name">Silver Shoot</div>
             <div class="shoot-duration">2 hour session</div>
             <div class="shoot-price">
-                <span class="shoot-price-aed">1,000 <span>AED</span></span>
-                <span class="shoot-price-usd" style="display:none;">300 <span>USD</span></span>
+                <span>1,000 <span>AED</span></span>
             </div>
-            <div class="shoot-alt shoot-alt-aed">≈ $300 USD</div>
-            <div class="shoot-alt shoot-alt-usd" style="display:none;">≈ 1,000 AED</div>
+            <div class="shoot-alt">UAE onsite only</div>
             <ul class="shoot-details">
                 <li class="shoot-detail">15 professional photos</li>
                 <li class="shoot-detail">2 edited video reels</li>
@@ -448,11 +442,9 @@
             <div class="shoot-name">Gold Shoot</div>
             <div class="shoot-duration">3 hour session</div>
             <div class="shoot-price">
-                <span class="shoot-price-aed">1,500 <span>AED</span></span>
-                <span class="shoot-price-usd" style="display:none;">450 <span>USD</span></span>
+                <span>1,500 <span>AED</span></span>
             </div>
-            <div class="shoot-alt shoot-alt-aed">≈ $450 USD</div>
-            <div class="shoot-alt shoot-alt-usd" style="display:none;">≈ 1,500 AED</div>
+            <div class="shoot-alt">UAE onsite only</div>
             <ul class="shoot-details">
                 <li class="shoot-detail">20 professional photos</li>
                 <li class="shoot-detail">3 edited video reels</li>
@@ -464,11 +456,122 @@
     </div>
 </section>
 
+<!-- WEB DEVELOPMENT -->
+<section class="pricing-sec" style="background:var(--bg);">
+    <div class="eyebrow reveal">Website Development</div>
+    <div class="pricing-sec-title reveal">Websites Built To Convert</div>
+    <p class="pricing-sec-sub reveal reveal-delay-1">Fast, polished websites for local and international brands. We design the customer journey, build the pages, and make it easier for visitors to enquire.</p>
+
+    <div class="packages-grid reveal">
+        <div class="pkg-card">
+            <div class="pkg-name">Basic 5 Page Website</div>
+            <div class="pkg-tagline">A clean business website for service brands, restaurants, creators and startups.</div>
+            <div class="pkg-price">
+                <div class="pkg-price-main"><span class="pkg-price-curr">AED</span><span>1,500</span></div>
+                <div class="pkg-price-period">starting price</div>
+            </div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-features">
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Up to 5 core pages</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Mobile responsive design</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Lead form and WhatsApp CTA setup</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Basic speed and SEO setup</li>
+            </ul>
+            <a href="/contact?package=Basic%205%20Page%20Website#free-audit" class="pkg-cta" data-track="package_cta_click" data-track-label="Basic 5 Page Website">Start Website →</a>
+        </div>
+        <div class="pkg-card featured">
+            <div class="pkg-featured-badge">For Stores</div>
+            <div class="pkg-name">Ecommerce Website</div>
+            <div class="pkg-tagline">For brands that need a store, product pages, checkout flow and scalable product management.</div>
+            <div class="pkg-price">
+                <div class="pkg-price-main"><span class="pkg-price-curr">AED</span><span>5,500</span></div>
+                <div class="pkg-price-period">starting price</div>
+            </div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-features">
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Storefront design and build</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Unlimited products added when 6 months SEO is purchased</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Product category and conversion structure</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Payment, shipping and enquiry flow guidance</li>
+            </ul>
+            <a href="/contact?package=Ecommerce%20Website#free-audit" class="pkg-cta" data-track="package_cta_click" data-track-label="Ecommerce Website">Build Store →</a>
+        </div>
+        <div class="pkg-card">
+            <div class="pkg-name">Conversion Fix</div>
+            <div class="pkg-tagline">For websites getting traffic but not enough form fills, WhatsApp clicks or booked calls.</div>
+            <div class="pkg-price">
+                <div class="pkg-price-main"><span>Free</span></div>
+                <div class="pkg-price-period">growth audit</div>
+            </div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-features">
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>CTA and form friction review</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Homepage messaging review</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Fast action list for better enquiries</li>
+            </ul>
+            <a href="/contact#free-audit" class="pkg-cta" data-track="audit_cta_click" data-track-label="Pricing conversion audit">Get Audit →</a>
+        </div>
+    </div>
+</section>
+
+<!-- SEO -->
+<section class="pricing-sec">
+    <div class="eyebrow reveal">SEO Services</div>
+    <div class="pricing-sec-title reveal">SEO, AEO &amp; GEO Packages</div>
+    <p class="pricing-sec-sub reveal reveal-delay-1">Minimum 3 month commitment. Online payment only. Built for brands that want stronger Google rankings, answer-engine visibility and AI search discoverability.</p>
+
+    <div class="packages-grid reveal">
+        <div class="pkg-card">
+            <div class="pkg-name">Basic SEO</div>
+            <div class="pkg-tagline">For smaller brands that need a clean SEO foundation and consistent progress.</div>
+            <div class="pkg-price"><div class="pkg-price-main"><span class="pkg-price-curr">AED</span><span>1,500</span></div><div class="pkg-price-period">per month</div></div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-features">
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>5 target keywords</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Website SEO audit</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>On-page optimization</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Quality backlink building</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Monthly ranking report</li>
+            </ul>
+            <a href="/contact?package=Basic%20SEO#free-audit" class="pkg-cta" data-track="package_cta_click" data-track-label="Basic SEO">Start SEO →</a>
+        </div>
+        <div class="pkg-card featured">
+            <div class="pkg-featured-badge">Popular</div>
+            <div class="pkg-name">Gold SEO + AEO + GEO</div>
+            <div class="pkg-tagline">For brands that want search visibility across Google, answer engines and AI results.</div>
+            <div class="pkg-price"><div class="pkg-price-main"><span class="pkg-price-curr">AED</span><span>2,000</span></div><div class="pkg-price-period">per month</div></div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-features">
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>15 target keywords</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>SEO, AEO &amp; GEO optimization</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Technical &amp; on-page fixes</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Authority backlinks + content</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Monthly visibility report</li>
+            </ul>
+            <a href="/contact?package=Gold%20SEO%20AEO%20GEO#free-audit" class="pkg-cta" data-track="package_cta_click" data-track-label="Gold SEO AEO GEO">Choose Gold →</a>
+        </div>
+        <div class="pkg-card">
+            <div class="pkg-name">Platinum SEO + AEO + GEO</div>
+            <div class="pkg-tagline">For competitive markets where content depth, authority and reporting matter.</div>
+            <div class="pkg-price"><div class="pkg-price-main"><span class="pkg-price-curr">AED</span><span>2,500</span></div><div class="pkg-price-period">per month</div></div>
+            <div class="pkg-divider"></div>
+            <ul class="pkg-features">
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>45 target keywords</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Advanced SEO, AEO &amp; GEO</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Competitor &amp; backlink analysis</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Content + authority building</li>
+                <li class="pkg-feature"><span class="pkg-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span>Full monthly performance report</li>
+            </ul>
+            <a href="/contact?package=Platinum%20SEO%20AEO%20GEO#free-audit" class="pkg-cta" data-track="package_cta_click" data-track-label="Platinum SEO AEO GEO">Choose Platinum →</a>
+        </div>
+    </div>
+</section>
+
 <!-- UGC -->
 <section class="pricing-sec" style="background:var(--bg);">
     <div class="eyebrow reveal">Creator Network</div>
     <div class="pricing-sec-title reveal">UGC Creators</div>
-    <p class="pricing-sec-sub reveal reveal-delay-1">Exclusively available for US-based restaurants and food brands. We connect you with vetted local creators who organically promote your brand to real, local audiences.</p>
+    <p class="pricing-sec-sub reveal reveal-delay-1">Available for eligible markets through our creator network. We connect restaurants and food brands with vetted creators who can promote your brand to real local audiences.</p>
 
     <div class="ugc-card reveal">
         <div class="ugc-top">
@@ -478,7 +581,7 @@
             </div>
             <div>
                 <div class="ugc-price">$550</div>
-                <div class="ugc-period">per month · USA only</div>
+                <div class="ugc-period">per month · market availability varies</div>
             </div>
         </div>
         <div class="ugc-features">
@@ -508,9 +611,30 @@
                 <div class="ugc-feature-desc">We handle all creator outreach, booking, briefing, and content delivery for you.</div>
             </div>
             <div class="ugc-feature" style="display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border-color:var(--gold-border);background:var(--gold-dim);">
-                <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;margin-bottom:12px;color:var(--gold);">Ready to grow<br>in the US market?</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:700;margin-bottom:12px;color:var(--gold);">Ready to grow<br>in your market?</div>
                 <a href="/contact?package=UGC%20Creator%20Program#free-audit" class="btn-gold" style="font-size:13px;padding:12px 24px;" data-track="package_cta_click" data-track-label="UGC Creator Program">Start Now →</a>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- PAYMENT -->
+<section class="pricing-sec" style="background:var(--bg);">
+    <div class="eyebrow reveal">Easy Global Payment</div>
+    <div class="pricing-sec-title reveal">Pay from anywhere.</div>
+    <p class="pricing-sec-sub reveal reveal-delay-1">Once the scope is approved, we send a secure online payment link. Most clients can pay by credit card, Apple Pay, Samsung Pay or similar wallet options. Bank transfer is also available if preferred.</p>
+    <div class="info-grid reveal">
+        <div class="info-card">
+            <div class="info-title">Secure Payment Link</div>
+            <p class="info-copy">No complicated checkout. We send the link, you pay online, and your project moves into kickoff.</p>
+        </div>
+        <div class="info-card">
+            <div class="info-title">Cards &amp; Wallets</div>
+            <p class="info-copy">Credit cards and supported digital wallets make it easy for clients in the US, Europe, Canada, Mexico and beyond.</p>
+        </div>
+        <div class="info-card">
+            <div class="info-title">Bank Transfer</div>
+            <p class="info-copy">Prefer transfer? We can share bank details and keep the invoice trail clean for your finance team.</p>
         </div>
     </div>
 </section>
@@ -521,7 +645,7 @@
     <div style="position:relative;z-index:1;">
         <div class="eyebrow reveal" style="justify-content:center;">Not sure which plan?</div>
         <h2 class="reveal">Let's Figure It<br>Out <span style="color:var(--gold)">Together.</span></h2>
-        <p class="reveal reveal-delay-1">Message us on WhatsApp or send us a note. We'll recommend the right package for your budget and goals, no pressure, no sales pitch.</p>
+        <p class="reveal reveal-delay-1">Message us on WhatsApp or send us a note. Wherever you are, we will recommend the right package for your budget and goals.</p>
         <div class="pricing-cta-btns reveal reveal-delay-2">
             <a href="/contact#free-audit" class="btn-gold" data-track="audit_cta_click" data-track-label="Pricing unsure CTA">
                 Get Free Audit
@@ -541,7 +665,7 @@
             <a href="/" class="footer-logo nav-logo">
                 <img src="assets/logo.png" class="logo-img" alt="Talk The Taste">
             </a>
-            <p class="footer-brand-desc">Dubai's creative agency. Marketing, branding, web, apps, and video, all under one roof.</p>
+            <p class="footer-brand-desc">Creative agency for brands worldwide. Marketing, branding, web, apps, SEO, and video, all under one roof.</p>
         </div>
         <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="/services">Marketing</a></li><li><a href="/services">Social Media</a></li><li><a href="/services">Web Design</a></li><li><a href="/services">Videography</a></li></ul></div>
         <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="/work">Our Work</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li></ul></div>
@@ -555,7 +679,7 @@
                 <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
             </a>
         </div>
-        <span>Dubai, UAE · California, USA</span>
+        <span>UAE onsite shoots · Worldwide remote service</span>
     </div>
 </footer>
 
@@ -594,51 +718,6 @@
             card.style.transform='';
         });
     });
-
-    // Region toggle
-    window.currentRegion = 'UAE';
-    window.setRegion = function(region) {
-        window.currentRegion = region;
-        document.getElementById('btnUAE').classList.toggle('active', region === 'UAE');
-        document.getElementById('btnUS').classList.toggle('active', region === 'US');
-
-        // Update package prices
-        document.querySelectorAll('.price-curr').forEach(el => {
-            el.textContent = region === 'UAE' ? 'AED ' : '$';
-        });
-        document.querySelectorAll('.price-val').forEach(el => {
-            el.textContent = region === 'UAE' ? el.dataset.aed : el.dataset.usd;
-        });
-        document.querySelectorAll('.alt-price').forEach(el => {
-            if (region === 'UAE') {
-                el.style.display = 'none';
-            } else {
-                // For US, show the AED equivalent note
-                el.style.display = 'block';
-                el.textContent = '';
-            }
-        });
-
-        // Show/hide USD shoot notes
-        document.querySelectorAll('.shoot-note-usd').forEach(el => {
-            el.style.display = region === 'US' ? 'block' : 'none';
-        });
-
-        // Update shoot prices
-        document.querySelectorAll('.shoot-price-aed').forEach(el => el.style.display = region === 'UAE' ? '' : 'none');
-        document.querySelectorAll('.shoot-price-usd').forEach(el => el.style.display = region === 'US' ? '' : 'none');
-        document.querySelectorAll('.shoot-alt-aed').forEach(el => el.style.display = region === 'UAE' ? '' : 'none');
-        document.querySelectorAll('.shoot-alt-usd').forEach(el => el.style.display = region === 'US' ? '' : 'none');
-
-        // UGC card (USD only - always show, but note if UAE selected)
-        const ugcSection = document.querySelector('.ugc-card');
-        if (ugcSection) {
-            ugcSection.style.opacity = region === 'UAE' ? '0.6' : '1';
-        }
-    };
-
-    // Initialize AED view
-    document.querySelectorAll('.price-curr').forEach(el => el.textContent = 'AED ');
 
     // Magnetic CTA buttons
     document.querySelectorAll('.btn-gold,.nav-cta').forEach(btn => {
