@@ -190,6 +190,7 @@ async function portfolioIndex(env) {
     return json({
       source: 'default',
       configured: false,
+      env: oneDriveEnvStatus(env),
       projects: DEFAULT_PROJECTS,
       message: 'OneDrive portfolio is not configured.',
     });
@@ -281,7 +282,17 @@ async function graphMediaResponse(request, env, mode) {
 }
 
 function isOneDriveConfigured(env) {
-  return Boolean(env.MS_TENANT_ID && env.MS_CLIENT_ID && env.MS_CLIENT_SECRET && env.ONEDRIVE_USER);
+  const status = oneDriveEnvStatus(env);
+  return Object.values(status).every(Boolean);
+}
+
+function oneDriveEnvStatus(env) {
+  return {
+    MS_TENANT_ID: Boolean(env.MS_TENANT_ID),
+    MS_CLIENT_ID: Boolean(env.MS_CLIENT_ID),
+    MS_CLIENT_SECRET: Boolean(env.MS_CLIENT_SECRET),
+    ONEDRIVE_USER: Boolean(env.ONEDRIVE_USER),
+  };
 }
 
 async function graphAccessToken(env) {

@@ -151,6 +151,7 @@ app.get('/api/portfolio', async (req, res) => {
             return res.json({
                 source: 'default',
                 configured: false,
+                env: oneDriveEnvStatus(process.env),
                 projects: read(FILES.projects),
                 message: 'OneDrive portfolio is not configured.',
             });
@@ -210,7 +211,17 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => console.log(`TTT running → http://localhost:${PORT}`));
 
 function isOneDriveConfigured(env) {
-    return Boolean(env.MS_TENANT_ID && env.MS_CLIENT_ID && env.MS_CLIENT_SECRET && env.ONEDRIVE_USER);
+    const status = oneDriveEnvStatus(env);
+    return Object.values(status).every(Boolean);
+}
+
+function oneDriveEnvStatus(env) {
+    return {
+        MS_TENANT_ID: Boolean(env.MS_TENANT_ID),
+        MS_CLIENT_ID: Boolean(env.MS_CLIENT_ID),
+        MS_CLIENT_SECRET: Boolean(env.MS_CLIENT_SECRET),
+        ONEDRIVE_USER: Boolean(env.ONEDRIVE_USER),
+    };
 }
 
 async function graphAccessToken(env) {
