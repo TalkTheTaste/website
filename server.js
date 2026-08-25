@@ -148,6 +148,7 @@ app.post('/api/leads/submit', (req, res) => {
 app.get('/api/portfolio', async (req, res) => {
     try {
         if (!isOneDriveConfigured(process.env)) {
+            res.set('Cache-Control', 'public, max-age=300, s-maxage=300, stale-while-revalidate=120');
             return res.json({
                 source: 'default',
                 configured: false,
@@ -163,32 +164,68 @@ app.get('/api/portfolio', async (req, res) => {
             .sort((a, b) => a.name.localeCompare(b.name));
 
         const projects = await Promise.all(clientFolders.map(async client => {
-            const categoryFolders = await graphChildren(process.env, token, `${clientsPath}/${client.name}`).catch(() => []);
+            const categoryFolders = await graphChildrenByPath(process.env, token, `${clientsPath}/${client.name}`, 50).catch(() => []);
             const photographyFolder = categoryFolders.find(item => item.folder && /^photography$/i.test(item.name));
             const videographyFolder = categoryFolders.find(item => item.folder && /^videography$/i.test(item.name));
-            const photography = photographyFolder ? await graphChildren(process.env, token, `${clientsPath}/${client.name}/${photographyFolder.name}`).catch(() => []) : [];
-            const videography = videographyFolder ? await graphChildren(process.env, token, `${clientsPath}/${client.name}/${videographyFolder.name}`).catch(() => []) : [];
-            const images = photography.filter(isImageItem).map(item => mediaSummary(item, 'Photography'));
-            const videos = videography.filter(isVideoItem).map(item => mediaSummary(item, 'Videography'));
-            const hero = images[0] || videos[0] || null;
-            const tags = [images.length ? 'Photography' : '', videos.length ? 'Videography' : ''].filter(Boolean);
+            const imageCount = photographyFolder?.folder?.childCount || 0;
+            const videoCount = videographyFolder?.folder?.childCount || 0;
+            const banner = await findBannerMedia(process.env, token, categoryFolders).catch(() => null);
+            const firstImage = !banner && photographyFolder ? await firstMediaFromFolder(process.env, token, photographyFolder.id, 'Photography') : null;
+            const firstVideo = !banner && !firstImage && videographyFolder ? await firstMediaFromFolder(process.env, token, videographyFolder.id, 'Videography') : null;
+            const hero = banner || firstImage || firstVideo || null;
+            const tags = [imageCount ? 'Photography' : '', videoCount ? 'Videography' : ''].filter(Boolean);
             return {
                 id: client.id,
                 title: client.name,
                 category: tags.length ? tags.join(' + ') : 'Client Work',
                 tags,
-                description: mediaCountText(images.length, videos.length),
+                description: mediaCountText(imageCount, videoCount),
                 fullDesc: '',
-                image: hero ? `/api/portfolio/${hero.type === 'Videography' ? 'thumb' : 'media'}?id=${encodeURIComponent(hero.id)}` : '',
+                image: hero ? hero.thumb : '',
                 color1: '#0C0C0A',
                 color2: '#BF8D2C',
-                media: [...images, ...videos],
+                media: [],
+                mediaCount: imageCount + videoCount,
                 updatedAt: client.lastModifiedDateTime || '',
             };
         }));
-        res.json({ source: 'onedrive', configured: true, projects: projects.filter(project => project.media.length) });
+        res.set('Cache-Control', 'public, max-age=300, s-maxage=300, stale-while-revalidate=120');
+        res.json({ source: 'onedrive', configured: true, projects: projects.filter(project => project.mediaCount) });
     } catch (error) {
         res.status(502).json({ error: error.message || 'Portfolio request failed' });
+    }
+});
+
+app.get('/api/portfolio/client', async (req, res) => {
+    try {
+        if (!isOneDriveConfigured(process.env)) return res.status(503).json({ error: 'OneDrive portfolio is not configured' });
+        const id = req.query.id;
+        if (!id) return res.status(400).json({ error: 'Missing client id' });
+        const token = await graphAccessToken(process.env);
+        const client = await graphJson(`${graphDriveBase(process.env)}/items/${encodeURIComponent(id)}?$select=id,name,lastModifiedDateTime`, token);
+        const children = await graphChildrenById(process.env, token, id, 50);
+        const photographyFolder = children.find(item => item.folder && /^photography$/i.test(item.name));
+        const videographyFolder = children.find(item => item.folder && /^videography$/i.test(item.name));
+        const banner = await findBannerMedia(process.env, token, children).catch(() => null);
+        const photography = photographyFolder ? await graphChildrenById(process.env, token, photographyFolder.id, 200) : [];
+        const videography = videographyFolder ? await graphChildrenById(process.env, token, videographyFolder.id, 200) : [];
+        const images = photography.filter(isImageItem).map(item => mediaSummary(item, 'Photography'));
+        const videos = videography.filter(isVideoItem).map(item => mediaSummary(item, 'Videography'));
+        const tags = [images.length ? 'Photography' : '', videos.length ? 'Videography' : ''].filter(Boolean);
+        const hero = banner || images[0] || videos[0] || null;
+        res.set('Cache-Control', 'public, max-age=600, s-maxage=600, stale-while-revalidate=120');
+        res.json({
+            id: client.id,
+            title: client.name,
+            category: tags.length ? tags.join(' + ') : 'Client Work',
+            tags,
+            description: mediaCountText(images.length, videos.length),
+            image: hero ? hero.thumb : '',
+            media: [...images, ...videos],
+            updatedAt: client.lastModifiedDateTime || '',
+        });
+    } catch (error) {
+        res.status(502).json({ error: error.message || 'Client portfolio request failed' });
     }
 });
 
@@ -242,9 +279,27 @@ async function graphAccessToken(env) {
 }
 
 async function graphChildren(env, token, folderPath) {
+    return graphChildrenByPath(env, token, folderPath, 200);
+}
+
+async function graphChildrenByPath(env, token, folderPath, top = 200) {
     const encodedPath = folderPath.split('/').map(encodeURIComponent).join('/');
-    const data = await graphJson(`${graphDriveBase(env)}/root:/${encodedPath}:/children?$top=200&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token);
-    return data.value || [];
+    return graphCollection(`${graphDriveBase(env)}/root:/${encodedPath}:/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token);
+}
+
+async function graphChildrenById(env, token, id, top = 200) {
+    return graphCollection(`${graphDriveBase(env)}/items/${encodeURIComponent(id)}/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token);
+}
+
+async function graphCollection(url, token) {
+    const items = [];
+    let next = url;
+    while (next) {
+        const data = await graphJson(next, token);
+        items.push(...(data.value || []));
+        next = data['@odata.nextLink'];
+    }
+    return items;
 }
 
 async function graphJson(url, token) {
@@ -304,6 +359,26 @@ function mediaSummary(item, type) {
         url: `/api/portfolio/media?id=${encodeURIComponent(item.id)}`,
         thumb: `/api/portfolio/thumb?id=${encodeURIComponent(item.id)}`,
     };
+}
+
+async function findBannerMedia(env, token, children) {
+    const bannerFile = children.find(item => item.file && bannerName(item.name) && (isImageItem(item) || isVideoItem(item)));
+    if (bannerFile) return mediaSummary(bannerFile, isVideoItem(bannerFile) ? 'Videography' : 'Photography');
+    const bannerFolder = children.find(item => item.folder && bannerName(item.name));
+    if (!bannerFolder) return null;
+    const files = await graphChildrenById(env, token, bannerFolder.id, 20);
+    const item = files.find(file => isImageItem(file) || isVideoItem(file));
+    return item ? mediaSummary(item, isVideoItem(item) ? 'Videography' : 'Photography') : null;
+}
+
+async function firstMediaFromFolder(env, token, folderId, type) {
+    const items = await graphChildrenById(env, token, folderId, 12);
+    const item = items.find(file => type === 'Photography' ? isImageItem(file) : isVideoItem(file));
+    return item ? mediaSummary(item, type) : null;
+}
+
+function bannerName(name) {
+    return String(name || '').replace(/\.[^.]+$/, '').toLowerCase() === 'banner';
 }
 
 function mediaCountText(imageCount, videoCount) {
