@@ -9,6 +9,7 @@ const app  = express();
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
 const DATA = path.join(ROOT, 'data');
+const memoryCache = new Map();
 
 // ── Bootstrap data directory ─────────────────────────────────
 if (!fs.existsSync(DATA)) fs.mkdirSync(DATA, { recursive: true });
@@ -201,20 +202,27 @@ app.get('/api/portfolio/client', async (req, res) => {
         if (!isOneDriveConfigured(process.env)) return res.status(503).json({ error: 'OneDrive portfolio is not configured' });
         const id = req.query.id;
         if (!id) return res.status(400).json({ error: 'Missing client id' });
+        const cacheKey = `portfolio_client:${id}:v3`;
+        const cached = readMemoryCache(cacheKey);
+        if (cached) {
+            res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800, stale-while-revalidate=120');
+            return res.json({ ...cached, cached: true });
+        }
         const token = await graphAccessToken(process.env);
         const client = await graphJson(`${graphDriveBase(process.env)}/items/${encodeURIComponent(id)}?$select=id,name,lastModifiedDateTime`, token);
         const children = await graphChildrenById(process.env, token, id, 50);
         const photographyFolder = children.find(item => item.folder && /^photography$/i.test(item.name));
         const videographyFolder = children.find(item => item.folder && /^videography$/i.test(item.name));
-        const banner = await findBannerMedia(process.env, token, children).catch(() => null);
-        const photography = photographyFolder ? await graphChildrenById(process.env, token, photographyFolder.id, 200) : [];
-        const videography = videographyFolder ? await graphChildrenById(process.env, token, videographyFolder.id, 200) : [];
+        const [banner, photography, videography] = await Promise.all([
+            findBannerMedia(process.env, token, children).catch(() => null),
+            photographyFolder ? graphChildrenById(process.env, token, photographyFolder.id, 120) : [],
+            videographyFolder ? graphChildrenById(process.env, token, videographyFolder.id, 120) : [],
+        ]);
         const images = photography.filter(isImageItem).map(item => mediaSummary(item, 'Photography'));
         const videos = videography.filter(isVideoItem).map(item => mediaSummary(item, 'Videography'));
         const tags = [images.length ? 'Photography' : '', videos.length ? 'Videography' : ''].filter(Boolean);
         const hero = banner || images[0] || videos[0] || null;
-        res.set('Cache-Control', 'public, max-age=600, s-maxage=600, stale-while-revalidate=120');
-        res.json({
+        const payload = {
             id: client.id,
             title: client.name,
             category: tags.length ? tags.join(' + ') : 'Client Work',
@@ -223,7 +231,10 @@ app.get('/api/portfolio/client', async (req, res) => {
             image: hero ? hero.thumb : '',
             media: [...images, ...videos],
             updatedAt: client.lastModifiedDateTime || '',
-        });
+        };
+        writeMemoryCache(cacheKey, payload, 30 * 60 * 1000);
+        res.set('Cache-Control', 'public, max-age=1800, s-maxage=1800, stale-while-revalidate=120');
+        res.json(payload);
     } catch (error) {
         res.status(502).json({ error: error.message || 'Client portfolio request failed' });
     }
@@ -284,22 +295,22 @@ async function graphChildren(env, token, folderPath) {
 
 async function graphChildrenByPath(env, token, folderPath, top = 200) {
     const encodedPath = folderPath.split('/').map(encodeURIComponent).join('/');
-    return graphCollection(`${graphDriveBase(env)}/root:/${encodedPath}:/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token);
+    return graphCollection(`${graphDriveBase(env)}/root:/${encodedPath}:/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token, top);
 }
 
 async function graphChildrenById(env, token, id, top = 200) {
-    return graphCollection(`${graphDriveBase(env)}/items/${encodeURIComponent(id)}/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token);
+    return graphCollection(`${graphDriveBase(env)}/items/${encodeURIComponent(id)}/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token, top);
 }
 
-async function graphCollection(url, token) {
+async function graphCollection(url, token, maxItems = 200) {
     const items = [];
     let next = url;
-    while (next) {
+    while (next && items.length < maxItems) {
         const data = await graphJson(next, token);
         items.push(...(data.value || []));
         next = data['@odata.nextLink'];
     }
-    return items;
+    return items.slice(0, maxItems);
 }
 
 async function graphJson(url, token) {
@@ -386,4 +397,17 @@ function mediaCountText(imageCount, videoCount) {
     if (imageCount) parts.push(`${imageCount} photo${imageCount === 1 ? '' : 's'}`);
     if (videoCount) parts.push(`${videoCount} video${videoCount === 1 ? '' : 's'}`);
     return parts.length ? parts.join(' and ') : 'Client portfolio media';
+}
+
+function readMemoryCache(key) {
+    const entry = memoryCache.get(key);
+    if (!entry || Date.now() > entry.expiresAt) {
+        memoryCache.delete(key);
+        return null;
+    }
+    return entry.value;
+}
+
+function writeMemoryCache(key, value, ttlMs) {
+    memoryCache.set(key, { value, expiresAt: Date.now() + ttlMs });
 }

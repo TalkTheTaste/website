@@ -245,21 +245,26 @@ async function portfolioClient(request, env) {
   if (!isOneDriveConfigured(env)) return json({ error: 'OneDrive portfolio is not configured' }, 503);
   const id = new URL(request.url).searchParams.get('id');
   if (!id) return json({ error: 'Missing client id' }, 400);
+  const cacheKey = `portfolio_client:${id}:v3`;
+  const cached = await readJsonCache(env, cacheKey);
+  if (cached) return portfolioJson({ ...cached, cached: true }, 1800);
 
   const token = await graphAccessToken(env);
   const client = await graphJson(`${graphDriveBase(env)}/items/${encodeURIComponent(id)}?$select=id,name,lastModifiedDateTime`, token);
   const children = await graphChildrenById(env, token, id, 50);
   const photographyFolder = children.find((item) => item.folder && /^photography$/i.test(item.name));
   const videographyFolder = children.find((item) => item.folder && /^videography$/i.test(item.name));
-  const banner = await findBannerMedia(env, token, children).catch(() => null);
-  const photography = photographyFolder ? await graphChildrenById(env, token, photographyFolder.id, 200) : [];
-  const videography = videographyFolder ? await graphChildrenById(env, token, videographyFolder.id, 200) : [];
+  const [banner, photography, videography] = await Promise.all([
+    findBannerMedia(env, token, children).catch(() => null),
+    photographyFolder ? graphChildrenById(env, token, photographyFolder.id, 120) : [],
+    videographyFolder ? graphChildrenById(env, token, videographyFolder.id, 120) : [],
+  ]);
   const images = photography.filter(isImageItem).map((item) => mediaSummary(item, 'Photography'));
   const videos = videography.filter(isVideoItem).map((item) => mediaSummary(item, 'Videography'));
   const tags = [images.length ? 'Photography' : '', videos.length ? 'Videography' : ''].filter(Boolean);
   const hero = banner || images[0] || videos[0] || null;
 
-  return portfolioJson({
+  const payload = {
     id: client.id,
     title: client.name,
     category: tags.length ? tags.join(' + ') : 'Client Work',
@@ -268,7 +273,9 @@ async function portfolioClient(request, env) {
     image: hero ? hero.thumb : '',
     media: [...images, ...videos],
     updatedAt: client.lastModifiedDateTime || '',
-  }, 600);
+  };
+  await writeJsonCache(env, cacheKey, payload, 1800);
+  return portfolioJson(payload, 1800);
 }
 
 async function portfolioMedia(request, env) {
@@ -353,22 +360,22 @@ async function graphChildren(env, token, folderPath) {
 
 async function graphChildrenByPath(env, token, folderPath, top = 200) {
   const encodedPath = folderPath.split('/').map(encodeURIComponent).join('/');
-  return graphCollection(`${graphDriveBase(env)}/root:/${encodedPath}:/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token);
+  return graphCollection(`${graphDriveBase(env)}/root:/${encodedPath}:/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token, top);
 }
 
 async function graphChildrenById(env, token, id, top = 200) {
-  return graphCollection(`${graphDriveBase(env)}/items/${encodeURIComponent(id)}/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token);
+  return graphCollection(`${graphDriveBase(env)}/items/${encodeURIComponent(id)}/children?$top=${top}&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token, top);
 }
 
-async function graphCollection(url, token) {
+async function graphCollection(url, token, maxItems = 200) {
   const items = [];
   let next = url;
-  while (next) {
+  while (next && items.length < maxItems) {
     const data = await graphJson(next, token);
     items.push(...(data.value || []));
     next = data['@odata.nextLink'];
   }
-  return items;
+  return items.slice(0, maxItems);
 }
 
 async function graphJson(url, token) {
@@ -648,6 +655,22 @@ async function writeStore(env, key, value) {
   }
 
   await env.TTT_DATA.put(key, JSON.stringify(value));
+}
+
+async function readJsonCache(env, key) {
+  if (!env.TTT_DATA) return null;
+  try {
+    return await env.TTT_DATA.get(key, 'json');
+  } catch {
+    return null;
+  }
+}
+
+async function writeJsonCache(env, key, value, expirationTtl = 1800) {
+  if (!env.TTT_DATA) return;
+  try {
+    await env.TTT_DATA.put(key, JSON.stringify(value), { expirationTtl });
+  } catch {}
 }
 
 function normalizePath(path) {
