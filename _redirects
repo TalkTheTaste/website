@@ -1,5 +1,6 @@
 /index.html / 301
-/profile /profile.html 200
+/profile /TTTprofile.pdf 302
+/profile/ /TTTprofile.pdf 302
 /social-media-marketing-dubai /social-media-marketing-dubai.html 301
 /web-design-dubai /web-design-dubai.html 301
 /branding-agency-dubai /branding-agency-dubai.html 301

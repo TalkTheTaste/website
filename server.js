@@ -145,6 +145,12 @@ app.post('/api/leads/submit', (req, res) => {
     res.json({ ok: true, id: lead.id });
 });
 
+app.get(['/profile', '/profile/'], (req, res) => {
+    res.type('application/pdf');
+    res.set('Content-Disposition', 'inline; filename="TTTprofile.pdf"');
+    res.sendFile(path.join(ROOT, 'TTTprofile.pdf'));
+});
+
 // Public: live portfolio from Microsoft OneDrive
 app.get('/api/portfolio', async (req, res) => {
     try {
