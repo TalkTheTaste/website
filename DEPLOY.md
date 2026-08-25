@@ -21,6 +21,32 @@ git push -u origin main
 
 The admin CMS and contact leads use Cloudflare KV through the `TTT_DATA` binding. The first API read seeds KV with the current default projects/settings if the namespace is empty. Contact form submissions also send a WhatsApp alert through CallMeBot when the CallMeBot variables are configured.
 
+## OneDrive Work Portfolio
+
+The Work page can load clients automatically from Microsoft 365 OneDrive using this folder structure:
+
+```text
+TalkTheTaste/
+  Work Portfolio/
+    Clients/
+      Client A/
+        Photography/
+        Videography/
+      Client B/
+        Photography/
+        Videography/
+```
+
+Create a Microsoft Entra app registration with Microsoft Graph application access to read files, then add these Cloudflare Pages environment variables:
+
+- `MS_TENANT_ID`: Microsoft tenant ID
+- `MS_CLIENT_ID`: app registration client ID
+- `MS_CLIENT_SECRET`: app registration client secret
+- `ONEDRIVE_USER`: mailbox/user principal name that owns the OneDrive, for example `name@yourdomain.com`
+- `ONEDRIVE_CLIENTS_PATH`: optional, defaults to `TalkTheTaste/Work Portfolio/Clients`
+
+The Work page reads `/api/portfolio`. Each folder inside `Clients` becomes one client card. Files inside `Photography` and `Videography` are displayed in that client's gallery.
+
 ## Local Cloudflare Test
 
 ```bash

@@ -3,6 +3,7 @@ const express = require('express');
 const fs      = require('fs');
 const path    = require('path');
 const session = require('express-session');
+const { Readable } = require('stream');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -143,6 +144,56 @@ app.post('/api/leads/submit', (req, res) => {
     res.json({ ok: true, id: lead.id });
 });
 
+// Public: live portfolio from Microsoft OneDrive
+app.get('/api/portfolio', async (req, res) => {
+    try {
+        if (!isOneDriveConfigured(process.env)) {
+            return res.json({
+                source: 'default',
+                configured: false,
+                projects: read(FILES.projects),
+                message: 'OneDrive portfolio is not configured.',
+            });
+        }
+        const token = await graphAccessToken(process.env);
+        const clientsPath = process.env.ONEDRIVE_CLIENTS_PATH || 'TalkTheTaste/Work Portfolio/Clients';
+        const clientFolders = (await graphChildren(process.env, token, clientsPath))
+            .filter(item => item.folder)
+            .sort((a, b) => a.name.localeCompare(b.name));
+
+        const projects = await Promise.all(clientFolders.map(async client => {
+            const categoryFolders = await graphChildren(process.env, token, `${clientsPath}/${client.name}`).catch(() => []);
+            const photographyFolder = categoryFolders.find(item => item.folder && /^photography$/i.test(item.name));
+            const videographyFolder = categoryFolders.find(item => item.folder && /^videography$/i.test(item.name));
+            const photography = photographyFolder ? await graphChildren(process.env, token, `${clientsPath}/${client.name}/${photographyFolder.name}`).catch(() => []) : [];
+            const videography = videographyFolder ? await graphChildren(process.env, token, `${clientsPath}/${client.name}/${videographyFolder.name}`).catch(() => []) : [];
+            const images = photography.filter(isImageItem).map(item => mediaSummary(item, 'Photography'));
+            const videos = videography.filter(isVideoItem).map(item => mediaSummary(item, 'Videography'));
+            const hero = images[0] || videos[0] || null;
+            const tags = [images.length ? 'Photography' : '', videos.length ? 'Videography' : ''].filter(Boolean);
+            return {
+                id: client.id,
+                title: client.name,
+                category: tags.length ? tags.join(' + ') : 'Client Work',
+                tags,
+                description: mediaCountText(images.length, videos.length),
+                fullDesc: '',
+                image: hero ? `/api/portfolio/${hero.type === 'Videography' ? 'thumb' : 'media'}?id=${encodeURIComponent(hero.id)}` : '',
+                color1: '#0C0C0A',
+                color2: '#BF8D2C',
+                media: [...images, ...videos],
+                updatedAt: client.lastModifiedDateTime || '',
+            };
+        }));
+        res.json({ source: 'onedrive', configured: true, projects: projects.filter(project => project.media.length) });
+    } catch (error) {
+        res.status(502).json({ error: error.message || 'Portfolio request failed' });
+    }
+});
+
+app.get('/api/portfolio/media', (req, res) => graphMediaRedirect(req, res, 'content'));
+app.get('/api/portfolio/thumb', (req, res) => graphMediaRedirect(req, res, 'thumbnail'));
+
 // ── CATCH-ALL: serve HTML pages ──────────────────────────────
 app.get('*', (req, res) => {
     const filePath = path.join(ROOT, req.path);
@@ -157,3 +208,96 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`TTT running → http://localhost:${PORT}`));
+
+function isOneDriveConfigured(env) {
+    return Boolean(env.MS_TENANT_ID && env.MS_CLIENT_ID && env.MS_CLIENT_SECRET && env.ONEDRIVE_USER);
+}
+
+async function graphAccessToken(env) {
+    const body = new URLSearchParams({
+        client_id: env.MS_CLIENT_ID,
+        client_secret: env.MS_CLIENT_SECRET,
+        scope: 'https://graph.microsoft.com/.default',
+        grant_type: 'client_credentials',
+    });
+    const response = await fetch(`https://login.microsoftonline.com/${encodeURIComponent(env.MS_TENANT_ID)}/oauth2/v2.0/token`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body,
+    });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error_description || 'Microsoft Graph token request failed');
+    return data.access_token;
+}
+
+async function graphChildren(env, token, folderPath) {
+    const encodedPath = folderPath.split('/').map(encodeURIComponent).join('/');
+    const data = await graphJson(`${graphDriveBase(env)}/root:/${encodedPath}:/children?$top=200&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token);
+    return data.value || [];
+}
+
+async function graphJson(url, token) {
+    const response = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error?.message || `Microsoft Graph request failed: ${response.status}`);
+    return data;
+}
+
+function graphDriveBase(env) {
+    return `https://graph.microsoft.com/v1.0/users/${encodeURIComponent(env.ONEDRIVE_USER)}/drive`;
+}
+
+async function graphMediaRedirect(req, res, mode) {
+    try {
+        if (!isOneDriveConfigured(process.env)) return res.status(503).json({ error: 'OneDrive portfolio is not configured' });
+        const id = req.query.id;
+        if (!id) return res.status(400).json({ error: 'Missing media id' });
+        const token = await graphAccessToken(process.env);
+        const endpoint = mode === 'thumbnail'
+            ? `${graphDriveBase(process.env)}/items/${encodeURIComponent(id)}/thumbnails/0/large/content`
+            : `${graphDriveBase(process.env)}/items/${encodeURIComponent(id)}/content`;
+        const response = await fetch(endpoint, {
+            headers: { Authorization: `Bearer ${token}` },
+            redirect: 'manual',
+        });
+        const location = response.headers.get('Location');
+        if (location) {
+            res.set('Cache-Control', 'public, max-age=1800');
+            return res.redirect(302, location);
+        }
+        if (!response.ok) return res.status(response.status).json({ error: `Microsoft Graph media request failed: ${response.status}` });
+        res.set('Cache-Control', 'public, max-age=1800');
+        res.set('Content-Type', response.headers.get('Content-Type') || 'application/octet-stream');
+        return Readable.fromWeb(response.body).pipe(res);
+    } catch (error) {
+        return res.status(502).json({ error: error.message || 'Media request failed' });
+    }
+}
+
+function isImageItem(item) {
+    return item.file && (item.image || /^image\//i.test(item.file.mimeType || ''));
+}
+
+function isVideoItem(item) {
+    return item.file && (item.video || /^video\//i.test(item.file.mimeType || ''));
+}
+
+function mediaSummary(item, type) {
+    return {
+        id: item.id,
+        name: item.name,
+        type,
+        mimeType: item.file?.mimeType || '',
+        size: item.size || 0,
+        updatedAt: item.lastModifiedDateTime || '',
+        url: `/api/portfolio/media?id=${encodeURIComponent(item.id)}`,
+        thumb: `/api/portfolio/thumb?id=${encodeURIComponent(item.id)}`,
+    };
+}
+
+function mediaCountText(imageCount, videoCount) {
+    const parts = [];
+    if (imageCount) parts.push(`${imageCount} photo${imageCount === 1 ? '' : 's'}`);
+    if (videoCount) parts.push(`${videoCount} video${videoCount === 1 ? '' : 's'}`);
+    return parts.length ? parts.join(' and ') : 'Client portfolio media';
+}

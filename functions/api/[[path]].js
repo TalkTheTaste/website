@@ -178,8 +178,176 @@ async function routeRequest(path, request, env) {
     return saveBody(request, env, 'leads', []);
   }
   if (path === '/leads/submit' && request.method === 'POST') return submitLead(request, env);
+  if (path === '/portfolio' && request.method === 'GET') return portfolioIndex(env);
+  if (path === '/portfolio/media' && request.method === 'GET') return portfolioMedia(request, env);
+  if (path === '/portfolio/thumb' && request.method === 'GET') return portfolioThumb(request, env);
 
   return json({ error: 'Not found' }, 404);
+}
+
+async function portfolioIndex(env) {
+  if (!isOneDriveConfigured(env)) {
+    return json({
+      source: 'default',
+      configured: false,
+      projects: DEFAULT_PROJECTS,
+      message: 'OneDrive portfolio is not configured.',
+    });
+  }
+
+  const token = await graphAccessToken(env);
+  const clientsPath = env.ONEDRIVE_CLIENTS_PATH || 'TalkTheTaste/Work Portfolio/Clients';
+  const clientFolders = (await graphChildren(env, token, clientsPath))
+    .filter((item) => item.folder)
+    .sort((a, b) => a.name.localeCompare(b.name));
+
+  const clients = await Promise.all(clientFolders.map(async (client) => {
+    const categoryFolders = await graphChildren(env, token, `${clientsPath}/${client.name}`).catch(() => []);
+    const photographyFolder = categoryFolders.find((item) => item.folder && /^photography$/i.test(item.name));
+    const videographyFolder = categoryFolders.find((item) => item.folder && /^videography$/i.test(item.name));
+    const photography = photographyFolder ? await graphChildren(env, token, `${clientsPath}/${client.name}/${photographyFolder.name}`).catch(() => []) : [];
+    const videography = videographyFolder ? await graphChildren(env, token, `${clientsPath}/${client.name}/${videographyFolder.name}`).catch(() => []) : [];
+    const images = photography.filter(isImageItem).map((item) => mediaSummary(item, 'Photography'));
+    const videos = videography.filter(isVideoItem).map((item) => mediaSummary(item, 'Videography'));
+    const hero = images[0] || videos[0] || null;
+    const tags = [
+      images.length ? 'Photography' : '',
+      videos.length ? 'Videography' : '',
+    ].filter(Boolean);
+
+    return {
+      id: client.id,
+      title: client.name,
+      category: tags.length ? tags.join(' + ') : 'Client Work',
+      tags,
+      description: mediaCountText(images.length, videos.length),
+      fullDesc: '',
+      image: hero ? `/api/portfolio/${hero.type === 'Videography' ? 'thumb' : 'media'}?id=${encodeURIComponent(hero.id)}` : '',
+      color1: '#0C0C0A',
+      color2: '#BF8D2C',
+      media: [...images, ...videos],
+      updatedAt: client.lastModifiedDateTime || '',
+    };
+  }));
+
+  return json({
+    source: 'onedrive',
+    configured: true,
+    projects: clients.filter((client) => client.media.length),
+  });
+}
+
+async function portfolioMedia(request, env) {
+  return graphMediaResponse(request, env, 'content');
+}
+
+async function portfolioThumb(request, env) {
+  return graphMediaResponse(request, env, 'thumbnail');
+}
+
+async function graphMediaResponse(request, env, mode) {
+  if (!isOneDriveConfigured(env)) return json({ error: 'OneDrive portfolio is not configured' }, 503);
+  const id = new URL(request.url).searchParams.get('id');
+  if (!id) return json({ error: 'Missing media id' }, 400);
+
+  const token = await graphAccessToken(env);
+  const endpoint = mode === 'thumbnail'
+    ? `${graphDriveBase(env)}/items/${encodeURIComponent(id)}/thumbnails/0/large/content`
+    : `${graphDriveBase(env)}/items/${encodeURIComponent(id)}/content`;
+  const response = await fetch(endpoint, {
+    headers: { Authorization: `Bearer ${token}` },
+    redirect: 'manual',
+  });
+  const location = response.headers.get('Location');
+  if (location) {
+    return new Response(null, {
+      status: 302,
+      headers: {
+        Location: location,
+        'Cache-Control': 'public, max-age=1800',
+      },
+    });
+  }
+  if (!response.ok) {
+    return json({ error: `Microsoft Graph media request failed: ${response.status}` }, response.status);
+  }
+  return new Response(response.body, {
+    status: response.status,
+    headers: {
+      'Content-Type': response.headers.get('Content-Type') || 'application/octet-stream',
+      'Cache-Control': 'public, max-age=1800',
+    },
+  });
+}
+
+function isOneDriveConfigured(env) {
+  return Boolean(env.MS_TENANT_ID && env.MS_CLIENT_ID && env.MS_CLIENT_SECRET && env.ONEDRIVE_USER);
+}
+
+async function graphAccessToken(env) {
+  const body = new URLSearchParams({
+    client_id: env.MS_CLIENT_ID,
+    client_secret: env.MS_CLIENT_SECRET,
+    scope: 'https://graph.microsoft.com/.default',
+    grant_type: 'client_credentials',
+  });
+  const response = await fetch(`https://login.microsoftonline.com/${encodeURIComponent(env.MS_TENANT_ID)}/oauth2/v2.0/token`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body,
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw Object.assign(new Error(data.error_description || 'Microsoft Graph token request failed'), { status: 502 });
+  }
+  return data.access_token;
+}
+
+async function graphChildren(env, token, folderPath) {
+  const encodedPath = folderPath.split('/').map(encodeURIComponent).join('/');
+  const data = await graphJson(`${graphDriveBase(env)}/root:/${encodedPath}:/children?$top=200&select=id,name,file,folder,image,video,size,lastModifiedDateTime`, token);
+  return data.value || [];
+}
+
+async function graphJson(url, token) {
+  const response = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    throw Object.assign(new Error(data.error?.message || `Microsoft Graph request failed: ${response.status}`), { status: 502 });
+  }
+  return data;
+}
+
+function graphDriveBase(env) {
+  return `https://graph.microsoft.com/v1.0/users/${encodeURIComponent(env.ONEDRIVE_USER)}/drive`;
+}
+
+function isImageItem(item) {
+  return item.file && (item.image || /^image\//i.test(item.file.mimeType || ''));
+}
+
+function isVideoItem(item) {
+  return item.file && (item.video || /^video\//i.test(item.file.mimeType || ''));
+}
+
+function mediaSummary(item, type) {
+  return {
+    id: item.id,
+    name: item.name,
+    type,
+    mimeType: item.file?.mimeType || '',
+    size: item.size || 0,
+    updatedAt: item.lastModifiedDateTime || '',
+    url: `/api/portfolio/media?id=${encodeURIComponent(item.id)}`,
+    thumb: `/api/portfolio/thumb?id=${encodeURIComponent(item.id)}`,
+  };
+}
+
+function mediaCountText(imageCount, videoCount) {
+  const parts = [];
+  if (imageCount) parts.push(`${imageCount} photo${imageCount === 1 ? '' : 's'}`);
+  if (videoCount) parts.push(`${videoCount} video${videoCount === 1 ? '' : 's'}`);
+  return parts.length ? parts.join(' and ') : 'Client portfolio media';
 }
 
 async function login(request, env) {
