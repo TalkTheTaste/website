@@ -180,8 +180,8 @@ async function routeRequest(path, request, env) {
   if (path === '/leads/submit' && request.method === 'POST') return submitLead(request, env);
   if (path === '/portfolio' && request.method === 'GET') return portfolioIndex(env);
   if (path === '/portfolio/client' && request.method === 'GET') return portfolioClient(request, env);
-  if (path === '/portfolio/media' && request.method === 'GET') return portfolioMedia(request, env);
-  if (path === '/portfolio/thumb' && request.method === 'GET') return portfolioThumb(request, env);
+  if (path === '/portfolio/media' && (request.method === 'GET' || request.method === 'HEAD')) return portfolioMedia(request, env);
+  if (path === '/portfolio/thumb' && (request.method === 'GET' || request.method === 'HEAD')) return portfolioThumb(request, env);
 
   return json({ error: 'Not found' }, 404);
 }

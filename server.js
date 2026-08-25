@@ -151,6 +151,12 @@ app.get(['/profile', '/profile/'], (req, res) => {
     res.sendFile(path.join(ROOT, 'TTTprofile.pdf'));
 });
 
+app.get('/work.html', (req, res) => res.redirect(301, '/work'));
+app.get(['/work', '/work/'], (req, res) => {
+    res.type('html');
+    res.sendFile(path.join(ROOT, 'assets/pages/portfolio-source.txt'));
+});
+
 // Public: live portfolio from Microsoft OneDrive
 app.get('/api/portfolio', async (req, res) => {
     try {
