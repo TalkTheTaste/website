@@ -1,6 +1,6 @@
 /**
  * TTT Data Layer - localStorage-based CMS
- * All site content (projects, blog posts, leads, settings) is stored
+ * All site content (projects, blog posts, leads, settings, analytics) is stored
  * in localStorage and read dynamically by each page.
  */
 
@@ -17,6 +17,7 @@ const TTT = {
         settings: 'ttt_settings',
         auth:     'ttt_auth',
         leads:    'ttt_leads',
+        analytics:'ttt_analytics',
         version:  'ttt_data_version',
     },
 
@@ -240,6 +241,13 @@ const TTT = {
         try { localStorage.setItem(this.KEYS.leads, JSON.stringify(list)); } catch(e) {}
     },
 
+    // ── ANALYTICS ────────────────────────────────────────────────
+    getAnalytics() {
+        try {
+            return JSON.parse(localStorage.getItem(this.KEYS.analytics) || '[]');
+        } catch { return []; }
+    },
+
     // ── SEED DEMO DATA ────────────────────────────────────────────
     seedIfEmpty() {
         if (this.getProjects().length === 0) {
@@ -409,6 +417,9 @@ TTT.API = {
             if (Array.isArray(data.leads)) {
                 localStorage.setItem(TTT.KEYS.leads, JSON.stringify(data.leads));
             }
+            if (Array.isArray(data.analytics)) {
+                localStorage.setItem(TTT.KEYS.analytics, JSON.stringify(data.analytics));
+            }
             return true;
         } catch(e) {
             console.warn('Server sync failed, using localStorage only:', e.message);
@@ -451,6 +462,26 @@ TTT.API = {
     },
     async saveLeads(list) {
         try { await this.post('/api/leads/save', list); } catch(e) { console.warn('Lead sync failed', e.message); }
+    },
+    async refreshAnalytics() {
+        try {
+            const analytics = await this.get('/api/analytics');
+            if (Array.isArray(analytics)) localStorage.setItem(TTT.KEYS.analytics, JSON.stringify(analytics));
+            return analytics;
+        } catch(e) {
+            console.warn('Analytics sync failed', e.message);
+            return TTT.getAnalytics();
+        }
+    },
+    async clearAnalytics() {
+        try {
+            await this.post('/api/analytics/clear', {});
+            localStorage.setItem(TTT.KEYS.analytics, '[]');
+            return true;
+        } catch(e) {
+            console.warn('Analytics clear failed', e.message);
+            return false;
+        }
     },
     async submitLead(lead) {
         try {

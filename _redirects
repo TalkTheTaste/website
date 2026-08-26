@@ -1,6 +1,7 @@
 /index.html / 301
 /profile /TTTprofile.pdf 302
 /profile/ /TTTprofile.pdf 302
+/work/ /work 301
 /services.html /services 301
 /work.html /work 301
 /pricing.html /pricing 301

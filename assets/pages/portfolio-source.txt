@@ -27,6 +27,7 @@
     <meta name="twitter:description" content="Explore selected creative, digital and content projects for Dubai brands.">
     <meta name="twitter:image" content="https://talkthetaste.com/assets/site/social-card.jpg">
     <meta name="twitter:image:alt" content="Talk The Taste creative agency portfolio preview">
+    <link rel="preload" href="/api/portfolio" as="fetch" type="application/json" crossorigin="anonymous">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -34,6 +35,16 @@
       "name": "Talk The Taste Work",
       "url": "https://talkthetaste.com/work",
       "description": "Creative agency case studies covering branding, social media, web design, mobile apps and video production in Dubai."
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://talkthetaste.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://talkthetaste.com/work" }
+      ]
     }
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -72,6 +83,15 @@
         .proj-desc { font-size:14px;color:rgba(250,250,248,.72);line-height:1.65;margin-bottom:18px; }
         .proj-tags { display:flex;flex-wrap:wrap;gap:8px; }
         .proj-tag { background:rgba(250,250,248,.1);border:1px solid rgba(250,250,248,.16);color:rgba(250,250,248,.72);font-size:11px;padding:5px 12px;border-radius:100px; }
+        .portfolio-note { grid-column:1/-1;font-size:12px;color:var(--text-muted);margin:0 0 4px; }
+        .portfolio-skeleton { pointer-events:none; }
+        .portfolio-skeleton .proj-thumb-bg { background:linear-gradient(110deg,#ece9e2 8%,#f7f5ef 18%,#ece9e2 33%);background-size:220% 100%;animation:skeletonShift 1.05s linear infinite; }
+        .portfolio-skeleton .proj-title,.portfolio-skeleton .proj-desc,.portfolio-skeleton .proj-cat,.portfolio-skeleton .proj-tags { display:block;border-radius:100px;background:rgba(255,255,255,.22);color:transparent;overflow:hidden; }
+        .portfolio-skeleton .proj-title { width:64%;height:44px; }
+        .portfolio-skeleton .proj-desc { width:82%;height:16px;margin-top:18px; }
+        .portfolio-skeleton .proj-cat { width:120px;height:11px; }
+        .portfolio-skeleton .proj-tags { width:190px;height:28px;margin-top:18px; }
+        @keyframes skeletonShift { to { background-position-x:-220%; } }
 
         /* Client view */
         .client-view { position:fixed;inset:0;background:var(--bg);z-index:2000;opacity:0;visibility:hidden;transform:translateY(18px);transition:opacity .32s,visibility .32s,transform .42s cubic-bezier(.16,1,.3,1);overflow-y:auto; }
@@ -278,16 +298,36 @@
         if (e.target.closest('.protected-media,.media-item,.client-hero-media,.media-viewer-stage')) e.preventDefault();
     });
 
-    let allProjects = TTT.getProjects();
+    let allProjects = [];
     let activeFilter = 'all';
-    let portfolioSource = 'local';
+    let portfolioSource = 'loading';
     let activeClientId = '';
     let activeClientSlug = '';
     let activeMedia = [];
     const clientDetailPromises = new Map();
     const CLIENT_CACHE_TTL = 30 * 60 * 1000;
+    const PORTFOLIO_CACHE_TTL = 2 * 60 * 1000;
 
     const filterBar = document.getElementById('filterBar');
+
+    function renderSkeleton() {
+        filterBar.innerHTML = `<button class="filter-btn active" type="button">Loading Work</button>`;
+        const grid = document.getElementById('projectsGrid');
+        grid.innerHTML = Array.from({ length: 5 }).map((_, i) => `
+            <div class="proj-card portfolio-skeleton ${i === 0 ? 'proj-featured' : ''}" aria-hidden="true">
+                <div class="proj-thumb">
+                    <div class="proj-thumb-bg"></div>
+                    <div class="proj-thumb-overlay"></div>
+                </div>
+                <div class="proj-body">
+                    <div class="proj-cat">&nbsp;</div>
+                    <div class="proj-title">&nbsp;</div>
+                    <div class="proj-desc">&nbsp;</div>
+                    <div class="proj-tags">&nbsp;</div>
+                </div>
+            </div>
+        `).join('');
+    }
 
     function renderFilters() {
         const cats = ['all', ...new Set(allProjects.map(p => p.category).filter(Boolean))];
@@ -345,14 +385,14 @@
     }
 
     function refreshProjectData() {
-        if (portfolioSource === 'onedrive') return;
+        if (portfolioSource === 'onedrive' || portfolioSource === 'loading') return;
         allProjects = TTT.getProjects();
         portfolioSource = 'local';
         renderFilters();
         renderProjects();
     }
 
-    refreshProjectData();
+    hydratePortfolioCache();
     loadOneDrivePortfolio();
     document.addEventListener('ttt:data:ready', refreshProjectData);
 
@@ -387,9 +427,10 @@
             const response = await fetch('/api/portfolio', { headers: { Accept: 'application/json' } });
             if (!response.ok) throw new Error('Portfolio request failed');
             const data = await response.json();
-            if (!Array.isArray(data.projects) || data.source !== 'onedrive') return;
+            if (!Array.isArray(data.projects) || data.source !== 'onedrive') throw new Error('OneDrive portfolio unavailable');
             allProjects = data.projects;
             portfolioSource = data.source;
+            setPortfolioCache(data);
             renderFilters();
             renderProjects();
             prefetchClientDetails();
@@ -399,9 +440,47 @@
             }
         } catch (error) {
             if (!allProjects.length) {
-                grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📂</div><h3>Portfolio unavailable</h3><p>Client work could not be loaded right now.</p></div>`;
+                portfolioSource = 'local';
+                allProjects = TTT.getProjects();
+                if (allProjects.length) {
+                    renderFilters();
+                    renderProjects();
+                } else {
+                    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📂</div><h3>Portfolio unavailable</h3><p>Client work could not be loaded right now.</p></div>`;
+                }
             }
         }
+    }
+
+    function hydratePortfolioCache() {
+        const cached = getPortfolioCache();
+        if (cached?.projects?.length) {
+            allProjects = cached.projects;
+            portfolioSource = 'onedrive';
+            renderFilters();
+            renderProjects();
+            prefetchClientDetails();
+            return;
+        }
+        renderSkeleton();
+    }
+
+    function getPortfolioCache() {
+        try {
+            const raw = localStorage.getItem('ttt_portfolio_index');
+            if (!raw) return null;
+            const cached = JSON.parse(raw);
+            if (!cached || Date.now() - cached.savedAt > PORTFOLIO_CACHE_TTL) return null;
+            return cached.data;
+        } catch {
+            return null;
+        }
+    }
+
+    function setPortfolioCache(data) {
+        try {
+            localStorage.setItem('ttt_portfolio_index', JSON.stringify({ savedAt: Date.now(), data }));
+        } catch {}
     }
 
     function openClientFromParam(param, replaceUrl = false) {
@@ -637,6 +716,7 @@
 
 })();
 </script>
+<script src="js/conversion.js"></script>
 <script src="js/transitions.js"></script>
 </body>
 </html>

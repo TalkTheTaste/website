@@ -6,8 +6,8 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-/assets/pages/portfolio-source.txt
-  X-Robots-Tag: noindex, nofollow
+/assets/pages/*
+  X-Robots-Tag: noindex, nofollow, noarchive
 
 /images/*
   Cache-Control: public, max-age=31536000, immutable

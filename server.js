@@ -19,6 +19,7 @@ const FILES = {
     posts:    path.join(DATA, 'posts.json'),
     settings: path.join(DATA, 'settings.json'),
     leads:    path.join(DATA, 'leads.json'),
+    analytics: path.join(DATA, 'analytics.json'),
 };
 
 const DEFAULT_SETTINGS = {
@@ -37,6 +38,7 @@ const DEFAULT_SETTINGS = {
 if (!fs.existsSync(FILES.projects)) fs.writeFileSync(FILES.projects, '[]');
 if (!fs.existsSync(FILES.posts))    fs.writeFileSync(FILES.posts,    '[]');
 if (!fs.existsSync(FILES.leads))    fs.writeFileSync(FILES.leads,    '[]');
+if (!fs.existsSync(FILES.analytics)) fs.writeFileSync(FILES.analytics, '[]');
 if (!fs.existsSync(FILES.settings)) fs.writeFileSync(FILES.settings, JSON.stringify(DEFAULT_SETTINGS, null, 2));
 
 // ── Helpers ──────────────────────────────────────────────────
@@ -93,6 +95,7 @@ app.get('/api/sync', auth, (req, res) => {
         posts:    read(FILES.posts),
         settings: read(FILES.settings),
         leads:    read(FILES.leads),
+        analytics: read(FILES.analytics),
     });
 });
 
@@ -115,6 +118,50 @@ app.post('/api/settings/save', auth, (req, res) => {
 // ── LEADS ─────────────────────────────────────────────────────
 app.get('/api/leads',       auth, (req, res) => res.json(read(FILES.leads)));
 app.post('/api/leads/save', auth, (req, res) => { write(FILES.leads, req.body); res.json({ ok: true }); });
+
+app.get('/api/analytics', auth, (req, res) => res.json(read(FILES.analytics)));
+app.post('/api/analytics/clear', auth, (req, res) => { write(FILES.analytics, []); res.json({ ok: true }); });
+app.post('/api/analytics/track', async (req, res) => {
+    const page = cleanPath(req.body.page || req.body.path || '');
+    if (!page || page.startsWith('/admin') || page.startsWith('/api')) return res.json({ ok: true, skipped: true });
+    const userAgent = String(req.get('User-Agent') || req.body.userAgent || '').slice(0, 300);
+    if (isLikelyBot(userAgent)) return res.json({ ok: true, skipped: true });
+    const now = new Date();
+    const list = read(FILES.analytics);
+    list.unshift({
+        id: Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8),
+        type: String(req.body.type || 'pageview').slice(0, 40),
+        page,
+        title: String(req.body.title || '').slice(0, 160),
+        referrer: String(req.body.referrer || '').slice(0, 300),
+        label: String(req.body.label || '').slice(0, 160),
+        href: String(req.body.href || '').slice(0, 300),
+        source: String(req.body.source || '').slice(0, 160),
+        visitorId: simpleVisitorId(req.ip, now),
+        sessionId: String(req.body.sessionId || '').slice(0, 80),
+        country: '',
+        city: '',
+        region: '',
+        colo: '',
+        timezone: String(req.body.timezone || '').slice(0, 80),
+        language: String(req.body.language || '').slice(0, 40),
+        viewport: String(req.body.viewport || '').slice(0, 32),
+        screen: String(req.body.screen || '').slice(0, 32),
+        connection: String(req.body.connection || '').slice(0, 60),
+        utmSource: String(req.body.utmSource || '').slice(0, 120),
+        utmMedium: String(req.body.utmMedium || '').slice(0, 120),
+        utmCampaign: String(req.body.utmCampaign || '').slice(0, 160),
+        metrics: cleanMetrics(req.body.metrics),
+        durationMs: cleanNumber(req.body.durationMs),
+        scrollDepth: cleanNumber(req.body.scrollDepth),
+        device: deviceType(userAgent),
+        browser: browserName(userAgent),
+        os: osName(userAgent),
+        createdAt: now.toISOString(),
+    });
+    write(FILES.analytics, list.slice(0, 2500));
+    res.json({ ok: true });
+});
 
 // Public: submit a new lead from contact form
 app.post('/api/leads/submit', (req, res) => {
@@ -170,6 +217,12 @@ app.get('/api/portfolio', async (req, res) => {
                 message: 'OneDrive portfolio is not configured.',
             });
         }
+        const cacheKey = 'portfolio_index:v4';
+        const cached = readMemoryCache(cacheKey);
+        if (cached) {
+            res.set('Cache-Control', 'public, max-age=120, s-maxage=120, stale-while-revalidate=120');
+            return res.json({ ...cached, cached: true });
+        }
         const token = await graphAccessToken(process.env);
         const clientsPath = process.env.ONEDRIVE_CLIENTS_PATH || 'TalkTheTaste/Work Portfolio/Clients';
         const clientFolders = (await graphChildren(process.env, token, clientsPath))
@@ -202,8 +255,10 @@ app.get('/api/portfolio', async (req, res) => {
                 updatedAt: client.lastModifiedDateTime || '',
             };
         }));
-        res.set('Cache-Control', 'public, max-age=300, s-maxage=300, stale-while-revalidate=120');
-        res.json({ source: 'onedrive', configured: true, projects: projects.filter(project => project.mediaCount) });
+        const payload = { source: 'onedrive', configured: true, projects: projects.filter(project => project.mediaCount) };
+        writeMemoryCache(cacheKey, payload, 2 * 60 * 1000);
+        res.set('Cache-Control', 'public, max-age=120, s-maxage=120, stale-while-revalidate=120');
+        res.json(payload);
     } catch (error) {
         res.status(502).json({ error: error.message || 'Portfolio request failed' });
     }
@@ -422,4 +477,69 @@ function readMemoryCache(key) {
 
 function writeMemoryCache(key, value, ttlMs) {
     memoryCache.set(key, { value, expiresAt: Date.now() + ttlMs });
+}
+
+function cleanPath(value) {
+    const text = String(value || '').trim();
+    if (!text) return '';
+    try {
+        const url = text.startsWith('http') ? new URL(text) : new URL(text, 'https://talkthetaste.com');
+        return `${url.pathname}${url.search}`.slice(0, 300);
+    } catch {
+        return text.startsWith('/') ? text.slice(0, 300) : `/${text}`.slice(0, 300);
+    }
+}
+
+function simpleVisitorId(ip, now) {
+    const day = now.toISOString().slice(0, 10);
+    let hash = 0;
+    const value = `${day}:${ip || ''}`;
+    for (let i = 0; i < value.length; i += 1) {
+        hash = ((hash << 5) - hash + value.charCodeAt(i)) | 0;
+    }
+    return Math.abs(hash).toString(36).padStart(8, '0').slice(0, 12);
+}
+
+function cleanMetrics(value) {
+    const metrics = value && typeof value === 'object' ? value : {};
+    return {
+        loadMs: cleanNumber(metrics.loadMs),
+        domMs: cleanNumber(metrics.domMs),
+        ttfbMs: cleanNumber(metrics.ttfbMs),
+        transferSize: cleanNumber(metrics.transferSize),
+        encodedBodySize: cleanNumber(metrics.encodedBodySize),
+    };
+}
+
+function cleanNumber(value) {
+    const number = Number(value);
+    if (!Number.isFinite(number) || number < 0) return 0;
+    return Math.round(number);
+}
+
+function isLikelyBot(userAgent) {
+    return /bot|crawler|spider|preview|facebookexternalhit|whatsapp|slackbot|discordbot|linkedinbot|twitterbot|telegrambot/i.test(userAgent || '');
+}
+
+function deviceType(userAgent) {
+    if (/ipad|tablet/i.test(userAgent)) return 'Tablet';
+    if (/mobi|iphone|android/i.test(userAgent)) return 'Mobile';
+    return 'Desktop';
+}
+
+function browserName(userAgent) {
+    if (/edg\//i.test(userAgent)) return 'Edge';
+    if (/chrome|crios/i.test(userAgent) && !/edg\//i.test(userAgent)) return 'Chrome';
+    if (/safari/i.test(userAgent) && !/chrome|crios|android/i.test(userAgent)) return 'Safari';
+    if (/firefox|fxios/i.test(userAgent)) return 'Firefox';
+    return 'Other';
+}
+
+function osName(userAgent) {
+    if (/iphone|ipad|ios/i.test(userAgent)) return 'iOS';
+    if (/android/i.test(userAgent)) return 'Android';
+    if (/mac os x|macintosh/i.test(userAgent)) return 'macOS';
+    if (/windows/i.test(userAgent)) return 'Windows';
+    if (/linux/i.test(userAgent)) return 'Linux';
+    return 'Other';
 }

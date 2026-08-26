@@ -104,6 +104,7 @@ const DEFAULTS = {
   posts: DEFAULT_POSTS,
   settings: DEFAULT_SETTINGS,
   leads: [],
+  analytics: [],
 };
 
 const JSON_HEADERS = {
@@ -142,6 +143,7 @@ async function routeRequest(path, request, env) {
       posts: await readStore(env, 'posts'),
       settings: await readStore(env, 'settings'),
       leads: await readStore(env, 'leads'),
+      analytics: await readStore(env, 'analytics'),
     });
   }
 
@@ -178,6 +180,16 @@ async function routeRequest(path, request, env) {
     return saveBody(request, env, 'leads', []);
   }
   if (path === '/leads/submit' && request.method === 'POST') return submitLead(request, env);
+  if (path === '/analytics/track' && request.method === 'POST') return trackAnalytics(request, env);
+  if (path === '/analytics' && request.method === 'GET') {
+    await requireAuth(request, env);
+    return json(await readStore(env, 'analytics'));
+  }
+  if (path === '/analytics/clear' && request.method === 'POST') {
+    await requireAuth(request, env);
+    await writeStore(env, 'analytics', []);
+    return json({ ok: true });
+  }
   if (path === '/portfolio' && request.method === 'GET') return portfolioIndex(env);
   if (path === '/portfolio/client' && request.method === 'GET') return portfolioClient(request, env);
   if (path === '/portfolio/media' && (request.method === 'GET' || request.method === 'HEAD')) return portfolioMedia(request, env);
@@ -196,6 +208,10 @@ async function portfolioIndex(env) {
       message: 'OneDrive portfolio is not configured.',
     });
   }
+
+  const cacheKey = 'portfolio_index:v4';
+  const cached = await readJsonCache(env, cacheKey);
+  if (cached) return portfolioJson({ ...cached, cached: true }, 120);
 
   const token = await graphAccessToken(env);
   const clientsPath = env.ONEDRIVE_CLIENTS_PATH || 'TalkTheTaste/Work Portfolio/Clients';
@@ -234,11 +250,13 @@ async function portfolioIndex(env) {
     };
   }));
 
-  return portfolioJson({
+  const payload = {
     source: 'onedrive',
     configured: true,
     projects: clients.filter((client) => client.mediaCount),
-  });
+  };
+  await writeJsonCache(env, cacheKey, payload, 120);
+  return portfolioJson(payload, 120);
 }
 
 async function portfolioClient(request, env) {
@@ -540,6 +558,118 @@ async function notifyCallMeBot(env, lead) {
   }
 
   return { ok: true, status: response.status, body: body.slice(0, 300) };
+}
+
+async function trackAnalytics(request, env) {
+  const body = await request.json().catch(() => ({}));
+  const page = cleanPath(body.page || body.path || '');
+  if (!page || page.startsWith('/admin') || page.startsWith('/api')) return json({ ok: true, skipped: true });
+
+  const now = new Date();
+  const userAgent = cleanText(request.headers.get('User-Agent') || body.userAgent || '').slice(0, 300);
+  if (isLikelyBot(userAgent)) return json({ ok: true, skipped: true });
+
+  const ip = request.headers.get('CF-Connecting-IP') || request.headers.get('X-Forwarded-For') || '';
+  const visitorId = await visitorHash(env, ip, now);
+  const event = {
+    id: Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 8),
+    type: cleanText(body.type || 'pageview').slice(0, 40),
+    page,
+    title: cleanText(body.title).slice(0, 160),
+    referrer: cleanText(body.referrer).slice(0, 300),
+    label: cleanText(body.label).slice(0, 160),
+    href: cleanText(body.href).slice(0, 300),
+    source: cleanText(body.source).slice(0, 160),
+    visitorId,
+    sessionId: cleanText(body.sessionId).slice(0, 80),
+    country: cleanText(request.headers.get('CF-IPCountry') || '').slice(0, 8),
+    city: cleanText(request.cf?.city || '').slice(0, 80),
+    region: cleanText(request.cf?.region || '').slice(0, 80),
+    colo: cleanText(request.cf?.colo || '').slice(0, 12),
+    timezone: cleanText(request.cf?.timezone || body.timezone || '').slice(0, 80),
+    language: cleanText(body.language).slice(0, 40),
+    viewport: cleanText(body.viewport).slice(0, 32),
+    screen: cleanText(body.screen).slice(0, 32),
+    connection: cleanText(body.connection).slice(0, 60),
+    utmSource: cleanText(body.utmSource).slice(0, 120),
+    utmMedium: cleanText(body.utmMedium).slice(0, 120),
+    utmCampaign: cleanText(body.utmCampaign).slice(0, 160),
+    metrics: cleanMetrics(body.metrics),
+    durationMs: cleanNumber(body.durationMs),
+    scrollDepth: cleanNumber(body.scrollDepth),
+    device: deviceType(userAgent),
+    browser: browserName(userAgent),
+    os: osName(userAgent),
+    createdAt: now.toISOString(),
+  };
+
+  const list = await readStore(env, 'analytics');
+  list.unshift(event);
+  await writeStore(env, 'analytics', list.slice(0, 2500));
+  return json({ ok: true });
+}
+
+function cleanMetrics(value) {
+  const metrics = value && typeof value === 'object' ? value : {};
+  return {
+    loadMs: cleanNumber(metrics.loadMs),
+    domMs: cleanNumber(metrics.domMs),
+    ttfbMs: cleanNumber(metrics.ttfbMs),
+    transferSize: cleanNumber(metrics.transferSize),
+    encodedBodySize: cleanNumber(metrics.encodedBodySize),
+  };
+}
+
+function cleanNumber(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number) || number < 0) return 0;
+  return Math.round(number);
+}
+
+function cleanPath(value) {
+  const text = cleanText(value);
+  if (!text) return '';
+  try {
+    const url = text.startsWith('http') ? new URL(text) : new URL(text, 'https://talkthetaste.com');
+    return `${url.pathname}${url.search}`.slice(0, 300);
+  } catch {
+    return text.startsWith('/') ? text.slice(0, 300) : `/${text}`.slice(0, 300);
+  }
+}
+
+async function visitorHash(env, ip, now) {
+  const day = now.toISOString().slice(0, 10);
+  if (!ip) return `anon_${day}`;
+  const value = `${day}:${ip}`;
+  const hash = await hmac(env, value);
+  return hash.slice(0, 16);
+}
+
+function isLikelyBot(userAgent) {
+  return /bot|crawler|spider|preview|facebookexternalhit|whatsapp|slackbot|discordbot|linkedinbot|twitterbot|telegrambot/i.test(userAgent || '');
+}
+
+function deviceType(userAgent) {
+  if (/ipad|tablet/i.test(userAgent)) return 'Tablet';
+  if (/mobi|iphone|android/i.test(userAgent)) return 'Mobile';
+  return 'Desktop';
+}
+
+function browserName(userAgent) {
+  if (/edg\//i.test(userAgent)) return 'Edge';
+  if (/chrome|crios/i.test(userAgent) && !/edg\//i.test(userAgent)) return 'Chrome';
+  if (/safari/i.test(userAgent) && !/chrome|crios|android/i.test(userAgent)) return 'Safari';
+  if (/firefox|fxios/i.test(userAgent)) return 'Firefox';
+  return 'Other';
+}
+
+function osName(userAgent) {
+  if (/iphone|ipad|ios/i.test(userAgent)) return 'iOS';
+  if (/android/i.test(userAgent)) return 'Android';
+  if (/mac os x|macintosh/i.test(userAgent)) return 'macOS';
+  if (/windows/i.test(userAgent)) return 'Windows';
+  if (/linux/i.test(userAgent)) return 'Linux';
+  return 'Other';
 }
 
 function validateLead(body, phone) {

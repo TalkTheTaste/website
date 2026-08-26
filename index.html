@@ -85,6 +85,7 @@
               "addressCountry": "AE"
             },
             "areaServed": ["Dubai", "United Arab Emirates", "UAE"],
+            "employee": { "@id": "https://talkthetaste.com/#umair-dada" },
             "sameAs": [
               "https://www.instagram.com/talkthetaste/",
               "https://www.linkedin.com/company/ttt-mm/"
@@ -98,6 +99,14 @@
               "Video production",
               "Marketing strategy"
             ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://talkthetaste.com/#umair-dada",
+            "name": "Umair Dada",
+            "jobTitle": "Project Lead",
+            "image": "https://talkthetaste.com/assets/site/umair-profile.jpg",
+            "worksFor": { "@id": "https://talkthetaste.com/#business" }
           },
           {
             "@type": "WebSite",
@@ -141,6 +150,8 @@
     </script>
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="apple-touch-icon" href="assets/logo.png" />
+    <link rel="preload" href="assets/site/hero-unmasked-umair.png" as="image" />
+    <link rel="preload" href="assets/site/hero-masked-umair.png" as="image" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -217,7 +228,6 @@
           height: 100%; background: var(--gold); width: 0%;
           transition: width 0.05s linear;
       }
-
       /* ============================================================
          HERO
       ============================================================ */
@@ -225,15 +235,24 @@
           min-height: 100svh;
           display: flex;
           flex-direction: column;
-          justify-content: space-between;
           padding: 0 64px;
-          /* background:
-              linear-gradient(90deg, rgba(6,6,6,.92) 0%, rgba(6,6,6,.72) 48%, rgba(6,6,6,.42) 100%),
-              url('assets/site/home-hero.jpg') center/cover no-repeat; */
+          background: var(--bg);
+          color: var(--text);
           border-bottom: 1px solid var(--border);
           position: relative;
           overflow: hidden;
+          isolation: isolate;
+          --mask-x: 50%;
+          --mask-y: 50%;
+          --mask-size: 0px;
       }
+      @property --mask-size {
+          syntax: '<length>';
+          inherits: true;
+          initial-value: 0px;
+      }
+      #hero.hero-ready { --mask-size: 220px; }
+      #hero { transition: --mask-size .3s ease; }
       .hero-top-bar {
           padding-top: 92px;
           display: flex;
@@ -241,6 +260,8 @@
           align-items: center;
           padding-bottom: 28px;
           border-bottom: 1px solid var(--border);
+          position: relative;
+          z-index: 2;
       }
       .hero-label {
           font-family: 'Inter', sans-serif;
@@ -256,57 +277,144 @@
           color: var(--text-xmuted);
           opacity: 0; animation: hFadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
       }
+
+      /* ---- HERO CENTER: layered composition, portrait absolutely anchored ---- */
       .hero-center {
+          position: relative;
           flex: 1;
-          display: flex;
-          align-items: center;
-          padding: 26px 0;
+          display: grid;
+          grid-template-columns: minmax(230px, 1fr) minmax(150px, 1fr);
+          align-items: start;
+          gap: clamp(16px, 3vw, 40px);
+          padding: clamp(14px, 2.4vh, 28px) 0 0;
+          z-index: 2;
+      }
+      .hero-copy {
+          position: relative;
+          z-index: 4;
+          max-width: 440px;
+          grid-column: 1;
+          margin-top: clamp(24px, 14vh, 150px);
       }
       .hero-headline {
           font-family: 'Space Grotesk', sans-serif;
-          font-size: clamp(58px, 9.2vw, 124px);
+          font-size: clamp(52px, 6.6vw, 96px);
           font-weight: 700;
           line-height: 0.9;
-          letter-spacing: -4px;
+          letter-spacing: -3.5px;
           color: var(--text);
           opacity: 0; animation: hFadeUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.55s forwards;
       }
-      .hero-bottom-bar {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-          padding: 24px 0;
-          border-top: 1px solid var(--border);
-          gap: 48px;
-          opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.75s forwards;
+      .hero-headline span {
+          color: var(--text);
       }
-      .hero-sub {
+      .hero-copy-sub {
           font-family: 'Inter', sans-serif;
           font-size: 15px; color: var(--text-muted);
-          line-height: 1.58; max-width: 520px;
+          line-height: 1.6; max-width: 400px;
+          margin-top: 22px;
+          opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.65s forwards;
+      }
+      .hero-proof {
+          display: flex; align-items: center; gap: 10px;
+          margin-top: 22px;
+          opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.72s forwards;
+      }
+      .hero-proof-text {
+          font-family: 'Inter', sans-serif;
+          font-size: 12px; font-weight: 600;
+          letter-spacing: .3px;
+          color: var(--text-muted);
       }
       .hero-actions {
           display: flex; gap: 16px;
           align-items: center; flex-shrink: 0;
+          margin-top: 30px;
+          opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s forwards;
       }
-      .hero-proof {
-          display: flex; gap: 10px; flex-wrap: wrap;
-          margin-top: 12px;
+
+      /* ---- HERO PORTRAIT: large, bottom-anchored, integrated, transparent cutout ---- */
+      .hero-mask-scene {
+          position: absolute;
+          z-index: 1;
+          left: 50%;
+          bottom: 0;
+          top: clamp(30px, 6vh, 90px);
+          margin-left: max(-42vw, -980px);
+          width: min(84vw, 1960px);
+          min-width: 680px;
+          overflow: visible;
+          background: transparent;
+          opacity: 0; animation: heroPortraitIn 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.35s forwards;
       }
-      .proof-pill {
+      @keyframes heroPortraitIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+      }
+      .hero-mask-img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          object-position: 50% 100%;
+          display: block;
+      }
+      .hero-mask-img.base {
+          filter: none;
+      }
+      .hero-mask-img.reveal {
+          filter: none;
+          -webkit-mask-image: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), #000 0 58%, rgba(0,0,0,.75) 68%, transparent 76%);
+          mask-image: radial-gradient(circle var(--mask-size) at var(--mask-x) var(--mask-y), #000 0 58%, rgba(0,0,0,.75) 68%, transparent 76%);
+          transition: opacity .25s ease;
+      }
+      .hero-reveal-dot {
+          position: absolute;
+          top: 0; left: 0;
+          width: 44px; height: 44px;
+          border-radius: 50%;
+          background: rgba(255,255,255,.95);
+          box-shadow: 0 4px 18px rgba(12,12,10,.18);
+          display: flex; align-items: center; justify-content: center;
+          font-size: 15px;
+          color: var(--text);
+          pointer-events: none;
+          opacity: 0;
+          transform: translate(-50%, -50%) scale(.8);
+          transition: opacity .2s ease, transform .2s ease;
+          z-index: 3;
+      }
+      #hero.hero-ready .hero-reveal-dot {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1);
+      }
+
+      /* ---- HERO RIGHT MICRO COPY ---- */
+      .hero-micro {
+          position: absolute;
+          z-index: 4;
+          right: 0;
+          top: clamp(50px, 9vh, 130px);
+          text-align: right;
           font-family: 'Inter', sans-serif;
           font-size: 11px; font-weight: 600;
-          color: var(--text-muted);
-          border: 1px solid var(--border);
-          border-radius: 999px;
-          padding: 7px 11px;
-          background: rgba(255,255,255,0.64);
+          letter-spacing: 2.5px; text-transform: uppercase;
+          line-height: 1.7;
+          color: var(--text-xmuted);
+          max-width: 180px;
+          opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
       }
+
+      .hero-bottom-bar { display: none; }
+
       .hero-stats {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
           border-top: 1px solid var(--border);
-          opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+          position: relative;
+          z-index: 2;
+          opacity: 0; animation: hFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.95s forwards;
       }
       .stat-item {
           padding: 18px 0;
@@ -355,8 +463,6 @@
       @keyframes hFadeUp {
           from { opacity: 0; transform: translateY(20px); }
           to   { opacity: 1; transform: none; }
-      }
-          to   { transform: translateX(-50%); }
       }
 
       /* ============================================================
@@ -420,40 +526,110 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          margin-bottom: 48px;
+          margin-bottom: 34px;
       }
-      .work-grid {
+      .featured-work {
+          display: grid;
+          grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+          min-height: 620px;
+          background: var(--surface);
+          border: 1px solid var(--border);
+          overflow: hidden;
+      }
+      .featured-work-copy {
+          padding: clamp(34px, 5vw, 68px);
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 48px;
+      }
+      .featured-work-kicker {
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 3px;
+          text-transform: uppercase;
+          color: var(--text-xmuted);
+          margin-bottom: 18px;
+      }
+      .featured-work-title {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: clamp(42px, 6vw, 86px);
+          line-height: .92;
+          letter-spacing: -3px;
+          color: var(--text);
+          max-width: 620px;
+      }
+      .featured-work-desc {
+          font-size: 16px;
+          color: var(--text-muted);
+          line-height: 1.75;
+          max-width: 520px;
+          margin-top: 24px;
+      }
+      .featured-work-stats {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 2px;
+          gap: 1px;
+          background: var(--border);
+          border: 1px solid var(--border);
       }
-      .work-card {
-          background: var(--surface);
-          overflow: hidden;
+      .featured-work-stat {
+          background: var(--bg);
+          padding: 22px;
       }
-      .work-card-img {
-          width: 100%; aspect-ratio: 4/3;
-          overflow: hidden;
-          transition: transform 0.5s ease;
-      }
-      .work-card:hover .work-card-img { transform: scale(1.03); }
-      .work-card-info {
-          padding: 20px 24px;
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-          border-top: 1px solid var(--border);
-      }
-      .work-card-title {
+      .featured-work-stat strong {
+          display: block;
           font-family: 'Space Grotesk', sans-serif;
-          font-size: 18px; font-weight: 600;
-          color: var(--text); letter-spacing: -0.3px;
-          margin-top: 6px;
+          font-size: clamp(24px, 3vw, 38px);
+          letter-spacing: -1px;
+          line-height: 1;
+          color: var(--text);
+          margin-bottom: 8px;
       }
-      .work-year {
-          font-family: 'Inter', sans-serif;
-          font-size: 12px; color: var(--text-xmuted);
-          flex-shrink: 0;
+      .featured-work-stat span {
+          display: block;
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: var(--text-xmuted);
+          line-height: 1.45;
+      }
+      .featured-work-media {
+          position: relative;
+          min-height: 620px;
+          overflow: hidden;
+          background: var(--dark);
+      }
+      .featured-work-media img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 34%;
+          display: block;
+          transition: transform .7s cubic-bezier(.16,1,.3,1);
+      }
+      .featured-work:hover .featured-work-media img { transform: scale(1.035); }
+      .featured-work-badge {
+          position: absolute;
+          left: 28px;
+          bottom: 28px;
+          background: rgba(12,12,10,.72);
+          color: #fff;
+          border: 1px solid rgba(255,255,255,.14);
+          backdrop-filter: blur(14px);
+          padding: 14px 16px;
+          font-size: 12px;
+          font-weight: 600;
+          line-height: 1.5;
+      }
+      .featured-work-badge span {
+          display: block;
+          color: rgba(255,255,255,.55);
+          font-size: 10px;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 4px;
       }
 
       /* ============================================================
@@ -484,6 +660,51 @@
           color: rgba(255,255,255,0.5);
           line-height: 1.8;
           max-width: 440px;
+      }
+      .operator-card {
+          display: grid;
+          grid-template-columns: 82px minmax(0, 1fr);
+          gap: 18px;
+          align-items: center;
+          max-width: 430px;
+          margin-top: 32px;
+          padding: 16px;
+          background: rgba(255,255,255,0.05);
+          border: 1px solid rgba(255,255,255,0.1);
+      }
+      .operator-photo {
+          width: 82px;
+          height: 82px;
+          overflow: hidden;
+          background: rgba(255,255,255,0.08);
+      }
+      .operator-photo img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 34%;
+          display: block;
+      }
+      .operator-label {
+          font-size: 10px;
+          font-weight: 700;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          color: rgba(255,255,255,0.34);
+          margin-bottom: 6px;
+      }
+      .operator-name {
+          font-family: 'Space Grotesk', sans-serif;
+          font-size: 18px;
+          font-weight: 700;
+          color: #fff;
+          letter-spacing: -.3px;
+          margin-bottom: 5px;
+      }
+      .operator-note {
+          font-size: 13px;
+          color: rgba(255,255,255,0.52);
+          line-height: 1.55;
       }
       .about-dark .btn-primary {
           background: var(--gold); color: #fff;
@@ -553,7 +774,12 @@
          TESTIMONIAL
       ============================================================ */
       .testimonial-section { background: var(--bg-off); }
-      .testimonial-inner { max-width: 760px; }
+      .testimonial-inner {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) 280px;
+          gap: 64px;
+          align-items: end;
+      }
       .testimonial-quote {
           font-family: 'Space Grotesk', sans-serif;
           font-size: clamp(24px, 3vw, 38px);
@@ -570,7 +796,15 @@
           width: 44px; height: 44px;
           border-radius: 50%;
           background: var(--border);
+          overflow: hidden;
           flex-shrink: 0;
+      }
+      .testimonial-avatar img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 30%;
+          display: block;
       }
       .testimonial-name {
           font-family: 'Space Grotesk', sans-serif;
@@ -579,6 +813,19 @@
       .testimonial-role {
           font-family: 'Inter', sans-serif;
           font-size: 13px; color: var(--text-muted); margin-top: 2px;
+      }
+      .testimonial-portrait {
+          aspect-ratio: 4/5;
+          overflow: hidden;
+          background: var(--surface);
+          border: 1px solid var(--border);
+      }
+      .testimonial-portrait img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: 50% 32%;
+          display: block;
       }
 
       /* ============================================================
@@ -604,9 +851,14 @@
       ============================================================ */
       @media(max-width:1100px) {
           #hero { padding: 0 40px; }
-          .hero-headline { letter-spacing: -3px; }
+          .hero-headline { font-size: clamp(38px, 6vw, 58px); letter-spacing: -2px; }
+          .hero-copy { max-width: 320px; margin-top: clamp(16px, 8vh, 80px); }
+          .hero-copy-sub { font-size: 14px; }
+          .hero-mask-scene { width: min(78vw, 980px); min-width: 420px; top: clamp(90px, 14vh, 150px); margin-left: max(-39vw, -490px); }
+          .hero-micro { max-width: 120px; font-size: 10px; margin-bottom: clamp(50px, 14vh, 120px); }
           .svc-row { grid-template-columns: 52px 220px 1fr 36px; }
-          .work-grid { grid-template-columns: 1fr 1fr; }
+          .featured-work { grid-template-columns: 1fr; }
+          .featured-work-media { min-height: 560px; order: -1; }
           .about-dark-grid { gap: 60px; }
           .process-steps { grid-template-columns: 1fr 1fr; }
           .process-step:nth-child(2) { border-right: none; }
@@ -615,24 +867,52 @@
           .process-step:nth-child(2) { border-bottom: 1px solid var(--border); }
       }
       @media(max-width:900px) {
+          #hero { min-height: 0; display: block; }
+          .hero-center { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 28px 0 32px; position: static; }
+          .hero-copy { max-width: 520px; margin-top: 0; order: 1; }
+          .hero-copy-sub { margin-left: auto; margin-right: auto; }
+          .hero-actions { justify-content: center; }
+          .hero-mask-scene {
+              order: 2;
+              position: relative;
+              left: auto;
+              top: auto;
+              bottom: auto;
+              transform: none;
+              width: min(260%, 1120px);
+              max-width: none;
+              min-width: 0;
+              aspect-ratio: 1672 / 941;
+              height: auto;
+              margin: 4px 0 -3vw;
+          }
+          .hero-micro { display: none; }
           .svc-header { grid-template-columns: 1fr; gap: 24px; }
           .svc-row { grid-template-columns: 44px 1fr 28px; }
           .svc-desc { display: none; }
           .about-dark-grid { grid-template-columns: 1fr; gap: 48px; }
           .about-dark-right { grid-template-columns: 1fr 1fr; }
+          .testimonial-inner { grid-template-columns: 1fr; gap: 34px; }
+          .testimonial-portrait { max-width: 360px; }
       }
       @media(max-width:768px) {
           #hero { padding: 0 24px; }
           .hero-top-bar { padding-top: 82px; padding-bottom: 20px; }
-          .hero-center { padding: 20px 0; }
-          .hero-headline { font-size: clamp(44px, 12.2vw, 78px); letter-spacing: -2px; line-height:.92; }
-          .hero-bottom-bar { flex-direction: column; align-items: flex-start; gap: 18px; padding: 18px 0; }
-          .hero-sub { font-size: 14px; line-height: 1.5; }
-          .proof-pill { font-size: 10px; padding: 6px 9px; }
-          .hero-actions { flex-wrap: wrap; }
+          .hero-headline { font-size: clamp(38px, 11vw, 58px); letter-spacing: -2px; line-height:.96; }
+          .hero-copy-sub { font-size: 14px; line-height: 1.55; }
+          .hero-proof { justify-content: center; }
+          .hero-actions { flex-wrap: wrap; justify-content: center; }
+          .hero-mask-scene { width: min(260%, 820px); aspect-ratio: 1672/941; margin: 4px 0 -3vw; }
           .audit-band { padding: 42px 24px; }
           .audit-band-inner { grid-template-columns: 1fr; }
           .audit-actions { justify-content: flex-start; }
+          .featured-work { min-height: 0; }
+          .featured-work-copy { padding: 28px 22px; gap: 34px; }
+          .featured-work-media { min-height: 430px; }
+          .featured-work-stats { grid-template-columns: 1fr; }
+          .featured-work-badge { left: 18px; right: 18px; bottom: 18px; }
+          .operator-card { grid-template-columns: 64px 1fr; padding: 13px; }
+          .operator-photo { width: 64px; height: 64px; }
           .hero-stats { grid-template-columns: repeat(2, 1fr); }
           .stat-item { padding: 13px 0; }
           .stat-num { font-size: 25px; }
@@ -641,7 +921,6 @@
           .hero-stats .stat-item:nth-child(1),
           .hero-stats .stat-item:nth-child(2) { border-bottom: 1px solid var(--border); }
           .work-header { flex-direction: column; align-items: flex-start; gap: 16px; }
-          .work-grid { grid-template-columns: 1fr; }
           .process-steps { grid-template-columns: 1fr; }
           .process-step { border-right: none; border-bottom: 1px solid var(--border); }
           .process-step:last-child { border-bottom: none; }
@@ -652,6 +931,25 @@
           .svc-num { font-size: 10px; }
           .svc-name { font-size: 17px; }
           .about-dark-right { grid-template-columns: 1fr; }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+          .hero-label, .hero-year, .hero-headline, .hero-copy-sub,
+          .hero-proof, .hero-actions, .hero-micro,
+          .hero-stats, .reveal {
+              animation: none !important;
+              opacity: 1 !important;
+              transform: none !important;
+              transition: none !important;
+          }
+          .hero-mask-scene {
+              animation: none !important;
+              opacity: 1 !important;
+              transition: none !important;
+          }
+          #hero { transition: none; }
+          .hero-mask-img.reveal { transition: none; }
+          .hero-reveal-dot { transition: none; }
       }
     </style>
   </head>
@@ -772,25 +1070,29 @@
       </div>
 
       <div class="hero-center">
-        <h1 class="hero-headline">
-          We turn<br />
-          attention<br />into<br />enquiries.
-        </h1>
-      </div>
-
-      <div class="hero-bottom-bar">
-        <p class="hero-sub">
-          Dubai marketing, branding, websites, content and video built to bring better leads, not just better-looking posts.
-          <span class="hero-proof">
-            <span class="proof-pill">80+ brands grown</span>
-            <span class="proof-pill">12M+ content views</span>
-            <span class="proof-pill">Reply within 1 business day</span>
-          </span>
-        </p>
-        <div class="hero-actions">
-          <a href="/contact#free-audit" class="btn-primary" data-track="audit_cta_click" data-track-label="Homepage hero audit">Get a free growth audit →</a>
-          <a href="/work" class="btn-text-link">View proof</a>
+        <div class="hero-copy">
+          <span class="hero-label" style="animation-delay:.3s">We turn attention</span>
+          <h1 class="hero-headline">
+            into<br /><span>enquiries.</span>
+          </h1>
+          <p class="hero-copy-sub">
+            Dubai marketing, branding, websites, content and video built to bring better leads, not just better-looking posts.
+          </p>
+          <div class="hero-proof">
+            <span class="hero-proof-text">80+ brands grown</span>
+          </div>
+          <div class="hero-actions">
+            <a href="/contact#free-audit" class="btn-primary" data-track="audit_cta_click" data-track-label="Homepage hero audit">Get a free growth audit →</a>
+          </div>
         </div>
+
+        <div class="hero-mask-scene" aria-label="Umair Dada mask reveal portrait">
+          <img class="hero-mask-img base" src="assets/site/hero-unmasked-umair.png" alt="Umair Dada, Talk The Taste" fetchpriority="high" />
+          <img class="hero-mask-img reveal" src="assets/site/hero-masked-umair.png" alt="" aria-hidden="true" fetchpriority="high" />
+          <div class="hero-reveal-dot" aria-hidden="true">↔</div>
+        </div>
+
+        <div class="hero-micro">A vision of future<br />augmentation</div>
       </div>
 
       <div class="hero-stats">
@@ -912,38 +1214,45 @@
         <a href="/work" class="btn-text-link">View all projects →</a>
       </div>
 
-      <div class="work-grid" id="homeWorkGrid">
-        <div class="work-card reveal">
-          <div class="work-card-img" style="background: #e8eaf0"></div>
-          <div class="work-card-info">
-            <div>
-              <div class="card-tag">Branding · Strategy</div>
-              <h3 class="work-card-title">Restaurant Brand Identity</h3>
+      <article class="featured-work reveal">
+        <div class="featured-work-copy">
+          <div>
+            <div class="featured-work-kicker">Creative Scalps · Content Sprint</div>
+            <h2 class="featured-work-title">30 days of sharper trust.</h2>
+            <p class="featured-work-desc">
+              We helped Creative Scalps present Haluk's expertise with cleaner
+              brand photography, service positioning and conversion-ready
+              content built for prospects comparing scalp micropigmentation
+              providers.
+            </p>
+          </div>
+          <div class="featured-work-stats" aria-label="Creative Scalps project highlights">
+            <div class="featured-work-stat">
+              <strong>30</strong>
+              <span>Day content sprint</span>
             </div>
-            <span class="work-year">2024</span>
+            <div class="featured-work-stat">
+              <strong>1</strong>
+              <span>Sharper expert story</span>
+            </div>
+            <div class="featured-work-stat">
+              <strong>3</strong>
+              <span>Core trust assets</span>
+            </div>
           </div>
         </div>
-        <div class="work-card reveal reveal-delay-1">
-          <div class="work-card-img" style="background: #eae8e0"></div>
-          <div class="work-card-info">
-            <div>
-              <div class="card-tag">Web · Software</div>
-              <h3 class="work-card-title">E-Commerce Platform</h3>
-            </div>
-            <span class="work-year">2024</span>
+        <div class="featured-work-media">
+          <img
+            src="assets/site/haluk-creative-scalps.jpg"
+            alt="Haluk, CEO of Creative Scalps"
+            loading="lazy"
+          />
+          <div class="featured-work-badge">
+            <span>Featured Client</span>
+            Haluk, CEO · Creative Scalps
           </div>
         </div>
-        <div class="work-card reveal reveal-delay-2">
-          <div class="work-card-img" style="background: #e0e8ea"></div>
-          <div class="work-card-info">
-            <div>
-              <div class="card-tag">Social · Content</div>
-              <h3 class="work-card-title">Social Media Campaign</h3>
-            </div>
-            <span class="work-year">2023</span>
-          </div>
-        </div>
-      </div>
+      </article>
     </section>
 
     <!-- ============================================================
@@ -961,6 +1270,19 @@
             outsourcing, no account managers playing telephone. Just experienced
             people doing the work.
           </p>
+          <div class="operator-card">
+            <div class="operator-photo">
+              <img src="assets/site/umair-profile.jpg" alt="Umair Dada" loading="lazy" />
+            </div>
+            <div>
+              <div class="operator-label">Project Lead</div>
+              <div class="operator-name">Umair Dada</div>
+              <div class="operator-note">
+                You speak directly with the person shaping strategy, creative
+                direction and delivery quality.
+              </div>
+            </div>
+          </div>
           <a
             href="/services"
             class="btn-primary"
@@ -1038,18 +1360,25 @@
 ============================================================ -->
     <section class="sec testimonial-section">
       <div class="testimonial-inner reveal">
-        <span class="eyebrow">What clients say</span>
-        <blockquote class="testimonial-quote">
-          "TTT transformed how our brand shows up in Dubai. In 90 days, our
-          content reach tripled and we started getting inbound leads from
-          Instagram for the first time."
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar"></div>
-          <div>
-            <div class="testimonial-name">Ahmed Al Mansouri</div>
-            <div class="testimonial-role">CEO, Palette Restaurant Group</div>
+        <div>
+          <span class="eyebrow">What clients say</span>
+          <blockquote class="testimonial-quote">
+            "In 30 days, TTT made Creative Scalps look sharper, cleaner and
+            more trusted online. The content finally matches the standard of
+            the work we do every day."
+          </blockquote>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <img src="assets/site/haluk-creative-scalps.jpg" alt="Haluk" loading="lazy" />
+            </div>
+            <div>
+              <div class="testimonial-name">Haluk</div>
+              <div class="testimonial-role">CEO, Creative Scalps · 30 Days</div>
+            </div>
           </div>
+        </div>
+        <div class="testimonial-portrait" aria-hidden="true">
+          <img src="assets/site/haluk-creative-scalps.jpg" alt="" loading="lazy" />
         </div>
       </div>
     </section>
@@ -1062,7 +1391,7 @@
         <span class="eyebrow reveal">Questions</span>
         <h2 class="section-title reveal">Common questions.</h2>
         <p class="section-sub reveal">
-          Clear information for founders, restaurant operators, hospitality
+          Clear information for owners, restaurant operators, hospitality
           teams, and growing brands comparing creative agencies in Dubai.
         </p>
       </div>
@@ -1287,6 +1616,7 @@
       (function () {
         const c = document.getElementById("cursor");
         const r = document.getElementById("cursorRing");
+        if (!c || !r || !window.matchMedia("(pointer: fine)").matches) return;
         let rx = 0,
           ry = 0,
           cx = 0,
@@ -1308,7 +1638,7 @@
         })();
 
         document
-          .querySelectorAll("a, button, summary, [role=button], .svc-row, .work-card")
+          .querySelectorAll("a, button, summary, [role=button]")
           .forEach((el) => {
             el.addEventListener("mouseenter", () => {
               c.classList.add("active");
@@ -1331,6 +1661,89 @@
           },
           { passive: true },
         );
+      })();
+
+      /* ---- HERO MASK REVEAL ---- */
+      (function () {
+        const hero = document.getElementById("hero");
+        const scene = document.querySelector(".hero-mask-scene");
+        const dot = scene && scene.querySelector(".hero-reveal-dot");
+        if (!hero || !scene) return;
+
+        if (!window.matchMedia("(pointer: fine)").matches) {
+          hero.classList.add("hero-ready");
+          return;
+        }
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        let targetX = 50, targetY = 50;
+        let maskX = 50, maskY = 50;
+        let animating = false;
+
+        const toPercent = (x, y) => {
+          const rect = scene.getBoundingClientRect();
+          return [
+            Math.max(0, Math.min(100, ((x - rect.left) / rect.width) * 100)),
+            Math.max(0, Math.min(100, ((y - rect.top) / rect.height) * 100)),
+          ];
+        };
+
+        const applyMask = (x, y) => {
+          hero.style.setProperty("--mask-x", `${x}%`);
+          hero.style.setProperty("--mask-y", `${y}%`);
+          if (dot) {
+            dot.style.left = `${x}%`;
+            dot.style.top = `${y}%`;
+          }
+        };
+
+        const tick = () => {
+          maskX += (targetX - maskX) * 0.18;
+          maskY += (targetY - maskY) * 0.18;
+          applyMask(maskX, maskY);
+
+          if (Math.abs(targetX - maskX) > 0.05 || Math.abs(targetY - maskY) > 0.05) {
+            requestAnimationFrame(tick);
+          } else {
+            animating = false;
+          }
+        };
+
+        const ensureAnimating = () => {
+          if (reduceMotion) {
+            maskX = targetX;
+            maskY = targetY;
+            applyMask(maskX, maskY);
+            return;
+          }
+          if (!animating) {
+            animating = true;
+            requestAnimationFrame(tick);
+          }
+        };
+
+        scene.addEventListener("pointerenter", (event) => {
+          [targetX, targetY] = toPercent(event.clientX, event.clientY);
+          hero.classList.add("hero-ready");
+          ensureAnimating();
+        });
+
+        scene.addEventListener(
+          "pointermove",
+          (event) => {
+            [targetX, targetY] = toPercent(event.clientX, event.clientY);
+            ensureAnimating();
+          },
+          { passive: true },
+        );
+
+        scene.addEventListener("pointerleave", () => {
+          hero.classList.remove("hero-ready");
+          targetX = 50;
+          targetY = 50;
+          ensureAnimating();
+        });
       })();
 
       /* ---- REVEAL ---- */
@@ -1401,60 +1814,6 @@
         .querySelectorAll("[data-target]")
         .forEach((el) => statObs.observe(el));
 
-      /* ---- WORK GRID from CMS (optional) ---- */
-      (function () {
-        function renderHomeWork() {
-          if (typeof TTT === "undefined") return;
-          const projects = TTT.getProjects
-            ? TTT.getProjects()
-            : TTT.data && TTT.data.projects;
-          if (!projects || !projects.length) return;
-
-          const grid = document.getElementById("homeWorkGrid");
-          const display = projects.slice(0, 3);
-          grid.innerHTML = display
-            .map(
-              (p, i) => `
-            <div class="work-card${i === 0 ? " reveal" : " reveal reveal-delay-" + i}">
-                ${
-                  p.image || p.thumbnail
-                    ? `<div class="work-card-img"><img src="${p.image || p.thumbnail}" alt="${p.title}" loading="lazy" style="width:100%;height:100%;object-fit:cover"></div>`
-                    : `<div class="work-card-img" style="background:#E8EAF0;display:flex;align-items:center;justify-content:center;font-family:Inter,sans-serif;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-xmuted)">${p.client || p.title}</div>`
-                }
-                <div class="work-card-info">
-                    <div>
-                        <div class="card-tag">${p.category || "Creative"}</div>
-                        <h3 class="work-card-title">${p.title}</h3>
-                    </div>
-                    <span class="work-year">${p.year || "2024"}</span>
-                </div>
-            </div>
-        `,
-            )
-            .join("");
-
-          // Re-observe newly added reveal elements
-          document.querySelectorAll("#homeWorkGrid .reveal").forEach((el) => {
-            const obs2 = new IntersectionObserver(
-              (entries) => {
-                entries.forEach((e) => {
-                  if (e.isIntersecting) {
-                    e.target.classList.add("in");
-                    obs2.unobserve(e.target);
-                  }
-                });
-              },
-              { threshold: 0.12 },
-            );
-            obs2.observe(el);
-          });
-        }
-
-        try {
-          renderHomeWork();
-          document.addEventListener("ttt:data:ready", renderHomeWork);
-        } catch (e) {}
-      })();
     </script>
   </body>
 </html>
