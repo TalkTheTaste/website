@@ -204,6 +204,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
 }
 .content-editor:focus { border-color:var(--gold); }
 .content-editor:empty::before { content:attr(placeholder); color:var(--gray); pointer-events:none; }
+.content-editor * { color:inherit !important; background:transparent !important; }
 .editor-toolbar { display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap; }
 .ed-btn {
     background:var(--surface-2); border:1px solid var(--border); border-radius:6px;
@@ -1320,6 +1321,15 @@ tr:hover td { background:rgba(255,255,255,.015); }
                 if (url) document.execCommand('createLink', false, url);
             }
         });
+    });
+
+    // Strip inline colors/fonts from pasted content (Word/Docs paste brings black text
+    // that becomes invisible on the dark editor background)
+    document.getElementById('postContent').addEventListener('paste', (e) => {
+        e.preventDefault();
+        const text = (e.clipboardData || window.clipboardData).getData('text/plain');
+        const html = text.split(/\n{2,}/).map(block => `<p>${escapeHtml(block).replace(/\n/g, '<br>')}</p>`).join('');
+        document.execCommand('insertHTML', false, html);
     });
 
     window.deletePost = function(id) {
