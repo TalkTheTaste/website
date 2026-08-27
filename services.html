@@ -109,7 +109,7 @@
         /*.svc-card:hover { background:var(--bg-alt); }*/
         .svc-card:nth-child(3n){ border-right:none; }
         .svc-card:nth-last-child(-n+3){ border-bottom:none; }
-        .svc-icon { font-size:36px;display:block;margin-bottom:20px; }
+        .svc-icon { display:inline-flex;color:var(--text);margin-bottom:20px; }
         .svc-num { font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:700;letter-spacing:3px;color:var(--text-xmuted);margin-bottom:12px; }
         .svc-title { font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;line-height:1.2;margin-bottom:16px;letter-spacing:-.3px;color:var(--text); }
         .svc-desc { font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:24px; }
@@ -180,7 +180,7 @@
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
     <a href="/" class="nav-logo">
-        <img src="assets/logo.png" alt="TTT" class="logo-img" onerror="this.style.display='none'">
+        <img src="assets/logo.png" width="512" height="512" alt="TTT" class="logo-img" onerror="this.style.display='none'">
         <!--<span class="nav-logo-text">TTT</span>-->
     </a>
     <ul class="nav-menu">
@@ -188,7 +188,7 @@
         <li><a href="/services" class="active">Services</a></li>
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a href="/blog">Journal</a></li>
         <li><a href="/about">About</a></li>    </ul>
     <div class="nav-right">
         <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
@@ -207,7 +207,7 @@
         <li><a href="/services">Services</a></li>
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a href="/blog">Journal</a></li>
         <li><a href="/about">About</a></li>    </ul>
     <div class="mobile-menu-bottom">
         <a href="/contact" class="btn-primary">Let's Talk →</a>
@@ -226,7 +226,7 @@
 <section class="sec">
     <div class="services-grid">
         <div class="svc-card reveal">
-            <span class="svc-icon">📊</span>
+            <span class="svc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></span>
             <div class="svc-num">01</div>
             <div class="svc-title">Marketing Strategy &amp; Management</div>
             <div class="svc-desc">Data-driven strategies that put your brand in front of the right people at exactly the right moment. We don't guess, we analyze and execute with precision.</div>
@@ -236,10 +236,10 @@
                 <li>Performance tracking &amp; monthly reporting</li>
                 <li>Email marketing &amp; funnel optimization</li>
             </ul>
-            <a href="/contact" class="svc-arrow">Get started →</a>
+            <a href="/marketing-strategy-dubai" class="svc-arrow">Get started →</a>
         </div>
         <div class="svc-card reveal reveal-delay-1">
-            <span class="svc-icon">📱</span>
+            <span class="svc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="4" y="2" width="16" height="20" rx="2"/><circle cx="12" cy="18" r="0.5" fill="currentColor" stroke="none"/><path d="M9 5h6"/></svg></span>
             <div class="svc-num">02</div>
             <div class="svc-title">Social Media Marketing</div>
             <div class="svc-desc">Full management, content calendars, community management, paid ads, and strategic growth hacking across Instagram, TikTok, LinkedIn, and more.</div>
@@ -249,10 +249,10 @@
                 <li>Paid ad campaigns (Meta, TikTok, LinkedIn)</li>
                 <li>Monthly analytics &amp; growth reporting</li>
             </ul>
-            <a href="/contact" class="svc-arrow">Grow your following →</a>
+            <a href="/social-media-marketing-dubai" class="svc-arrow">Grow your following →</a>
         </div>
         <div class="svc-card reveal reveal-delay-2">
-            <span class="svc-icon">🎬</span>
+            <span class="svc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="2" y="6" width="15" height="12" rx="1"/><path d="M17 9l5-3v12l-5-3"/></svg></span>
             <div class="svc-num">03</div>
             <div class="svc-title">Videography &amp; Visual Production</div>
             <div class="svc-desc">Cinematic brand films, product shoots, reels, and commercial content that tells your story in a way that moves people, and moves product.</div>
@@ -262,10 +262,10 @@
                 <li>Social media reels &amp; short-form video</li>
                 <li>Full post-production &amp; colour grade</li>
             </ul>
-            <a href="/contact" class="svc-arrow">Book a shoot →</a>
+            <a href="/video-production-dubai" class="svc-arrow">Book a shoot →</a>
         </div>
         <div class="svc-card reveal">
-            <span class="svc-icon">🌐</span>
+            <span class="svc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a13 13 0 010 18"/><path d="M12 3a13 13 0 000 18"/></svg></span>
             <div class="svc-num">04</div>
             <div class="svc-title">Web Design &amp; Development</div>
             <div class="svc-desc">Websites that don't just look stunning, they convert. Custom-built, blazing-fast, and engineered to win business for you 24/7.</div>
@@ -275,10 +275,10 @@
                 <li>E-commerce &amp; booking integrations</li>
                 <li>Speed optimization &amp; SEO setup</li>
             </ul>
-            <a href="/contact" class="svc-arrow">Build your site →</a>
+            <a href="/web-design-dubai" class="svc-arrow">Build your site →</a>
         </div>
         <div class="svc-card reveal reveal-delay-1">
-            <span class="svc-icon">📲</span>
+            <span class="svc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M9 18h6"/><path d="M12 6v0"/></svg></span>
             <div class="svc-num">05</div>
             <div class="svc-title">Mobile App Development</div>
             <div class="svc-desc">Native iOS and Android apps that users love. From MVP to full-scale product launch, we build apps that scale alongside your ambitions.</div>
@@ -288,10 +288,10 @@
                 <li>MVP prototyping &amp; user testing</li>
                 <li>App Store submission &amp; launch support</li>
             </ul>
-            <a href="/contact" class="svc-arrow">Build your app →</a>
+            <a href="/mobile-app-development-dubai" class="svc-arrow">Build your app →</a>
         </div>
         <div class="svc-card reveal reveal-delay-2">
-            <span class="svc-icon">⚙️</span>
+            <span class="svc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg></span>
             <div class="svc-num">06</div>
             <div class="svc-title">Custom Software Development</div>
             <div class="svc-desc">Bespoke software that automates, streamlines, and scales your operations, built exactly to your spec, no compromise, no bloat.</div>
@@ -301,10 +301,10 @@
                 <li>Admin dashboards &amp; CRM systems</li>
                 <li>Ongoing maintenance &amp; scaling</li>
             </ul>
-            <a href="/contact" class="svc-arrow">Discuss your needs →</a>
+            <a href="/custom-software-development-dubai" class="svc-arrow">Discuss your needs →</a>
         </div>
         <div class="svc-card reveal">
-            <span class="svc-icon">✏️</span>
+            <span class="svc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
             <div class="svc-num">07</div>
             <div class="svc-title">Branding &amp; Identity</div>
             <div class="svc-desc">Logo design, visual identity systems, and brand guidelines that make you instantly recognizable, and deeply unforgettable in your market.</div>
@@ -314,10 +314,10 @@
                 <li>Packaging &amp; print design</li>
                 <li>Brand voice &amp; messaging strategy</li>
             </ul>
-            <a href="/contact" class="svc-arrow">Brand yourself →</a>
+            <a href="/branding-agency-dubai" class="svc-arrow">Brand yourself →</a>
         </div>
         <div class="svc-card reveal reveal-delay-1">
-            <span class="svc-icon">✍️</span>
+            <span class="svc-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4 12.5-12.5z"/></svg></span>
             <div class="svc-num">08</div>
             <div class="svc-title">Content Creation</div>
             <div class="svc-desc">Photography, copywriting, graphic design, reels, and more. Every piece of content your brand needs to stay active, clear and consistent.</div>
@@ -327,7 +327,7 @@
                 <li>Graphic design &amp; motion graphics</li>
                 <li>Content strategy &amp; ideation</li>
             </ul>
-            <a href="/contact" class="svc-arrow">Create content →</a>
+            <a href="/content-creation-dubai" class="svc-arrow">Create content →</a>
         </div>
         <div class="svc-card svc-cta">
             <div class="svc-cta-title">Ready to start your project?</div>
@@ -508,12 +508,12 @@
     <div class="footer-top">
         <div>
             <a href="/" class="footer-logo nav-logo">
-                <img src="assets/logo.png" class="logo-img" alt="Talk The Taste">
+                <img src="assets/logo.png" width="512" height="512" class="logo-img" alt="Talk The Taste">
             </a>
             <p class="footer-brand-desc">Dubai's creative agency. Marketing, branding, web, apps, and video, all under one roof.</p>
         </div>
-        <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="/services">Marketing</a></li><li><a href="/services">Social Media</a></li><li><a href="/services">Web Design</a></li><li><a href="/services">Mobile Apps</a></li></ul></div>
-        <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="/profile">Company Profile</a></li><li><a href="/work">Our Work</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li></ul></div>
+        <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="/restaurant-marketing-dubai">Restaurant Marketing</a></li><li><a href="/social-media-marketing-dubai">Social Media Marketing</a></li><li><a href="/web-design-dubai">Web Design</a></li><li><a href="/branding-agency-dubai">Branding</a></li><li><a href="/video-production-dubai">Video Production</a></li><li><a href="/mobile-app-development-dubai">Mobile App Development</a></li><li><a href="/custom-software-development-dubai">Custom Software</a></li></ul></div>
+        <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="/profile">Company Profile</a></li><li><a href="/work">Our Work</a></li><li><a href="/blog">Journal</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li></ul></div>
         <div><div class="footer-heading">Contact</div><ul class="footer-links"><li><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></li><li><a href="tel:+971565390316">+971 56 539 0316</a></li><li>3B 22nd St, Al Quoz Industrial 4, Dubai, UAE</li></ul></div>
     </div>
     <div class="footer-bottom">

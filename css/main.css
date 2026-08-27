@@ -348,6 +348,25 @@ footer {
 .sec-alt { background: var(--bg-off); }
 .sec-white { background: var(--surface); }
 
+/* Breadcrumb navigation */
+.crumbs {
+    padding: 132px 80px 0;
+    font-size: 13px;
+}
+.crumbs ol {
+    display: flex; flex-wrap: wrap; gap: .4rem;
+    list-style: none; margin: 0; padding: 0;
+    color: var(--text-xmuted);
+}
+.crumbs li { display: flex; align-items: center; gap: .4rem; }
+.crumbs li + li::before { content: '/'; color: var(--text-xmuted); }
+.crumbs a { color: var(--text-xmuted); text-decoration: none; }
+.crumbs a:hover { color: var(--text-muted); text-decoration: underline; }
+.crumbs [aria-current="page"] { color: var(--text); font-weight: 600; }
+@media (max-width: 900px) {
+    .crumbs { padding: 112px 24px 0; }
+}
+
 /* Eyebrow label */
 .eyebrow {
     display: inline-flex; align-items: center; gap: 10px;

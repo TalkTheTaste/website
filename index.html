@@ -207,8 +207,8 @@
     </script>
     <link rel="icon" type="image/png" href="assets/logo.png" />
     <link rel="apple-touch-icon" href="assets/logo.png" />
-    <link rel="preload" href="assets/site/hero-unmasked-umair.png" as="image" />
-    <link rel="preload" href="assets/site/hero-masked-umair.png" as="image" />
+    <link rel="preload" href="assets/site/hero-unmasked-umair.webp" as="image" type="image/webp" />
+    <link rel="preload" href="assets/site/hero-masked-umair.webp" as="image" type="image/webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -1021,6 +1021,8 @@
         <img
           src="assets/logo.png"
           alt="TTT"
+          width="512"
+          height="512"
           class="pre-logo-img"
           onerror="
             this.style.display = 'none';
@@ -1062,6 +1064,8 @@
         <img
           src="assets/logo.png"
           alt="TTT"
+          width="512"
+          height="512"
           class="logo-img"
           onerror="this.style.display = 'none'"
         />
@@ -1072,7 +1076,7 @@
         <li><a href="/services">Services</a></li>
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a href="/blog">Journal</a></li>
         <li><a href="/about">About</a></li>      </ul>
       <div class="nav-right">
         <a
@@ -1103,7 +1107,7 @@
         <li><a href="/services">Services</a></li>
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/blog">Blog</a></li>
+        <li><a href="/blog">Journal</a></li>
         <li><a href="/about">About</a></li>      </ul>
       <div class="mobile-menu-bottom">
         <a href="/contact" class="btn-primary">Let's Talk →</a>
@@ -1144,8 +1148,14 @@
         </div>
 
         <div class="hero-mask-scene" aria-label="Umair Dada mask reveal portrait">
-          <img class="hero-mask-img base" src="assets/site/hero-unmasked-umair.png" alt="Umair Dada, Talk The Taste" fetchpriority="high" />
-          <img class="hero-mask-img reveal" src="assets/site/hero-masked-umair.png" alt="" aria-hidden="true" fetchpriority="high" />
+          <picture>
+            <source srcset="assets/site/hero-unmasked-umair.webp" type="image/webp" />
+            <img class="hero-mask-img base" src="assets/site/hero-unmasked-umair.png" alt="Umair Dada, Talk The Taste" width="1672" height="941" fetchpriority="high" />
+          </picture>
+          <picture>
+            <source srcset="assets/site/hero-masked-umair.webp" type="image/webp" />
+            <img class="hero-mask-img reveal" src="assets/site/hero-masked-umair.png" alt="" aria-hidden="true" width="1672" height="941" fetchpriority="high" />
+          </picture>
           <div class="hero-reveal-dot" aria-hidden="true">↔</div>
         </div>
 
@@ -1299,11 +1309,13 @@
           </div>
         </div>
         <div class="featured-work-media">
-          <img
+          <picture><source srcset="assets/site/haluk-creative-scalps.webp" type="image/webp" /><img
             src="assets/site/haluk-creative-scalps.jpg"
             alt="Haluk, CEO of Creative Scalps"
+            width="1200"
+            height="1800"
             loading="lazy"
-          />
+          /></picture>
           <div class="featured-work-badge">
             <span>Featured Client</span>
             Haluk, CEO · Creative Scalps
@@ -1329,7 +1341,7 @@
           </p>
           <div class="operator-card">
             <div class="operator-photo">
-              <img src="assets/site/umair-profile.jpg" alt="Umair Dada" loading="lazy" />
+              <picture><source srcset="assets/site/umair-profile.webp" type="image/webp" /><img src="assets/site/umair-profile.jpg" alt="Umair Dada" width="640" height="640" loading="lazy" /></picture>
             </div>
             <div>
               <div class="operator-label">Project Lead</div>
@@ -1426,7 +1438,7 @@
           </blockquote>
           <div class="testimonial-author">
             <div class="testimonial-avatar">
-              <img src="assets/site/haluk-creative-scalps.jpg" alt="Haluk" loading="lazy" />
+              <picture><source srcset="assets/site/haluk-creative-scalps.webp" type="image/webp" /><img src="assets/site/haluk-creative-scalps.jpg" alt="Haluk" width="1200" height="1800" loading="lazy" /></picture>
             </div>
             <div>
               <div class="testimonial-name">Haluk</div>
@@ -1435,7 +1447,7 @@
           </div>
         </div>
         <div class="testimonial-portrait" aria-hidden="true">
-          <img src="assets/site/haluk-creative-scalps.jpg" alt="" loading="lazy" />
+          <picture><source srcset="assets/site/haluk-creative-scalps.webp" type="image/webp" /><img src="assets/site/haluk-creative-scalps.jpg" alt="" width="1200" height="1800" loading="lazy" /></picture>
         </div>
       </div>
     </section>
@@ -1515,6 +1527,8 @@
             <img
               src="assets/logo.png"
               alt="Talk The Taste"
+              width="512"
+              height="512"
               class="logo-img"
               onerror="
                 this.style.display = 'none';
@@ -1532,11 +1546,13 @@
         <div>
           <div class="footer-heading">Services</div>
           <ul class="footer-links">
-            <li><a href="/services">Marketing & Social</a></li>
-            <li><a href="/services">Brand Identity</a></li>
-            <li><a href="/services">Web Design</a></li>
-            <li><a href="/services">Video & Photography</a></li>
-            <li><a href="/services">Custom Software</a></li>
+            <li><a href="/restaurant-marketing-dubai">Restaurant Marketing</a></li>
+            <li><a href="/social-media-marketing-dubai">Social Media Marketing</a></li>
+            <li><a href="/web-design-dubai">Web Design</a></li>
+            <li><a href="/branding-agency-dubai">Branding</a></li>
+            <li><a href="/video-production-dubai">Video Production</a></li>
+            <li><a href="/mobile-app-development-dubai">Mobile App Development</a></li>
+            <li><a href="/custom-software-development-dubai">Custom Software</a></li>
           </ul>
         </div>
         <div>
@@ -1545,7 +1561,7 @@
             <li><a href="/">Home</a></li>
             <li><a href="/work">Work</a></li>
             <li><a href="/pricing">Pricing</a></li>
-            <li><a href="/blog">Blog</a></li>
+            <li><a href="/blog">Journal</a></li>
             <li><a href="/about">About</a></li>            <li><a href="/contact">Contact</a></li>
             <li><a href="/privacy-policy">Privacy Policy</a></li>
             <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
