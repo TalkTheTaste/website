@@ -353,6 +353,15 @@
           grid-column: 1;
           margin-top: clamp(24px, 14vh, 150px);
       }
+      .hero-copy::before {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          top: -20px; bottom: -20px; left: -40px;
+          width: calc(100% + 140px);
+          background: linear-gradient(to right, var(--bg) 60%, var(--bg) 75%, transparent 100%);
+          pointer-events: none;
+      }
       .hero-headline {
           font-family: 'Space Grotesk', sans-serif;
           font-size: clamp(52px, 6.6vw, 96px);
@@ -397,8 +406,8 @@
           left: 50%;
           bottom: 0;
           top: clamp(30px, 6vh, 90px);
-          margin-left: max(-42vw, -980px);
-          width: min(84vw, 1960px);
+          margin-left: max(-38vw, -900px);
+          width: min(76vw, 1800px);
           min-width: 680px;
           overflow: visible;
           background: transparent;
@@ -927,6 +936,7 @@
           #hero { min-height: 0; display: block; }
           .hero-center { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 28px 0 32px; position: static; }
           .hero-copy { max-width: 520px; margin-top: 0; order: 1; }
+          .hero-copy::before { display: none; }
           .hero-copy-sub { margin-left: auto; margin-right: auto; }
           .hero-actions { justify-content: center; }
           .hero-mask-scene {
