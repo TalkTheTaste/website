@@ -178,6 +178,9 @@ app.post('/api/leads/submit', (req, res) => {
         service:   req.body.service || '',
         budget:    req.body.budget  || '',
         message:   req.body.message || '',
+        contactConsent: !!req.body.contactConsent,
+        consentText: req.body.consentText || '',
+        consentAt: req.body.consentAt || '',
         source:    req.body.source  || '',
         interest:  req.body.interest || '',
         package:   req.body.package || '',
@@ -199,6 +202,16 @@ app.get(['/profile', '/profile/'], (req, res) => {
 });
 
 app.get('/work.html', (req, res) => res.redirect(301, '/work'));
+app.get('/privacy-policy.html', (req, res) => res.redirect(301, '/privacy-policy'));
+app.get(['/privacy-policy', '/privacy-policy/'], (req, res) => {
+    res.type('html');
+    res.sendFile(path.join(ROOT, 'privacy-policy.html'));
+});
+app.get('/terms-and-conditions.html', (req, res) => res.redirect(301, '/terms-and-conditions'));
+app.get(['/terms-and-conditions', '/terms-and-conditions/'], (req, res) => {
+    res.type('html');
+    res.sendFile(path.join(ROOT, 'terms-and-conditions.html'));
+});
 app.get(['/work', '/work/'], (req, res) => {
     res.type('html');
     res.sendFile(path.join(ROOT, 'assets/pages/portfolio-source.txt'));

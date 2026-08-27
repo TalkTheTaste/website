@@ -27,7 +27,7 @@ const TTT = {
             siteName:      'Talk The Taste',
             tagline:       'Dubai\'s Full-Service Creative Agency',
             email:         'hi@talkthetaste.com',
-            phone:         '+971 52 997 2969',
+            phone:         '+971 56 539 0316',
             instagram:     'https://www.instagram.com/talkthetaste',
             linkedin:      '#',
             tiktok:        '#',
@@ -218,6 +218,9 @@ const TTT = {
             service:   data.service || '',
             budget:    data.budget || '',
             message:   data.message || '',
+            contactConsent: !!data.contactConsent,
+            consentText: data.consentText || '',
+            consentAt: data.consentAt || '',
             source:    data.source || '',
             interest:  data.interest || '',
             package:   data.package || '',
@@ -257,38 +260,6 @@ const TTT = {
                 { title:'On-Demand Delivery App', category:'Mobile App', tags:['Mobile App','iOS','Android'], description:'Native iOS and Android on-demand delivery platform built from MVP to full launch.', fullDesc:'<p>We designed and built a full-featured on-demand delivery platform from the ground up - native iOS and Android apps, a web-based merchant dashboard, and a driver app. The platform launched with 12 restaurant partners and processed over 1,000 orders in its first month.</p>', image:'assets/site/delivery-web-app.jpg', color1:'#001508', color2:'#002912', featured:true, date:'2024-09-20' },
             ];
             demos.forEach(d => this.addProject(d));
-        }
-        if (this.getAllPosts().length === 0) {
-            const p1id = this._uid();
-            const p2id = this._uid();
-            const p3id = this._uid();
-            const demos = [
-                { id:p1id, title:'Why Your Brand Needs a Social Media Strategy in 2025', slug:'social-media-strategy-2025', excerpt:'Most brands post without a plan. Here\'s why that\'s costing you and what a real social media strategy looks like.', content:'<h2>The Problem With Posting Without a Plan</h2><p>Most brands treat social media like a bulletin board - they post when they remember, share what feels relevant, and hope for engagement. But in 2025, the algorithm doesn\'t reward randomness. It rewards consistency, quality, and strategic intent.</p><h2>What a Real Strategy Looks Like</h2><p>A genuine social media strategy starts with your audience. Who are they? What do they care about? When are they online? Only after answering these questions should you think about content.</p><p>From there, you need a content mix: educational posts, behind-the-scenes content, social proof, and direct calls to action. Not every post should sell - but every post should serve.</p><h2>The TTT Framework</h2><p>At Talk The Taste, we use a 4-pillar content framework: <strong>Educate, Inspire, Entertain, Convert</strong>. Each piece of content serves one of these purposes, and we balance them across the month to keep audiences engaged without burning them out with sales messaging.</p><p>The result? Brands that consistently out-perform their competitors, build genuine communities, and see social media become a real revenue channel - not just a vanity metric.</p>', thumbnail:'assets/site/social-growth-campaign.jpg', category:'Social Media', author:'TTT Team', featured:true, date:'2025-03-15' },
-                { id:p2id, title:'The 5 Elements of a Website That Actually Converts', slug:'website-conversion-elements', excerpt:'A beautiful website that doesn\'t convert is just expensive art. Here\'s what separates the top performers from the rest.', content:'<h2>Conversion Starts Before Design</h2><p>Before a single pixel is placed, a converting website requires a clear understanding of its visitor\'s intent. What are they looking for? What problem do they need solved? The design, copy, and structure should all serve the answer to these questions.</p><h2>1. A Magnetic Hero Section</h2><p>You have roughly 3 seconds. Your hero section needs to communicate clearly: what you do, who you do it for, and why you\'re the best choice. Vague taglines kill conversions.</p><h2>2. Social Proof Above the Fold</h2><p>Trust indicators - client logos, review counts, specific results - should appear early. Users are skeptical; social proof is the fastest way to earn credibility.</p><h2>3. Clear Primary CTAs</h2><p>One primary call to action per page. Not three. Not five. One. Make it impossible to miss and irresistible to click.</p><h2>4. Speed</h2><p>A one-second delay in page load time can reduce conversions by 7%. Speed is not a nice-to-have - it\'s table stakes.</p><h2>5. Mobile-First Everything</h2><p>Over 60% of web traffic is mobile. If your mobile experience is an afterthought, so are the majority of your potential customers.</p>', thumbnail:'assets/site/delivery-web-app.jpg', category:'Web Design', author:'TTT Team', featured:true, date:'2025-02-28' },
-                { id:p3id, title:'How to Brief a Creative Agency (And Get Amazing Results)', slug:'how-to-brief-a-creative-agency', excerpt:'The quality of what you get from a creative agency is directly proportional to the quality of the brief you give them.', content:'<h2>Why the Brief Matters</h2><p>Creative agencies don\'t produce great work in a vacuum - they produce great work in response to clear direction. The brief is the foundation. A weak brief produces generic output. A strong brief produces work that genuinely moves your business forward.</p><h2>What to Include</h2><p><strong>Business context:</strong> What does your company do? Who is your customer? What\'s your current market position?</p><p><strong>The problem:</strong> What specific challenge is this project solving? Be honest - if sales are down, say so.</p><p><strong>The audience:</strong> Who exactly are you speaking to? Age, location, income, values, pain points.</p><p><strong>Success metrics:</strong> How will you know if this worked? Be specific - "more engagement" is not a metric.</p><p><strong>Constraints:</strong> Budget, timeline, brand guidelines, legal restrictions, technical limitations.</p><h2>What Not to Do</h2><p>Don\'t design by committee, don\'t over-specify the solution (brief the problem, not the answer), and don\'t skip the feedback rounds - they exist for a reason.</p>', thumbnail:'assets/site/restaurant-brand-launch.jpg', category:'Marketing', author:'TTT Team', featured:false, date:'2025-01-20' },
-            ];
-            // Add directly to avoid re-generating IDs
-            const list = [];
-            demos.forEach(d => {
-                list.push({
-                    id:        d.id,
-                    title:     d.title,
-                    slug:      d.slug,
-                    excerpt:   d.excerpt,
-                    content:   d.content,
-                    thumbnail: d.thumbnail || '',
-                    category:  d.category,
-                    author:    d.author,
-                    featured:  d.featured,
-                    status:    'published',
-                    scheduledAt: '',
-                    scheduledTimezone: 'Asia/Dubai',
-                    layout:    'standard',
-                    date:      d.date,
-                    createdAt: Date.now(),
-                });
-            });
-            this.savePosts(list);
         }
     },
 

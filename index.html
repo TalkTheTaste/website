@@ -81,10 +81,35 @@
             "email": "hi@talkthetaste.com",
             "address": {
               "@type": "PostalAddress",
+              "streetAddress": "3B 22nd St, Al Quoz Industrial 4",
               "addressLocality": "Dubai",
               "addressCountry": "AE"
             },
-            "areaServed": ["Dubai", "United Arab Emirates", "UAE"],
+            "location": [
+              {
+                "@type": "Place",
+                "name": "Talk The Taste - Dubai",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "3B 22nd St, Al Quoz Industrial 4",
+                  "addressLocality": "Dubai",
+                  "addressCountry": "AE"
+                }
+              },
+              {
+                "@type": "Place",
+                "name": "Talk The Taste - Irvine",
+                "address": {
+                  "@type": "PostalAddress",
+                  "streetAddress": "Park Place, 3349 Michelson Dr",
+                  "addressLocality": "Irvine",
+                  "addressRegion": "CA",
+                  "postalCode": "92612",
+                  "addressCountry": "US"
+                }
+              }
+            ],
+            "areaServed": ["Dubai", "United Arab Emirates", "UAE", "United States"],
             "employee": { "@id": "https://talkthetaste.com/#umair-dada" },
             "sameAs": [
               "https://www.instagram.com/talkthetaste/",
@@ -104,8 +129,40 @@
             "@type": "Person",
             "@id": "https://talkthetaste.com/#umair-dada",
             "name": "Umair Dada",
-            "jobTitle": "Project Lead",
+            "jobTitle": "Founder & Project Lead",
             "image": "https://talkthetaste.com/assets/site/umair-profile.jpg",
+            "url": "https://talkthetaste.com/about",
+            "sameAs": ["https://www.linkedin.com/in/umairdada/"],
+            "alumniOf": [
+              { "@type": "CollegeOrUniversity", "name": "Massachusetts Institute of Technology" },
+              { "@type": "CollegeOrUniversity", "name": "Middlesex University Dubai" },
+              { "@type": "CollegeOrUniversity", "name": "Harvard University" }
+            ],
+            "knowsAbout": [
+              "Full stack development",
+              "React Native",
+              "Node.js",
+              "Vue.js",
+              "Cloud infrastructure (AWS, GCP)",
+              "Marketing strategy",
+              "Digital strategy",
+              "Brand strategy",
+              "Marketing analytics",
+              "AI in marketing",
+              "Creative direction"
+            ],
+            "hasCredential": [
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "name": "Marketing Management and Digital Strategy Graduate Certificate", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } },
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "certificate", "name": "Certificate of Leadership Excellence in Marketing & Communications", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } },
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "course", "name": "Transforming Strategies with Generative AI", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } },
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "course", "name": "Brand Revitalization: A Comprehensive Brand Strategy Course", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } },
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "course", "name": "Consumer Behavior: Using Neuromarketing to Predict and Influence Customers", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } },
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "course", "name": "Marketing Analytics: Strategies for Driving Business Results", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } },
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "course", "name": "Product Development with AI: From Idea to Market in Half the Time", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } },
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "course", "name": "Product Management: From Design to Launch", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } },
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "course", "name": "Strategic Marketing for Executives: Accelerate Growth and Competitive Advantage", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } },
+              { "@type": "EducationalOccupationalCredential", "credentialCategory": "course", "name": "AI in Marketing", "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Harvard University" } }
+            ],
             "worksFor": { "@id": "https://talkthetaste.com/#business" }
           },
           {
@@ -1016,7 +1073,7 @@
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/blog">Blog</a></li>
-      </ul>
+        <li><a href="/about">About</a></li>      </ul>
       <div class="nav-right">
         <a
           href="https://wa.me/+971565390316"
@@ -1047,7 +1104,7 @@
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/blog">Blog</a></li>
-      </ul>
+        <li><a href="/about">About</a></li>      </ul>
       <div class="mobile-menu-bottom">
         <a href="/contact" class="btn-primary">Let's Talk →</a>
         <a
@@ -1489,7 +1546,9 @@
             <li><a href="/work">Work</a></li>
             <li><a href="/pricing">Pricing</a></li>
             <li><a href="/blog">Blog</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
           </ul>
         </div>
         <div>
@@ -1504,9 +1563,9 @@
               >
             </li>
             <li>
-              <a href="mailto:hello@talkthetaste.com">hello@talkthetaste.com</a>
+              <a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a>
             </li>
-            <li><a href="#">Dubai, UAE</a></li>
+            <li>3B 22nd St, Al Quoz Industrial 4, Dubai, UAE</li>
             <li>
               <a
                 href="https://www.instagram.com/talkthetaste/"
@@ -1527,7 +1586,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Talk The Taste. All rights reserved.</span>
+        <span>© 2026 Talk The Taste. All rights reserved. <a href="/privacy-policy">Privacy Policy</a> · <a href="/terms-and-conditions">Terms &amp; Conditions</a></span>
         <div class="footer-socials">
           <a
             href="https://www.instagram.com/talkthetaste/"

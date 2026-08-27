@@ -362,7 +362,7 @@
                 ? 'background:#111;'
                 : `background:linear-gradient(135deg,${escapeAttr(p.color1||'#0c0c24')} 0%,${escapeAttr(p.color2||'#18103c')} 60%);`;
             return `
-            <div class="proj-card ${i === 0 ? 'proj-featured' : ''} reveal" data-id="${escapeAttr(p.id)}" style="transition-delay:${(i%3)*0.1}s">
+            <a class="proj-card ${i === 0 ? 'proj-featured' : ''} reveal" data-id="${escapeAttr(p.id)}" href="/work/${escapeAttr(clientSlug(p))}/" style="transition-delay:${(i%3)*0.1}s">
                 <div class="proj-thumb">
                     <div class="proj-thumb-bg" style="${bgStyle}">
                         ${thumbContent}
@@ -376,11 +376,15 @@
                 <div class="proj-desc">${escapeHtml(p.description || '')}</div>
                 <div class="proj-tags">${(p.tags||[]).map(t => `<span class="proj-tag">${escapeHtml(t)}</span>`).join('')}</div>
                 </div>
-            </div>`;
+            </a>`;
         }).join('');
         grid.querySelectorAll('.reveal').forEach(el => obs.observe(el));
         grid.querySelectorAll('.proj-card').forEach(card => {
-            card.addEventListener('click', () => openModal(card.dataset.id));
+            card.addEventListener('click', (e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+                e.preventDefault();
+                openModal(card.dataset.id);
+            });
         });
     }
 
@@ -648,8 +652,10 @@
         activeClientSlug = '';
         activeMedia = [];
         document.body.style.overflow = '';
-        if (updateUrl && (new URLSearchParams(location.search).has('client') || new URLSearchParams(location.search).has('id'))) {
-            history.pushState({}, '', location.pathname);
+        const hasPathSlug = /^\/work\/.+/.test(location.pathname);
+        const hasQueryParam = new URLSearchParams(location.search).has('client') || new URLSearchParams(location.search).has('id');
+        if (updateUrl && (hasPathSlug || hasQueryParam)) {
+            history.pushState({}, '', '/work');
         }
     }
 
@@ -667,14 +673,16 @@
         else closeModal();
     });
     window.addEventListener('popstate', () => {
-        const param = new URLSearchParams(location.search).get('client') || new URLSearchParams(location.search).get('id') || '';
+        const pathSlug = location.pathname.replace(/^\/work\/+/, '').replace(/\/+$/, '');
+        const queryParam = new URLSearchParams(location.search).get('client') || new URLSearchParams(location.search).get('id') || '';
+        const param = pathSlug || queryParam;
         if (param) openClientFromParam(param, true);
         else if (document.getElementById('clientView').classList.contains('open')) closeModal(false);
     });
 
     async function copyClientLink() {
         if (!activeClientSlug) return;
-        const url = `${location.origin}${location.pathname}?client=${encodeURIComponent(activeClientSlug)}`;
+        const url = `${location.origin}/work/${encodeURIComponent(activeClientSlug)}/`;
         try {
             await navigator.clipboard.writeText(url);
             setShareLabel('Copied');
@@ -701,7 +709,7 @@
     }
 
     function updateClientUrl(project, replace = false) {
-        const url = `${location.pathname}?client=${encodeURIComponent(clientSlug(project))}`;
+        const url = `/work/${encodeURIComponent(clientSlug(project))}/`;
         if (replace) history.replaceState({}, '', url);
         else history.pushState({}, '', url);
     }

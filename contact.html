@@ -34,10 +34,29 @@
       "name": "Contact Talk The Taste",
       "url": "https://talkthetaste.com/contact",
       "mainEntity": {
-        "@type": "Organization",
+        "@type": ["LocalBusiness", "ProfessionalService"],
+        "@id": "https://talkthetaste.com/#business",
         "name": "Talk The Taste",
         "email": "hi@talkthetaste.com",
-        "telephone": "+971565390316"
+        "telephone": "+971565390316",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "3B 22nd St, Al Quoz Industrial 4",
+          "addressLocality": "Dubai",
+          "addressCountry": "AE"
+        },
+        "location": {
+          "@type": "Place",
+          "name": "Talk The Taste - Irvine",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Park Place, 3349 Michelson Dr",
+            "addressLocality": "Irvine",
+            "addressRegion": "CA",
+            "postalCode": "92612",
+            "addressCountry": "US"
+          }
+        }
       }
     }
     </script>
@@ -103,7 +122,11 @@
         .form-textarea { min-height:140px;resize:vertical; }
         .form-select { cursor:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236B6760' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center; }
         .form-submit { width:100%;border:none;padding:18px;font-size:15px;font-weight:700;border-radius:100px;cursor:none;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Cormorant Garamond',serif; }
-        .form-note { font-size:12px;color:var(--text-xmuted);text-align:center;margin-top:16px; }
+        .form-note { font-size:12px;color:var(--text-xmuted);text-align:center;margin-top:16px;line-height:1.65; }
+        .consent-box { display:grid;grid-template-columns:18px minmax(0,1fr);gap:12px;align-items:start;background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:15px 16px;margin:6px 0 20px; }
+        .consent-box input { width:18px;height:18px;margin-top:2px;accent-color:var(--gold);cursor:none; }
+        .consent-box span { font-size:12px;color:var(--text-muted);line-height:1.65; }
+        .consent-box a { color:var(--text);text-decoration:underline;text-underline-offset:3px; }
         .phone-row { display:grid;grid-template-columns:150px 1fr;gap:12px; }
         .field-error { display:none;font-size:12px;color:#DC2626;margin-top:7px;line-height:1.4; }
         .form-input.invalid, .form-textarea.invalid, .form-select.invalid { border-color:#DC2626;box-shadow:0 0 0 3px rgba(220,38,38,.08); }
@@ -144,7 +167,7 @@
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/blog">Blog</a></li>
-    </ul>
+        <li><a href="/about">About</a></li>    </ul>
     <div class="nav-right">
         <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
         <a href="/contact" class="nav-cta">Let's Talk</a>
@@ -163,7 +186,7 @@
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/blog">Blog</a></li>
-    </ul>
+        <li><a href="/about">About</a></li>    </ul>
     <div class="mobile-menu-bottom">
         <a href="/contact" class="btn-primary">Let's Talk →</a>
         <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
@@ -203,14 +226,28 @@
                 <div class="contact-icon">📞</div>
                 <div>
                     <div class="contact-item-label">Phone / WhatsApp</div>
-                    <div class="contact-item-val"><a href="tel:+971529972969">+971 52 997 2969</a></div>
+                    <div class="contact-item-val"><a href="tel:+971565390316">+971 56 539 0316</a></div>
                 </div>
             </div>
             <div class="contact-item">
                 <div class="contact-icon">📍</div>
                 <div>
+                    <div class="contact-item-label">Dubai Office</div>
+                    <div class="contact-item-val">3B 22nd St, Al Quoz Industrial 4, Dubai, UAE</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <div>
+                    <div class="contact-item-label">Irvine Office</div>
+                    <div class="contact-item-val">Park Place, 3349 Michelson Dr, Irvine, CA 92612</div>
+                </div>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🌍</div>
+                <div>
                     <div class="contact-item-label">Availability</div>
-                    <div class="contact-item-val">Worldwide remote service · UAE onsite shoots</div>
+                    <div class="contact-item-val">Worldwide remote service · onsite shoots in the UAE and Southern California</div>
                 </div>
             </div>
             <div class="contact-item">
@@ -265,6 +302,10 @@
                             <option>Not sure yet</option>
                         </select>
                     </div>
+                    <label class="consent-box" for="auditConsent">
+                        <input type="checkbox" id="auditConsent" required>
+                        <span>I agree that Talk The Taste may contact me about this audit and related services by WhatsApp, phone, SMS/text, email or other provided methods. I can opt out at any time and my information is handled under the <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+                    </label>
                     <button type="submit" class="btn-gold" data-track="audit_submit_click" data-track-label="Contact audit form">Request Free Audit →</button>
                     <div class="audit-success" id="auditSuccess">Audit request received. We will reply on WhatsApp.</div>
                 </form>
@@ -362,6 +403,11 @@
                         <textarea class="form-textarea" id="message" placeholder="Describe your project, goals, and timeline..." required></textarea>
                         <div class="field-error" id="messageError">Tell us a little about the project.</div>
                     </div>
+                    <label class="consent-box" for="contactConsent">
+                        <input type="checkbox" id="contactConsent" required>
+                        <span>I agree that Talk The Taste may contact me about my enquiry and related services by email, WhatsApp, phone call, SMS/text, direct message or other contact methods I provide. I understand I can opt out at any time and that my information is handled under the <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
+                    </label>
+                    <div class="field-error" id="consentError">Please confirm that we may contact you about this enquiry.</div>
                     <button type="submit" class="btn-gold form-submit" id="submitBtn">
                         Send Message
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -387,8 +433,8 @@
             <p class="footer-brand-desc">Creative agency for brands worldwide. Marketing, branding, web, apps, SEO, and video, all under one roof.</p>
         </div>
         <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="/services">Marketing</a></li><li><a href="/services">Social Media</a></li><li><a href="/services">Web Design</a></li></ul></div>
-        <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="/profile">Company Profile</a></li><li><a href="/work">Our Work</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li></ul></div>
-        <div><div class="footer-heading">Contact</div><ul class="footer-links"><li><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></li><li><a href="tel:+971529972969">+971 52 997 2969</a></li></ul></div>
+        <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="/profile">Company Profile</a></li><li><a href="/work">Our Work</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li></ul></div>
+        <div><div class="footer-heading">Contact</div><ul class="footer-links"><li><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></li><li><a href="tel:+971565390316">+971 56 539 0316</a></li><li>3B 22nd St, Al Quoz Industrial 4, Dubai, UAE</li></ul></div>
     </div>
     <div class="footer-bottom">
         <span>© 2025 Talk The Taste. All rights reserved.</span>
@@ -440,12 +486,13 @@
         const phoneRaw = document.getElementById('auditPhone').value.trim();
         const url = document.getElementById('auditUrl').value.trim();
         const interest = document.getElementById('auditInterest').value;
+        const auditConsent = document.getElementById('auditConsent').checked;
         const phoneDigits = phoneRaw.replace(/\D/g, '');
         const phone = phoneRaw.trim().startsWith('+')
             ? `+${phoneDigits}`
             : phoneDigits;
-        if (!name || phoneDigits.length < 7 || !url) {
-            alert('Please add your name, WhatsApp number, and website or Instagram.');
+        if (!name || phoneDigits.length < 7 || !url || !auditConsent) {
+            alert('Please add your name, WhatsApp number, website or Instagram, and contact permission.');
             return;
         }
         const lead = TTT.saveLead({
@@ -454,6 +501,9 @@
             email: 'audit@talkthetaste.com',
             phone,
             phoneRaw,
+            contactConsent: auditConsent,
+            consentText: 'Lead consented to contact by WhatsApp, phone, SMS/text, email or other provided methods for audit request and related services.',
+            consentAt: new Date().toISOString(),
             service: 'Free Growth Audit',
             interest,
             source: 'Free Growth Audit Form',
@@ -484,6 +534,7 @@
         const service = document.getElementById('service').value;
         const budget  = document.getElementById('budget').value;
         const message = document.getElementById('message').value.trim();
+        const contactConsent = document.getElementById('contactConsent').checked;
 
         const errors = {
             fname: !fname,
@@ -491,6 +542,7 @@
             email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
             phone: phoneDigits.length < 7 || phoneDigits.length > 15,
             message: message.length < 10,
+            consent: !contactConsent,
         };
         setInvalid('fname', errors.fname, 'fnameError');
         setInvalid('lname', errors.lname, 'lnameError');
@@ -498,6 +550,7 @@
         setInvalid('countryCode', errors.phone);
         setInvalid('phone', errors.phone, 'phoneError');
         setInvalid('message', errors.message, 'messageError');
+        document.getElementById('consentError').style.display = errors.consent ? 'block' : 'none';
 
         if (Object.values(errors).some(Boolean)) {
             const firstInvalid = document.querySelector('.invalid');
@@ -512,6 +565,9 @@
         // 1. Save lead locally and submit it to Cloudflare/CallMeBot
         const lead = TTT.saveLead({
             fname, lname, email, countryCode, phone, phoneRaw, company, service, budget, message,
+            contactConsent,
+            consentText: 'Lead consented to contact by email, WhatsApp, phone call, SMS/text, direct message or other provided methods for enquiry and related services.',
+            consentAt: new Date().toISOString(),
             source: requestedPackage ? 'Pricing Package Form' : 'Contact Form',
             interest: service || requestedService,
             package: requestedPackage,

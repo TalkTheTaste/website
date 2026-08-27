@@ -1,4 +1,6 @@
 /index.html / 301
+/post /blog 301
+/post/ /blog 301
 /profile /TTTprofile.pdf 302
 /profile/ /TTTprofile.pdf 302
 /work/ /work 301
@@ -7,6 +9,8 @@
 /pricing.html /pricing 301
 /blog.html /blog 301
 /contact.html /contact 301
+/privacy-policy.html /privacy-policy 301
+/terms-and-conditions.html /terms-and-conditions 301
 /social-media-marketing-dubai.html /social-media-marketing-dubai 301
 /web-design-dubai.html /web-design-dubai 301
 /branding-agency-dubai.html /branding-agency-dubai 301
