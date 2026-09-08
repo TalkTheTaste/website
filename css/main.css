@@ -153,6 +153,16 @@ button { cursor: none; font-family: inherit; }
     white-space: nowrap;
 }
 .nav-wa-link:hover { color: var(--text); }
+.ar-lang {
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text);
+    text-decoration: none;
+    white-space: nowrap;
+}
 .nav-cta {
     background: var(--text); color: #fff;
     font-family: 'Inter', sans-serif;
