@@ -4,8 +4,13 @@
   const WIDGET_ID = 'ttt-google-translate';
   const ARABIC_FONT_ID = 'ttt-arabic-font';
   const RTL_CLASS = 'i18n-ar';
+  const SKIP_SELECTOR = 'script, style, noscript, svg, path, code, pre, textarea, input, select, #ttt-google-translate, .skiptranslate';
 
   let translateReady;
+  let isSwitching = false;
+  const originalText = new WeakMap();
+  const originalAttrs = new WeakMap();
+  const originalMarkup = new WeakMap();
 
   function ensureArabicFont() {
     if (document.getElementById(ARABIC_FONT_ID)) return;
@@ -77,6 +82,82 @@
     return document.querySelector('.goog-te-combo');
   }
 
+  function normalize(value) {
+    return value.replace(/\s+/g, ' ').trim();
+  }
+
+  function walkTextNodes(callback) {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        if (!node.nodeValue || !normalize(node.nodeValue)) return NodeFilter.FILTER_REJECT;
+        const parent = node.parentElement;
+        if (!parent || parent.closest(SKIP_SELECTOR)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+
+    const nodes = [];
+    while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach(callback);
+  }
+
+  function snapshotOriginalPage() {
+    document.querySelectorAll('h1, h2, h3, h4, p, li, summary, button, a, span, .eyebrow, .svc-title, .svc-desc, .pkg-name, .pkg-tagline, .pricing-sec-title, .pricing-sec-sub, .footer-heading, .footer-brand-desc').forEach((el) => {
+      if (el.closest(SKIP_SELECTOR) || el.classList.contains('ar-lang') || el.classList.contains('language-float')) return;
+      if (!normalize(el.textContent || '')) return;
+      if (!originalMarkup.has(el)) originalMarkup.set(el, el.innerHTML);
+    });
+
+    walkTextNodes((node) => {
+      if (!originalText.has(node)) originalText.set(node, node.nodeValue);
+    });
+
+    document.querySelectorAll('[placeholder], [aria-label], [title]').forEach((el) => {
+      if (el.closest(SKIP_SELECTOR)) return;
+      if (!originalAttrs.has(el)) {
+        originalAttrs.set(el, {
+          placeholder: el.getAttribute('placeholder'),
+          ariaLabel: el.getAttribute('aria-label'),
+          title: el.getAttribute('title')
+        });
+      }
+    });
+  }
+
+  function restoreOriginalPage() {
+    document.querySelectorAll('h1, h2, h3, h4, p, li, summary, button, a, span, .eyebrow, .svc-title, .svc-desc, .pkg-name, .pkg-tagline, .pricing-sec-title, .pricing-sec-sub, .footer-heading, .footer-brand-desc').forEach((el) => {
+      if (el.closest(SKIP_SELECTOR) || el.classList.contains('ar-lang') || el.classList.contains('language-float')) return;
+      if (originalMarkup.has(el)) el.innerHTML = originalMarkup.get(el);
+    });
+
+    walkTextNodes((node) => {
+      if (originalText.has(node)) node.nodeValue = originalText.get(node);
+    });
+
+    document.querySelectorAll('[placeholder], [aria-label], [title]').forEach((el) => {
+      const attrs = originalAttrs.get(el);
+      if (!attrs) return;
+      if (attrs.placeholder === null) el.removeAttribute('placeholder');
+      else el.setAttribute('placeholder', attrs.placeholder);
+      if (attrs.ariaLabel === null) el.removeAttribute('aria-label');
+      else el.setAttribute('aria-label', attrs.ariaLabel);
+      if (attrs.title === null) el.removeAttribute('title');
+      else el.setAttribute('title', attrs.title);
+    });
+  }
+
+  function expireGoogleTranslateCookie() {
+    const hostParts = window.location.hostname.split('.');
+    const domains = ['', window.location.hostname];
+    if (hostParts.length > 2) domains.push(`.${hostParts.slice(-2).join('.')}`);
+
+    domains.forEach((domain) => {
+      const domainPart = domain ? `;domain=${domain}` : '';
+      document.cookie = `googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/${domainPart}`;
+      document.cookie = `googtrans=/en/en;path=/${domainPart}`;
+    });
+  }
+
   function dispatchNativeChange(select) {
     select.dispatchEvent(new Event('change', { bubbles: true }));
   }
@@ -88,7 +169,8 @@
         const select = findTranslateSelect();
         attempts += 1;
         if (select) {
-          select.value = language === 'ar' ? 'ar' : '';
+          select.value = language === 'ar' ? 'ar' : 'en';
+          if (language !== 'ar') select.value = '';
           dispatchNativeChange(select);
           window.clearInterval(timer);
           window.setTimeout(resolve, 350);
@@ -116,6 +198,8 @@
 
   function updateSwitcher(link, language) {
     const isArabic = language === 'ar';
+    link.classList.add('notranslate');
+    link.setAttribute('translate', 'no');
     link.textContent = isArabic ? 'English' : 'العربية';
     link.lang = isArabic ? 'en' : 'ar';
     link.dir = isArabic ? 'ltr' : 'rtl';
@@ -135,10 +219,28 @@
   }
 
   function applyLanguage(language) {
+    if (isSwitching) return Promise.resolve();
+    isSwitching = true;
     keepCurrentPageLinks();
-    if (language === 'ar') ensureArabicFont();
     updatePageState(language);
-    return setTranslateLanguage(language);
+    if (language !== 'ar') {
+      expireGoogleTranslateCookie();
+      restoreOriginalPage();
+      window.setTimeout(restoreOriginalPage, 150);
+      window.setTimeout(restoreOriginalPage, 700);
+      return setTranslateLanguage('en').finally(() => {
+        restoreOriginalPage();
+        updatePageState('en');
+        isSwitching = false;
+      });
+    }
+
+    snapshotOriginalPage();
+    ensureArabicFont();
+    return setTranslateLanguage('ar').finally(() => {
+      updatePageState('ar');
+      isSwitching = false;
+    });
   }
 
   function addFloatingSwitcher() {
