@@ -166,6 +166,25 @@ button { cursor: none; font-family: inherit; }
 .language-float {
     display: none;
 }
+body.i18n-ar {
+    font-family: "Noto Sans Arabic", Tahoma, Arial, sans-serif;
+    line-height: 1.9;
+    letter-spacing: 0;
+}
+body.i18n-ar h1,
+body.i18n-ar h2,
+body.i18n-ar h3,
+body.i18n-ar .footer-heading {
+    letter-spacing: 0;
+    line-height: 1.35;
+}
+body.i18n-ar .eyebrow,
+body.i18n-ar .nav-cta,
+body.i18n-ar .btn-primary,
+body.i18n-ar .btn-text-link {
+    text-transform: none;
+    letter-spacing: 0;
+}
 .nav-cta {
     background: var(--text); color: #fff;
     font-family: 'Inter', sans-serif;
