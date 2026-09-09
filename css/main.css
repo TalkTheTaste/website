@@ -185,6 +185,15 @@ body.i18n-ar .btn-text-link {
     text-transform: none;
     letter-spacing: 0;
 }
+#ttt-google-translate,
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+body > .skiptranslate {
+    display: none !important;
+}
+body {
+    top: 0 !important;
+}
 .nav-cta {
     background: var(--text); color: #fff;
     font-family: 'Inter', sans-serif;
