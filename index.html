@@ -524,6 +524,30 @@
         );
         pointer-events: none;
       }
+      body.i18n-ar .hero-copy {
+        max-width: 390px;
+        margin-top: clamp(18px, 12vh, 120px);
+      }
+      body.i18n-ar .hero-copy::before {
+        top: -14px;
+        bottom: -14px;
+        left: -24px;
+        width: calc(100% + 76px);
+        background: linear-gradient(
+          to right,
+          var(--bg) 0%,
+          var(--bg) 68%,
+          rgba(255, 255, 255, 0.82) 84%,
+          transparent 100%
+        );
+      }
+      body.i18n-ar .hero-headline {
+        font-size: clamp(48px, 5.4vw, 80px);
+        line-height: 1.08;
+      }
+      body.i18n-ar .hero-copy-sub {
+        max-width: 360px;
+      }
       .hero-headline {
         font-family: "Space Grotesk", sans-serif;
         font-size: clamp(52px, 6.6vw, 96px);
@@ -1233,6 +1257,12 @@
           top: clamp(90px, 14vh, 150px);
           margin-left: max(-39vw, -490px);
         }
+        body.i18n-ar .hero-copy {
+          max-width: 340px;
+        }
+        body.i18n-ar .hero-headline {
+          font-size: clamp(38px, 5.5vw, 58px);
+        }
         .hero-micro {
           max-width: 120px;
           font-size: 10px;
@@ -1286,6 +1316,10 @@
         }
         .hero-copy::before {
           display: none;
+        }
+        body.i18n-ar .hero-copy {
+          max-width: 520px;
+          margin-top: 0;
         }
         .hero-copy-sub {
           margin-left: auto;
