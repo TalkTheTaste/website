@@ -27,7 +27,7 @@ html[dir="rtl"] .btn-text-link {
     color: var(--text);
 }
 
-.ar-page a:not(.btn-primary):not(.nav-cta):not(.cta-btn-gold) {
+.ar-page a:not(.btn-primary):not(.nav-cta):not(.cta-btn-gold):not(.language-float) {
     color: inherit;
 }
 

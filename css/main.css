@@ -163,6 +163,9 @@ button { cursor: none; font-family: inherit; }
     text-decoration: none;
     white-space: nowrap;
 }
+.language-float {
+    display: none;
+}
 .nav-cta {
     background: var(--text); color: #fff;
     font-family: 'Inter', sans-serif;
@@ -690,6 +693,25 @@ footer {
     .footer-top { grid-template-columns: 1fr 1fr; gap: 48px; }
 }
 @media(max-width:900px) {
+    .language-float {
+        display: inline-flex;
+        position: fixed;
+        inset-inline-end: 18px;
+        top: 18px;
+        z-index: 1200;
+        align-items: center;
+        justify-content: center;
+        min-width: 74px;
+        min-height: 42px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--text);
+        color: #fff;
+        font: 700 13px/1.2 'Inter', sans-serif;
+        text-decoration: none;
+        box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    }
     .nav-menu { display: none; }
     .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
     .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
