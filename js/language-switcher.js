@@ -1,16 +1,588 @@
 (function () {
   const STORAGE_KEY = 'ttt-language';
-  const SCRIPT_ID = 'ttt-google-translate-script';
-  const WIDGET_ID = 'ttt-google-translate';
   const ARABIC_FONT_ID = 'ttt-arabic-font';
   const RTL_CLASS = 'i18n-ar';
-  const SKIP_SELECTOR = 'script, style, noscript, svg, path, code, pre, textarea, input, select, #ttt-google-translate, .skiptranslate';
+  const SKIP_SELECTOR = 'script, style, noscript, svg, path, code, pre, textarea, input, select';
+  const ATTRS = ['placeholder', 'aria-label', 'title'];
 
-  let translateReady;
-  let isSwitching = false;
+  let currentLanguage = 'en';
   const originalText = new WeakMap();
   const originalAttrs = new WeakMap();
-  const originalMarkup = new WeakMap();
+
+  const dictionary = {
+    'Home': 'الرئيسية',
+    'Services': 'الخدمات',
+    'Work': 'الأعمال',
+    'Pricing': 'الأسعار',
+    'Journal': 'المدونة',
+    'About': 'عن الوكالة',
+    'Contact': 'تواصل معنا',
+    'Company': 'الشركة',
+    'Our Work': 'أعمالنا',
+    'Privacy Policy': 'سياسة الخصوصية',
+    'Terms & Conditions': 'الشروط والأحكام',
+    'WhatsApp ↗': 'واتساب ↗',
+    'العربية': 'العربية',
+    'English': 'English',
+    "Let's Talk": 'ابدأ الحديث',
+    "Let's Talk →": 'ابدأ الحديث →',
+    'Free Audit': 'تدقيق مجاني',
+    'Get Free Audit': 'احصل على تدقيق مجاني',
+    'Get a free audit': 'احصل على تدقيق مجاني',
+    'Get a free growth audit →': 'احصل على تدقيق نمو مجاني →',
+    'Request audit →': 'اطلب التدقيق →',
+    'Request free audit →': 'اطلب تدقيقا مجانيا →',
+    'Start a project →': 'ابدأ مشروعا →',
+    'View our work': 'استعرض أعمالنا',
+    'View all projects →': 'استعرض كل المشاريع →',
+    'All services →': 'كل الخدمات →',
+    'See what we do →': 'استعرض ما نقدمه →',
+    'See more of our work →': 'شاهد المزيد من أعمالنا →',
+    'See packages': 'استعرض الباقات',
+    'See full pricing →': 'شاهد الأسعار كاملة →',
+    'Send a Message →': 'أرسل رسالة →',
+    'Get Quote →': 'اطلب عرض سعر →',
+    'Start Website →': 'ابدأ الموقع →',
+    'Build Store →': 'ابن المتجر →',
+    'Get Audit →': 'احصل على التدقيق →',
+    'Start SEO →': 'ابدأ SEO →',
+    'Choose Gold →': 'اختر الباقة الذهبية →',
+    'Choose Platinum →': 'اختر الباقة البلاتينية →',
+    'Start Now →': 'ابدأ الآن →',
+    'WhatsApp now': 'واتساب الآن',
+    'WhatsApp us': 'راسلنا على واتساب',
+    'Dubai, UAE · Irvine, CA': 'دبي، الإمارات العربية المتحدة · إيرفاين، كاليفورنيا',
+    '© 2026 Talk The Taste. All rights reserved.': '© 2026 Talk The Taste. جميع الحقوق محفوظة.',
+    '© 2025 Talk The Taste. All rights reserved.': '© 2025 Talk The Taste. جميع الحقوق محفوظة.',
+    "Dubai's creative agency. Marketing, branding, web, apps, and video, all under one roof.": 'وكالة إبداعية في دبي للتسويق، الهوية، المواقع، التطبيقات والفيديو، كلها تحت سقف واحد.',
+    'Creative agency for brands worldwide. Marketing, branding, web, apps, SEO, and video, all under one roof.': 'وكالة إبداعية للعلامات حول العالم. تسويق، هوية، مواقع، تطبيقات، SEO وفيديو تحت سقف واحد.',
+
+    'Dubai\'s Creative Agency': 'وكالة إبداعية في دبي',
+    'Talk The Taste · Dubai': 'Talk The Taste · دبي',
+    'Est. 2018': 'تأسست 2018',
+    'We turn attention': 'نحول الانتباه',
+    'into': 'إلى',
+    'enquiries.': 'استفسارات.',
+    'Dubai marketing, branding, websites, content and video built to bring better leads, not just better-looking posts.': 'تسويق وهوية ومواقع ومحتوى وفيديو في دبي مصممة لجلب استفسارات أفضل، وليس فقط منشورات أجمل.',
+    '80+ brands grown': 'أكثر من 80 علامة نميناها',
+    'A vision of future': 'رؤية للمستقبل',
+    'augmentation': 'والتوسع',
+    '80+': '+80',
+    'Brands grown': 'علامة نمت معنا',
+    '6+': '+6',
+    'Years in Dubai': 'سنوات في دبي',
+    '12M+': '+12M',
+    'Content views': 'مشاهدات محتوى',
+    '4.9': '4.9',
+    'Client rating': 'تقييم العملاء',
+    'Free audit': 'تدقيق مجاني',
+    'Want more form fills, WhatsApp clicks and booked calls?': 'تريد نماذج أكثر، نقرات واتساب أكثر ومكالمات محجوزة أكثر؟',
+    'Send us your website or Instagram. We will identify the fastest fixes for stronger trust, clearer offers and more enquiries.': 'أرسل لنا موقعك أو حساب إنستغرام. سنحدد أسرع التحسينات لثقة أقوى وعروض أوضح واستفسارات أكثر.',
+    'What we do': 'ماذا نقدم',
+    'Strategy, content,': 'استراتيجية ومحتوى،',
+    'web and video.': 'مواقع وفيديو.',
+    'Strategy, design, content and development planned together.': 'استراتيجية وتصميم ومحتوى وتطوير يتم تخطيطها معا.',
+    'Marketing Strategy': 'استراتيجية التسويق',
+    'Data-driven plans that connect brands with their ideal audience.': 'خطط مبنية على البيانات تربط العلامات بجمهورها المناسب.',
+    'Social Media & Content': 'وسائل التواصل والمحتوى',
+    'Content planned for reach, saves, replies and leads.': 'محتوى مخطط للوصول والحفظ والردود والاستفسارات.',
+    'Branding & Identity': 'الهوية التجارية',
+    'Visual systems that make your brand recognizable and memorable.': 'أنظمة بصرية تجعل علامتك واضحة ولا تنسى.',
+    'Web Design & Development': 'تصميم وتطوير المواقع',
+    'Websites and apps built for speed, clarity and enquiries.': 'مواقع وتطبيقات مبنية للسرعة والوضوح والاستفسارات.',
+    'Custom Software': 'برمجيات مخصصة',
+    'Custom tools built around your workflow.': 'أدوات مخصصة مبنية حول سير عملك.',
+    'Video Production': 'إنتاج الفيديو',
+    'Clean video content for campaigns, launches and social.': 'محتوى فيديو واضح للحملات والإطلاقات والسوشيال.',
+    'Selected Work': 'أعمال مختارة',
+    'Creative Scalps · Content Sprint': 'Creative Scalps · حملة محتوى',
+    '30 days of sharper trust.': '30 يوما لبناء ثقة أوضح.',
+    'Featured Client': 'عميل مميز',
+    'About TTT': 'عن TTT',
+    'Good work needs clear ownership.': 'العمل الجيد يحتاج مسؤولية واضحة.',
+    "We're a tight, senior team based in Dubai: no juniors, no outsourcing, no account managers playing telephone. Just experienced people doing the work.": 'نحن فريق صغير وخبير في دبي: بلا مبتدئين، بلا تعهيد خارجي، وبلا مديري حسابات ينقلون الكلام. فقط أشخاص خبراء ينفذون العمل.',
+    'Project Lead': 'قائد المشروع',
+    'Umair Dada': 'عمير دادا',
+    'You speak directly with the person shaping strategy, creative direction and delivery quality.': 'تتحدث مباشرة مع الشخص الذي يشكل الاستراتيجية والتوجيه الإبداعي وجودة التسليم.',
+    'Brands we\'ve helped grow': 'علامات ساعدناها على النمو',
+    'Years operating in Dubai': 'سنوات عمل في دبي',
+    'Content views delivered': 'مشاهدات محتوى تم تحقيقها',
+    'Average client rating': 'متوسط تقييم العملاء',
+    'How we work': 'كيف نعمل',
+    'Four steps.': 'أربع خطوات.',
+    'Clear work.': 'عمل واضح.',
+    'Discover': 'الاكتشاف',
+    'We learn your business, your audience, and where your biggest opportunity lies before touching a single deliverable.': 'نفهم عملك وجمهورك وأكبر فرصة لديك قبل البدء بأي تسليم.',
+    'Strategy': 'الاستراتيجية',
+    'A clear plan: positioning, messaging, channels, timelines, and KPIs aligned to your real commercial goals.': 'خطة واضحة: تموضع، رسائل، قنوات، جداول زمنية ومؤشرات أداء مرتبطة بأهدافك التجارية.',
+    'Create': 'الإنتاج',
+    'Design, build, shoot, post. Our in-house team delivers every element to a standard you can be proud of.': 'نصمم ونبني ونصور وننشر. فريقنا الداخلي يسلم كل عنصر بمعيار تفخر به.',
+    'Launch': 'الإطلاق',
+    "Data-led iteration every month. What's working gets more fuel. What isn't gets fixed. No vanity metrics.": 'تحسين شهري مبني على البيانات. ما يعمل نزيده، وما لا يعمل نصلحه. بلا مقاييس شكلية.',
+    'What clients say': 'ماذا يقول العملاء',
+    'Questions': 'أسئلة',
+    'Common questions.': 'أسئلة شائعة.',
+    'Clear information for owners, restaurant operators, hospitality teams, and growing brands comparing creative agencies in Dubai.': 'معلومات واضحة للملاك ومشغلي المطاعم وفرق الضيافة والعلامات النامية التي تقارن بين الوكالات الإبداعية في دبي.',
+    'What services does Talk The Taste provide?': 'ما الخدمات التي تقدمها Talk The Taste؟',
+    'Talk The Taste provides social media management, branding, marketing strategy, web design, mobile app development, custom software and video production for businesses in Dubai and the UAE.': 'تقدم Talk The Taste إدارة وسائل التواصل، الهوية التجارية، استراتيجية التسويق، تصميم المواقع، تطوير تطبيقات الجوال، البرمجيات المخصصة وإنتاج الفيديو للشركات في دبي والإمارات.',
+    'Is Talk The Taste a Dubai agency?': 'هل Talk The Taste وكالة في دبي؟',
+    'Yes. Talk The Taste is based in Dubai and works with UAE brands that need creative, digital and marketing execution from one team.': 'نعم. Talk The Taste مقرها دبي وتعمل مع علامات في الإمارات تحتاج تنفيذا إبداعيا ورقميا وتسويقيا من فريق واحد.',
+    'Who is Talk The Taste best for?': 'لمن تناسب Talk The Taste؟',
+    'TTT is best for restaurants, hospitality brands, startups, service businesses and companies that need consistent content, stronger brand identity, a better website or a custom digital product.': 'TTT مناسبة للمطاعم وعلامات الضيافة والشركات الناشئة وشركات الخدمات التي تحتاج محتوى مستمرا، هوية أقوى، موقعا أفضل أو منتجا رقميا مخصصا.',
+    'How do I start a project?': 'كيف أبدأ مشروعا؟',
+    'Start today': 'ابدأ اليوم',
+    'Ready to grow': 'جاهز للنمو',
+    'with better creative?': 'بإبداع أفضل؟',
+    'Dubai\'s creative agency for brands ready to grow.': 'وكالة دبي الإبداعية للعلامات الجاهزة للنمو.',
+
+    'What We Do': 'ماذا نقدم',
+    'Everything you need.': 'كل ما تحتاجه.',
+    'One roof.': 'تحت سقف واحد.',
+    'From the very first idea to a fully launched campaign, product, or platform, we handle every step of your creative and digital journey. No outsourcing. No middlemen. Just results.': 'من الفكرة الأولى إلى إطلاق الحملة أو المنتج أو المنصة، نتولى كل خطوة في رحلتك الإبداعية والرقمية. بلا تعهيد خارجي. بلا وسطاء. فقط تنفيذ ونتائج.',
+    'Marketing Strategy & Management': 'استراتيجية وإدارة التسويق',
+    'Data-driven strategies that put your brand in front of the right people at exactly the right moment, including restaurant launch planning, local SEO, content calendars and paid media.': 'استراتيجيات مبنية على البيانات تضع علامتك أمام الجمهور المناسب في الوقت المناسب، وتشمل تخطيط إطلاق المطاعم، SEO المحلي، تقاويم المحتوى والإعلانات المدفوعة.',
+    'Full marketing audits & competitor analysis': 'تدقيق تسويقي كامل وتحليل المنافسين',
+    'Campaign planning & budget allocation': 'تخطيط الحملات وتوزيع الميزانية',
+    'Performance tracking & monthly reporting': 'تتبع الأداء وتقارير شهرية',
+    'Email marketing & funnel optimization': 'التسويق بالبريد وتحسين مسار التحويل',
+    'Full': 'كامل',
+    'social media management in Dubai': 'إدارة وسائل التواصل في دبي',
+    ': content calendars, community management, paid ads and growth across Instagram, TikTok, LinkedIn and more.': ': تقاويم محتوى، إدارة المجتمع، إعلانات مدفوعة ونمو عبر إنستغرام وتيك توك ولينكدإن وغيرها.',
+    'Grow your following →': 'نم جمهورك →',
+    'Videography & Visual Production': 'الفيديو والإنتاج البصري',
+    'Brand films & commercials': 'أفلام العلامة والإعلانات',
+    'Food photography Dubai': 'تصوير الطعام في دبي',
+    'Social media reels & short-form video': 'ريلز وفيديوهات قصيرة للسوشيال',
+    'Full post-production & colour grade': 'مونتاج كامل وتصحيح ألوان',
+    'Book a shoot →': 'احجز جلسة تصوير →',
+    'Custom UI/UX design & prototyping': 'تصميم واجهات وتجربة مستخدم ونماذج أولية',
+    'Full-stack development (React, Next.js, etc.)': 'تطوير كامل باستخدام React وNext.js وغيرها',
+    'E-commerce & booking integrations': 'تكامل المتاجر الإلكترونية والحجوزات',
+    'Speed optimization & SEO setup': 'تحسين السرعة وإعداد SEO',
+    'Build your site →': 'ابن موقعك →',
+    'Native iOS and Android apps that users love. From MVP to full-scale product launch, we build apps that scale alongside your ambitions.': 'تطبيقات iOS وAndroid يحبها المستخدمون. من MVP إلى إطلاق منتج كامل، نبني تطبيقات تنمو مع طموحك.',
+    'iOS & Android native development': 'تطوير أصلي لـ iOS وAndroid',
+    'React Native cross-platform apps': 'تطبيقات متعددة المنصات بـ React Native',
+    'MVP prototyping & user testing': 'نماذج MVP واختبار المستخدمين',
+    'App Store submission & launch support': 'النشر على المتاجر ودعم الإطلاق',
+    'Build your app →': 'ابن تطبيقك →',
+    'Custom Software Development': 'تطوير برمجيات مخصصة',
+    'SaaS platform development': 'تطوير منصات SaaS',
+    'API design & third-party integrations': 'تصميم API وتكاملات خارجية',
+    'Admin dashboards & CRM systems': 'لوحات إدارة وأنظمة CRM',
+    'Ongoing maintenance & scaling': 'صيانة مستمرة وتوسيع',
+    'Discuss your needs →': 'ناقش احتياجك →',
+    'Logo & visual identity design': 'تصميم الشعار والهوية البصرية',
+    'Brand guidelines & style systems': 'إرشادات الهوية وأنظمة الأسلوب',
+    'Packaging & print design': 'تصميم التغليف والمطبوعات',
+    'Brand voice & messaging strategy': 'صوت العلامة واستراتيجية الرسائل',
+    'Brand yourself →': 'ابن هويتك →',
+    'Content Creation': 'صناعة المحتوى',
+    'Lifestyle & product photography': 'تصوير نمط الحياة والمنتجات',
+    'Copywriting & storytelling': 'كتابة المحتوى والسرد',
+    'Graphic design & motion graphics': 'تصميم جرافيك وموشن جرافيك',
+    'Content strategy & ideation': 'استراتيجية محتوى وأفكار',
+    'Create content →': 'اصنع المحتوى →',
+    'Ready to start your project?': 'جاهز لبدء مشروعك؟',
+    'Every service starts with a clear plan. Tell us what you need and we will suggest the right scope.': 'كل خدمة تبدأ بخطة واضحة. أخبرنا بما تحتاجه وسنقترح النطاق المناسب.',
+    'View company profile →': 'استعرض ملف الشركة →',
+    'Growth Paths': 'مسارات النمو',
+    'Choose the fastest path to more leads.': 'اختر أسرع مسار لزيادة الاستفسارات.',
+    'Search Foundations': 'أسس البحث',
+    'Creative work backed by real digital signals.': 'عمل إبداعي مدعوم بإشارات رقمية حقيقية.',
+    'Why Work With Us': 'لماذا تعمل معنا',
+    'A creative team': 'فريق إبداعي',
+    'for': 'من أجل',
+    'clear execution.': 'تنفيذ واضح.',
+    'Strategy Before Execution': 'الاستراتيجية قبل التنفيذ',
+    'Truly Full-Service': 'خدمة شاملة فعلا',
+    'Results You Can Measure': 'نتائج قابلة للقياس',
+    'Dubai + Global Reach': 'دبي + وصول عالمي',
+    'From Idea to': 'من الفكرة إلى',
+    'in 4 Clear Steps.': 'في 4 خطوات واضحة.',
+    'Discovery': 'الاكتشاف',
+    'Execution': 'التنفيذ',
+    'Scale': 'التوسع',
+    'Service Questions': 'أسئلة الخدمات',
+    'Questions brands ask before hiring us.': 'أسئلة تسألها العلامات قبل التعاقد معنا.',
+    'Ready to Start?': 'جاهز للبدء؟',
+    'Let\'s build something': 'لنصنع شيئا',
+    'worth talking about.': 'يستحق الحديث عنه.',
+
+    'Transparent Pricing': 'أسعار واضحة',
+    'Packages for': 'باقات',
+    'clear scopes.': 'بنطاق واضح.',
+    'No hidden fees. No surprises. We work with brands worldwide, send secure payment links, and keep everything clear before you start.': 'لا رسوم مخفية ولا مفاجآت. نعمل مع علامات حول العالم، ونرسل روابط دفع آمنة، ونوضح كل شيء قبل البدء.',
+    'Worldwide clients welcome': 'نرحب بالعملاء عالميا',
+    'Credit card, Apple Pay & Samsung Pay': 'بطاقات ائتمان، Apple Pay وSamsung Pay',
+    'Bank transfer available': 'التحويل البنكي متاح',
+    'Quick Answers': 'إجابات سريعة',
+    'How much do marketing and website services cost in Dubai?': 'كم تكلفة خدمات التسويق والمواقع في دبي؟',
+    'Social media management starts at AED 4,000 per month, SEO starts at AED 1,500 per month, onsite shoots start at AED 450, ecommerce websites start at AED 5,500, and the basic 5-page website is currently free as a limited offer.': 'تبدأ إدارة وسائل التواصل من 4,000 درهم شهريا، ويبدأ SEO من 1,500 درهم شهريا، وتبدأ جلسات التصوير من 450 درهما، وتبدأ المتاجر الإلكترونية من 5,500 درهم، والموقع الأساسي من 5 صفحات مجاني حاليا كعرض محدود.',
+    'Websites': 'المواقع',
+    'SEO, AEO & GEO': 'SEO وAEO وGEO',
+    'Monthly Packages': 'باقات شهرية',
+    'Shoot Packages': 'باقات التصوير',
+    'Website Development': 'تطوير المواقع',
+    'Websites Built To Convert': 'مواقع مبنية للتحويل',
+    'SEO Services': 'خدمات SEO',
+    'SEO, AEO & GEO Packages': 'باقات SEO وAEO وGEO',
+    'Basic 5 Page Website': 'موقع أساسي من 5 صفحات',
+    'A clean business website for service brands, restaurants, creators and startups.': 'موقع أعمال واضح لعلامات الخدمات والمطاعم وصناع المحتوى والشركات الناشئة.',
+    'Free': 'مجاني',
+    'limited offer': 'عرض محدود',
+    'Up to 5 core pages': 'حتى 5 صفحات أساسية',
+    'Mobile responsive design': 'تصميم متجاوب للجوال',
+    'Lead form and WhatsApp CTA setup': 'إعداد نموذج تواصل ودعوة واتساب',
+    'Basic speed and SEO setup': 'إعداد أساسي للسرعة وSEO',
+    'Ecommerce Website': 'موقع تجارة إلكترونية',
+    'starting price': 'سعر يبدأ من',
+    'Conversion Fix': 'تحسين التحويل',
+    'growth audit': 'تدقيق نمو',
+    'Pricing FAQ': 'أسئلة الأسعار',
+    'Questions before choosing a package.': 'أسئلة قبل اختيار الباقة.',
+    'How much does social media management cost in Dubai?': 'كم تكلفة إدارة وسائل التواصل في دبي؟',
+    'How much does SEO cost in Dubai?': 'كم تكلفة SEO في دبي؟',
+    'Is the basic 5-page website free?': 'هل الموقع الأساسي من 5 صفحات مجاني؟',
+    'Is ad spend included in the monthly marketing package?': 'هل ميزانية الإعلانات مشمولة في الباقة الشهرية؟',
+    'Not sure which plan?': 'غير متأكد من الباقة؟',
+    'Let\'s Figure It': 'لنحددها',
+    'Out': 'معا',
+    'Together.': '.',
+    'Pay from anywhere.': 'ادفع من أي مكان.',
+
+    'Restaurant Marketing': 'تسويق المطاعم',
+    'Social Media Marketing': 'تسويق وسائل التواصل',
+    'Web Design': 'تصميم المواقع',
+    'Branding': 'الهوية التجارية',
+    'Mobile App Development': 'تطوير تطبيقات الجوال',
+    'Restaurant Marketing Dubai': 'تسويق المطاعم في دبي',
+    'Restaurant marketing agency in Dubai that fills tables.': 'وكالة تسويق مطاعم في دبي تساعد على زيادة الحجوزات.',
+    'Get free restaurant audit →': 'اطلب تدقيقا مجانيا للمطعم →',
+    'What\'s Included': 'ما الذي يشمله العمل',
+    'Content, campaigns and conversion, run by one team.': 'محتوى وحملات وتحويل يديرها فريق واحد.',
+    'Food Photography & Reels': 'تصوير الطعام والريلز',
+    'Delivery Platform Optimization': 'تحسين منصات التوصيل',
+    'Google Maps & Reviews': 'خرائط جوجل والمراجعات',
+    'Paid Social Campaigns': 'حملات سوشيال مدفوعة',
+    'Website & Booking Flow': 'الموقع ومسار الحجز',
+    'Who This Is For': 'لمن هذه الخدمة',
+    'Dubai F&B Market': 'سوق المطاعم في دبي',
+    'Case Study': 'دراسة حالة',
+    'Areas We Serve': 'المناطق التي نخدمها',
+    'Restaurant Marketing FAQ': 'أسئلة تسويق المطاعم',
+    'Questions Dubai restaurants ask before hiring us.': 'أسئلة تسألها مطاعم دبي قبل التعاقد معنا.',
+    'Send us your restaurant page.': 'أرسل لنا صفحة مطعمك.',
+    'Social Media Marketing Dubai': 'تسويق وسائل التواصل في دبي',
+    'Content that turns attention into leads.': 'محتوى يحول الانتباه إلى استفسارات.',
+    'Get free social audit →': 'اطلب تدقيقا مجانيا للسوشيال →',
+    'What You Get': 'ما الذي تحصل عليه',
+    'Strategy, content, posting and performance.': 'استراتيجية ومحتوى ونشر وأداء.',
+    'Content Strategy': 'استراتيجية المحتوى',
+    'Reels & Shoots': 'ريلز وجلسات تصوير',
+    'Community Management': 'إدارة المجتمع',
+    'Paid Campaigns': 'حملات مدفوعة',
+    'Platform Strategy': 'استراتيجية المنصات',
+    'Monthly Reporting': 'تقارير شهرية',
+    'Platform Approach': 'منهجية المنصات',
+    'Social Media FAQ': 'أسئلة السوشيال ميديا',
+    'Questions Dubai brands ask before hiring us.': 'أسئلة تسألها علامات دبي قبل التعاقد معنا.',
+    'Send us your Instagram.': 'أرسل لنا حساب إنستغرام.',
+    'Web Design Dubai': 'تصميم المواقع في دبي',
+    'A website that sells before you speak.': 'موقع يبيع قبل أن تتحدث.',
+    'Get free website audit →': 'اطلب تدقيقا مجانيا للموقع →',
+    'Built for clarity, speed and action.': 'مصمم للوضوح والسرعة واتخاذ الإجراء.',
+    'Website Types': 'أنواع المواقع',
+    'Technical Standards': 'المعايير التقنية',
+    'Web Design FAQ': 'أسئلة تصميم المواقع',
+    'Questions Dubai businesses ask before hiring us.': 'أسئلة تسألها شركات دبي قبل التعاقد معنا.',
+    'Send us your website.': 'أرسل لنا موقعك.',
+
+    'Get In Touch': 'تواصل معنا',
+    'Let\'s grow your brand,': 'لننم علامتك،',
+    'wherever you are.': 'أينما كنت.',
+    'Tell us what you are trying to improve. We work with clients worldwide and reply within one business day.': 'أخبرنا بما تريد تحسينه. نعمل مع عملاء حول العالم ونرد خلال يوم عمل واحد.',
+    'Currently accepting new projects': 'نستقبل مشاريع جديدة حاليا',
+    'No matter where': 'أينما',
+    'you are, we got you.': 'كنت، نحن معك.',
+    'Your Project Lead': 'قائد مشروعك',
+    'Email': 'البريد الإلكتروني',
+    'Phone / WhatsApp': 'الهاتف / واتساب',
+    'Dubai Office': 'مكتب دبي',
+    'Irvine Office': 'مكتب إيرفاين',
+    'Availability': 'التوفر',
+    'Payment': 'الدفع',
+    'Company Profile': 'ملف الشركة',
+    'View the TTT company profile': 'استعرض ملف شركة TTT',
+    'Get a free growth audit.': 'احصل على تدقيق نمو مجاني.',
+    'Name *': 'الاسم *',
+    'WhatsApp with country code *': 'واتساب مع رمز الدولة *',
+    'Website / Instagram *': 'الموقع / إنستغرام *',
+    'Main Goal': 'الهدف الرئيسي',
+    'More leads': 'استفسارات أكثر',
+    'Better social media': 'سوشيال ميديا أفضل',
+    'Better website conversion': 'تحويلات موقع أفضل',
+    'Branding or content': 'هوية أو محتوى',
+    'Not sure yet': 'لست متأكدا بعد',
+    'Request Free Audit →': 'اطلب تدقيقا مجانيا →',
+    'Start a Conversation': 'ابدأ محادثة',
+    'Global clients': 'عملاء عالميون',
+    'Easy payment': 'دفع سهل',
+    'UAE shoots': 'تصوير داخل الإمارات',
+    'First Name *': 'الاسم الأول *',
+    'Last Name *': 'اسم العائلة *',
+    'Email Address *': 'البريد الإلكتروني *',
+    'Phone / WhatsApp *': 'الهاتف / واتساب *',
+    'Company / Brand': 'الشركة / العلامة',
+    'Service You\'re Interested In': 'الخدمة التي تهتم بها',
+    'Estimated Budget': 'الميزانية المتوقعة',
+    'Tell Us About Your Project *': 'أخبرنا عن مشروعك *',
+    'Send Message': 'أرسل الرسالة',
+    'Message Received!': 'تم استلام الرسالة!'
+    ,
+    'Get started →': 'ابدأ →',
+    'Web design and website development in Dubai': 'تصميم وتطوير مواقع في دبي',
+    'for fast, conversion-focused websites, landing pages, booking flows and e-commerce stores.': 'لمواقع سريعة تركز على التحويل، وصفحات هبوط، ومسارات حجز، ومتاجر إلكترونية.',
+    'Bespoke software that automates, streamlines, and scales your operations, built exactly to your spec, no compromise, no bloat.': 'برمجيات مخصصة تؤتمت عملياتك وتبسطها وتساعدها على التوسع، مبنية حسب احتياجك بدون تعقيد زائد.',
+    'Logo design, visual identity systems, and brand guidelines that make you instantly recognizable, and deeply unforgettable in your market.': 'تصميم شعارات وأنظمة هوية بصرية وإرشادات علامة تجعل علامتك واضحة وسهلة التذكر في السوق.',
+    'Photography, copywriting, graphic design, reels, and more. Every piece of content your brand needs to stay active, clear and consistent.': 'تصوير، كتابة محتوى، تصميم جرافيك، ريلز وأكثر. كل ما تحتاجه علامتك لتبقى نشطة وواضحة ومتسقة.',
+    'Content, reels, Meta ads, TikTok campaigns, community management and monthly reporting for better reach and enquiries.': 'محتوى وريلز وإعلانات ميتا وحملات تيك توك وإدارة مجتمع وتقارير شهرية لوصول واستفسارات أفضل.',
+    'Premium websites, free 5-page starter sites and landing pages built for trust, speed and conversion.': 'مواقع احترافية، ومواقع بداية مجانية من 5 صفحات، وصفحات هبوط مبنية للثقة والسرعة والتحويل.',
+    'Branding Agency Dubai': 'وكالة هوية تجارية في دبي',
+    'Identity, messaging and launch systems that make the brand feel premium.': 'هوية ورسائل وأنظمة إطلاق تجعل العلامة تبدو احترافية وراقية.',
+    'Food content, restaurant social media management, Google Maps, delivery platform improvements and conversion fixes for F&B brands.': 'محتوى طعام، إدارة سوشيال للمطاعم، خرائط جوجل، تحسين منصات التوصيل وتحسينات تحويل لعلامات F&B.',
+    'Restaurant Launch Marketing Dubai': 'تسويق إطلاق المطاعم في دبي',
+    'Pre-opening strategy, launch content and influencer seeding for new F&B openings.': 'استراتيجية ما قبل الافتتاح، محتوى الإطلاق، وتفعيل المؤثرين لافتتاحات F&B الجديدة.',
+    'Food Photography Dubai': 'تصوير الطعام في دبي',
+    'Menu photography, delivery app images and reels for restaurants and cafes.': 'تصوير قوائم الطعام وصور تطبيقات التوصيل والريلز للمطاعم والمقاهي.',
+    'Our website, SEO and growth recommendations are shaped by official search guidance, UAE digital adoption data and practical ecommerce behaviour, so the strategy is built around how people actually find and trust brands online.': 'تستند توصياتنا للمواقع وSEO والنمو إلى إرشادات البحث الرسمية وبيانات التحول الرقمي في الإمارات وسلوك التجارة الإلكترونية العملي، حتى تبنى الاستراتيجية حول الطريقة الحقيقية التي يجد بها الناس العلامات ويثقون بها.',
+    'Google Search Central': 'Google Search Central',
+    'SEO Starter Guide': 'دليل SEO للمبتدئين',
+    'Core guidance for helping search engines understand website pages and content.': 'إرشادات أساسية تساعد محركات البحث على فهم صفحات الموقع ومحتواه.',
+    'Link Best Practices': 'أفضل ممارسات الروابط',
+    'How clear internal and external links help users and crawlers understand a site.': 'كيف تساعد الروابط الداخلية والخارجية الواضحة المستخدمين ومحركات البحث على فهم الموقع.',
+    'UAE Government': 'حكومة الإمارات',
+    'UAE Ecommerce': 'التجارة الإلكترونية في الإمارات',
+    'Official context for how digital commerce supports business growth in the UAE.': 'سياق رسمي حول دور التجارة الرقمية في دعم نمو الأعمال في الإمارات.',
+    'TDRA UAE': 'هيئة تنظيم الاتصالات والحكومة الرقمية',
+    'Digital UAE Factsheet': 'ملخص الإمارات الرقمية',
+    'Government-backed signals on internet use and the country\'s digital maturity.': 'مؤشرات رسمية عن استخدام الإنترنت والنضج الرقمي في الدولة.',
+    'Every project starts with a strategy session. We understand your audience, competitors, and goals before a single pixel is designed or line of code is written.': 'كل مشروع يبدأ بجلسة استراتيجية. نفهم جمهورك ومنافسيك وأهدافك قبل تصميم أي عنصر أو كتابة أي سطر برمجي.',
+    'One team handles marketing, design, development, content and video, so the work stays consistent.': 'فريق واحد يتولى التسويق والتصميم والتطوير والمحتوى والفيديو حتى يبقى العمل متسقا.',
+    'We connect deliverables to practical goals like enquiries, reach, conversion rate and revenue.': 'نربط التسليمات بأهداف عملية مثل الاستفسارات والوصول ومعدل التحويل والإيرادات.',
+    'We understand the Dubai market and bring a clear, practical standard to every project.': 'نفهم سوق دبي ونطبق معيارا واضحا وعمليا في كل مشروع.',
+    'We review your brand, market, competitors and goals before work starts.': 'نراجع علامتك وسوقك ومنافسيك وأهدافك قبل بدء العمل.',
+    'A practical plan for channels, content, design direction and technology.': 'خطة عملية للقنوات والمحتوى واتجاه التصميم والتقنية.',
+    'We create and launch websites, campaigns, apps and shoots with a clear timeline.': 'ننشئ ونطلق المواقع والحملات والتطبيقات وجلسات التصوير وفق جدول واضح.',
+    'After launch, we review performance and make improvements where needed.': 'بعد الإطلاق، نراجع الأداء ونحسن ما يحتاج إلى تحسين.',
+    'Can one agency handle strategy, content, website and software?': 'هل يمكن لوكالة واحدة إدارة الاستراتيجية والمحتوى والموقع والبرمجيات؟',
+    'Yes. Talk The Taste is built as a creative and digital team, so your brand strategy, content, website, mobile app and software work stay aligned.': 'نعم. Talk The Taste مبنية كفريق إبداعي ورقمي، لذلك تبقى استراتيجية العلامة والمحتوى والموقع والتطبيق والبرمجيات متناسقة.',
+    'Do you offer social media management in Dubai?': 'هل تقدمون إدارة وسائل التواصل في دبي؟',
+    'Yes. TTT manages social media strategy, content planning, creative production, posting and campaign optimization for Dubai and UAE businesses.': 'نعم. تدير TTT استراتيجية السوشيال وتخطيط المحتوى والإنتاج والنشر وتحسين الحملات للشركات في دبي والإمارات.',
+    'Do you build websites and mobile apps?': 'هل تبنون مواقع وتطبيقات جوال؟',
+    'Yes. The team designs and develops websites, landing pages, e-commerce experiences, mobile apps and custom software for brand and business workflows.': 'نعم. يصمم الفريق ويطور المواقع وصفحات الهبوط وتجارب التجارة الإلكترونية وتطبيقات الجوال والبرمجيات المخصصة للعلامات وسير العمل.',
+    'What industries do you work with?': 'ما القطاعات التي تعملون معها؟',
+    'TTT works especially well with restaurants, hospitality, lifestyle brands, startups and service companies that need stronger digital presence and consistent creative output.': 'تعمل TTT بشكل خاص مع المطاعم والضيافة وعلامات نمط الحياة والشركات الناشئة وشركات الخدمات التي تحتاج حضورا رقميا أقوى ومخرجات إبداعية منتظمة.',
+    'Tell us about your project. We\'ll get back to you within one business day with a clear plan of action.': 'أخبرنا عن مشروعك وسنرد خلال يوم عمل واحد بخطة عمل واضحة.',
+
+    'Monthly management includes strategy, content, posting and reporting. See the full service page for': 'تشمل الإدارة الشهرية الاستراتيجية والمحتوى والنشر والتقارير. شاهد صفحة الخدمة الكاملة لـ',
+    'social media marketing Dubai': 'تسويق وسائل التواصل في دبي',
+    'The basic 5-page website is free. Larger booking, ecommerce and custom website development scopes are quoted after discovery. See': 'الموقع الأساسي من 5 صفحات مجاني. المواقع الأكبر للحجز أو التجارة الإلكترونية أو التطوير المخصص تسعر بعد الاكتشاف. شاهد',
+    'web design Dubai': 'تصميم المواقع في دبي',
+    'SEO plans cover technical fixes, on-page content, answer-first sections, FAQs, semantic entities and reporting so Google and AI search engines can understand the site.': 'تغطي خطط SEO الإصلاحات التقنية، محتوى الصفحات، أقسام الإجابة المباشرة، الأسئلة الشائعة، الكيانات الدلالية والتقارير حتى يفهم جوجل ومحركات الذكاء الاصطناعي الموقع.',
+    'Full-service social media management for brands anywhere in the world. UAE clients can include onsite shoots; global clients get strategy, editing, design, posting, reporting and remote creative direction.': 'إدارة سوشيال ميديا كاملة للعلامات في أي مكان. عملاء الإمارات يمكنهم إضافة جلسات تصوير ميدانية، والعملاء العالميون يحصلون على استراتيجية وتحرير وتصميم ونشر وتقارير وتوجيه إبداعي عن بعد.',
+    'Signature Visibility Program': 'برنامج الظهور الأساسي',
+    'Perfect for brands ready to build a strong, consistent presence.': 'مناسب للعلامات الجاهزة لبناء حضور قوي ومتسق.',
+    'per month': 'شهريا',
+    'Brand audit and basic marketing consultation': 'تدقيق العلامة واستشارة تسويقية أساسية',
+    'Website optimization support at no additional cost': 'دعم تحسين الموقع بدون تكلفة إضافية',
+    'Standard SEO optimization': 'تحسين SEO قياسي',
+    'Menu and pricing presentation guidance': 'إرشاد عرض القائمة والأسعار',
+    'Strategic content creation and posting plan': 'إنشاء محتوى استراتيجي وخطة نشر',
+    '10-12 professional photos': '10-12 صورة احترافية',
+    '4 professionally edited video reels': '4 ريلز محررة باحتراف',
+    '10 static social media posts': '10 منشورات ثابتة للسوشيال',
+    '15 creative story posts': '15 ستوري إبداعية',
+    'One UAE onsite photography & videography shoot session': 'جلسة تصوير فوتوغرافي وفيديو داخل الإمارات',
+    'Worldwide remote support if you are outside the UAE': 'دعم عن بعد عالميا إذا كنت خارج الإمارات',
+    'Account management with limited social media ads support': 'إدارة الحساب مع دعم محدود لإعلانات السوشيال',
+    'Most Popular': 'الأكثر طلبا',
+    'Growth Acceleration Program': 'برنامج تسريع النمو',
+    'For brands serious about scaling fast with premium content.': 'للعلامات الجادة في التوسع السريع بمحتوى عالي الجودة.',
+    'In-depth brand audit and marketing consultation': 'تدقيق عميق للعلامة واستشارة تسويقية',
+    'Website redesign and optimization support': 'دعم إعادة تصميم الموقع وتحسينه',
+    'SEO optimization under Gold Package framework': 'تحسين SEO ضمن إطار الباقة الذهبية',
+    'Menu and pricing design support': 'دعم تصميم القائمة والأسعار',
+    'Advanced content creation and posting strategy': 'إنشاء محتوى متقدم واستراتيجية نشر',
+    '15-18 professional photos': '15-18 صورة احترافية',
+    '5-6 high-quality video reels': '5-6 ريلز عالية الجودة',
+    '14 static social media posts': '14 منشورا ثابتا للسوشيال',
+    '25 creative story posts': '25 ستوري إبداعية',
+    'One UAE onsite professional shoot session': 'جلسة تصوير احترافية داخل الإمارات',
+    'Worldwide remote content direction and editing workflow': 'توجيه محتوى عن بعد عالميا وسير عمل تحرير',
+    'Account management with unlimited social media ads management': 'إدارة الحساب مع إدارة غير محدودة لإعلانات السوشيال',
+    'Elite Brand Dominance Program': 'برنامج هيمنة العلامة',
+    'For brands that demand total market dominance. No limits.': 'للعلامات التي تريد حضورا قويا في السوق بلا حدود.',
+    'Website redesign and advanced optimization at no additional cost': 'إعادة تصميم الموقع وتحسين متقدم بدون تكلفة إضافية',
+    'Platinum SEO with performance focus': 'SEO بلاتيني بتركيز على الأداء',
+    'Menu, pricing & promotional material design support': 'دعم تصميم القائمة والأسعار والمواد الترويجية',
+    'Full-scale content creation and campaign execution': 'إنشاء محتوى وتنفيذ حملات على نطاق كامل',
+    '20+ professional photos': '+20 صورة احترافية',
+    '8 high-impact video reels + 1 cinematic brand video': '8 ريلز قوية + فيديو سينمائي للعلامة',
+    '18 static social media posts': '18 منشورا ثابتا للسوشيال',
+    '30 creative story posts': '30 ستوري إبداعية',
+    'Two UAE onsite professional shoot sessions': 'جلستا تصوير احترافيتان داخل الإمارات',
+    'Dedicated account management with unlimited ads + Google Ads support': 'إدارة حساب مخصصة مع إعلانات غير محدودة ودعم Google Ads',
+    'Photography & Videography': 'التصوير الفوتوغرافي والفيديو',
+    'One-off onsite shoot sessions are available in the UAE only. If you are outside the UAE, we can still support you with remote shot direction, editing, content calendars and publishing.': 'جلسات التصوير الميداني لمرة واحدة متاحة داخل الإمارات فقط. إذا كنت خارج الإمارات، يمكننا دعمك بتوجيه التصوير عن بعد والتحرير وتقاويم المحتوى والنشر.',
+    'Bronze Shoot': 'جلسة برونزية',
+    'Silver Shoot': 'جلسة فضية',
+    'Gold Shoot': 'جلسة ذهبية',
+    '1 hour session': 'جلسة ساعة واحدة',
+    '2 hour session': 'جلسة ساعتان',
+    '3 hour session': 'جلسة 3 ساعات',
+    'UAE onsite only': 'داخل الإمارات فقط',
+    '10 professional photos': '10 صور احترافية',
+    '1 edited video reel': 'ريلز واحد محرر',
+    'Full creative direction': 'توجيه إبداعي كامل',
+    '15 professional photos': '15 صورة احترافية',
+    '2 edited video reels': '2 ريلز محررة',
+    'Multiple locations/setups': 'عدة مواقع أو إعدادات',
+    '20 professional photos': '20 صورة احترافية',
+    '3 edited video reels': '3 ريلز محررة',
+    'Priority editing turnaround': 'أولوية في تسليم التحرير',
+    'Fast, polished websites for local and international brands. We design the customer journey, build the pages, and make it easier for visitors to enquire.': 'مواقع سريعة ومصقولة للعلامات المحلية والعالمية. نصمم رحلة العميل ونبني الصفحات ونجعل الاستفسار أسهل على الزائر.',
+    'Minimum 3 month commitment. Online payment only. Built for brands that want stronger Google rankings, answer-engine visibility and AI search discoverability.': 'التزام لا يقل عن 3 أشهر. الدفع إلكتروني فقط. مبنية للعلامات التي تريد ترتيب جوجل أقوى وظهورا في محركات الإجابة والبحث بالذكاء الاصطناعي.',
+    'Basic SEO': 'SEO أساسي',
+    'Gold SEO + AEO + GEO': 'SEO ذهبي + AEO + GEO',
+    'Platinum SEO + AEO + GEO': 'SEO بلاتيني + AEO + GEO',
+    'Creator Network': 'شبكة صناع المحتوى',
+    'UGC Creators': 'صناع محتوى UGC',
+    'Easy Global Payment': 'دفع عالمي سهل',
+    'Secure Payment Link': 'رابط دفع آمن',
+    'Cards & Wallets': 'بطاقات ومحافظ رقمية',
+    'Bank Transfer': 'تحويل بنكي',
+
+    'A recurring monthly shoot covering hero dishes, menu photography, table settings and behind-the-scenes content, edited into feed posts, reels and story sets ready for your calendar.': 'جلسة تصوير شهرية تغطي الأطباق الرئيسية وتصوير القائمة وترتيب الطاولات وكواليس العمل، مع تحريرها كمنشورات وريلز وستوري جاهزة للتقويم.',
+    'See food photography': 'شاهد تصوير الطعام',
+    'Posting cadence, captions, community replies and a campaign calendar built around your service, seasonality and slow-day patterns — not a generic content template.': 'وتيرة نشر، كابشنات، ردود مجتمع وتقويم حملات مبني حول الخدمة والمواسم وأيام الهدوء، وليس قالب محتوى عاما.',
+    'See social media marketing': 'شاهد تسويق السوشيال',
+    'Menu photography, item descriptions and promotional slots reviewed and improved on Talabat, Deliveroo, Careem and Noon Food, where a large share of F&B revenue now originates.': 'نراجع ونحسن صور القائمة وأوصاف العناصر والمساحات الترويجية على طلبات ودليفرو وكريم ونون فود، حيث يأتي جزء كبير من إيرادات F&B.',
+    'Profile completeness, photo uploads, review response templates and a request cadence that turns satisfied covers into public ratings.': 'اكتمال الملف، رفع الصور، قوالب الرد على المراجعات، ونظام طلب مراجعات يحول العملاء الراضين إلى تقييمات عامة.',
+    'Menu pages, reservation links, WhatsApp click-to-chat and delivery buttons fixed or rebuilt so visitors convert instead of bouncing to a competitor.': 'صفحات قائمة وروابط حجز وأزرار واتساب وتوصيل يتم إصلاحها أو بناؤها ليحوّل الزائر بدلا من الانتقال لمنافس.',
+    'A monthly rhythm built around service, not a generic four-step process.': 'إيقاع شهري مبني حول الخدمة، وليس عملية عامة من أربع خطوات.',
+    'Audit (Week 1)': 'التدقيق (الأسبوع 1)',
+    'Content shoot (Week 1–2)': 'جلسة المحتوى (الأسبوع 1-2)',
+    'Calendar and campaigns go live (Week 2–3)': 'إطلاق التقويم والحملات (الأسبوع 2-3)',
+    'Monthly reporting and iteration': 'تقارير وتحسين شهري',
+    'Direct Answer': 'إجابة مباشرة',
+    'What does a restaurant marketing agency in Dubai actually do?': 'ماذا تفعل وكالة تسويق المطاعم في دبي؟',
+    'Which channels matter most for Dubai restaurants?': 'ما القنوات الأكثر أهمية لمطاعم دبي؟',
+    'Fine dining & casual dining': 'مطاعم راقية وغير رسمية',
+    'Cafes & cloud kitchens': 'مقاه ومطابخ سحابية',
+    'Hotel F&B outlets': 'منافذ F&B في الفنادق',
+    'Delivery platform listings': 'قوائم منصات التوصيل',
+    'Ramadan and seasonal demand': 'رمضان والطلب الموسمي',
+    'UAE influencer licensing': 'ترخيص المؤثرين في الإمارات',
+    'How much does restaurant marketing cost in Dubai?': 'كم تكلفة تسويق المطاعم في دبي؟',
+    'Do I need a marketing agency for my restaurant?': 'هل أحتاج وكالة تسويق لمطعمي؟',
+    'How do I get my restaurant found on Google in Dubai?': 'كيف أجعل مطعمي يظهر على جوجل في دبي؟',
+
+    'Monthly content pillars, campaign angles, captions and posting plans built around reach, saves, DMs and enquiries — not vanity likes.': 'محاور محتوى شهرية، زوايا حملات، كابشنات وخطط نشر مبنية على الوصول والحفظ والرسائل والاستفسارات، وليس الإعجابات الشكلية.',
+    'Photography, short-form video, product shots, team content and location content created for your actual market and customers. Restaurants can pair this with': 'تصوير، فيديو قصير، صور منتجات، محتوى فريق ومحتوى موقع يتم إنشاؤه لسوقك وعملائك الفعليين. يمكن للمطاعم دمجه مع',
+    'food photography in Dubai': 'تصوير الطعام في دبي',
+    'Comments and DMs answered within an agreed response window, so interested followers don\'t go cold waiting for a reply.': 'يتم الرد على التعليقات والرسائل ضمن وقت متفق عليه حتى لا يفقد المتابع المهتم اهتمامه أثناء الانتظار.',
+    'Meta and TikTok ad setup, audience targeting and budget management, reported separately from organic performance.': 'إعداد إعلانات ميتا وتيك توك، استهداف الجمهور وإدارة الميزانية، مع تقارير منفصلة عن الأداء العضوي.',
+    'A deliberate mix across Instagram, TikTok, LinkedIn and Snapchat based on where your actual audience spends time.': 'مزيج مدروس بين إنستغرام وتيك توك ولينكدإن وسناب شات بناء على مكان وجود جمهورك الفعلي.',
+    'Reach, engagement, follower growth and campaign results, with clear next steps for the following month.': 'الوصول والتفاعل ونمو المتابعين ونتائج الحملات، مع خطوات واضحة للشهر التالي.',
+    'A monthly cycle, not a one-off content dump.': 'دورة شهرية، وليست دفعة محتوى لمرة واحدة.',
+    'Strategy & calendar (Week 1)': 'الاستراتيجية والتقويم (الأسبوع 1)',
+    'Shoot & produce (Week 1–2)': 'التصوير والإنتاج (الأسبوع 1-2)',
+    'Post & manage (Ongoing)': 'النشر والإدارة (مستمر)',
+    'Report & adjust (End of month)': 'التقرير والتعديل (نهاية الشهر)',
+    'What does social media management include in Dubai?': 'ماذا تشمل إدارة وسائل التواصل في دبي؟',
+    'What is the difference between social media marketing and management?': 'ما الفرق بين تسويق السوشيال وإدارته؟',
+    'What we know about running social in the UAE.': 'ما نعرفه عن إدارة السوشيال في الإمارات.',
+    'Platform-by-platform breakdown': 'تفصيل حسب المنصة',
+    'Organic versus paid budget split': 'تقسيم الميزانية بين العضوي والمدفوع',
+    'Community management scope': 'نطاق إدارة المجتمع',
+    'How many posts do you produce per month?': 'كم منشورا تنتجون شهريا؟',
+    'Is ad spend included in the management fee?': 'هل ميزانية الإعلانات مشمولة في رسوم الإدارة؟',
+    'How often do you report on performance?': 'كم مرة ترسلون تقارير الأداء؟',
+    'Which platforms do you manage?': 'ما المنصات التي تديرونها؟',
+    'Do you handle community management and DMs?': 'هل تديرون التعليقات والرسائل؟',
+    'What makes a good social media agency in Dubai?': 'ما الذي يجعل وكالة السوشيال في دبي جيدة؟',
+    'Do you create Arabic and English social content?': 'هل تنشئون محتوى عربي وإنجليزي؟',
+
+    'View work': 'استعرض الأعمال',
+    'Strategy & Messaging': 'الاستراتيجية والرسائل',
+    'Page structure and copy direction built around what your visitor needs to see before they\'ll trust you enough to enquire.': 'هيكل صفحات واتجاه كتابة مبني حول ما يحتاج الزائر لرؤيته قبل أن يثق بك بما يكفي للاستفسار.',
+    'Custom Design': 'تصميم مخصص',
+    'A design system built for your brand, not a templated theme — responsive across mobile, tablet and desktop from day one.': 'نظام تصميم مبني لعلامتك، وليس قالبا جاهزا، ومتجاوب على الجوال والتابلت وسطح المكتب من اليوم الأول.',
+    'Fast, Clean Development': 'تطوير سريع ونظيف',
+    'Optimized for Core Web Vitals, with modern image formats, minimal render-blocking scripts and long-term caching.': 'محسن لمؤشرات Core Web Vitals، مع صيغ صور حديثة وسكربتات قليلة تعطل العرض وتخزين طويل المدى.',
+    'Lead Capture Built In': 'التقاط العملاء المحتملين مدمج',
+    'Integrations': 'التكاملات',
+    'Payment gateways available in the UAE, reservation systems, CRMs and email platforms connected as part of the build.': 'بوابات دفع متاحة في الإمارات وأنظمة حجز وCRM ومنصات بريد يتم ربطها ضمن البناء.',
+    'SEO Foundations': 'أسس SEO',
+    'Clean URLs, meta tags, structured data and sitemap submission included on launch, so the site is crawlable from day one.': 'روابط نظيفة، ميتا تاجز، بيانات منظمة وإرسال خريطة الموقع عند الإطلاق حتى يكون الموقع قابلا للزحف من اليوم الأول.',
+    'Timelines that match the build, not a flat quote.': 'جداول زمنية تناسب البناء، وليس عرضا ثابتا عاما.',
+    'Discovery & sitemap (Week 1)': 'الاكتشاف وخريطة الموقع (الأسبوع 1)',
+    'Design (Weeks 1–3)': 'التصميم (الأسابيع 1-3)',
+    'Build & integrate (Weeks 3–6)': 'البناء والتكامل (الأسابيع 3-6)',
+    'Launch & handover': 'الإطلاق والتسليم',
+    'What is included in website development in Dubai?': 'ماذا يشمل تطوير المواقع في دبي؟',
+    'What should a Dubai business website include?': 'ما الذي يجب أن يتضمنه موقع شركة في دبي؟',
+    'Brochure, booking or e-commerce — the architecture changes.': 'تعريفي، حجز أو تجارة إلكترونية، البنية تختلف.',
+    'Brochure sites': 'مواقع تعريفية',
+    'Booking-integrated sites': 'مواقع مدمجة بالحجز',
+    'E-commerce builds': 'متاجر إلكترونية',
+    'What we commit to on every build.': 'ما نلتزم به في كل بناء.',
+    'Core Web Vitals targets': 'أهداف Core Web Vitals',
+    'Payment and reservation integrations': 'تكاملات الدفع والحجز',
+    'What\'s included versus chargeable': 'ما هو مشمول وما هو مدفوع',
+    'How much does a website cost in Dubai?': 'كم تكلفة الموقع في دبي؟',
+    'How long does a website project take?': 'كم يستغرق مشروع الموقع؟',
+    'What platform do you build on?': 'على أي منصة تبنون؟',
+    'Who owns the website after launch?': 'من يملك الموقع بعد الإطلاق؟',
+    'Is hosting and maintenance included?': 'هل الاستضافة والصيانة مشمولتان؟',
+    'Is SEO included?': 'هل SEO مشمول؟',
+    'Is the free 5-page website really free?': 'هل الموقع المجاني من 5 صفحات مجاني فعلا؟',
+    'Can you build restaurant booking websites?': 'هل يمكنكم بناء مواقع حجز للمطاعم؟',
+
+    'About Talk The Taste': 'عن Talk The Taste',
+    'Helping brands grow beyond limits, from Dubai to Irvine.': 'نساعد العلامات على النمو بلا حدود، من دبي إلى إيرفاين.',
+    'Where We Work From': 'من أين نعمل',
+    'Two offices, one team.': 'مكتبان، فريق واحد.',
+    'Dubai, UAE': 'دبي، الإمارات',
+    'Al Quoz Studio': 'استوديو القوز',
+    'Irvine, California': 'إيرفاين، كاليفورنيا',
+    'Park Place Studio': 'استوديو بارك بليس',
+    'Founder & Project Lead': 'المؤسس وقائد المشروع',
+    'The person who reviews every enquiry.': 'الشخص الذي يراجع كل استفسار.',
+    'Umair personally reviews every enquiry that comes through the site and replies with the clearest next step — no account manager relaying between you and the people actually doing the work.': 'يراجع عمير كل استفسار يصل عبر الموقع ويرد بأوضح خطوة تالية، بدون مدير حسابات ينقل الكلام بينك وبين من ينفذ العمل.',
+    'LinkedIn →': 'لينكدإن →',
+    'Get in touch →': 'تواصل معنا →',
+    'By The Numbers': 'بالأرقام',
+    'What the team has built so far.': 'ما بناه الفريق حتى الآن.',
+    'Studios — Dubai & Irvine': 'استوديوهات — دبي وإيرفاين',
+    'Community following': 'متابعون في المجتمع',
+    'No juniors, no outsourcing, no hand-offs.': 'بلا مبتدئين، بلا تعهيد خارجي، بلا تسليمات عشوائية.',
+    'Senior team only': 'فريق خبير فقط',
+    'Nothing outsourced': 'لا شيء خارجيا',
+    'Direct access': 'وصول مباشر',
+    'Vynora Marketing': 'Vynora Marketing',
+    'Ready to work with a senior team?': 'جاهز للعمل مع فريق خبير؟',
+    'Tell us about your brand and we\'ll reply personally with next steps.': 'أخبرنا عن علامتك وسنرد عليك شخصيا بالخطوات التالية.'
+  };
+
+  function normalize(value) {
+    return value.replace(/\s+/g, ' ').trim();
+  }
+
+  function attrKey(attr) {
+    return attr.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
+  }
 
   function ensureArabicFont() {
     if (document.getElementById(ARABIC_FONT_ID)) return;
@@ -19,71 +591,6 @@
     link.rel = 'stylesheet';
     link.href = 'https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap';
     document.head.appendChild(link);
-  }
-
-  function ensureWidgetContainer() {
-    let container = document.getElementById(WIDGET_ID);
-    if (container) return container;
-
-    container = document.createElement('div');
-    container.id = WIDGET_ID;
-    container.setAttribute('aria-hidden', 'true');
-    container.style.position = 'absolute';
-    container.style.left = '-9999px';
-    container.style.top = '-9999px';
-    container.style.width = '1px';
-    container.style.height = '1px';
-    container.style.overflow = 'hidden';
-    document.body.appendChild(container);
-    return container;
-  }
-
-  function loadTranslate() {
-    if (translateReady) return translateReady;
-
-    translateReady = new Promise((resolve, reject) => {
-      ensureWidgetContainer();
-
-      window.googleTranslateElementInit = function () {
-        /* global google */
-        new google.translate.TranslateElement({
-          pageLanguage: 'en',
-          includedLanguages: 'ar,en',
-          autoDisplay: false,
-          multilanguagePage: true
-        }, WIDGET_ID);
-        resolve();
-      };
-
-      if (window.google && window.google.translate && window.google.translate.TranslateElement) {
-        window.googleTranslateElementInit();
-        return;
-      }
-
-      const existing = document.getElementById(SCRIPT_ID);
-      if (existing) {
-        existing.addEventListener('load', resolve, { once: true });
-        existing.addEventListener('error', reject, { once: true });
-        return;
-      }
-
-      const script = document.createElement('script');
-      script.id = SCRIPT_ID;
-      script.src = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
-      script.async = true;
-      script.onerror = reject;
-      document.head.appendChild(script);
-    });
-
-    return translateReady;
-  }
-
-  function findTranslateSelect() {
-    return document.querySelector('.goog-te-combo');
-  }
-
-  function normalize(value) {
-    return value.replace(/\s+/g, ' ').trim();
   }
 
   function walkTextNodes(callback) {
@@ -101,88 +608,45 @@
     nodes.forEach(callback);
   }
 
-  function snapshotOriginalPage() {
-    document.querySelectorAll('h1, h2, h3, h4, p, li, summary, button, a, span, .eyebrow, .svc-title, .svc-desc, .pkg-name, .pkg-tagline, .pricing-sec-title, .pricing-sec-sub, .footer-heading, .footer-brand-desc').forEach((el) => {
-      if (el.closest(SKIP_SELECTOR) || el.classList.contains('ar-lang') || el.classList.contains('language-float')) return;
-      if (!normalize(el.textContent || '')) return;
-      if (!originalMarkup.has(el)) originalMarkup.set(el, el.innerHTML);
-    });
-
+  function snapshotOriginals() {
     walkTextNodes((node) => {
       if (!originalText.has(node)) originalText.set(node, node.nodeValue);
     });
 
-    document.querySelectorAll('[placeholder], [aria-label], [title]').forEach((el) => {
+    document.querySelectorAll(ATTRS.map((attr) => `[${attr}]`).join(',')).forEach((el) => {
       if (el.closest(SKIP_SELECTOR)) return;
       if (!originalAttrs.has(el)) {
-        originalAttrs.set(el, {
-          placeholder: el.getAttribute('placeholder'),
-          ariaLabel: el.getAttribute('aria-label'),
-          title: el.getAttribute('title')
-        });
+        const attrs = {};
+        ATTRS.forEach((attr) => { attrs[attrKey(attr)] = el.getAttribute(attr); });
+        originalAttrs.set(el, attrs);
       }
     });
   }
 
-  function restoreOriginalPage() {
-    document.querySelectorAll('h1, h2, h3, h4, p, li, summary, button, a, span, .eyebrow, .svc-title, .svc-desc, .pkg-name, .pkg-tagline, .pricing-sec-title, .pricing-sec-sub, .footer-heading, .footer-brand-desc').forEach((el) => {
-      if (el.closest(SKIP_SELECTOR) || el.classList.contains('ar-lang') || el.classList.contains('language-float')) return;
-      if (originalMarkup.has(el)) el.innerHTML = originalMarkup.get(el);
-    });
+  function translateString(value) {
+    const normalized = normalize(value);
+    if (!normalized) return value;
+    return dictionary[normalized] || value;
+  }
 
+  function applyText(language) {
     walkTextNodes((node) => {
-      if (originalText.has(node)) node.nodeValue = originalText.get(node);
+      const original = originalText.get(node) || node.nodeValue;
+      node.nodeValue = language === 'ar' ? translateString(original) : original;
     });
 
-    document.querySelectorAll('[placeholder], [aria-label], [title]').forEach((el) => {
+    document.querySelectorAll(ATTRS.map((attr) => `[${attr}]`).join(',')).forEach((el) => {
       const attrs = originalAttrs.get(el);
       if (!attrs) return;
-      if (attrs.placeholder === null) el.removeAttribute('placeholder');
-      else el.setAttribute('placeholder', attrs.placeholder);
-      if (attrs.ariaLabel === null) el.removeAttribute('aria-label');
-      else el.setAttribute('aria-label', attrs.ariaLabel);
-      if (attrs.title === null) el.removeAttribute('title');
-      else el.setAttribute('title', attrs.title);
+      ATTRS.forEach((attr) => {
+        const original = attrs[attrKey(attr)];
+        if (original === null) return;
+        el.setAttribute(attr, language === 'ar' ? translateString(original) : original);
+      });
     });
   }
 
-  function expireGoogleTranslateCookie() {
-    const hostParts = window.location.hostname.split('.');
-    const domains = ['', window.location.hostname];
-    if (hostParts.length > 2) domains.push(`.${hostParts.slice(-2).join('.')}`);
-
-    domains.forEach((domain) => {
-      const domainPart = domain ? `;domain=${domain}` : '';
-      document.cookie = `googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/${domainPart}`;
-      document.cookie = `googtrans=/en/en;path=/${domainPart}`;
-    });
-  }
-
-  function dispatchNativeChange(select) {
-    select.dispatchEvent(new Event('change', { bubbles: true }));
-  }
-
-  function setTranslateLanguage(language) {
-    return loadTranslate().then(() => new Promise((resolve) => {
-      let attempts = 0;
-      const timer = window.setInterval(() => {
-        const select = findTranslateSelect();
-        attempts += 1;
-        if (select) {
-          select.value = language === 'ar' ? 'ar' : 'en';
-          if (language !== 'ar') select.value = '';
-          dispatchNativeChange(select);
-          window.clearInterval(timer);
-          window.setTimeout(resolve, 350);
-        } else if (attempts > 40) {
-          window.clearInterval(timer);
-          resolve();
-        }
-      }, 100);
-    }));
-  }
-
-  function keepCurrentPageLinks() {
+  function keepSameTemplateLinks() {
     document.querySelectorAll('a[href^="/ar"], a[href="/ar"]').forEach((link) => {
       const path = new URL(link.getAttribute('href'), window.location.origin).pathname;
       const englishPath = path
@@ -198,8 +662,6 @@
 
   function updateSwitcher(link, language) {
     const isArabic = language === 'ar';
-    link.classList.add('notranslate');
-    link.setAttribute('translate', 'no');
     link.textContent = isArabic ? 'English' : 'العربية';
     link.lang = isArabic ? 'en' : 'ar';
     link.dir = isArabic ? 'ltr' : 'rtl';
@@ -209,38 +671,17 @@
     link.setAttribute('aria-label', isArabic ? 'Switch to English' : 'التبديل إلى العربية');
   }
 
-  function updatePageState(language) {
-    const isArabic = language === 'ar';
-    document.documentElement.lang = isArabic ? 'ar' : 'en';
+  function applyLanguage(language) {
+    currentLanguage = language;
+    snapshotOriginals();
+    keepSameTemplateLinks();
+    if (language === 'ar') ensureArabicFont();
+    applyText(language);
+    document.documentElement.lang = language === 'ar' ? 'ar' : 'en';
     document.documentElement.dir = 'ltr';
-    document.body.classList.toggle(RTL_CLASS, isArabic);
+    document.body.classList.toggle(RTL_CLASS, language === 'ar');
     document.querySelectorAll('.ar-lang, .lang-switch, .language-float').forEach((link) => updateSwitcher(link, language));
     localStorage.setItem(STORAGE_KEY, language);
-  }
-
-  function applyLanguage(language) {
-    if (isSwitching) return Promise.resolve();
-    isSwitching = true;
-    keepCurrentPageLinks();
-    updatePageState(language);
-    if (language !== 'ar') {
-      expireGoogleTranslateCookie();
-      restoreOriginalPage();
-      window.setTimeout(restoreOriginalPage, 150);
-      window.setTimeout(restoreOriginalPage, 700);
-      return setTranslateLanguage('en').finally(() => {
-        restoreOriginalPage();
-        updatePageState('en');
-        isSwitching = false;
-      });
-    }
-
-    snapshotOriginalPage();
-    ensureArabicFont();
-    return setTranslateLanguage('ar').finally(() => {
-      updatePageState('ar');
-      isSwitching = false;
-    });
   }
 
   function addFloatingSwitcher() {
@@ -253,33 +694,28 @@
 
   function ensureMainSwitcher() {
     let switcher = document.querySelector('.ar-lang, .lang-switch');
-    if (switcher) return switcher;
-
+    if (switcher) return;
     const navRight = document.querySelector('.nav-right');
-    if (!navRight) return null;
-
+    if (!navRight) return;
     switcher = document.createElement('a');
     switcher.className = 'ar-lang';
     switcher.href = '#';
     navRight.insertBefore(switcher, navRight.firstChild);
-    return switcher;
   }
 
   function bindSwitcher() {
     ensureMainSwitcher();
     addFloatingSwitcher();
-    keepCurrentPageLinks();
+    snapshotOriginals();
 
     document.querySelectorAll('.ar-lang, .lang-switch, .language-float').forEach((link) => {
-      updateSwitcher(link, localStorage.getItem(STORAGE_KEY) === 'ar' ? 'ar' : 'en');
       link.addEventListener('click', (event) => {
         event.preventDefault();
-        const next = localStorage.getItem(STORAGE_KEY) === 'ar' ? 'en' : 'ar';
-        applyLanguage(next);
+        applyLanguage(currentLanguage === 'ar' ? 'en' : 'ar');
       });
     });
 
-    if (localStorage.getItem(STORAGE_KEY) === 'ar') applyLanguage('ar');
+    applyLanguage(localStorage.getItem(STORAGE_KEY) === 'ar' ? 'ar' : 'en');
   }
 
   if (document.readyState === 'loading') {
