@@ -716,12 +716,26 @@ async function readStore(env, key) {
       await env.TTT_DATA.put(key, JSON.stringify(DEFAULTS[key]));
       return DEFAULTS[key];
     }
+    if (key === 'posts' && Array.isArray(value)) {
+      return mergeDefaultPosts(value);
+    }
     return value;
   }
 
   const fallback = DEFAULTS[key];
   await env.TTT_DATA.put(key, JSON.stringify(fallback));
   return fallback;
+}
+
+function mergeDefaultPosts(storedPosts) {
+  const bySlug = new Map();
+  for (const post of DEFAULT_POSTS) {
+    bySlug.set(post.slug || post.id, post);
+  }
+  for (const post of storedPosts) {
+    bySlug.set(post.slug || post.id, post);
+  }
+  return Array.from(bySlug.values());
 }
 
 function isOutdatedSeedData(key, value) {
