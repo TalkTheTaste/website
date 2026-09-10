@@ -6,6 +6,9 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node server.js",
+    "build": "npm run build:css && npm run build:js",
+    "build:css": "cleancss -O2 css/main.css -o css/main.min.css",
+    "build:js": "terser js/transitions.js -c -m -o js/transitions.min.js && terser js/language-switcher.js -c -m -o js/language-switcher.min.js && terser js/conversion.js -c -m -o js/conversion.min.js",
     "cf:dev": "wrangler pages dev . --port 8788",
     "cf:deploy": "wrangler pages deploy . --project-name talkthetaste"
   },
@@ -14,6 +17,8 @@
     "express-session": "^1.17.3"
   },
   "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "terser": "^5.51.2",
     "wrangler": "^4.28.1"
   },
   "engines": {
