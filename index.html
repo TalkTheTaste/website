@@ -319,7 +319,7 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/main.css?v=2" />
+    <link rel="stylesheet" href="css/main.min.css?v=3" />
     <style>
       /* ============================================================
          PRELOADER
@@ -401,7 +401,7 @@
         font-weight: 600;
         letter-spacing: 4px;
         text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.28);
+        color: rgba(255, 255, 255, 0.6);
         opacity: 0;
         transform: translateY(6px);
         transition:
@@ -426,8 +426,10 @@
       .pre-progress-fill {
         height: 100%;
         background: var(--gold);
-        width: 0%;
-        transition: width 0.05s linear;
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: left center;
+        transition: transform 0.05s linear;
       }
       /* ============================================================
          HERO
@@ -1226,7 +1228,7 @@
       }
       .cta-btn-gold {
         background: var(--gold) !important;
-        color: #fff !important;
+        color: var(--text) !important;
       }
       .cta-btn-gold:hover {
         background: #fff !important;
@@ -1538,7 +1540,7 @@
       <div class="pre-curtain pre-curtain-bot"></div>
       <div class="pre-inner">
         <img
-          src="assets/logo.png"
+          src="/assets/logo.png"
           alt="TTT"
           width="512"
           height="512"
@@ -1571,7 +1573,7 @@
         class="nav-wa-mobile"
         target="_blank"
         rel="noopener"
-        aria-label="WhatsApp"
+        aria-label="Contact Talk The Taste on WhatsApp"
       >
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -1581,7 +1583,7 @@
       </a>
       <a href="/" class="nav-logo">
         <img
-          src="assets/logo.png"
+          src="/assets/logo.png"
           alt="TTT"
           width="512"
           height="512"
@@ -1604,18 +1606,32 @@
           class="nav-wa-link"
           target="_blank"
           rel="noopener"
+          aria-label="Contact Talk The Taste on WhatsApp"
           >WhatsApp ↗</a
         >
         <a href="/ar/" class="ar-lang" hreflang="ar" lang="ar" dir="rtl" rel="alternate">العربية</a>
         <a href="/contact" class="nav-cta">Let's Talk</a>
       </div>
-      <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <button
+        class="hamburger"
+        aria-label="Open menu"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
       </button>
     </nav>
 
     <!-- Mobile menu overlay -->
-    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site menu"
+      aria-hidden="true"
+      inert
+    >
       <button
         class="mobile-menu-close"
         id="mobileMenuClose"
@@ -1638,10 +1654,13 @@
           class="nav-wa-link"
           target="_blank"
           rel="noopener"
+          aria-label="Contact Talk The Taste on WhatsApp"
           >WhatsApp ↗</a
         >
       </div>
     </div>
+
+<main id="main-content">
 
     <!-- ============================================================
      HERO
@@ -1738,7 +1757,7 @@
     <section class="audit-band">
       <div class="audit-band-inner">
         <div>
-          <span class="eyebrow" style="color: rgba(255, 255, 255, 0.32)"
+          <span class="eyebrow" style="color: rgba(255, 255, 255, 0.6)"
             >Free audit</span
           >
           <h2>Want more form fills, WhatsApp clicks and booked calls?</h2>
@@ -1911,7 +1930,7 @@
     <section class="about-dark sec">
       <div class="about-dark-grid">
         <div class="about-dark-left reveal">
-          <span class="eyebrow" style="color: rgba(255, 255, 255, 0.3)"
+          <span class="eyebrow" style="color: rgba(255, 255, 255, 0.6)"
             >About TTT</span
           >
           <h2 class="about-dark-headline">Good work needs clear ownership.</h2>
@@ -2115,7 +2134,7 @@
 ============================================================ -->
     <section class="cta-section sec">
       <div class="cta-inner reveal">
-        <span class="eyebrow" style="color: rgba(255, 255, 255, 0.28)"
+        <span class="eyebrow" style="color: rgba(255, 255, 255, 0.6)"
           >Start today</span
         >
         <h2 class="cta-headline">Ready to grow<br />with better creative?</h2>
@@ -2128,6 +2147,8 @@
       </div>
     </section>
 
+    </main>
+
     <!-- ============================================================
      FOOTER
 ============================================================ -->
@@ -2136,7 +2157,7 @@
         <div>
           <a href="/" class="footer-logo">
             <img
-              src="assets/logo.png"
+              src="/assets/logo.png"
               alt="Talk The Taste"
               width="512"
               height="512"
@@ -2195,6 +2216,7 @@
                 href="https://wa.me/+971565390316"
                 target="_blank"
                 rel="noopener"
+                aria-label="Contact Talk The Taste on WhatsApp"
                 >WhatsApp ↗</a
               >
             </li>
@@ -2266,6 +2288,7 @@
             title="WhatsApp"
             target="_blank"
             rel="noopener"
+            aria-label="Contact Talk The Taste on WhatsApp"
           >
             <svg
               viewBox="0 0 24 24"
@@ -2282,9 +2305,8 @@
       </div>
     </footer>
 
-    <script src="js/transitions.js"></script><script src="js/language-switcher.js"></script>
-    <script src="js/data.js?v=6"></script>
-    <script src="js/conversion.js"></script>
+    <script src="js/transitions.min.js"></script><script src="js/language-switcher.min.js"></script>
+    <script src="js/conversion.min.js"></script>
     <script>
       /* ---- PRELOADER ---- */
       (function () {
@@ -2302,12 +2324,12 @@
         let pct = 0;
         const interval = setInterval(() => {
           pct = Math.min(pct + Math.random() * 18 + 6, 95);
-          fill.style.width = pct + "%";
+          fill.style.transform = `scaleX(${pct / 100})`;
         }, 90);
 
         setTimeout(() => {
           clearInterval(interval);
-          fill.style.width = "100%";
+          fill.style.transform = "scaleX(1)";
           setTimeout(() => pre.classList.add("done"), 180);
           setTimeout(() => {
             pre.style.display = "none";

@@ -17,8 +17,8 @@
     /* Text */
     --text:         #0C0C0A;
     --text-mid:     #363533;
-    --text-muted:   #706E69;
-    --text-xmuted:  #9E9C97;
+    --text-muted:   #615F5A;
+    --text-xmuted:  #706E69;
 
     /* Gold - darker, refined warm gold */
     --gold:         #BF8D2C;
@@ -225,7 +225,7 @@ footer {
 .footer-brand-desc {
     font-size: 14px;
     font-family: 'Inter', sans-serif;
-    color: rgba(255,255,255,0.45);
+    color: rgba(255,255,255,0.68);
     line-height: 1.75;
     margin-top: 20px;
     max-width: 260px;
@@ -234,14 +234,14 @@ footer {
     font-family: 'Inter', sans-serif;
     font-size: 10px; font-weight: 600;
     letter-spacing: 2.5px; text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.62);
     margin-bottom: 20px;
 }
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
 .footer-links a {
     font-family: 'Inter', sans-serif;
     font-size: 13px;
-    color: rgba(255,255,255,0.55);
+    color: rgba(255,255,255,0.72);
     transition: color 0.25s;
 }
 .footer-links a:hover { color: #fff; }
@@ -250,7 +250,7 @@ footer {
     border-top: 1px solid rgba(255,255,255,0.08);
     display: flex; justify-content: space-between; align-items: center;
     font-family: 'Inter', sans-serif;
-    font-size: 12px; color: rgba(255,255,255,0.3);
+    font-size: 12px; color: rgba(255,255,255,0.64);
 }
 .footer-socials { display: flex; gap: 8px; }
 .social-btn {
@@ -258,7 +258,7 @@ footer {
     border: 1px solid rgba(255,255,255,0.1);
     border-radius: 4px;
     display: flex; align-items: center; justify-content: center;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,255,255,0.68);
     transition: all 0.25s;
 }
 .social-btn:hover {
@@ -336,6 +336,9 @@ footer {
 .btn-outline-white:hover {
     border-color: rgba(255,255,255,0.6);
     color: #fff;
+}
+.cta-btn-gold {
+    color: var(--text);
 }
 
 /* Ghost/text button - no border-radius, just text + arrow */
@@ -671,9 +674,9 @@ footer {
     display: block;
     padding: 8px 0;
     border-bottom: 1px solid var(--border);
-    transition: color 0.25s, padding-left 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: color 0.25s, transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.mobile-menu-links a:hover { color: var(--text-muted); padding-left: 12px; }
+.mobile-menu-links a:hover { color: var(--text-muted); transform: translateX(12px); }
 .mobile-menu-links a:last-child { border-bottom: none; }
 .mobile-menu-close {
     position: absolute;
