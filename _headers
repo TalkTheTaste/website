@@ -9,6 +9,9 @@
 /assets/pages/*
   X-Robots-Tag: noindex, nofollow, noarchive
 
+/post-template.asset
+  X-Robots-Tag: noindex, nofollow, noarchive
+
 /images/*
   Cache-Control: public, max-age=31536000, immutable
 

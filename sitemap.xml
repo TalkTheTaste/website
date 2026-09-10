@@ -51,7 +51,7 @@
   </url>
   <url>
     <loc>https://talkthetaste.com/blog</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -211,33 +211,33 @@
     </image:image>
   </url>
   <url>
-    <loc>https://talkthetaste.com/post?id=social-media-strategy-2025</loc>
-    <lastmod>2026-08-07</lastmod>
+    <loc>https://talkthetaste.com/blog/how-to-market-a-restaurant-in-dubai/</loc>
+    <lastmod>2026-09-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://talkthetaste.com/assets/site/social-growth-campaign.jpg</image:loc>
-      <image:title>Social media strategy for Dubai brands</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://talkthetaste.com/post?id=website-conversion-elements</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <image:image>
-      <image:loc>https://talkthetaste.com/assets/site/delivery-web-app.jpg</image:loc>
-      <image:title>Website conversion and app design</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://talkthetaste.com/post?id=how-to-brief-a-creative-agency</loc>
-    <lastmod>2026-08-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.65</priority>
     <image:image>
       <image:loc>https://talkthetaste.com/assets/site/restaurant-brand-launch.jpg</image:loc>
-      <image:title>How to brief a creative agency</image:title>
+      <image:title>How to market a restaurant in Dubai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://talkthetaste.com/blog/what-is-included-in-social-media-management-dubai/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://talkthetaste.com/assets/site/social-growth-campaign.jpg</image:loc>
+      <image:title>What is included in social media management in Dubai</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://talkthetaste.com/blog/what-should-a-dubai-business-website-include/</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <image:image>
+      <image:loc>https://talkthetaste.com/assets/site/delivery-web-app.jpg</image:loc>
+      <image:title>What should a Dubai business website include</image:title>
     </image:image>
   </url>
 </urlset>

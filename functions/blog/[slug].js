@@ -1,7 +1,7 @@
 'use strict';
 
 const SITE_URL = 'https://talkthetaste.com';
-const POST_TEMPLATE_PATH = '/post.html';
+const POST_TEMPLATE_PATH = '/post-template.asset';
 const DEFAULT_IMAGE = `${SITE_URL}/assets/site/social-card.jpg`;
 
 export async function onRequestGet({ request, env }) {
@@ -93,6 +93,7 @@ function renderPost(html, post) {
 
   next = replaceBreadcrumbSchema(next, post, canonicalUrl);
   next = injectArticleSchema(next, post, canonicalUrl, image, dateIso, author);
+  next = injectFaqSchema(next, post, canonicalUrl);
 
   next = fillById(next, 'postCat', escapeHtml(category));
   next = fillById(next, 'postDate', escapeHtml(formatDisplayDate(post.date)) + (readingMinutes ? ` &middot; ${readingMinutes} min read` : ''));
@@ -100,7 +101,7 @@ function renderPost(html, post) {
   next = fillById(next, 'postExcerpt', escapeHtml(post.excerpt || ''));
   next = fillById(next, 'postAuthor', escapeHtml(author));
   next = fillById(next, 'postAvatar', escapeHtml(initials(author)));
-  next = fillById(next, 'postContent', post.content || '', true);
+  next = fillById(next, 'postContent', renderPostContent(post), true);
   next = fillHeroImage(next, post, image);
 
   next = next.replace(
@@ -164,8 +165,55 @@ function injectArticleSchema(html, post, canonicalUrl, image, dateIso, author) {
     publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#business`, name: 'Talk The Taste' },
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
   };
+  if (post.serviceName && post.servicePage) {
+    schema.about = {
+      '@type': 'Service',
+      name: post.serviceName,
+      provider: { '@type': 'Organization', '@id': `${SITE_URL}/#business` },
+      areaServed: { '@type': 'City', name: 'Dubai' },
+      url: `${SITE_URL}${post.servicePage}`,
+    };
+  }
   const tag = `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
   return html.replace(/<\/head>/i, `${tag}\n</head>`);
+}
+
+function injectFaqSchema(html, post, canonicalUrl) {
+  const faqs = Array.isArray(post.faqs) ? post.faqs.filter((faq) => faq?.question && faq?.answer) : [];
+  if (!faqs.length) return html;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${canonicalUrl}#faq`,
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+  const tag = `<script type="application/ld+json">${JSON.stringify(schema)}</script>`;
+  return html.replace(/<\/head>/i, `${tag}\n</head>`);
+}
+
+function renderPostContent(post) {
+  const content = post.content || '';
+  const faqs = Array.isArray(post.faqs) ? post.faqs.filter((faq) => faq?.question && faq?.answer) : [];
+  if (!faqs.length) return content;
+
+  const faqMarkup = [
+    '<section class="post-faq" id="faq">',
+    '<h2>FAQs</h2>',
+    ...faqs.map((faq) =>
+      `<details><summary>${escapeHtml(faq.question)}</summary><p>${escapeHtml(faq.answer)}</p></details>`
+    ),
+    '</section>',
+  ].join('');
+
+  return `${content}${faqMarkup}`;
 }
 
 function htmlResponse(html, sourceResponse) {

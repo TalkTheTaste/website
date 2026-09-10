@@ -1,5 +1,7 @@
 'use strict';
 
+import { DEFAULT_POSTS } from '../../data/default-posts.js';
+
 const DEFAULT_SETTINGS = {
   siteName: 'Talk The Taste',
   tagline: "Dubai's Full-Service Creative Agency",
@@ -56,8 +58,6 @@ const DEFAULT_PROJECTS = [
     createdAt: 1775625745474,
   },
 ];
-
-const DEFAULT_POSTS = [];
 
 const DEFAULTS = {
   projects: DEFAULT_PROJECTS,
