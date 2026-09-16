@@ -77,12 +77,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://talkthetaste.com/profile</loc>
-    <lastmod>2026-08-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://talkthetaste.com/social-media-marketing-dubai</loc>
     <lastmod>2026-08-26</lastmod>
     <changefreq>monthly</changefreq>
@@ -132,12 +126,18 @@
   </url>
   <url>
     <loc>https://talkthetaste.com/restaurant-marketing-dubai</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-09-16</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://talkthetaste.com/restaurant-marketing-dubai"/>
     <xhtml:link rel="alternate" hreflang="ar-AE" href="https://talkthetaste.com/ar/restaurant-marketing-dubai/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://talkthetaste.com/restaurant-marketing-dubai"/>
+  </url>
+  <url>
+    <loc>https://talkthetaste.com/restaurant-branding-dubai</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://talkthetaste.com/ar/</loc>
@@ -238,6 +238,16 @@
     <image:image>
       <image:loc>https://talkthetaste.com/assets/site/delivery-web-app.jpg</image:loc>
       <image:title>What should a Dubai business website include</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://talkthetaste.com/blog/how-to-choose-a-marketing-agency-in-dubai/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://talkthetaste.com/assets/site/home-hero.jpg</image:loc>
+      <image:title>How to choose a marketing agency in Dubai</image:title>
     </image:image>
   </url>
 </urlset>
