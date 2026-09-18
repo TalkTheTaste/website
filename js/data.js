@@ -18,6 +18,7 @@ const TTT = {
         auth:     'ttt_auth',
         leads:    'ttt_leads',
         analytics:'ttt_analytics',
+        shortlinks:'ttt_shortlinks',
         version:  'ttt_data_version',
     },
 
@@ -251,6 +252,15 @@ const TTT = {
         } catch { return []; }
     },
 
+    getShortlinks() {
+        try {
+            return JSON.parse(localStorage.getItem(this.KEYS.shortlinks) || '[]');
+        } catch { return []; }
+    },
+    saveShortlinks(list) {
+        try { localStorage.setItem(this.KEYS.shortlinks, JSON.stringify(list)); } catch(e) {}
+    },
+
     // ── SEED DEMO DATA ────────────────────────────────────────────
     seedIfEmpty() {
         if (this.getProjects().length === 0) {
@@ -391,6 +401,9 @@ TTT.API = {
             if (Array.isArray(data.analytics)) {
                 localStorage.setItem(TTT.KEYS.analytics, JSON.stringify(data.analytics));
             }
+            if (Array.isArray(data.shortlinks)) {
+                localStorage.setItem(TTT.KEYS.shortlinks, JSON.stringify(data.shortlinks));
+            }
             return true;
         } catch(e) {
             console.warn('Server sync failed, using localStorage only:', e.message);
@@ -433,6 +446,9 @@ TTT.API = {
     },
     async saveLeads(list) {
         try { await this.post('/api/leads/save', list); } catch(e) { console.warn('Lead sync failed', e.message); }
+    },
+    async saveShortlinks(list) {
+        return this.post('/api/shortlinks/save', list);
     },
     async refreshAnalytics() {
         try {

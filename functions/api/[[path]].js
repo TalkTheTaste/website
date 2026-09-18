@@ -65,6 +65,7 @@ const DEFAULTS = {
   settings: DEFAULT_SETTINGS,
   leads: [],
   analytics: [],
+  shortlinks: [],
 };
 
 const JSON_HEADERS = {
@@ -104,6 +105,7 @@ async function routeRequest(path, request, env) {
       settings: await readStore(env, 'settings'),
       leads: await readStore(env, 'leads'),
       analytics: await readStore(env, 'analytics'),
+      shortlinks: await readStore(env, 'shortlinks'),
     });
   }
 
@@ -149,6 +151,16 @@ async function routeRequest(path, request, env) {
     await requireAuth(request, env);
     await writeStore(env, 'analytics', []);
     return json({ ok: true });
+  }
+  if (path === '/shortlinks' && request.method === 'GET') {
+    await requireAuth(request, env);
+    return json(await readStore(env, 'shortlinks'));
+  }
+  if (path === '/shortlinks/save' && request.method === 'POST') {
+    await requireAuth(request, env);
+    const links = validateShortlinks(await request.json().catch(() => null));
+    await writeStore(env, 'shortlinks', links);
+    return json({ ok: true, shortlinks: links });
   }
   if (path === '/portfolio' && request.method === 'GET') return portfolioIndex(env);
   if (path === '/portfolio/client' && request.method === 'GET') return portfolioClient(request, env);
@@ -654,6 +666,32 @@ function normalizePhone(value) {
 
 function cleanText(value) {
   return String(value || '').trim().slice(0, 2000);
+}
+
+function normalizeShortlinkSlug(value) {
+  return String(value || '').trim().toLowerCase();
+}
+
+function validateShortlinks(value) {
+  if (!Array.isArray(value) || value.length > 500) throw Object.assign(new Error('Invalid short links'), { status: 400 });
+  const seen = new Set();
+  return value.map((item) => {
+    const slug = normalizeShortlinkSlug(item.slug);
+    if (!/^[a-z0-9](?:[a-z0-9-]{0,78}[a-z0-9])?$/.test(slug)) throw Object.assign(new Error(`Invalid endpoint: ${slug || 'empty'}`), { status: 400 });
+    if (seen.has(slug)) throw Object.assign(new Error(`Endpoint already exists: ${slug}`), { status: 400 });
+    seen.add(slug);
+    let target;
+    try { target = new URL(String(item.target || '').trim()); } catch { throw Object.assign(new Error(`Invalid destination for ${slug}`), { status: 400 }); }
+    if (target.protocol !== 'https:') throw Object.assign(new Error('Destination must use https://'), { status: 400 });
+    if (target.hostname === 'talkthetaste.com' && target.pathname.startsWith('/onedrive/')) throw Object.assign(new Error('A short link cannot redirect to another short link'), { status: 400 });
+    return {
+      slug,
+      target: target.href,
+      enabled: item.enabled !== false,
+      createdAt: Number(item.createdAt) || Date.now(),
+      updatedAt: Number(item.updatedAt) || Date.now(),
+    };
+  });
 }
 
 async function saveBody(request, env, key, fallback) {

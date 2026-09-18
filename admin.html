@@ -258,6 +258,19 @@ tr:hover td { background:rgba(255,255,255,.015); }
 .mini-row span:first-child { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .mini-row strong { color:var(--gold); font-size:12px; }
 
+/* SHORT LINKS */
+.shortlink-form { background:var(--surface); border:1px solid var(--border); border-radius:20px; padding:24px; margin-bottom:20px; }
+.shortlink-form-grid { display:grid; grid-template-columns:minmax(220px,.7fr) minmax(320px,1.3fr) auto; gap:16px; align-items:end; }
+.shortlink-form .fg { margin:0; }
+.shortlink-prefix { display:flex; align-items:center; background:var(--black); border:1px solid var(--border); border-radius:10px; overflow:hidden; transition:border-color .3s; }
+.shortlink-prefix:focus-within { border-color:var(--gold); }
+.shortlink-prefix span { padding-left:14px; color:var(--gray); font-size:13px; white-space:nowrap; }
+.shortlink-prefix input { border:0; padding-left:2px; min-width:0; }
+.shortlink-url, .shortlink-destination { display:block; max-width:380px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.shortlink-url { color:var(--gold); }
+.shortlink-status-off { background:rgba(119,119,119,.1); border-color:rgba(119,119,119,.3); color:var(--gray-light); }
+.shortlink-editing { border-color:var(--gold-border); }
+
 /* RESPONSIVE */
 @media(max-width:900px) {
     .sidebar { width:60px; }
@@ -266,6 +279,8 @@ tr:hover td { background:rgba(255,255,255,.015); }
     .form-panel { width:100%; border-left:none; border-top:1px solid var(--border); height:90vh; align-self:flex-end; border-radius:24px 24px 0 0; }
     .stats-row { grid-template-columns:1fr 1fr 1fr; }
     .settings-grid { grid-template-columns:1fr; }
+    .shortlink-form-grid { grid-template-columns:1fr; }
+    .shortlink-form-grid .btn-primary { width:100%; }
 }
     </style>
     <!-- Google tag (gtag.js) -->
@@ -338,6 +353,11 @@ tr:hover td { background:rgba(255,255,255,.015); }
                 <svg class="sidebar-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-7"/></svg>
                 <span>Visitors</span>
                 <span class="sidebar-badge" id="visitorsCount">0</span>
+            </button>
+            <button class="sidebar-btn" data-view="shortlinks">
+                <svg class="sidebar-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+                <span>Short Links</span>
+                <span class="sidebar-badge" id="shortlinksCount">0</span>
             </button>
             <div class="nav-section-label">System</div>
             <button class="sidebar-btn" data-view="settings">
@@ -490,6 +510,36 @@ tr:hover td { background:rgba(255,255,255,.015); }
                         <thead><tr><th>Time</th><th>Visitor</th><th>Action</th><th>Page</th><th>Device</th><th>Location</th><th>Referrer</th></tr></thead>
                         <tbody id="visitorsTable"></tbody>
                     </table>
+                </div>
+            </div>
+
+            <!-- ──────────────────────────────────────────────
+                 SHORT LINKS
+            ─────────────────────────────────────────────── -->
+            <div class="view" id="view-shortlinks">
+                <form class="shortlink-form" id="shortlinkForm">
+                    <input type="hidden" id="shortlinkOriginalSlug">
+                    <div class="shortlink-form-grid">
+                        <div class="fg">
+                            <label for="shortlinkSlug">Endpoint</label>
+                            <div class="shortlink-prefix"><span>/onedrive/</span><input type="text" id="shortlinkSlug" maxlength="80" placeholder="hautehorolouge" autocomplete="off" required></div>
+                        </div>
+                        <div class="fg">
+                            <label for="shortlinkTarget">Destination URL</label>
+                            <input type="url" id="shortlinkTarget" placeholder="https://talkthetaste-my.sharepoint.com/..." required>
+                        </div>
+                        <button class="btn-primary" type="submit" id="shortlinkSaveBtn">Create Link</button>
+                    </div>
+                    <button class="btn-sm" type="button" id="shortlinkCancelBtn" style="display:none;margin-top:14px;">Cancel Edit</button>
+                </form>
+                <div class="table-wrap">
+                    <div class="table-header"><h3>Active Redirects</h3></div>
+                    <div style="overflow-x:auto;">
+                        <table>
+                            <thead><tr><th>Short URL</th><th>Destination</th><th>Status</th><th>Updated</th><th></th></tr></thead>
+                            <tbody id="shortlinksTable"></tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
 
@@ -781,6 +831,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
         renderPosts();
         renderLeads();
         renderVisitors();
+        renderShortlinks();
         loadSettings();
     }
 
@@ -795,6 +846,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
         blog:      { title:'Blog Posts',       newLabel:'New Post' },
         leads:     { title:'Leads',            newLabel:null },
         visitors:  { title:'Visitors',         newLabel:null },
+        shortlinks:{ title:'Short Links',      newLabel:null },
         settings:  { title:'Settings',         newLabel:null },
     };
 
@@ -812,6 +864,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
         else { newBtn.style.display = 'none'; }
         if (name === 'leads') { renderLeads(); refreshCounts(); }
         if (name === 'visitors') { refreshVisitors(); }
+        if (name === 'shortlinks') { renderShortlinks(); }
     }
 
     // ── COUNTS ─────────────────────────────────────────────────
@@ -830,6 +883,143 @@ tr:hover td { background:rgba(255,255,255,.015); }
         const today = new Date().toISOString().slice(0, 10);
         const todayVisitors = new Set(analytics.filter(a => String(a.createdAt || '').startsWith(today)).map(a => a.visitorId).filter(Boolean));
         document.getElementById('visitorsCount').textContent = todayVisitors.size;
+        const activeShortlinks = TTT.getShortlinks().filter(link => link.enabled !== false).length;
+        document.getElementById('shortlinksCount').textContent = activeShortlinks;
+    }
+
+    // ── SHORT LINKS ─────────────────────────────────────────────
+    const shortlinkForm = document.getElementById('shortlinkForm');
+    const shortlinkSlug = document.getElementById('shortlinkSlug');
+    const shortlinkTarget = document.getElementById('shortlinkTarget');
+    const shortlinkOriginalSlug = document.getElementById('shortlinkOriginalSlug');
+    const shortlinkCancelBtn = document.getElementById('shortlinkCancelBtn');
+
+    shortlinkSlug.addEventListener('input', () => {
+        const normalized = normalizeShortlinkSlug(shortlinkSlug.value);
+        if (shortlinkSlug.value !== normalized) shortlinkSlug.value = normalized;
+    });
+    shortlinkForm.addEventListener('submit', saveShortlink);
+    shortlinkCancelBtn.addEventListener('click', resetShortlinkForm);
+
+    function normalizeShortlinkSlug(value) {
+        return String(value || '').trim().toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-').slice(0, 80);
+    }
+
+    async function saveShortlink(event) {
+        event.preventDefault();
+        const slug = normalizeShortlinkSlug(shortlinkSlug.value);
+        const target = shortlinkTarget.value.trim();
+        const originalSlug = shortlinkOriginalSlug.value;
+        if (!slug) return toast('Enter an endpoint', 'error');
+
+        let parsed;
+        try { parsed = new URL(target); } catch { return toast('Enter a valid destination URL', 'error'); }
+        if (parsed.protocol !== 'https:') return toast('Destination must use https://', 'error');
+
+        const list = TTT.getShortlinks();
+        if (list.some(link => link.slug === slug && link.slug !== originalSlug)) return toast('That endpoint already exists', 'error');
+        const existing = list.find(link => link.slug === originalSlug);
+        const next = {
+            slug,
+            target: parsed.href,
+            enabled: existing ? existing.enabled !== false : true,
+            createdAt: existing?.createdAt || Date.now(),
+            updatedAt: Date.now(),
+        };
+        const updated = originalSlug
+            ? list.map(link => link.slug === originalSlug ? next : link)
+            : [next, ...list];
+
+        const button = document.getElementById('shortlinkSaveBtn');
+        button.disabled = true;
+        button.textContent = 'Saving...';
+        try {
+            const result = await TTT.API.saveShortlinks(updated);
+            TTT.saveShortlinks(result.shortlinks || updated);
+            renderShortlinks();
+            refreshCounts();
+            resetShortlinkForm();
+            toast(originalSlug ? 'Short link updated' : 'Short link is active', 'success');
+        } catch (error) {
+            toast('Could not save short link', 'error');
+        } finally {
+            button.disabled = false;
+            if (!shortlinkOriginalSlug.value) button.textContent = 'Create Link';
+        }
+    }
+
+    function renderShortlinks() {
+        const table = document.getElementById('shortlinksTable');
+        const links = TTT.getShortlinks();
+        if (!links.length) {
+            table.innerHTML = '<tr class="empty-row"><td colspan="5">No short links yet.</td></tr>';
+            return;
+        }
+        table.innerHTML = links.map(link => {
+            const publicUrl = `${location.origin}/onedrive/${link.slug}`;
+            const statusClass = link.enabled === false ? ' shortlink-status-off' : ' featured';
+            return `<tr>
+                <td><a class="shortlink-url" href="${escapeHtml(publicUrl)}" target="_blank" rel="noopener">${escapeHtml(publicUrl)}</a></td>
+                <td><a class="shortlink-destination" href="${escapeHtml(link.target)}" target="_blank" rel="noopener" title="${escapeHtml(link.target)}">${escapeHtml(link.target)}</a></td>
+                <td><span class="td-badge${statusClass}">${link.enabled === false ? 'Disabled' : 'Active'}</span></td>
+                <td>${link.updatedAt ? escapeHtml(new Date(link.updatedAt).toLocaleDateString()) : '-'}</td>
+                <td><div class="row-actions">
+                    <button class="btn-sm" type="button" data-shortlink-copy="${escapeHtml(link.slug)}">Copy</button>
+                    <button class="btn-sm" type="button" data-shortlink-edit="${escapeHtml(link.slug)}">Edit</button>
+                    <button class="btn-sm" type="button" data-shortlink-toggle="${escapeHtml(link.slug)}">${link.enabled === false ? 'Enable' : 'Disable'}</button>
+                    <button class="btn-sm danger" type="button" data-shortlink-delete="${escapeHtml(link.slug)}">Delete</button>
+                </div></td>
+            </tr>`;
+        }).join('');
+    }
+
+    document.getElementById('shortlinksTable').addEventListener('click', async (event) => {
+        const button = event.target.closest('button');
+        if (!button) return;
+        const slug = button.dataset.shortlinkCopy || button.dataset.shortlinkEdit || button.dataset.shortlinkToggle || button.dataset.shortlinkDelete;
+        const list = TTT.getShortlinks();
+        const link = list.find(item => item.slug === slug);
+        if (!link) return;
+
+        if (button.dataset.shortlinkCopy) {
+            try {
+                await navigator.clipboard.writeText(`${location.origin}/onedrive/${slug}`);
+                toast('Short URL copied', 'success');
+            } catch { toast('Could not copy URL', 'error'); }
+            return;
+        }
+        if (button.dataset.shortlinkEdit) {
+            shortlinkOriginalSlug.value = link.slug;
+            shortlinkSlug.value = link.slug;
+            shortlinkTarget.value = link.target;
+            shortlinkForm.classList.add('shortlink-editing');
+            shortlinkCancelBtn.style.display = '';
+            document.getElementById('shortlinkSaveBtn').textContent = 'Save Changes';
+            shortlinkSlug.focus();
+            return;
+        }
+        let updated;
+        if (button.dataset.shortlinkToggle) {
+            updated = list.map(item => item.slug === slug ? { ...item, enabled: item.enabled === false, updatedAt: Date.now() } : item);
+        } else {
+            if (!confirm(`Delete /onedrive/${slug}?`)) return;
+            updated = list.filter(item => item.slug !== slug);
+        }
+        try {
+            const result = await TTT.API.saveShortlinks(updated);
+            TTT.saveShortlinks(result.shortlinks || updated);
+            renderShortlinks();
+            refreshCounts();
+            toast(button.dataset.shortlinkToggle ? 'Short link status updated' : 'Short link deleted', 'success');
+        } catch { toast('Could not update short link', 'error'); }
+    });
+
+    function resetShortlinkForm() {
+        shortlinkForm.reset();
+        shortlinkOriginalSlug.value = '';
+        shortlinkForm.classList.remove('shortlink-editing');
+        shortlinkCancelBtn.style.display = 'none';
+        document.getElementById('shortlinkSaveBtn').textContent = 'Create Link';
     }
 
     // ── VISITORS ────────────────────────────────────────────────

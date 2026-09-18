@@ -20,6 +20,7 @@ const FILES = {
     settings: path.join(DATA, 'settings.json'),
     leads:    path.join(DATA, 'leads.json'),
     analytics: path.join(DATA, 'analytics.json'),
+    shortlinks: path.join(DATA, 'shortlinks.json'),
 };
 
 const DEFAULT_SETTINGS = {
@@ -39,6 +40,7 @@ if (!fs.existsSync(FILES.projects)) fs.writeFileSync(FILES.projects, '[]');
 if (!fs.existsSync(FILES.posts))    fs.writeFileSync(FILES.posts,    '[]');
 if (!fs.existsSync(FILES.leads))    fs.writeFileSync(FILES.leads,    '[]');
 if (!fs.existsSync(FILES.analytics)) fs.writeFileSync(FILES.analytics, '[]');
+if (!fs.existsSync(FILES.shortlinks)) fs.writeFileSync(FILES.shortlinks, '[]');
 if (!fs.existsSync(FILES.settings)) fs.writeFileSync(FILES.settings, JSON.stringify(DEFAULT_SETTINGS, null, 2));
 
 // ── Helpers ──────────────────────────────────────────────────
@@ -96,6 +98,7 @@ app.get('/api/sync', auth, (req, res) => {
         settings: read(FILES.settings),
         leads:    read(FILES.leads),
         analytics: read(FILES.analytics),
+        shortlinks: read(FILES.shortlinks),
     });
 });
 
@@ -121,6 +124,16 @@ app.post('/api/leads/save', auth, (req, res) => { write(FILES.leads, req.body); 
 
 app.get('/api/analytics', auth, (req, res) => res.json(read(FILES.analytics)));
 app.post('/api/analytics/clear', auth, (req, res) => { write(FILES.analytics, []); res.json({ ok: true }); });
+app.get('/api/shortlinks', auth, (req, res) => res.json(read(FILES.shortlinks)));
+app.post('/api/shortlinks/save', auth, (req, res) => {
+    try {
+        const links = validateShortlinks(req.body);
+        write(FILES.shortlinks, links);
+        res.json({ ok: true, shortlinks: links });
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
 app.post('/api/analytics/track', async (req, res) => {
     const page = cleanPath(req.body.page || req.body.path || '');
     if (!page || page.startsWith('/admin') || page.startsWith('/api')) return res.json({ ok: true, skipped: true });
@@ -323,6 +336,14 @@ app.get('/api/portfolio/client', async (req, res) => {
 app.get('/api/portfolio/media', (req, res) => graphMediaRedirect(req, res, 'content'));
 app.get('/api/portfolio/thumb', (req, res) => graphMediaRedirect(req, res, 'thumbnail'));
 
+app.get('/onedrive/:slug', (req, res, next) => {
+    const slug = normalizeShortlinkSlug(req.params.slug);
+    const link = read(FILES.shortlinks).find(item => item.slug === slug && item.enabled !== false);
+    if (!link) return next();
+    res.set('Cache-Control', 'no-store');
+    return res.redirect(302, link.target);
+});
+
 // ── CATCH-ALL: serve HTML pages ──────────────────────────────
 app.get('*', (req, res) => {
     const filePath = path.join(ROOT, req.path);
@@ -337,6 +358,32 @@ app.get('*', (req, res) => {
 });
 
 app.listen(PORT, () => console.log(`TTT running → http://localhost:${PORT}`));
+
+function normalizeShortlinkSlug(value) {
+    return String(value || '').trim().toLowerCase();
+}
+
+function validateShortlinks(value) {
+    if (!Array.isArray(value) || value.length > 500) throw new Error('Invalid short links');
+    const seen = new Set();
+    return value.map(item => {
+        const slug = normalizeShortlinkSlug(item.slug);
+        if (!/^[a-z0-9](?:[a-z0-9-]{0,78}[a-z0-9])?$/.test(slug)) throw new Error(`Invalid endpoint: ${slug || 'empty'}`);
+        if (seen.has(slug)) throw new Error(`Endpoint already exists: ${slug}`);
+        seen.add(slug);
+        let target;
+        try { target = new URL(String(item.target || '').trim()); } catch { throw new Error(`Invalid destination for ${slug}`); }
+        if (target.protocol !== 'https:') throw new Error('Destination must use https://');
+        if (target.hostname === 'talkthetaste.com' && target.pathname.startsWith('/onedrive/')) throw new Error('A short link cannot redirect to another short link');
+        return {
+            slug,
+            target: target.href,
+            enabled: item.enabled !== false,
+            createdAt: Number(item.createdAt) || Date.now(),
+            updatedAt: Number(item.updatedAt) || Date.now(),
+        };
+    });
+}
 
 function isOneDriveConfigured(env) {
     const status = oneDriveEnvStatus(env);
