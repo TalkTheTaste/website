@@ -786,13 +786,32 @@ tr:hover td { background:rgba(255,255,255,.015); }
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<script src="js/data.js?v=6"></script>
+<script src="js/data.js?v=7"></script>
 <script>
 /* ================================================================
    ADMIN PANEL JAVASCRIPT
 ================================================================ */
 (function() {
     'use strict';
+
+    // Keep the admin usable if the HTML updates before the data asset cache does.
+    TTT.KEYS.shortlinks = TTT.KEYS.shortlinks || 'ttt_shortlinks';
+    if (typeof TTT.getShortlinks !== 'function') {
+        TTT.getShortlinks = function() {
+            try { return JSON.parse(localStorage.getItem(this.KEYS.shortlinks) || '[]'); }
+            catch { return []; }
+        };
+    }
+    if (typeof TTT.saveShortlinks !== 'function') {
+        TTT.saveShortlinks = function(list) {
+            try { localStorage.setItem(this.KEYS.shortlinks, JSON.stringify(list)); } catch(e) {}
+        };
+    }
+    if (typeof TTT.API.saveShortlinks !== 'function') {
+        TTT.API.saveShortlinks = function(list) {
+            return this.post('/api/shortlinks/save', list);
+        };
+    }
 
     // ── SEARCH TERMS (declared early to avoid temporal dead zone) ──
     let projSearchTerm = '';
