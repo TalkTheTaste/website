@@ -614,6 +614,64 @@ html.motion-enabled .motion-card.motion-in {
 }
 
 /* ============================================================
+   WEBSITE WORK SAMPLES
+============================================================ */
+.website-work-sec { background: var(--surface); }
+.website-samples-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    margin-top: 56px;
+}
+.website-sample-group {
+    min-width: 0;
+    padding: 28px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+.website-sample-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+}
+.website-sample-head h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 20px;
+    line-height: 1.25;
+    color: var(--text);
+}
+.website-sample-head > span {
+    flex-shrink: 0;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--gold);
+}
+.website-sample-links { display: grid; }
+.website-sample-links a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: 0;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    overflow-wrap: anywhere;
+    transition: color .2s, padding-left .2s;
+}
+.website-sample-links a:last-child { border-bottom: 0; }
+.website-sample-links a:hover { color: var(--text); padding-left: 4px; }
+.website-sample-links a span { flex-shrink: 0; color: var(--gold); }
+
+/* ============================================================
    EMPTY STATE
 ============================================================ */
 .empty-state {
@@ -855,6 +913,7 @@ html.motion-enabled .motion-card.motion-in {
     .faq-item:nth-child(2),
     .faq-item:nth-last-child(2),
     .faq-item:last-child { border-radius: 0; }
+    .website-samples-grid { grid-template-columns: 1fr; }
 }
 @media(max-width:640px) {
     #nav, #nav.scrolled { padding: 16px 24px; }
@@ -863,6 +922,9 @@ html.motion-enabled .motion-card.motion-in {
     .page-hero { padding: 150px 24px 72px; }
     footer { padding: 64px 24px 32px; }
     .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .website-samples-grid { margin-top: 40px; }
+    .website-sample-group { padding: 22px; }
+    .website-sample-head { flex-direction: column; gap: 8px; }
 }
 
 .whatsapp-float {
