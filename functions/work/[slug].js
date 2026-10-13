@@ -182,14 +182,20 @@ function renderCaseStudy(project, slug) {
 </style>
 </head>
 <body>
-<nav id="nav"><a href="/" class="nav-logo"><img src="/assets/logo.png" alt="TTT" class="logo-img"></a><ul class="nav-menu"><li><a href="/">Home</a></li><li><a href="/services">Services</a></li><li><a href="/work" class="active">Work</a></li><li><a href="/pricing">Pricing</a></li><li><a href="/blog">Blog</a></li><li><a href="/about">About</a></li></ul><div class="nav-right"><a href="https://wa.me/971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp &#8599;</a><a href="/contact" class="nav-cta">Let's Talk</a></div></nav>
+<nav id="nav"><a href="/" class="nav-logo"><img src="/assets/logo.png" alt="TTT" class="logo-img"></a><ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/work">Work</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+      </ul><div class="nav-right"><a href="https://wa.me/971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp &#8599;</a><a href="/contact" class="nav-cta">Let's Talk</a></div></nav>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/work">Work</a> / ${escapeHtml(project.title)}</nav>
 <section class="client-hero">
   <div class="client-hero-media">${project.image ? `<img src="${escapeAttr(image)}" alt="${escapeAttr(project.title)}">` : ''}</div>
   <div class="client-hero-copy">
     <div class="client-kicker">${escapeHtml(project.category || 'Client Work')}</div>
     <h1 class="client-title">${escapeHtml(project.title)}</h1>
-    <p class="client-desc">Work for ${escapeHtml(project.title)} by Talk The Taste &mdash; ${escapeHtml(project.description || 'selected photography and videography')}.</p>
+    <p class="client-desc">Work for ${escapeHtml(project.title)} by Talk The Taste - ${escapeHtml(project.description || 'selected photography and videography')}.</p>
   </div>
 </section>
 <section class="client-body">

@@ -20,8 +20,8 @@
     --text-muted:   #615F5A;
     --text-xmuted:  #706E69;
 
-    /* Gold - darker, refined warm gold */
-    --gold:         #BF8D2C;
+    /* Brand accent */
+    --gold:         #147A4F;
 
     /* Dark sections */
     --dark:         #0C0C0A;
@@ -34,8 +34,8 @@
     --white:        #FAFAF8;
     --gray:         #706E69;
     --gray-light:   #9E9C97;
-    --gold-dim:     rgba(191,141,44,0.12);
-    --gold-border:  rgba(191,141,44,0.3);
+    --gold-dim:     rgba(20,122,79,0.12);
+    --gold-border:  rgba(20,122,79,0.3);
 }
 
 html { scroll-behavior: smooth; }
@@ -503,6 +503,19 @@ html.motion-enabled .motion-card.motion-in {
 .motion-media.motion-in .motion-pixel-layer span {
     transform: scaleY(0);
 }
+body.ttt-page-in {
+    animation: tttPageIn .44s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes tttPageIn {
+    from {
+        opacity: .001;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 .motion-magnetic {
     transform: translate3d(var(--magnetic-x,0),var(--magnetic-y,0),0);
     transition: transform .35s cubic-bezier(.16,1,.3,1),
@@ -528,6 +541,115 @@ html.motion-enabled .motion-card.motion-in {
         transform: translateY(-5px);
         border-color: var(--border-dark);
         box-shadow: 0 18px 48px rgba(12,12,10,.08);
+    }
+}
+
+/* ============================================================
+   2026 CLEANUP OVERRIDES
+   Keeps older pages aligned with the homepage system.
+============================================================ */
+#nav {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    align-items: center !important;
+    justify-content: initial !important;
+    padding: 28px 80px !important;
+}
+#nav.scrolled {
+    padding: 18px 80px !important;
+}
+#nav .nav-logo {
+    justify-self: start !important;
+}
+#nav .nav-menu {
+    justify-self: center !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 36px !important;
+}
+#nav .nav-right {
+    justify-self: end !important;
+}
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--gold) !important;
+}
+.nav-menu a::after,
+.nav-menu a.active::after {
+    background: var(--gold) !important;
+}
+.nav-cta,
+.btn-primary,
+.btn-gold,
+.cta-btn-gold {
+    background: var(--gold) !important;
+    color: #fff !important;
+}
+.nav-cta:hover,
+.btn-primary:hover,
+.btn-gold:hover,
+.cta-btn-gold:hover {
+    background: var(--text) !important;
+    color: #fff !important;
+}
+.landing-hero {
+    background: var(--bg) !important;
+}
+.landing-hero h1,
+.sec-title,
+.landing-band h2 {
+    letter-spacing: 0 !important;
+}
+.landing-grid {
+    gap: 16px !important;
+}
+.landing-card,
+.landing-quote,
+.office-card,
+.value-card,
+.stat-cell,
+.info-card,
+.pkg-card,
+.shoot-card {
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    box-shadow: none !important;
+}
+.landing-card:hover,
+.pkg-card:hover,
+.shoot-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(20,122,79,0.26) !important;
+}
+.landing-proc li::before {
+    color: #fff !important;
+    background: var(--gold) !important;
+    border-color: var(--gold) !important;
+}
+.pricing-hero h1,
+.pricing-sec-title,
+.about-hero h1,
+.founder-copy h3,
+.office-card h3,
+.value-card h3,
+.stat-cell .num {
+    font-family: 'Space Grotesk', sans-serif !important;
+    letter-spacing: 0 !important;
+}
+.pricing-sec,
+.about-hero {
+    background: var(--bg) !important;
+}
+
+@media (max-width: 900px) {
+    #nav,
+    #nav.scrolled {
+        display: flex !important;
+        padding: 16px 24px !important;
+        justify-content: space-between !important;
+    }
+    #nav .nav-menu {
+        display: none !important;
     }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -959,5 +1081,31 @@ html.motion-enabled .motion-card.motion-in {
         bottom: 18px;
         width: 54px;
         height: 54px;
+    }
+}
+
+/* Final nav lock, loaded after legacy responsive rules. */
+#nav {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    justify-content: initial !important;
+}
+#nav .nav-logo {
+    position: static !important;
+    transform: none !important;
+}
+#nav .nav-menu {
+    justify-self: center !important;
+}
+@media(max-width:900px) {
+    #nav,
+    #nav.scrolled {
+        display: flex !important;
+        justify-content: space-between !important;
+    }
+    #nav .nav-logo {
+        position: absolute !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
     }
 }
