@@ -21,7 +21,7 @@
     --text-xmuted:  #706E69;
 
     /* Gold - darker, refined warm gold */
-    --gold:         #D6C94F;
+    --gold:         #E3D134;
 
     /* Dark sections */
     --dark:         #0C0C0A;
@@ -34,8 +34,8 @@
     --white:        #FAFAF8;
     --gray:         #706E69;
     --gray-light:   #9E9C97;
-    --gold-dim:     rgba(214,201,79,0.12);
-    --gold-border:  rgba(214,201,79,0.3);
+    --gold-dim:     rgba(227,209,52,0.12);
+    --gold-border:  rgba(227,209,52,0.3);
 }
 
 html { scroll-behavior: smooth; }
@@ -619,7 +619,7 @@ body.ttt-page-in {
 .pkg-card:hover,
 .shoot-card:hover {
     transform: translateY(-2px);
-    border-color: rgba(214,201,79,0.26) !important;
+    border-color: rgba(227,209,52,0.26) !important;
 }
 .landing-proc li::before {
     color: #fff !important;
