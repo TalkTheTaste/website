@@ -10,7 +10,7 @@
     "build:css": "cleancss -O2 css/main.css -o css/main.min.css",
     "build:js": "terser js/transitions.js -c -m -o js/transitions.min.js && terser js/language-switcher.js -c -m -o js/language-switcher.min.js && terser js/conversion.js -c -m -o js/conversion.min.js",
     "cf:dev": "npm run build && wrangler pages dev dist --port 8788",
-    "cf:deploy": "npm run build && wrangler pages deploy dist --project-name talkthetaste",
+    "cf:deploy": "npm run build && wrangler pages deploy dist --project-name talkthetastewebsite",
     "build:forms": "esbuild js/form-utils.js --bundle --minify --platform=browser --outfile=js/form-utils.bundle.js",
     "prepare:public": "node scripts/prepare-public.cjs",
     "prestart": "npm run build",

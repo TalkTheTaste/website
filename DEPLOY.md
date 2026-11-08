@@ -16,7 +16,7 @@ git push -u origin main
 1. In Cloudflare, create a KV namespace named `TTT_DATA` and a preview namespace named `TTT_DATA_PREVIEW`.
 2. Replace the placeholder `id` and `preview_id` values in `wrangler.toml`.
 3. Create a Pages project connected to the GitHub repository.
-4. Use these build settings: - Framework preset: `None` - Node.js: `22` or newer - Build command: `npm run build` - Build output directory: `dist`
+4. Use the existing production Pages project `talkthetastewebsite` (serving `talkthetaste.com`); `talkthetaste` is an older, separate project. The `.node-version` file pins Node 22. Use these build settings: - Framework preset: `None` - Node.js: `22` or newer - Build command: `npm run build` - Build output directory: `dist`
 5. Add these Pages environment variables: - `ADMIN_PASSWORD`: a unique admin password of at least 16 characters - `SESSION_SECRET`: an independent random secret of at least 32 characters - `CALLMEBOT_PHONE`: `971565390316` - `CALLMEBOT_APIKEY`: your CallMeBot API key
 
 The admin CMS and contact leads use Cloudflare KV through the `TTT_DATA` binding. The first API read seeds KV with the current default projects/settings if the namespace is empty. Contact form submissions also send a WhatsApp alert through CallMeBot when the CallMeBot variables are configured.
