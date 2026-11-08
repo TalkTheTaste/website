@@ -40,7 +40,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main.css?v=2">
+    <link rel="stylesheet" href="/css/main.css?v=20261108">
     <style>
         .post-wrap { max-width:900px; margin:0 auto; }
         .post-hero-img { width:100%;border-radius:24px;overflow:hidden;margin-bottom:48px;aspect-ratio:16/7; }
@@ -101,7 +101,7 @@
         .sidebar-heading { font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:700;margin-bottom:20px;letter-spacing:.5px;color:var(--text); }
         .sidebar-post { display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border); }
         .sidebar-post:last-child { border-bottom:none;padding-bottom:0; }
-        .sidebar-post-num { font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--border-dark);flex-shrink:0;line-height:1;margin-top:2px; }
+        .sidebar-post-num { font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--text-muted);flex-shrink:0;line-height:1;margin-top:2px; }
         .sidebar-post-title { font-size:13px;font-weight:500;color:var(--text-muted);line-height:1.45;transition:color .25s;text-decoration:none;display:block; }
         .sidebar-post-title:hover { color:var(--text); }
         .sidebar-post-date { font-size:11px;color:var(--text-xmuted);margin-top:4px; }
@@ -227,7 +227,6 @@
         <div class="empty-icon">📝</div>
         <h3>Post not found</h3>
         <p>This post may have been removed. <a href="/blog" style="color:var(--gold)">Return to blog →</a></p>
-        <div id="postDebug" style="margin-top:24px;font-size:11px;color:var(--gray);text-align:left;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px;max-width:480px;margin-left:auto;margin-right:auto;word-break:break-all;"></div>
     </div>
     <div class="post-layout" id="postLayout" style="display:none;">
         <!-- Main -->
@@ -422,7 +421,7 @@
       </div>
     </footer>
 
-<script src="/js/data.js?v=6"></script>
+<script src="/js/data.js?v=20261108"></script>
 <script>
 (function() {
     const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
@@ -448,27 +447,8 @@
     const id = params.get('id') || (pathPostMatch ? decodeURIComponent(pathPostMatch[1]) : '');
     const wantsPreview = params.get('preview') === '1';
 
-    function showNotFound(reason) {
+    function showNotFound() {
         document.getElementById('postNotFound').style.display = 'block';
-        // Debug panel: show what was looked up vs what exists
-        try {
-            const allPosts = wantsPreview ? TTT.getAllPosts() : TTT.getPosts();
-            const debugEl = document.getElementById('postDebug');
-            if (debugEl) {
-                debugEl.innerHTML =
-                    `<strong style="color:var(--white)">Debug info</strong><br>` +
-                    `Requested ID: <code style="color:var(--gold)">${id || '(none)'}</code><br>` +
-                    `Posts in storage: <strong style="color:var(--white)">${allPosts.length}</strong><br>` +
-                    `Data version: ${localStorage.getItem('ttt_data_version') || 'none'}<br>` +
-                    (allPosts.length > 0
-                        ? `<br>Stored IDs:<br>` + allPosts.map(p =>
-                            `<span style="color:${p.id===id?'#22C55E':'var(--gray-light)'}">• ${p.id}, ${p.title.slice(0,40)}</span>`
-                          ).join('<br>')
-                        : '<span style="color:var(--danger)">No posts found in localStorage</span>'
-                    ) +
-                    `<br><br><a href="/blog" style="color:var(--gold)">← Back to Journal</a>`;
-            }
-        } catch(e) {}
     }
 
     async function renderPost() {
@@ -491,7 +471,7 @@
         } else {
             layoutEl.style.display = 'grid';
             document.title = post.title + ' | Talk The Taste';
-            document.getElementById('pageTitle').textContent = post.title + ' | Talk The Taste';
+
 
             // Hero image
             const heroWrap = document.getElementById('postHeroWrap');
@@ -643,7 +623,7 @@
     document.addEventListener('ttt:data:ready', renderPost);
 })();
 </script>
-<script src="/js/conversion.js"></script>
-<script src="/js/transitions.js"></script><script src="/js/language-switcher.js"></script>
+<script src="/js/conversion.js?v=20261108"></script>
+<script src="/js/transitions.js?v=20261108"></script><script src="/js/language-switcher.js?v=20261108"></script>
 </body>
 </html>

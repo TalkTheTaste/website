@@ -1,4 +1,5 @@
 'use strict';
+import { fetchAsset, notFound } from '../../lib/page-assets.mjs';
 
 const SITE_URL = 'https://talkthetaste.com';
 const POST_TEMPLATE_PATH = '/post-template.asset';
@@ -34,7 +35,7 @@ export async function onRequestHead(context) {
 
 async function findPost(request, slug) {
   const apiUrl = new URL('/api/posts', request.url);
-  const res = await fetch(new Request(apiUrl.toString(), request));
+  const res = await fetch(new Request(apiUrl.toString(), { headers: { Accept: 'application/json' } }));
   if (!res.ok) return null;
   const posts = await res.json();
   if (!Array.isArray(posts)) return null;
@@ -42,19 +43,7 @@ async function findPost(request, slug) {
 }
 
 async function fetchTemplate(request, env) {
-  const templateUrl = new URL(POST_TEMPLATE_PATH, request.url);
-  const templateRequest = new Request(templateUrl.toString(), request);
-  if (env.ASSETS?.fetch) return env.ASSETS.fetch(templateRequest);
-  return fetch(templateRequest);
-}
-
-async function notFound(request, env) {
-  const templateUrl = new URL('/404.html', request.url);
-  const templateRequest = new Request(templateUrl.toString(), request);
-  const res = env.ASSETS?.fetch ? await env.ASSETS.fetch(templateRequest) : await fetch(templateRequest);
-  const headers = new Headers(res.headers);
-  headers.set('Content-Type', 'text/html; charset=utf-8');
-  return new Response(await res.text(), { status: 404, headers });
+  return fetchAsset(request, env, POST_TEMPLATE_PATH);
 }
 
 function renderPost(html, post) {
@@ -108,10 +97,7 @@ function renderPost(html, post) {
     /<div class="post-layout" id="postLayout" style="display:none;">/,
     '<div class="post-layout" id="postLayout">'
   );
-  next = next.replace(
-    /<div id="postNotFound" style="display:none;" class="empty-state">[\s\S]*?<\/div>\s*<\/div>/,
-    '<div id="postNotFound" style="display:none;" class="empty-state"></div>'
-  );
+
 
   return next;
 }

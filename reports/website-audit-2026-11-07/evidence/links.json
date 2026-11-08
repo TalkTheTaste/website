@@ -1,0 +1,4670 @@
+[
+  {
+    "url": "http://localhost:8799/about",
+    "status": 200,
+    "bytes": 26502,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "About Talk The Taste",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "About",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "About",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/services",
+    "status": 200,
+    "bytes": 45427,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "All services →",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "See what we do →",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Explore all services",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "All Services",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Services",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Services",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/",
+    "status": 200,
+    "bytes": 81838,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "marketing agency in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Dubai marketing agency",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "marketing agency services in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Dubai marketing agency",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "digital marketing agency in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Home",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Home",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/work",
+    "status": 200,
+    "bytes": 43350,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "View case studies",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "See more of our work →",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "View work",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "See more of our work →",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "View work",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "See more of our work →",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "View all projects →",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "View our work",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "See more of our work →",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "View work",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "See more of our work →",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "See more of our work →",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "See more of our work →",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "View work",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "See more of our work →",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Work",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "View work",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "See more of our work →",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Work",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Get in touch →",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Get a free audit",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "about.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Get a free growth audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "index.html",
+        "text": "Request audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "index.html",
+        "text": "Start a project →",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Get Audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "pricing.html",
+        "text": "Get Free Audit",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "pricing.html",
+        "text": "Send a Message →",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Get Free Audit",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "services.html",
+        "text": "Get a free audit",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "services.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Let's Talk",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Let's Talk →",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Contact",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/pricing",
+    "status": 200,
+    "bytes": 62767,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "See full pricing →",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "See full pricing →",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "See full pricing →",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "See packages",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "See full pricing →",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "See full pricing →",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "See full pricing →",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "See packages",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "See full pricing →",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "See full pricing →",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "See full pricing →",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Pricing",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/marketing-agency-orange-county",
+    "status": 200,
+    "bytes": 18623,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Orange County marketing agency services",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Orange County Marketing",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Orange County Marketing",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Orange County marketing services",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/restaurant-marketing-dubai",
+    "status": 200,
+    "bytes": 37504,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "restaurant marketing",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "restaurant marketing services in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Restaurant marketing",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "See the full restaurant marketing service →",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Restaurant marketing services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "restaurant marketing services",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "restaurant marketing agency service in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "F&B marketing service",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Restaurant marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Restaurant Marketing DubaiFood content, restaurant social media management, Google Maps, delivery platform improvements and conversion fixes for F&B brands.",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "restaurant marketing services in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "restaurant growth campaign",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "restaurant marketing campaigns",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Restaurant Marketing",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/social-media-marketing-dubai",
+    "status": 200,
+    "bytes": 33549,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Social media management in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Social Media",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "social media",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Explore social media marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "social media management in Dubai and the UAE",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Grow your following →",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Social Media Marketing DubaiContent, reels, Meta ads, TikTok campaigns, community management and monthly reporting for better reach and enquiries.",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Social Media Marketing",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/web-design-dubai",
+    "status": 200,
+    "bytes": 34305,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "See website development",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Web design and website development in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Build your site →",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Web Design DubaiPremium 5-page websites from AED 2,000 and landing pages built for trust, speed and conversion.",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Web Design",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/branding-agency-dubai",
+    "status": 200,
+    "bytes": 27404,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Brand yourself →",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Branding Agency DubaiIdentity, messaging and launch systems that make the brand feel premium.",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Branding",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/video-production-dubai",
+    "status": 200,
+    "bytes": 25734,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Video Production",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/mobile-app-development-dubai",
+    "status": 200,
+    "bytes": 26849,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Build your app →",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Mobile App Development",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/custom-software-development-dubai",
+    "status": 200,
+    "bytes": 26600,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Discuss your needs →",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Custom Software",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/blog",
+    "status": 200,
+    "bytes": 24513,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Journal",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/privacy-policy",
+    "status": 200,
+    "bytes": 31055,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Overview",
+        "hash": "#overview"
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Information We Collect",
+        "hash": "#information"
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Contact Permission",
+        "hash": "#contact-permission"
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Advertising & Pixels",
+        "hash": "#ads"
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Sharing & Processors",
+        "hash": "#sharing"
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Your Choices",
+        "hash": "#choices"
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Privacy Rights",
+        "hash": "#rights"
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Security & Retention",
+        "hash": "#security"
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Contact",
+        "hash": "#contact"
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Privacy Policy",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/terms-and-conditions",
+    "status": 200,
+    "bytes": 39177,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "about.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "about.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "blog.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "contact.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "pricing.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "privacy-policy.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Lead & Client Terms\n                Service scope, payments, approvals, promotion rights, intellectual property, confidentiality and termination.",
+        "hash": "#client-terms"
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Employee, Intern & Freelancer Terms\n                Attendance, probation, confidentiality, ownership, reimbursement, conduct, notice and disciplinary standards.",
+        "hash": "#workforce-terms"
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "terms-and-conditions.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Terms & Conditions",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/blog/how-to-choose-a-marketing-agency-in-dubai/",
+    "status": 200,
+    "bytes": 42103,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "blog.html",
+        "text": "Marketing Strategy\n                    \n                    \n                        September 16, 2026\n                        How to Choose a Marketing Agency in Dubai\n                        Choose a Dubai marketing agency by checking strategic fit, relevant proof, delivery ownership, measurement, pricing clarity and knowledge of the UAE market.\n                        \n                            T\n                            Talk The TasteMarketing Strategy",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "choosing a marketing agency in Dubai",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/blog/how-to-market-a-restaurant-in-dubai/",
+    "status": 200,
+    "bytes": 42197,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "blog.html",
+        "text": "Featured Post\n                        How to Market a Restaurant in Dubai: Practical F&B Plan\n                        A Dubai restaurant marketing plan should combine Google visibility, high-quality food content, delivery-platform conversion, reviews, local partnerships, and seasonal campaigns.\n                        \n                            T\n                            \n                                Talk The Taste\n                                September 10, 2026 · Restaurant Marketing",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=branding",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Get free brand audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "Request free audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/blog/what-is-included-in-social-media-management-dubai/",
+    "status": 200,
+    "bytes": 40711,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "blog.html",
+        "text": "Social Media\n                    \n                    \n                        September 10, 2026\n                        What Is Included in Social Media Management in Dubai?\n                        Social media management in Dubai should include strategy, content planning, creative production, publishing, community management, reporting and clear conversion paths.\n                        \n                            T\n                            Talk The TasteSocial Media",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/restaurant-branding-dubai",
+    "status": 200,
+    "bytes": 19312,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "branding-agency-dubai.html",
+        "text": "restaurant branding service in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "index.html",
+        "text": "restaurant\n            branding in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "restaurant brand development",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Explore restaurant branding in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "restaurant branding service",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "restaurant branding in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Restaurant Branding DubaiPositioning, naming, identity, menus, packaging, signage and launch systems for restaurants and food brands.",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/blog/what-should-a-dubai-business-website-include/",
+    "status": 200,
+    "bytes": 40308,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "blog.html",
+        "text": "Web Design\n                    \n                    \n                        September 10, 2026\n                        What Should a Dubai Business Website Include?\n                        A Dubai business website should make the offer clear, build trust quickly, support WhatsApp or lead conversion, load fast, and explain services in searchable detail.\n                        \n                            T\n                            Talk The TasteWeb Design",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/content-creation-dubai",
+    "status": 200,
+    "bytes": 25416,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "content-creation-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Create content →",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=content%20creation",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Get free content audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "content-creation-dubai.html",
+        "text": "Request free audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=custom%20software",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Get free scoping call →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "custom-software-development-dubai.html",
+        "text": "Request free scoping call →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/TTTprofile.pdf",
+    "status": 200,
+    "bytes": 6114817,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "contact.html",
+        "text": "View the TTT company profile",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "View company profile →",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "View company profile →",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/food-photography-dubai",
+    "status": 200,
+    "bytes": 21965,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "food-photography-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "food photography",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Food Photography",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "See food photography",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "View food photography services",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Food photography Dubai",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Book a shoot →",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Food Photography DubaiMenu photography, delivery app images and reels for restaurants and cafes.",
+        "hash": ""
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "food photography in Dubai",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=food%20photography",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Get free shoot audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "food-photography-dubai.html",
+        "text": "Request free shoot audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=orange%20county%20marketing",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Request a growth audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Request a growth audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/marketing-strategy-dubai",
+    "status": 200,
+    "bytes": 27131,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "marketing-agency-orange-county.html",
+        "text": "Marketing Strategy",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "marketing strategy in Dubai",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Get started →",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=marketing%20strategy",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Get free marketing audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "marketing-strategy-dubai.html",
+        "text": "Request free audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=mobile%20app%20development",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Get free app scoping call →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "mobile-app-development-dubai.html",
+        "text": "Request free scoping call →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?package=Signature%20Visibility%20Program",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "pricing.html",
+        "text": "Get Quote →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?package=Growth%20Acceleration%20Program",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "pricing.html",
+        "text": "Get Quote →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?package=Elite%20Brand%20Dominance%20Program",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "pricing.html",
+        "text": "Get Quote →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?package=Basic%205%20Page%20Website",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "pricing.html",
+        "text": "Start Website →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?package=Ecommerce%20Website",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "pricing.html",
+        "text": "Build Store →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?package=Basic%20SEO",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "pricing.html",
+        "text": "Start SEO →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?package=Gold%20SEO%20AEO%20GEO",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "pricing.html",
+        "text": "Choose Gold →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?package=Platinum%20SEO%20AEO%20GEO",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "pricing.html",
+        "text": "Choose Platinum →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?package=UGC%20Creator%20Program",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "pricing.html",
+        "text": "Start Now →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/ar/",
+    "status": 200,
+    "bytes": 9813,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=restaurant%20branding",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Request a brand audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Request a brand audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/restaurant-launch-marketing-dubai",
+    "status": 200,
+    "bytes": 22415,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "restaurant launches",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-branding-dubai.html",
+        "text": "Launch Marketing",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "العربية",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Plan a restaurant launch",
+        "hash": ""
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "restaurant launch marketing Dubai",
+        "hash": ""
+      },
+      {
+        "page": "services.html",
+        "text": "Restaurant Launch Marketing DubaiPre-opening strategy, launch content and influencer seeding for new F&B openings.",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=restaurant%20launch%20marketing",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Plan your launch →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "restaurant-launch-marketing-dubai.html",
+        "text": "Request launch audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=restaurant%20marketing",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Get free restaurant audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "restaurant-marketing-dubai.html",
+        "text": "Request free audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=social%20media",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Get free social audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "social-media-marketing-dubai.html",
+        "text": "Request free audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=video%20production",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "video-production-dubai.html",
+        "text": "Get free video audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "video-production-dubai.html",
+        "text": "Request free audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/ttt-client-intake",
+    "status": 200,
+    "bytes": 46650,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "ttt-client-intake.html",
+        "text": "العربية",
+        "hash": ""
+      }
+    ]
+  },
+  {
+    "url": "http://localhost:8799/contact?service=web%20design",
+    "status": 200,
+    "bytes": 44066,
+    "missingHashes": [],
+    "sources": [
+      {
+        "page": "web-design-dubai.html",
+        "text": "Get free website audit →",
+        "hash": "#free-audit"
+      },
+      {
+        "page": "web-design-dubai.html",
+        "text": "Request free audit →",
+        "hash": "#free-audit"
+      }
+    ]
+  }
+]

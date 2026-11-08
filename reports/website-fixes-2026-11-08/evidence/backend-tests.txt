@@ -1,0 +1,25 @@
+
+> ttt-website@1.0.0 test
+> node --test tests/*.test.cjs
+
+✔ Node serves public pages while unconfigured admin access fails closed (411.230833ms)
+✔ Node rejects private files and returns a readable custom 404 (39.715833ms)
+✔ Node validates leads on the server and normalizes national phone input (17.99575ms)
+✔ Node blocks cross-origin writes and defaults, authenticates configured admins and throttles attempts (12.47425ms)
+✔ public settings exclude credentials, arbitrary keys and old auth configuration (1.011166ms)
+✔ phone parsing handles trunk prefixes, pasted international numbers and invalid numbers (6.756958ms)
+✔ audit URL accepts websites and handles and rejects placeholders and active URLs (0.258833ms)
+✔ lead validation requires consent and validates audit destinations server-side (0.248833ms)
+✔ admin authentication requires two independent configured secrets (0.201916ms)
+✔ public build excludes private/runtime/source files (0.285125ms)
+✔ Cloudflare rejects empty/unconsented leads and unknown origins (32.032416ms)
+✔ Cloudflare rejects defaults, signs only configured sessions and keeps secrets out of sync (7.5655ms)
+✔ Cloudflare throttles repeated authentication attempts (4.135541ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 557.225333

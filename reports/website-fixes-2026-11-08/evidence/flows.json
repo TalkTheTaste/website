@@ -1,0 +1,38 @@
+[
+  {
+    "port": 3299,
+    "test": "contact submission",
+    "phone": "+971501234567",
+    "success": true
+  },
+  {
+    "port": 3299,
+    "test": "valid free audit submission",
+    "success": true
+  },
+  {
+    "port": 3299,
+    "test": "stored XSS escaped",
+    "executed": false,
+    "renderedImages": 0,
+    "errors": []
+  },
+  {
+    "port": 8899,
+    "test": "contact submission",
+    "phone": "+971501234567",
+    "success": true
+  },
+  {
+    "port": 8899,
+    "test": "valid free audit submission",
+    "success": true
+  },
+  {
+    "port": 8899,
+    "test": "stored XSS escaped",
+    "executed": false,
+    "renderedImages": 0,
+    "errors": []
+  }
+]

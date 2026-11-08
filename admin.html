@@ -15,7 +15,7 @@
 :root {
     --gold:#E8C830; --gold-dim:rgba(232,200,48,.1); --gold-border:rgba(232,200,48,.25);
     --black:#060606; --surface:#0D0D0D; --surface-2:#141414; --surface-3:#1A1A1A;
-    --border:#1C1C1C; --white:#F2F2F0; --gray:#777; --gray-light:#BBBBBB;
+    --border:#1C1C1C; --white:#F2F2F0; --gray:#aaa; --gray-light:#BBBBBB;
     --sidebar-w:240px; --danger:#EF4444; --success:#22C55E;
 }
 html,body { height:100%; font-family:'Inter',sans-serif; background:var(--black); color:var(--white); overflow:hidden; }
@@ -311,7 +311,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
         <input type="password" class="login-input" id="passInput" placeholder="Enter password" autocomplete="current-password">
         <button class="login-btn" id="loginBtn">Sign In</button>
         <div class="login-error" id="loginError"></div>
-        <p class="login-hint">Default password: <strong>ttt2025</strong> (change in Settings)</p>
+        <p class="login-hint">Use the administrator password configured for this deployment.</p>
     </div>
 </div>
 
@@ -564,10 +564,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
                     </div>
                     <div class="settings-card">
                         <h3>Security</h3>
-                        <div class="fg"><label>Current Password</label><input type="password" id="set-cur-pass" placeholder="Enter current password"></div>
-                        <div class="fg"><label>New Password</label><input type="password" id="set-new-pass" placeholder="New password (min. 6 chars)"></div>
-                        <div class="fg"><label>Confirm New Password</label><input type="password" id="set-conf-pass" placeholder="Repeat new password"></div>
-                        <button class="btn-primary" id="changePass" style="width:100%">Change Password</button>
+                        <p style="font-size:13px;color:var(--gray);line-height:1.7;">The administrator password is managed through the deployment's <code>ADMIN_PASSWORD</code> secret. Update that secret to change your password. Rotate <code>SESSION_SECRET</code> at the same time to sign out existing sessions.</p>
                     </div>
                     <div class="settings-card">
                         <h3>Data Management</h3>
@@ -786,7 +783,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
 
-<script src="js/data.js?v=7"></script>
+<script src="js/data.js?v=20261108"></script>
 <script>
 /* ================================================================
    ADMIN PANEL JAVASCRIPT
@@ -836,7 +833,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
             await TTT.API.init();
             showApp();
         } else {
-            document.getElementById('loginError').textContent = 'Incorrect password. Try again.';
+            document.getElementById('loginError').textContent = TTT.API.lastAuthError || 'Incorrect password. Try again.';
             document.getElementById('passInput').value = '';
             document.getElementById('passInput').focus();
         }
@@ -1513,7 +1510,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
     function escapeHtml(value) {
         const div = document.createElement('div');
         div.textContent = value;
-        return div.innerHTML;
+        return div.innerHTML.replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
 
     function escapeAttr(value) {
@@ -1672,20 +1669,6 @@ tr:hover td { background:rgba(255,255,255,.015); }
         toast('Settings saved', 'success');
     });
 
-    document.getElementById('changePass').addEventListener('click', () => {
-        const cur = document.getElementById('set-cur-pass').value;
-        const next = document.getElementById('set-new-pass').value;
-        const conf = document.getElementById('set-conf-pass').value;
-        const s = TTT.getSettings();
-        if (cur !== s.adminPass) { toast('Current password is incorrect', 'error'); return; }
-        if (next.length < 6) { toast('New password must be at least 6 characters', 'error'); return; }
-        if (next !== conf) { toast('Passwords do not match', 'error'); return; }
-        s.adminPass = next;
-        TTT.saveSettings(s);
-        ['set-cur-pass','set-new-pass','set-conf-pass'].forEach(id => document.getElementById(id).value = '');
-        toast('Password changed successfully', 'success');
-    });
-
     // Export
     document.getElementById('exportData').addEventListener('click', () => {
         const data = { projects: TTT.getProjects(), posts: TTT.getAllPosts(), settings: TTT.getSettings(), exportedAt: new Date().toISOString() };
@@ -1769,15 +1752,15 @@ tr:hover td { background:rgba(255,255,255,.015); }
             <tr style="${!l.read?'background:rgba(232,200,48,.03)':''}">
                 <td class="td-title">
                     ${!l.read ? '<span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;vertical-align:middle;"></span>' : ''}
-                    ${l.fname} ${l.lname}
-                    ${l.company ? `<div style="font-size:11px;color:var(--gray);font-weight:400">${l.company}</div>` : ''}
+                    ${escapeHtml(l.fname || '')} ${escapeHtml(l.lname || '')}
+                    ${l.company ? `<div style="font-size:11px;color:var(--gray);font-weight:400">${escapeHtml(l.company || '')}</div>` : ''}
                 </td>
-                <td><a href="mailto:${l.email}" style="color:var(--gold);font-size:12px;">${l.email}</a></td>
-                <td style="font-size:12px;color:var(--gray)">${l.phone || ' - '}</td>
+                <td><a href="mailto:${escapeHtml(l.email || '')}" style="color:var(--gold);font-size:12px;">${escapeHtml(l.email || '')}</a></td>
+                <td style="font-size:12px;color:var(--gray)">${escapeHtml(l.phone || ' - ')}</td>
                 <td style="font-size:12px;color:var(--gray)">
-                    ${l.interest || l.service || ' - '}
-                    ${l.package ? `<div style="font-size:11px;color:var(--gold);margin-top:3px;">${l.package}</div>` : ''}
-                    ${l.budget ? `<div style="font-size:11px;color:var(--gray);margin-top:3px;">${l.budget}</div>` : ''}
+                    ${escapeHtml(l.interest || l.service || ' - ')}
+                    ${l.package ? `<div style="font-size:11px;color:var(--gold);margin-top:3px;">${escapeHtml(l.package || '')}</div>` : ''}
+                    ${l.budget ? `<div style="font-size:11px;color:var(--gray);margin-top:3px;">${escapeHtml(l.budget || '')}</div>` : ''}
                 </td>
                 <td>
                     <select onchange="updateLeadStatus('${l.id}', this.value)" style="background:var(--black);border:1px solid var(--border);border-radius:8px;color:var(--gray-light);font-size:12px;padding:7px 9px;">
@@ -1785,8 +1768,8 @@ tr:hover td { background:rgba(255,255,255,.015); }
                     </select>
                 </td>
                 <td style="font-size:12px;color:var(--gray)">
-                    ${l.source || 'Website'}
-                    ${l.page ? `<div style="font-size:11px;color:var(--gray);margin-top:3px;">${l.page}</div>` : ''}
+                    ${escapeHtml(l.source || 'Website')}
+                    ${l.page ? `<div style="font-size:11px;color:var(--gray);margin-top:3px;">${escapeHtml(l.page || '')}</div>` : ''}
                 </td>
                 <td style="font-size:12px;color:var(--gray)">${TTT.formatDate(l.date)}</td>
                 <td><div class="row-actions">
@@ -1945,6 +1928,6 @@ tr:hover td { background:rgba(255,255,255,.015); }
 
 })();
 </script>
-<script src="js/language-switcher.js"></script>
+<script src="js/language-switcher.js?v=20261108"></script>
 </body>
 </html>

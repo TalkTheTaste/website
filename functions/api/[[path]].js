@@ -1,5 +1,7 @@
 'use strict';
 
+import security from '../../lib/security.cjs';
+
 import { DEFAULT_POSTS } from '../../data/default-posts.js';
 
 const DEFAULT_SETTINGS = {
@@ -10,7 +12,6 @@ const DEFAULT_SETTINGS = {
   instagram: 'https://www.instagram.com/talkthetaste/',
   linkedin: 'https://www.linkedin.com/company/ttt-mm/',
   tiktok: '#',
-  adminPass: 'ttt2025',
   web3formsKey: '',
 };
 
@@ -76,6 +77,8 @@ const JSON_HEADERS = {
 export async function onRequest(context) {
   const { request, env, params } = context;
 
+  const origin = request.headers.get('Origin');
+  if (origin && origin !== new URL(request.url).origin) return new Response('Origin not allowed', { status: 403 });
   if (request.method === 'OPTIONS') {
     return new Response(null, { status: 204, headers: corsHeaders(request) });
   }
@@ -83,10 +86,14 @@ export async function onRequest(context) {
   const path = '/' + normalizePath(params.path);
 
   try {
+    if (request.method === 'POST' && ['/auth/login', '/leads/submit', '/analytics/track'].includes(path)) {
+      const limit = path === '/auth/login' ? 5 : path === '/leads/submit' ? 10 : 120;
+      await enforceRateLimit(request, env, path, limit, path === '/analytics/track' ? 60 : 900);
+    }
     const response = await routeRequest(path, request, env);
     return withCors(response, request);
   } catch (error) {
-    return json({ error: error.message || 'Server error' }, error.status || 500, request);
+    return json({ error: error.message || 'Server error' }, error.status || 500, request, error.status === 429 ? { 'Retry-After': String(error.retryAfter || 60) } : {});
   }
 }
 
@@ -102,7 +109,8 @@ async function routeRequest(path, request, env) {
     return json({
       projects: await readStore(env, 'projects'),
       posts: await readStore(env, 'posts'),
-      settings: await readStore(env, 'settings'),
+      settings: await publicSettings(env),
+      authConfig: { passwordManagedExternally: true },
       leads: await readStore(env, 'leads'),
       analytics: await readStore(env, 'analytics'),
       shortlinks: await readStore(env, 'shortlinks'),
@@ -128,7 +136,7 @@ async function routeRequest(path, request, env) {
   if (path === '/settings/save' && request.method === 'POST') {
     await requireAuth(request, env);
     const current = await readStore(env, 'settings');
-    const next = { ...current, ...(await request.json()) };
+    const next = security.publicSettings({ ...current, ...security.publicSettings(await request.json()) });
     await writeStore(env, 'settings', next);
     return json({ ok: true });
   }
@@ -431,8 +439,8 @@ function mediaCountText(imageCount, videoCount) {
 
 async function login(request, env) {
   const body = await request.json().catch(() => ({}));
-  const settings = await readStore(env, 'settings');
-  const configuredPass = env.ADMIN_PASSWORD || settings.adminPass || DEFAULT_SETTINGS.adminPass;
+  if (!security.adminConfigured(env)) return json({ error: 'Admin access requires ADMIN_PASSWORD (16+ characters) and SESSION_SECRET (32+ characters).' }, 503);
+  const configuredPass = env.ADMIN_PASSWORD;
 
   if (body.password !== configuredPass) {
     return json({ error: 'Invalid password' }, 401);
@@ -460,8 +468,9 @@ function logout(request) {
 
 async function submitLead(request, env) {
   const body = await request.json().catch(() => ({}));
-  const phone = normalizePhone(body.phone || `${body.countryCode || ''}${body.phoneRaw || ''}`);
-  const validationErrors = validateLead(body, phone);
+  if (!body || typeof body !== 'object' || Array.isArray(body)) return json({ error: 'Invalid lead payload' }, 400);
+  const phone = security.normalizePhone(body.phone || body.phoneRaw, body.countryCode);
+  const validationErrors = security.validateLead(body, phone);
   if (validationErrors.length) {
     return json({ ok: false, error: 'Validation failed', fields: validationErrors }, 400);
   }
@@ -479,14 +488,14 @@ async function submitLead(request, env) {
     service: cleanText(body.service),
     budget: cleanText(body.budget),
     message: cleanText(body.message),
-    contactConsent: Boolean(body.contactConsent),
+    contactConsent: true,
     consentText: cleanText(body.consentText),
-    consentAt: cleanText(body.consentAt),
+    consentAt: new Date().toISOString(),
     source: cleanText(body.source),
     interest: cleanText(body.interest),
     package: cleanText(body.package),
     page: cleanText(body.page),
-    status: cleanText(body.status) || 'new',
+    status: 'new',
     date: new Date().toISOString().slice(0, 10),
     createdAt: Date.now(),
     read: false,
@@ -647,23 +656,6 @@ function osName(userAgent) {
   return 'Other';
 }
 
-function validateLead(body, phone) {
-  const errors = [];
-  if (!cleanText(body.fname)) errors.push('fname');
-  if (!cleanText(body.lname)) errors.push('lname');
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanText(body.email))) errors.push('email');
-  if (!/^\+[1-9]\d{6,14}$/.test(phone)) errors.push('phone');
-  if (cleanText(body.message).length < 10) errors.push('message');
-  return errors;
-}
-
-function normalizePhone(value) {
-  const raw = cleanText(value);
-  const hasPlus = raw.trim().startsWith('+');
-  const digits = raw.replace(/\D/g, '');
-  return digits ? `${hasPlus ? '+' : '+'}${digits}` : '';
-}
-
 function cleanText(value) {
   return String(value || '').trim().slice(0, 2000);
 }
@@ -702,8 +694,7 @@ async function saveBody(request, env, key, fallback) {
 
 async function publicSettings(env) {
   const settings = await readStore(env, 'settings');
-  const { adminPass, ...safeSettings } = settings;
-  return safeSettings;
+  return security.publicSettings(settings);
 }
 
 async function requireAuth(request, env) {
@@ -713,6 +704,7 @@ async function requireAuth(request, env) {
 }
 
 async function isAuthed(request, env) {
+  if (!security.adminConfigured(env)) return false;
   const token = parseCookies(request.headers.get('Cookie') || '').ttt_admin;
   if (!token) return false;
 
@@ -729,7 +721,8 @@ async function signToken(env, expiresAt) {
 }
 
 async function hmac(env, value) {
-  const secret = env.SESSION_SECRET || env.ADMIN_PASSWORD || DEFAULT_SETTINGS.adminPass;
+  if (!security.adminConfigured(env)) throw Object.assign(new Error('Admin access is not configured'), { status: 503 });
+  const secret = env.SESSION_SECRET;
   const key = await crypto.subtle.importKey(
     'raw',
     new TextEncoder().encode(secret),
@@ -870,11 +863,25 @@ function withCors(response, request) {
 }
 
 function corsHeaders(request) {
-  const origin = request && request.headers ? request.headers.get('Origin') : null;
-  return {
-    'Access-Control-Allow-Origin': origin || '*',
-    'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Credentials': 'true',
-  };
+  const origin = request?.headers?.get('Origin');
+  if (!origin || origin !== new URL(request.url).origin) return {};
+  return { 'Access-Control-Allow-Origin': origin, 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS', 'Access-Control-Allow-Headers': 'Content-Type', 'Vary': 'Origin' };
+}
+
+// Local counters provide immediate limits; KV carries the window across isolates.
+// Configure an edge rate-limit rule as well for a strict global production quota.
+const rateWindows = new Map();
+async function enforceRateLimit(request, env, bucket, limit, seconds) {
+  const now = Date.now();
+  for (const [key, value] of rateWindows) if (value.expires <= now) rateWindows.delete(key);
+  const address = request.headers.get('CF-Connecting-IP') || 'local';
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(address));
+  const client = [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, '0')).join('');
+  const key = `rate:${bucket}:${client}:${Math.floor(now / (seconds * 1000))}`;
+  const stored = env.TTT_DATA ? await env.TTT_DATA.get(key, 'json') : null;
+  const entry = rateWindows.get(key) || { count: 0, expires: now + seconds * 1000 };
+  entry.count = Math.max(entry.count, Number(stored) || 0) + 1;
+  rateWindows.set(key, entry);
+  if (entry.count > limit) throw Object.assign(new Error('Too many requests. Please try again later.'), { status: 429, retryAfter: seconds });
+  if (env.TTT_DATA) await env.TTT_DATA.put(key, JSON.stringify(entry.count), { expirationTtl: seconds }).catch(() => {});
 }

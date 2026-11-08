@@ -1,0 +1,111 @@
+[
+  {
+    "test": "empty contact form",
+    "invalid": 6,
+    "errors": []
+  },
+  {
+    "test": "valid contact form UAE local number",
+    "payloadPhone": "+9710501234567",
+    "success": true,
+    "errors": []
+  },
+  {
+    "test": "audit invalid url x",
+    "success": true,
+    "sentPhone": "+971501234567",
+    "errors": []
+  },
+  {
+    "test": "pricing package soft navigation",
+    "url": "http://localhost:8799/contact?package=Signature%20Visibility%20Program#free-audit",
+    "prefill": "I'm interested in the Signature Visibility Program package. Please recommend the best next step.",
+    "hashTargetTop": 1879.8692626953125,
+    "scrollY": 0,
+    "errors": []
+  },
+  {
+    "test": "Arabic switch",
+    "lang": "ar",
+    "dir": "ltr",
+    "h1": "into inquiry.",
+    "englishParagraphs": [
+      "\n            We turn the moments people notice into the reasons they ask, book\n            and buy. Strategy, social, content, websites and campaigns are built\n            by the same senior team, from Dubai to Irvine.\n          ",
+      "أرسل لنا موقعك أو حساب إنستغرام. سنحدد أسرع التحسينات لثقة أقوى وعروض أوضح واستفسارات أكثر.",
+      "استراتيجية وتصميم ومحتوى وتطوير يتم تخطيطها معا.",
+      "\n              We helped Creative Scalps present Haluk's expertise with cleaner\n              brand photography, service positioning and conversion-ready\n              content built for prospects comparing scalp micropigmentation\n              providers.\n            ",
+      "\n            Talk The Taste is a marketing agency specializing in restaurant,\n            café, hospitality and food & beverage brands, with operations in\n            Dubai and Orange County, California. Our senior team handles strategy,\n            branding, social, content, websites, SEO and digital campaigns.\n          ",
+      "نفهم عملك وجمهورك وأكبر فرصة لديك قبل البدء بأي تسليم.",
+      "خطة واضحة: تموضع، رسائل، قنوات، جداول زمنية ومؤشرات أداء مرتبطة بأهدافك التجارية.",
+      "نصمم ونبني ونصور وننشر. فريقنا الداخلي يسلم كل عنصر بمعيار تفخر به.",
+      "تحسين شهري مبني على البيانات. ما يعمل نزيده، وما لا يعمل نصلحه. بلا مقاييس شكلية.",
+      "معلومات واضحة للملاك ومشغلي المطاعم وفرق الضيافة والعلامات النامية التي تقارن بين الوكالات الإبداعية في دبي.",
+      "تقدم Talk The Taste إدارة وسائل التواصل، الهوية التجارية، استراتيجية التسويق، تصميم المواقع، تطوير تطبيقات الجوال، البرمجيات المخصصة وإنتاج الفيديو للشركات في دبي والإمارات.",
+      "\n            Yes. Talk The Taste is a marketing and digital agency based in Dubai,\n            providing strategy, social media, paid ads, branding, content,\n            websites and SEO for businesses in Dubai and across the UAE.\n          ",
+      "TTT مناسبة للمطاعم وعلامات الضيافة والشركات الناشئة وشركات الخدمات التي تحتاج محتوى مستمرا، هوية أقوى، موقعا أفضل أو منتجا رقميا مخصصا.",
+      "\n            Send a message through the contact form, WhatsApp +971 56 539 0316\n            or email hi@talkthetaste.com. The team will review your goals,\n            budget and timeline before recommending the right scope.\n          "
+    ],
+    "rtlClass": "ttt-page-in i18n-ar"
+  },
+  {
+    "test": "Arabic contact page",
+    "formCount": 1,
+    "text": "اتصل بنا\nأرسل لنا ما تريد تحسينه.\n\nيمكنك مراسلتنا بالعربية أو الإنجليزية. شارك رابط موقعك أو حسابك، الخدمة المطلوبة، وأي هدف واضح مثل زيادة الحجوزات، تحسين الاستفسارات، إطلاق مطعم أو بناء هوية جديدة.\n\nراسلنا على واتساب →\nhi@talkthetaste.com\nالاسم\nالبريد الإلكتروني\nرقم الهاتف\nالخدمة المطلوبة\nاختر الخدمة\nتسويق المطاعم\nإدارة وسائل التواصل\nتصميم موقع\nهوية تجارية\nإنتاج محتوى أو فيديو\nالرسالة\nإرسال عبر واتساب\nبيانات التواصل\nدبي، الإمارات العربية المتحدة.\nواتساب\n\n+971 56 539 0316\n\nالبريد الإلكتروني\n\nhi@talkthetaste.com\n\nالموقع\n\n3B 22nd St, Al Quoz Industrial 4, Dubai, UAE\n\nوكالة إبداعية في دبي للتسويق، الهوية، المواقع، التطبيقات والفيديو.\n\nالخدمات\nتسويق المطاعم\nالخدمات\nتدقيق مجاني\nالشركة\nعن الوكالة\nاتصل بنا\nEnglish\nالتواصل\nhi@talkthetaste.com\n+971 56 539 0316\nدبي، الإمارات العربية المتحدة\n© 2026 Talk The Taste. جميع الحقوق محفوظة.\nدبي، الإمارات العربية المتحدة · إيرفاين، كاليفورنيا\nEnglish",
+    "errors": []
+  },
+  {
+    "test": "work fallback",
+    "cards": 3,
+    "links": [
+      "/work/on-demand-delivery-app/",
+      "/work/social-growth-campaign-f-and-b-brand/",
+      "/work/full-brand-launch-dubai-restaurant-group/"
+    ],
+    "body": "✕\nHome\nServices\nWork\nPricing\nBlog\nLet's Talk →\nWhatsApp ↗\nOUR PORTFOLIO\nSelected\nclient work.\n\nFrom full brand launches to viral social campaigns, every project we take on is built to move the needle. Here's a selection of what we've done.\n\nAll Projects\nMobile App\nSocial Media\nBranding\nMOBILE APP\nOn-Demand Delivery App\nNative iOS and Android on-demand delivery platform built from MVP to full launch.\nMobile App\niOS\nAndroid\nSOCIAL MEDIA\nSocial Growth Campaign - F&B Brand\n3x engagement growth in 90 days through strategic content and paid advertising.\nSocial Media\nContent\nAds\nBRANDING\nFull Brand Launch - Dubai Restaurant Group\nComplete brand identity, website, and go-to-market strategy for a Dubai F&B group.\nBranding\nWeb\nStrategy\n\nDubai's creative agency. Marketing, branding, web, apps, and video, all under one roof.\n\nSERVICES\nMarketing\nSocial Media\nWeb Design\nMobile Apps\nCOMPANY\nOur Work\nBlog\nContact\nCONTACT\nhi@talkthetaste.com\n+971 52 997 2969\nDubai, UAE\n© 2025 Talk The Taste. All rights reserved.\nDubai, UAE · California, USA",
+    "errors": []
+  },
+  {
+    "test": "work card modal",
+    "url": "http://localhost:8799/work/on-demand-delivery-app/",
+    "dialog": 0,
+    "focus": "<a class=\"proj-card proj-featured reveal in\" data-id=\"mnplq1qa_r8kbpuf\" href=\"/work/on-demand-delivery-app/\" style=\"transition-delay:0s\">\n                <div class=\"proj-thumb\">\n                    <",
+    "errors": []
+  },
+  {
+    "test": "soft navigation /services",
+    "url": "http://localhost:8799/services",
+    "errors": []
+  },
+  {
+    "test": "soft navigation /pricing",
+    "url": "http://localhost:8799/pricing",
+    "errors": []
+  },
+  {
+    "test": "soft navigation /contact",
+    "url": "http://localhost:8799/pricing",
+    "errors": []
+  },
+  {
+    "test": "soft navigation /about",
+    "url": "http://localhost:8799/about",
+    "errors": []
+  },
+  {
+    "test": "soft navigation /blog",
+    "url": "http://localhost:8799/about",
+    "errors": []
+  },
+  {
+    "test": "soft navigation /work",
+    "url": "http://localhost:8799/work",
+    "errors": []
+  },
+  {
+    "test": "soft navigation /",
+    "url": "http://localhost:8799/",
+    "errors": [
+      "Failed to execute 'appendChild' on 'Node': Identifier 'statObs' has already been declared"
+    ]
+  }
+]

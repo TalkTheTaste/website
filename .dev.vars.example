@@ -1,0 +1,3 @@
+ADMIN_PASSWORD=""
+SESSION_SECRET=""
+# Add optional OneDrive and CallMeBot values from DEPLOY.md.

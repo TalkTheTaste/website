@@ -4,11 +4,14 @@ const fs      = require('fs');
 const path    = require('path');
 const session = require('express-session');
 const { Readable } = require('stream');
+const crypto = require('node:crypto');
+const security = require('./lib/security.cjs');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
-const DATA = path.join(ROOT, 'data');
+const DATA = process.env.DATA_DIR || path.join(ROOT, 'data');
+const PUBLIC = path.join(ROOT, 'dist');
 const memoryCache = new Map();
 
 // ── Bootstrap data directory ─────────────────────────────────
@@ -31,7 +34,6 @@ const DEFAULT_SETTINGS = {
     instagram:   'https://www.instagram.com/talkthetaste/',
     linkedin:    'https://www.linkedin.com/company/ttt-mm/',
     tiktok:      '#',
-    adminPass:   'ttt2025',
     web3formsKey: '',
 };
 
@@ -57,29 +59,61 @@ function isPostLive(post, now = Date.now()) {
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ extended: true, limit: '20mb' }));
 app.use(session({
-    secret: process.env.SESSION_SECRET || 'ttt-session-secret-2025',
+    secret: process.env.SESSION_SECRET || crypto.randomBytes(32).toString('hex'),
     resave: false,
     saveUninitialized: false,
-    cookie: { httpOnly: true, maxAge: 8 * 60 * 60 * 1000 }, // 8 hours
+    cookie: { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', maxAge: 8 * 60 * 60 * 1000 }, // 8 hours
 }));
 
-// Serve static files
-app.use(express.static(ROOT, { index: 'index.html' }));
+// Serve only the public build, never the repository or runtime data.
+app.disable('x-powered-by');
+if (process.env.TRUST_PROXY === '1') app.set('trust proxy', 1);
+app.use((req, res, next) => {
+    res.set('X-Content-Type-Options', 'nosniff');
+    res.set('X-Frame-Options', 'SAMEORIGIN');
+    res.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+    if (req.path.startsWith('/api/')) res.set('Cache-Control', 'no-store');
+    if (req.method === 'POST' && req.get('Origin') && req.get('Origin') !== `${req.protocol}://${req.get('host')}`) {
+        return res.status(403).json({ error: 'Origin not allowed' });
+    }
+    next();
+});
+app.use(express.static(PUBLIC, { index: 'index.html', maxAge: 0 }));
+const attempts = new Map();
+function rateLimit(bucket, limit, windowMs) {
+    return (req, res, next) => {
+        const now = Date.now();
+        for (const [key, entry] of attempts) if (entry.expires <= now) attempts.delete(key);
+        const key = `${bucket}:${req.ip}`;
+        const entry = attempts.get(key) || { count: 0, expires: now + windowMs };
+        entry.count++;
+        attempts.set(key, entry);
+        if (entry.count > limit) {
+            res.set('Retry-After', String(Math.ceil((entry.expires - now) / 1000)));
+            return res.status(429).json({ error: 'Too many requests. Please try again later.' });
+        }
+        next();
+    };
+}
+app.use('/api/auth/login', rateLimit('login', 5, 15 * 60 * 1000));
+app.use('/api/leads/submit', rateLimit('leads', 10, 15 * 60 * 1000));
+app.use('/api/analytics/track', rateLimit('analytics', 120, 60 * 1000));
 
 // Auth guard
 const auth = (req, res, next) => req.session.admin ? next() : res.status(401).json({ error: 'Unauthorized' });
 
 // ── AUTH ROUTES ──────────────────────────────────────────────
 app.post('/api/auth/login', (req, res) => {
-    const { password } = req.body;
-    const settings = read(FILES.settings);
-    const pass = settings.adminPass || DEFAULT_SETTINGS.adminPass;
-    if (password === pass) {
-        req.session.admin = true;
-        res.json({ ok: true });
-    } else {
-        res.status(401).json({ error: 'Invalid password' });
-    }
+    if (!security.adminConfigured(process.env)) return res.status(503).json({ error: 'Admin access requires ADMIN_PASSWORD (16+ characters) and SESSION_SECRET (32+ characters).' });
+    const supplied = typeof req.body.password === 'string' ? req.body.password : '';
+    const expected = process.env.ADMIN_PASSWORD;
+    if (crypto.timingSafeEqual(crypto.createHash('sha256').update(supplied).digest(), crypto.createHash('sha256').update(expected).digest())) {
+        req.session.regenerate(error => {
+            if (error) return res.status(500).json({ error: 'Unable to start session' });
+            req.session.admin = true;
+            res.json({ ok: true });
+        });
+    } else res.status(401).json({ error: 'Invalid password' });
 });
 
 app.post('/api/auth/logout', (req, res) => {
@@ -95,7 +129,8 @@ app.get('/api/sync', auth, (req, res) => {
     res.json({
         projects: read(FILES.projects),
         posts:    read(FILES.posts),
-        settings: read(FILES.settings),
+        settings: security.publicSettings(read(FILES.settings)),
+        authConfig: { passwordManagedExternally: true },
         leads:    read(FILES.leads),
         analytics: read(FILES.analytics),
         shortlinks: read(FILES.shortlinks),
@@ -111,10 +146,10 @@ app.get('/api/posts',       (req, res) => res.json(read(FILES.posts).filter(isPo
 app.post('/api/posts/save', auth, (req, res) => { write(FILES.posts, req.body); res.json({ ok: true }); });
 
 // ── SETTINGS ─────────────────────────────────────────────────
-app.get('/api/settings',       (req, res) => res.json(read(FILES.settings)));
+app.get('/api/settings',       (req, res) => res.json(security.publicSettings(read(FILES.settings))));
 app.post('/api/settings/save', auth, (req, res) => {
     const current = read(FILES.settings);
-    write(FILES.settings, { ...current, ...req.body });
+    write(FILES.settings, security.publicSettings({ ...current, ...security.publicSettings(req.body) }));
     res.json({ ok: true });
 });
 
@@ -178,31 +213,16 @@ app.post('/api/analytics/track', async (req, res) => {
 
 // Public: submit a new lead from contact form
 app.post('/api/leads/submit', (req, res) => {
+    const body = req.body;
+    const phone = security.normalizePhone(body.phone || body.phoneRaw, body.countryCode);
+    const fields = security.validateLead(body, phone);
+    if (fields.length) return res.status(400).json({ ok: false, error: 'Validation failed', fields });
     const list = read(FILES.leads);
-    const lead = {
-        id:        Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 7),
-        fname:     req.body.fname   || '',
-        lname:     req.body.lname   || '',
-        email:     req.body.email   || '',
-        countryCode: req.body.countryCode || '',
-        company:   req.body.company || '',
-        phone:     req.body.phone || '',
-        phoneRaw:  req.body.phoneRaw || '',
-        service:   req.body.service || '',
-        budget:    req.body.budget  || '',
-        message:   req.body.message || '',
-        contactConsent: !!req.body.contactConsent,
-        consentText: req.body.consentText || '',
-        consentAt: req.body.consentAt || '',
-        source:    req.body.source  || '',
-        interest:  req.body.interest || '',
-        package:   req.body.package || '',
-        page:      req.body.page    || '',
-        status:    req.body.status  || 'new',
-        date:      new Date().toISOString().slice(0, 10),
-        createdAt: Date.now(),
-        read:      false,
-    };
+    const lead = Object.fromEntries(['fname', 'lname', 'email', 'countryCode', 'company', 'phoneRaw', 'service', 'budget', 'message', 'source', 'interest', 'package', 'page', 'consentText'].map(key => [key, security.cleanText(body[key])]));
+    Object.assign(lead, {
+        id: crypto.randomUUID(), phone, contactConsent: true, consentAt: new Date().toISOString(),
+        status: 'new', date: new Date().toISOString().slice(0, 10), createdAt: Date.now(), read: false,
+    });
     list.unshift(lead);
     write(FILES.leads, list);
     res.json({ ok: true, id: lead.id });
@@ -211,23 +231,23 @@ app.post('/api/leads/submit', (req, res) => {
 app.get(['/profile', '/profile/'], (req, res) => {
     res.type('application/pdf');
     res.set('Content-Disposition', 'inline; filename="TTTprofile.pdf"');
-    res.sendFile(path.join(ROOT, 'TTTprofile.pdf'));
+    res.sendFile(path.join(PUBLIC, 'TTTprofile.pdf'));
 });
 
 app.get('/work.html', (req, res) => res.redirect(301, '/work'));
 app.get('/privacy-policy.html', (req, res) => res.redirect(301, '/privacy-policy'));
 app.get(['/privacy-policy', '/privacy-policy/'], (req, res) => {
     res.type('html');
-    res.sendFile(path.join(ROOT, 'privacy-policy.html'));
+    res.sendFile(path.join(PUBLIC, 'privacy-policy.html'));
 });
 app.get('/terms-and-conditions.html', (req, res) => res.redirect(301, '/terms-and-conditions'));
 app.get(['/terms-and-conditions', '/terms-and-conditions/'], (req, res) => {
     res.type('html');
-    res.sendFile(path.join(ROOT, 'terms-and-conditions.html'));
+    res.sendFile(path.join(PUBLIC, 'terms-and-conditions.html'));
 });
 app.get(['/work', '/work/'], (req, res) => {
     res.type('html');
-    res.sendFile(path.join(ROOT, 'assets/pages/portfolio-source.txt'));
+    res.sendFile(path.join(PUBLIC, 'assets/pages/portfolio-source.txt'));
 });
 
 // Public: live portfolio from Microsoft OneDrive
@@ -344,17 +364,35 @@ app.get('/onedrive/:slug', (req, res, next) => {
     return res.redirect(302, link.target);
 });
 
-// ── CATCH-ALL: serve HTML pages ──────────────────────────────
-app.get('*', (req, res) => {
-    const filePath = path.join(ROOT, req.path);
-    const htmlPath = path.join(ROOT, `${req.path}.html`);
-    if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-        res.sendFile(filePath);
-    } else if (fs.existsSync(htmlPath) && fs.statSync(htmlPath).isFile()) {
-        res.sendFile(htmlPath);
-    } else {
-        res.status(404).sendFile(path.join(ROOT, 'index.html'));
+app.get('/favicon.ico', (req, res) => res.sendFile(path.join(PUBLIC, 'assets/logo.png')));
+async function renderDetail(req, res, modulePath) {
+    try {
+        const renderer = await import(modulePath);
+        const request = new Request(`http://127.0.0.1:${PORT}${req.originalUrl}`, { method: 'GET' });
+        const env = { ...process.env, ASSETS: { fetch: async input => {
+            const url = new URL(typeof input === 'string' ? input : input.url || input);
+            const relative = url.pathname === '/404' ? '404.html' : url.pathname.replace(/^\//, '');
+            const filename = path.resolve(PUBLIC, relative);
+            if (!filename.startsWith(PUBLIC + path.sep) || !fs.existsSync(filename) || !fs.statSync(filename).isFile()) return new Response('Not found', { status: 404 });
+            return new Response(fs.readFileSync(filename), { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+        } } };
+        const response = await renderer.onRequestGet({ request, env });
+        res.status(response.status);
+        response.headers.forEach((value, key) => res.set(key, value));
+        res.send(await response.text());
+    } catch (error) {
+        console.error('Detail page render failed:', error.message);
+        res.status(500).sendFile(path.join(PUBLIC, '404.html'));
     }
+}
+app.get('/blog/:slug', (req, res) => renderDetail(req, res, './functions/blog/[slug].js'));
+app.get('/work/:slug', (req, res) => renderDetail(req, res, './functions/work/[slug].js'));
+app.get('*', (req, res) => {
+    // Only HTML routes from the public build are eligible for extensionless lookup.
+    const relative = req.path.replace(/^\//, '').replace(/\/$/, '');
+    const htmlPath = path.resolve(PUBLIC, `${relative}.html`);
+    if (htmlPath.startsWith(PUBLIC + path.sep) && fs.existsSync(htmlPath) && fs.statSync(htmlPath).isFile()) res.sendFile(htmlPath);
+    else res.status(404).sendFile(path.join(PUBLIC, '404.html'));
 });
 
 app.listen(PORT, () => console.log(`TTT running → http://localhost:${PORT}`));

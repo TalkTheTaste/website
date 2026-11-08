@@ -1,0 +1,101 @@
+[
+  {
+    "route": "/blog/how-to-market-a-restaurant-in-dubai/",
+    "status": 200,
+    "title": "How to Market a Restaurant in Dubai: Practical F&B Plan | Talk The Taste",
+    "errors": [
+      "Cannot set properties of null (setting 'textContent')"
+    ],
+    "http": [],
+    "a11y": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".btn-gold"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/work/on-demand-delivery-app/",
+    "navigationError": "page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at http://localhost:8799/work/on-demand-delivery-app/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8799/work/on-demand-delivery-app/\", waiting until \"load\"\u001b[22m\n",
+    "errors": [],
+    "http": [
+      {
+        "url": "http://localhost:8799/work/on-demand-delivery-app/",
+        "status": 404
+      }
+    ]
+  },
+  {
+    "route": "/work/social-growth-campaign-f-and-b-brand/",
+    "navigationError": "page.goto: net::ERR_HTTP_RESPONSE_CODE_FAILURE at http://localhost:8799/work/social-growth-campaign-f-and-b-brand/\nCall log:\n\u001b[2m  - navigating to \"http://localhost:8799/work/social-growth-campaign-f-and-b-brand/\", waiting until \"load\"\u001b[22m\n",
+    "errors": [],
+    "http": [
+      {
+        "url": "http://localhost:8799/work/social-growth-campaign-f-and-b-brand/",
+        "status": 404
+      }
+    ]
+  },
+  {
+    "route": "/404.html",
+    "status": 200,
+    "title": "Page Not Found | Talk The Taste",
+    "errors": [],
+    "http": [],
+    "a11y": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              ".btn-primary[href=\"/\"]"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/admin",
+    "status": 200,
+    "title": "TTT Admin Panel",
+    "errors": [],
+    "http": [],
+    "a11y": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "nodes": [
+          {
+            "target": [
+              "p:nth-child(3)"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.34 (foreground color: #777777, background color: #0d0d0d, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".login-hint"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.34 (foreground color: #777777, background color: #0d0d0d, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".login-hint > strong"
+            ],
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.34 (foreground color: #777777, background color: #0d0d0d, font size: 10.5pt (14px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  }
+]

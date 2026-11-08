@@ -52,7 +52,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css?v=2">
+    <link rel="stylesheet" href="css/main.css?v=20261108">
     <style>
         .policy-shell { max-width: 1180px; margin: 0 auto; }
         .policy-meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
@@ -490,8 +490,8 @@
       </div>
     </footer>
 
-<script src="js/data.js?v=6"></script>
-<script src="js/conversion.js"></script>
+<script src="js/data.js?v=20261108"></script>
+<script src="js/conversion.js?v=20261108"></script>
 <script>
 (function(){
     const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
@@ -505,13 +505,9 @@
         if(e.target.closest('a,button,input,select,textarea,.policy-card,.policy-mini')){cur.classList.add('active');ring.classList.add('active');}
         else{cur.classList.remove('active');ring.classList.remove('active');}
     });
-    const ham=document.querySelector('.hamburger'),menu=document.getElementById('mobileMenu'),close=document.getElementById('mobileMenuClose');
-    function toggle(open){ham.classList.toggle('open',open);ham.setAttribute('aria-expanded',open?'true':'false');menu.classList.toggle('open',open);menu.setAttribute('aria-hidden',open?'false':'true');document.body.style.overflow=open?'hidden':'';}
-    ham.addEventListener('click',()=>toggle(!menu.classList.contains('open')));
-    close.addEventListener('click',()=>toggle(false));
-    menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggle(false)));
 })();
 </script>
-<script src="js/language-switcher.js"></script>
+<script src="js/transitions.js?v=20261108"></script>
+<script src="js/language-switcher.js?v=20261108"></script>
 </body>
 </html>

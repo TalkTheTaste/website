@@ -1,0 +1,11 @@
+'use strict';
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '..');
+const output = path.join(root, 'dist');
+fs.rmSync(output, { recursive: true, force: true });
+fs.mkdirSync(output, { recursive: true });
+const files = fs.readdirSync(root).filter(file => file.endsWith('.html'));
+files.push('assets', 'css', 'js', 'images', 'ar', 'TTTprofile.pdf', 'robots.txt', 'sitemap.xml', 'llms.txt', '_headers', '_redirects', '_routes.json', 'post-template.asset');
+for (const file of files) fs.cpSync(path.join(root, file), path.join(output, file), { recursive: true });
+console.log('Prepared public assets in dist/ (private data and source excluded).');

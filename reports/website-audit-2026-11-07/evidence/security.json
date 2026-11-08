@@ -1,0 +1,26 @@
+[
+  {
+    "port": 3199,
+    "test": "HTML in lead / consent false",
+    "status": 200,
+    "ok": true
+  },
+  {
+    "port": 3199,
+    "test": "login using public data password",
+    "appVisible": true,
+    "storedXssExecuted": true
+  },
+  {
+    "port": 8799,
+    "test": "HTML in lead / consent false",
+    "status": 200,
+    "ok": true
+  },
+  {
+    "port": 8799,
+    "test": "login using public data password",
+    "appVisible": true,
+    "storedXssExecuted": true
+  }
+]

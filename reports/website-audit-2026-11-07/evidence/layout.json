@@ -1,0 +1,559 @@
+[
+  {
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "browser": "156.0.8078.80",
+    "menu": {
+      "height": 9582,
+      "scrollHeight": 9582,
+      "overflow": "visible",
+      "links": [
+        {
+          "text": "✕",
+          "top": -22.779062271118164,
+          "bottom": 17.220937728881836
+        },
+        {
+          "text": "Home",
+          "top": 4472.345703125,
+          "bottom": 4559.345703125
+        },
+        {
+          "text": "About",
+          "top": 4563.345703125,
+          "bottom": 4650.345703125
+        },
+        {
+          "text": "Services",
+          "top": 4654.345703125,
+          "bottom": 4741.345703125
+        },
+        {
+          "text": "Work",
+          "top": 4745.345703125,
+          "bottom": 4832.345703125
+        },
+        {
+          "text": "Pricing",
+          "top": 4836.345703125,
+          "bottom": 4923.345703125
+        },
+        {
+          "text": "Let's Talk →",
+          "top": 4971.345703125,
+          "bottom": 5016.345703125
+        },
+        {
+          "text": "WhatsApp ↗",
+          "top": 4983.345703125,
+          "bottom": 5004.345703125
+        }
+      ],
+      "viewportHeight": 390
+    }
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "browser": "156.0.8078.80",
+    "menu": {
+      "height": 9834,
+      "scrollHeight": 9834,
+      "overflow": "visible",
+      "links": [
+        {
+          "text": "✕",
+          "top": -278.6628723144531,
+          "bottom": -238.66287231445312
+        },
+        {
+          "text": "Home",
+          "top": 4342.1962890625,
+          "bottom": 4429.1962890625
+        },
+        {
+          "text": "About",
+          "top": 4433.1962890625,
+          "bottom": 4520.1962890625
+        },
+        {
+          "text": "Services",
+          "top": 4524.1962890625,
+          "bottom": 4611.1962890625
+        },
+        {
+          "text": "Work",
+          "top": 4615.1962890625,
+          "bottom": 4702.1962890625
+        },
+        {
+          "text": "Pricing",
+          "top": 4706.1962890625,
+          "bottom": 4793.1962890625
+        },
+        {
+          "text": "Let's Talk →",
+          "top": 4841.1962890625,
+          "bottom": 4886.1962890625
+        },
+        {
+          "text": "WhatsApp ↗",
+          "top": 4853.1962890625,
+          "bottom": 4874.1962890625
+        }
+      ],
+      "viewportHeight": 1024
+    }
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "browser": "156.0.8078.80",
+    "nav": [
+      {
+        "text": "",
+        "font": "16px",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      {
+        "text": "",
+        "font": "16px",
+        "rect": {
+          "x": 80,
+          "y": 28.5,
+          "width": 34,
+          "height": 34,
+          "top": 28.5,
+          "right": 114,
+          "bottom": 62.5,
+          "left": 80
+        }
+      },
+      {
+        "text": "Home",
+        "font": "13px",
+        "rect": {
+          "x": 320.21875,
+          "y": 38.5,
+          "width": 37.125,
+          "height": 16,
+          "top": 38.5,
+          "right": 357.34375,
+          "bottom": 54.5,
+          "left": 320.21875
+        }
+      },
+      {
+        "text": "About",
+        "font": "13px",
+        "rect": {
+          "x": 393.34375,
+          "y": 38.5,
+          "width": 37.859375,
+          "height": 16,
+          "top": 38.5,
+          "right": 431.203125,
+          "bottom": 54.5,
+          "left": 393.34375
+        }
+      },
+      {
+        "text": "Services",
+        "font": "13px",
+        "rect": {
+          "x": 467.203125,
+          "y": 38.5,
+          "width": 54.953125,
+          "height": 16,
+          "top": 38.5,
+          "right": 522.15625,
+          "bottom": 54.5,
+          "left": 467.203125
+        }
+      },
+      {
+        "text": "Work",
+        "font": "13px",
+        "rect": {
+          "x": 558.15625,
+          "y": 38.5,
+          "width": 33.140625,
+          "height": 16,
+          "top": 38.5,
+          "right": 591.296875,
+          "bottom": 54.5,
+          "left": 558.15625
+        }
+      },
+      {
+        "text": "Pricing",
+        "font": "13px",
+        "rect": {
+          "x": 627.296875,
+          "y": 38.5,
+          "width": 44.109375,
+          "height": 16,
+          "top": 38.5,
+          "right": 671.40625,
+          "bottom": 54.5,
+          "left": 627.296875
+        }
+      },
+      {
+        "text": "WhatsApp ↗",
+        "font": "12px",
+        "rect": {
+          "x": 671.40625,
+          "y": 36.5,
+          "width": 75.0625,
+          "height": 18,
+          "top": 36.5,
+          "right": 746.46875,
+          "bottom": 54.5,
+          "left": 671.40625
+        }
+      },
+      {
+        "text": "العربية",
+        "font": "12px",
+        "rect": {
+          "x": 766.46875,
+          "y": 28,
+          "width": 60.03125,
+          "height": 35,
+          "top": 28,
+          "right": 826.5,
+          "bottom": 63,
+          "left": 766.46875
+        }
+      },
+      {
+        "text": "Let's Talk",
+        "font": "12px",
+        "rect": {
+          "x": 846.5,
+          "y": 29,
+          "width": 97.5,
+          "height": 33,
+          "top": 29,
+          "right": 944,
+          "bottom": 62,
+          "left": 846.5
+        }
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    },
+    "browser": "156.0.8078.80",
+    "nav": [
+      {
+        "text": "",
+        "font": "16px",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      {
+        "text": "",
+        "font": "16px",
+        "rect": {
+          "x": 80,
+          "y": 28.5,
+          "width": 34,
+          "height": 34,
+          "top": 28.5,
+          "right": 114,
+          "bottom": 62.5,
+          "left": 80
+        }
+      },
+      {
+        "text": "Home",
+        "font": "13px",
+        "rect": {
+          "x": 784.40625,
+          "y": 38.5,
+          "width": 37.125,
+          "height": 16,
+          "top": 38.5,
+          "right": 821.53125,
+          "bottom": 54.5,
+          "left": 784.40625
+        }
+      },
+      {
+        "text": "About",
+        "font": "13px",
+        "rect": {
+          "x": 857.53125,
+          "y": 38.5,
+          "width": 37.859375,
+          "height": 16,
+          "top": 38.5,
+          "right": 895.390625,
+          "bottom": 54.5,
+          "left": 857.53125
+        }
+      },
+      {
+        "text": "Services",
+        "font": "13px",
+        "rect": {
+          "x": 931.390625,
+          "y": 38.5,
+          "width": 54.953125,
+          "height": 16,
+          "top": 38.5,
+          "right": 986.34375,
+          "bottom": 54.5,
+          "left": 931.390625
+        }
+      },
+      {
+        "text": "Work",
+        "font": "13px",
+        "rect": {
+          "x": 1022.34375,
+          "y": 38.5,
+          "width": 33.140625,
+          "height": 16,
+          "top": 38.5,
+          "right": 1055.484375,
+          "bottom": 54.5,
+          "left": 1022.34375
+        }
+      },
+      {
+        "text": "Pricing",
+        "font": "13px",
+        "rect": {
+          "x": 1091.484375,
+          "y": 38.5,
+          "width": 44.109375,
+          "height": 16,
+          "top": 38.5,
+          "right": 1135.59375,
+          "bottom": 54.5,
+          "left": 1091.484375
+        }
+      },
+      {
+        "text": "WhatsApp ↗",
+        "font": "12px",
+        "rect": {
+          "x": 1567.40625,
+          "y": 36.5,
+          "width": 75.0625,
+          "height": 18,
+          "top": 36.5,
+          "right": 1642.46875,
+          "bottom": 54.5,
+          "left": 1567.40625
+        }
+      },
+      {
+        "text": "العربية",
+        "font": "12px",
+        "rect": {
+          "x": 1662.46875,
+          "y": 28,
+          "width": 60.03125,
+          "height": 35,
+          "top": 28,
+          "right": 1722.5,
+          "bottom": 63,
+          "left": 1662.46875
+        }
+      },
+      {
+        "text": "Let's Talk",
+        "font": "12px",
+        "rect": {
+          "x": 1742.5,
+          "y": 29,
+          "width": 97.5,
+          "height": 33,
+          "top": 29,
+          "right": 1840,
+          "bottom": 62,
+          "left": 1742.5
+        }
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 3840,
+      "height": 2160
+    },
+    "browser": "156.0.8078.80",
+    "nav": [
+      {
+        "text": "",
+        "font": "16px",
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0,
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      {
+        "text": "",
+        "font": "16px",
+        "rect": {
+          "x": 80,
+          "y": 28.5,
+          "width": 34,
+          "height": 34,
+          "top": 28.5,
+          "right": 114,
+          "bottom": 62.5,
+          "left": 80
+        }
+      },
+      {
+        "text": "Home",
+        "font": "13px",
+        "rect": {
+          "x": 1744.40625,
+          "y": 38.5,
+          "width": 37.125,
+          "height": 16,
+          "top": 38.5,
+          "right": 1781.53125,
+          "bottom": 54.5,
+          "left": 1744.40625
+        }
+      },
+      {
+        "text": "About",
+        "font": "13px",
+        "rect": {
+          "x": 1817.53125,
+          "y": 38.5,
+          "width": 37.859375,
+          "height": 16,
+          "top": 38.5,
+          "right": 1855.390625,
+          "bottom": 54.5,
+          "left": 1817.53125
+        }
+      },
+      {
+        "text": "Services",
+        "font": "13px",
+        "rect": {
+          "x": 1891.390625,
+          "y": 38.5,
+          "width": 54.953125,
+          "height": 16,
+          "top": 38.5,
+          "right": 1946.34375,
+          "bottom": 54.5,
+          "left": 1891.390625
+        }
+      },
+      {
+        "text": "Work",
+        "font": "13px",
+        "rect": {
+          "x": 1982.34375,
+          "y": 38.5,
+          "width": 33.140625,
+          "height": 16,
+          "top": 38.5,
+          "right": 2015.484375,
+          "bottom": 54.5,
+          "left": 1982.34375
+        }
+      },
+      {
+        "text": "Pricing",
+        "font": "13px",
+        "rect": {
+          "x": 2051.484375,
+          "y": 38.5,
+          "width": 44.109375,
+          "height": 16,
+          "top": 38.5,
+          "right": 2095.59375,
+          "bottom": 54.5,
+          "left": 2051.484375
+        }
+      },
+      {
+        "text": "WhatsApp ↗",
+        "font": "12px",
+        "rect": {
+          "x": 3487.40625,
+          "y": 36.5,
+          "width": 75.0625,
+          "height": 18,
+          "top": 36.5,
+          "right": 3562.46875,
+          "bottom": 54.5,
+          "left": 3487.40625
+        }
+      },
+      {
+        "text": "العربية",
+        "font": "12px",
+        "rect": {
+          "x": 3582.46875,
+          "y": 28,
+          "width": 60.03125,
+          "height": 35,
+          "top": 28,
+          "right": 3642.5,
+          "bottom": 63,
+          "left": 3582.46875
+        }
+      },
+      {
+        "text": "Let's Talk",
+        "font": "12px",
+        "rect": {
+          "x": 3662.5,
+          "y": 29,
+          "width": 97.5,
+          "height": 33,
+          "top": 29,
+          "right": 3760,
+          "bottom": 62,
+          "left": 3662.5
+        }
+      }
+    ]
+  }
+]

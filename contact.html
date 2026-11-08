@@ -76,7 +76,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css?v=2">
+    <link rel="stylesheet" href="css/main.css?v=20261108">
     <style>
         .contact-layout { display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start; }
         .contact-info { position:sticky;top:100px; }
@@ -362,7 +362,7 @@
                         <span>I agree that Talk The Taste may contact me about this audit and related services by WhatsApp, phone, SMS/text, email or other provided methods. I can opt out at any time and my information is handled under the <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>.</span>
                     </label>
                     <button type="submit" class="btn-gold" data-track="audit_submit_click" data-track-label="Contact audit form">Request Free Audit →</button>
-                    <div class="audit-success" id="auditSuccess">Audit request received. We will reply on WhatsApp.</div>
+                    <div class="audit-success" id="auditSuccess" role="status">Audit request received. We will reply on WhatsApp.</div>
                 </form>
             </div>
             <div class="contact-form">
@@ -396,7 +396,7 @@
                     <div class="form-group">
                         <label class="form-label" for="phone">Phone / WhatsApp *</label>
                         <div class="phone-row">
-                            <select class="form-select" id="countryCode" required>
+                            <select class="form-select" id="countryCode" aria-label="Country calling code" required>
                                 <option value="+971">UAE +971</option>
                                 <option value="+1">USA / Canada +1</option>
                                 <option value="+33">France +33</option>
@@ -469,7 +469,7 @@
                     </button>
                     <p class="form-note">We respond within 1 business day. If the scope fits, we send a secure payment link or bank transfer details.</p>
                 </form>
-                <div class="success-msg" id="successMsg">
+                <div class="success-msg" role="status" id="successMsg">
                     <div class="check">✅</div>
                     <h3>Message Received!</h3>
                     <p>Thanks for reaching out. We'll be in touch within one business day. In the meantime, follow us on <a href="https://www.instagram.com/talkthetaste/" target="_blank" style="color:var(--gold)">@talkthetaste</a>.</p>
@@ -632,8 +632,9 @@
       </div>
     </footer>
 
-<script src="js/data.js?v=6"></script>
-<script src="js/conversion.js"></script>
+<script src="js/form-utils.bundle.js?v=20261108"></script>
+<script src="js/data.js?v=20261108"></script>
+<script src="js/conversion.js?v=20261108"></script>
 <script>
 (function(){
     const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
@@ -673,12 +674,12 @@
         const url = document.getElementById('auditUrl').value.trim();
         const interest = document.getElementById('auditInterest').value;
         const auditConsent = document.getElementById('auditConsent').checked;
-        const phoneDigits = phoneRaw.replace(/\D/g, '');
-        const phone = phoneRaw.trim().startsWith('+')
-            ? `+${phoneDigits}`
-            : phoneDigits;
-        if (!name || phoneDigits.length < 7 || !url || !auditConsent) {
-            alert('Please add your name, WhatsApp number, website or Instagram, and contact permission.');
+        const phone = TTTForms.normalizePhone(phoneRaw);
+        const validUrl = TTTForms.validAuditUrl(url);
+        document.getElementById('auditUrl').setCustomValidity(validUrl ? '' : 'Enter a full website URL or an Instagram handle such as @yourbrand.');
+        if (!name || !phone || !validUrl || !auditConsent) {
+            if (!validUrl) document.getElementById('auditUrl').reportValidity();
+            else alert('Please add your name, a valid international WhatsApp number, and contact permission.');
             return;
         }
         const lead = TTT.saveLead({
@@ -693,6 +694,7 @@
             service: 'Free Growth Audit',
             interest,
             source: 'Free Growth Audit Form',
+            auditUrl: url,
             page: location.pathname,
             status: 'new',
             message: `Free growth audit request\nWebsite/Instagram: ${url}\nGoal: ${interest}`,
@@ -714,8 +716,7 @@
         const email   = document.getElementById('email').value.trim();
         const countryCode = document.getElementById('countryCode').value;
         const phoneRaw = document.getElementById('phone').value.trim();
-        const phoneDigits = phoneRaw.replace(/\D/g, '');
-        const phone = `${countryCode}${phoneDigits}`;
+        const phone = TTTForms.normalizePhone(phoneRaw, countryCode);
         const company = document.getElementById('company').value.trim();
         const service = document.getElementById('service').value;
         const budget  = document.getElementById('budget').value;
@@ -726,7 +727,7 @@
             fname: !fname,
             lname: !lname,
             email: !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),
-            phone: phoneDigits.length < 7 || phoneDigits.length > 15,
+            phone: !phone,
             message: message.length < 10,
             consent: !contactConsent,
         };
@@ -805,10 +806,13 @@
         if (!field) return;
         field.classList.toggle('invalid', invalid);
         field.setAttribute('aria-invalid', invalid ? 'true' : 'false');
-        if (error) error.style.display = invalid ? 'block' : 'none';
+        if (error) {
+            error.style.display = invalid ? 'block' : 'none';
+            field.setAttribute('aria-describedby', error.id);
+        }
     }
 })();
 </script>
-<script src="js/transitions.js"></script><script src="js/language-switcher.js"></script>
+<script src="js/transitions.js?v=20261108"></script><script src="js/language-switcher.js?v=20261108"></script>
 </body>
 </html>

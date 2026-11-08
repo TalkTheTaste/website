@@ -1,0 +1,189 @@
+[
+  {
+    "test": "320 overflow",
+    "route": "/custom-software-development-dubai",
+    "width": 320,
+    "scrollWidth": 328,
+    "elements": [
+      {
+        "tag": "A",
+        "cls": "btn-primary",
+        "id": "",
+        "text": "Let's Talk →",
+        "client": 132,
+        "scroll": 139,
+        "rect": {
+          "x": 40,
+          "y": -4704.34375,
+          "width": 132.4375,
+          "height": 45,
+          "top": -4704.34375,
+          "right": 172.4375,
+          "bottom": -4659.34375,
+          "left": 40
+        }
+      },
+      {
+        "tag": "MAIN",
+        "cls": "",
+        "id": "",
+        "text": "HomeServicesCustom Software Development Dubai\n        Custom Software Development Dubai\n        Software built exactly t",
+        "client": 320,
+        "scroll": 328,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 8567.671875,
+          "top": 0,
+          "right": 320,
+          "bottom": 8567.671875,
+          "left": 0
+        }
+      },
+      {
+        "tag": "SECTION",
+        "cls": "sec",
+        "id": "",
+        "text": "Custom Software FAQ\n        Questions Dubai businesses ask before commissioning software.\n    \n    \n        \n           ",
+        "client": 320,
+        "scroll": 328,
+        "rect": {
+          "x": 0,
+          "y": 7002.8125,
+          "width": 320,
+          "height": 1168.484375,
+          "top": 7002.8125,
+          "right": 320,
+          "bottom": 8171.296875,
+          "left": 0
+        }
+      },
+      {
+        "tag": "DIV",
+        "cls": "",
+        "id": "",
+        "text": "Custom Software FAQ\n        Questions Dubai businesses ask before commissioning software.",
+        "client": 272,
+        "scroll": 304,
+        "rect": {
+          "x": 24,
+          "y": 7002.8125,
+          "width": 272,
+          "height": 284.84375,
+          "top": 7002.8125,
+          "right": 296,
+          "bottom": 7287.65625,
+          "left": 24
+        }
+      },
+      {
+        "tag": "H2",
+        "cls": "sec-title reveal",
+        "id": "",
+        "text": "Questions Dubai businesses ask before commissioning software.",
+        "client": 272,
+        "scroll": 304,
+        "rect": {
+          "x": 24,
+          "y": 7048.3125,
+          "width": 272,
+          "height": 239.34375,
+          "top": 7048.3125,
+          "right": 296,
+          "bottom": 7287.65625,
+          "left": 24
+        }
+      }
+    ]
+  },
+  {
+    "test": "320 overflow",
+    "route": "/social-media-marketing-dubai",
+    "width": 320,
+    "scrollWidth": 327,
+    "elements": [
+      {
+        "tag": "A",
+        "cls": "btn-primary",
+        "id": "",
+        "text": "Let's Talk →",
+        "client": 132,
+        "scroll": 139,
+        "rect": {
+          "x": 40,
+          "y": -6653.359375,
+          "width": 132.4375,
+          "height": 45,
+          "top": -6653.359375,
+          "right": 172.4375,
+          "bottom": -6608.359375,
+          "left": 40
+        }
+      },
+      {
+        "tag": "MAIN",
+        "cls": "",
+        "id": "",
+        "text": "HomeServicesSocial Media Marketing Dubai\n            Social Media Marketing Dubai\n            Social media management th",
+        "client": 320,
+        "scroll": 327,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 12465.71875,
+          "top": 0,
+          "right": 320,
+          "bottom": 12465.71875,
+          "left": 0
+        }
+      },
+      {
+        "tag": "SECTION",
+        "cls": "landing-hero",
+        "id": "",
+        "text": "HomeServicesSocial Media Marketing Dubai\n            Social Media Marketing Dubai\n            Social media management th",
+        "client": 320,
+        "scroll": 327,
+        "rect": {
+          "x": 0,
+          "y": 0,
+          "width": 320,
+          "height": 1377.46875,
+          "top": 0,
+          "right": 320,
+          "bottom": 1377.46875,
+          "left": 0
+        }
+      }
+    ]
+  },
+  {
+    "test": "legal mobile menu Escape",
+    "route": "/privacy-policy",
+    "expanded": "true",
+    "focus": "BUTTON"
+  },
+  {
+    "test": "legal mobile menu Escape",
+    "route": "/terms-and-conditions",
+    "expanded": "true",
+    "focus": "BUTTON"
+  },
+  {
+    "test": "home-about-home JS",
+    "errors": [
+      "Failed to execute 'appendChild' on 'Node': Identifier 'statObs' has already been declared"
+    ],
+    "url": "http://localhost:8799/",
+    "preloader": true,
+    "pointer": "auto"
+  },
+  {
+    "test": "portfolio modal focus",
+    "viewOpen": true,
+    "role": null,
+    "focusOutside": true
+  }
+]

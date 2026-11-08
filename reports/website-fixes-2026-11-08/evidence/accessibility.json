@@ -1,0 +1,292 @@
+[
+  {
+    "route": "/about",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/about",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/blog",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/blog",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/branding-agency-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/branding-agency-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/contact",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/contact",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/content-creation-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/content-creation-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/custom-software-development-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/custom-software-development-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/food-photography-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/food-photography-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/marketing-agency-orange-county",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/marketing-agency-orange-county",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/marketing-strategy-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/marketing-strategy-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/mobile-app-development-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/mobile-app-development-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/pricing",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/privacy-policy",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/pricing",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/privacy-policy",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/restaurant-branding-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/restaurant-branding-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/restaurant-launch-marketing-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/restaurant-launch-marketing-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/restaurant-marketing-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/restaurant-marketing-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/services",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/services",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/social-media-marketing-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/social-media-marketing-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/terms-and-conditions",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/terms-and-conditions",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/ttt-client-intake",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/ttt-client-intake",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/video-production-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/video-production-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/web-design-dubai",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/web-design-dubai",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/work",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/work",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/ar/",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/ar/",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/ar/about/",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/ar/about/",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/ar/contact/",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/ar/contact/",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/ar/services/",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/ar/services/",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/ar/restaurant-marketing-dubai/",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/ar/restaurant-marketing-dubai/",
+    "width": 1920,
+    "violations": []
+  },
+  {
+    "route": "/ar/blog/restaurant-marketing-dubai/",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/ar/blog/restaurant-marketing-dubai/",
+    "width": 1920,
+    "violations": []
+  }
+]

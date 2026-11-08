@@ -1,0 +1,25 @@
+
+> ttt-website@1.0.0 build
+> npm run build:css && npm run build:js && npm run build:forms && npm run prepare:public
+
+
+> ttt-website@1.0.0 build:css
+> cleancss -O2 css/main.css -o css/main.min.css
+
+
+> ttt-website@1.0.0 build:js
+> terser js/transitions.js -c -m -o js/transitions.min.js && terser js/language-switcher.js -c -m -o js/language-switcher.min.js && terser js/conversion.js -c -m -o js/conversion.min.js
+
+
+> ttt-website@1.0.0 build:forms
+> esbuild js/form-utils.js --bundle --minify --platform=browser --outfile=js/form-utils.bundle.js
+
+
+  js/form-utils.bundle.js  207.9kb
+
+⚡ Done in 64ms
+
+> ttt-website@1.0.0 prepare:public
+> node scripts/prepare-public.cjs
+
+Prepared public assets in dist/ (private data and source excluded).

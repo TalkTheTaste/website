@@ -43,7 +43,7 @@ body {
     font-family: 'Inter', sans-serif;
     background: var(--bg);
     color: var(--text);
-    overflow-x: hidden;
+    overflow-x: clip;
     cursor: none;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -433,7 +433,8 @@ footer {
     font-family: 'Inter', sans-serif;
 }
 
-.gold { color: var(--gold); }
+.gold { color: #806400; }
+.dark-section .gold { color: var(--gold); }
 
 /* ============================================================
    REVEAL ANIMATION
@@ -509,11 +510,9 @@ body.ttt-page-in {
 @keyframes tttPageIn {
     from {
         opacity: .001;
-        transform: translateY(10px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 .motion-magnetic {
@@ -572,7 +571,7 @@ body.ttt-page-in {
 }
 .nav-menu a:hover,
 .nav-menu a.active {
-    color: var(--gold) !important;
+    color: #806400 !important;
 }
 .nav-menu a::after,
 .nav-menu a.active::after {
@@ -583,7 +582,7 @@ body.ttt-page-in {
 .btn-gold,
 .cta-btn-gold {
     background: var(--gold) !important;
-    color: #fff !important;
+    color: #0C0C0A !important;
 }
 .nav-cta:hover,
 .btn-primary:hover,
@@ -622,7 +621,7 @@ body.ttt-page-in {
     border-color: rgba(227,209,52,0.26) !important;
 }
 .landing-proc li::before {
-    color: #fff !important;
+    color: #0C0C0A !important;
     background: var(--gold) !important;
     border-color: var(--gold) !important;
 }
@@ -1109,3 +1108,30 @@ body.ttt-page-in {
         transform: translateX(-50%) !important;
     }
 }
+
+/* Interaction and reflow safeguards */
+html { scroll-padding-top: 110px; }
+:where(h1, h2, h3, p, a) { overflow-wrap: anywhere; }
+:where(a, button, input, select, textarea, summary):focus-visible {
+    outline: 3px solid #875d00;
+    outline-offset: 4px;
+}
+.mobile-menu { overflow-y: auto; justify-content: flex-start; }
+.mobile-menu-links { margin-block: auto; flex-shrink: 0; }
+.mobile-menu-bottom { flex-shrink: 0; }
+.policy-contact > a { display: inline-flex; align-items: center; min-height: 32px; margin-block: 4px; }
+.client-view[aria-hidden="true"], .media-viewer[aria-hidden="true"] { visibility: hidden; }
+@media (max-height: 500px) {
+    .mobile-menu { padding: 64px 28px 28px; }
+    .mobile-menu-links a { font-size: 28px; padding-block: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    body.ttt-page-in { animation: none; }
+    *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+}
+
+/* Gold stays bright for backgrounds; text uses a readable ink color. */
+.office-flag, .badge { color: #806400 !important; }
+.landing-quote > footer { color: #b9b7b1 !important; }
+.operator-label, .about-stat-label { color: #b9b7b1 !important; }
+.website-sample-head > span { color: var(--text-muted); }

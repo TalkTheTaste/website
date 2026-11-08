@@ -1,0 +1,233 @@
+[
+  {
+    "id": "01",
+    "title": "Private data and server source are publicly downloadable",
+    "originalSeverity": "Critical",
+    "status": "Fixed in source and local verification",
+    "resolution": "Public build now contains only allowlisted assets in dist/. Node serves that directory; Pages middleware also rejects private paths for legacy configurations. Both preview servers return 404 for private data/source requests."
+  },
+  {
+    "id": "02",
+    "title": "Node settings API discloses the admin password",
+    "originalSeverity": "Critical",
+    "status": "Fixed in source and local verification",
+    "resolution": "Both settings APIs and authenticated sync use an explicit public-field allowlist. The stored/default admin password was removed from tracked settings and client defaults."
+  },
+  {
+    "id": "03",
+    "title": "Stored cross-site scripting in the admin lead table",
+    "originalSeverity": "Critical",
+    "status": "Fixed in source and local verification",
+    "resolution": "Lead-table text and attribute values are escaped. Harmless stored HTML markers were submitted and displayed as text without executing on both backends."
+  },
+  {
+    "id": "04",
+    "title": "Returning to Home can leave the site completely covered",
+    "originalSeverity": "High",
+    "status": "Fixed in source and local verification",
+    "resolution": "Cross-page links use native browser navigation. Home → About → Home completes without duplicate declarations or a stuck overlay; fragment scrolling and browser history retain browser behavior."
+  },
+  {
+    "id": "05",
+    "title": "Fixed menus, navigation and floating actions use the full document as their viewport",
+    "originalSeverity": "High",
+    "status": "Fixed in source and local verification",
+    "resolution": "The retained transform was removed from body animation. Reduced-motion disables the page animation. Menus scroll within the viewport on short screens; fixed navigation stays at viewport top after scrolling."
+  },
+  {
+    "id": "06",
+    "title": "Portfolio links fail when opened directly or refreshed in fallback mode",
+    "originalSeverity": "High",
+    "status": "Fixed in source and local verification",
+    "resolution": "The shared case-study route renders fallback portfolio projects when OneDrive is not configured. Actual card URLs now return 200 on both servers."
+  },
+  {
+    "id": "07",
+    "title": "Node server does not implement published article or portfolio detail routes",
+    "originalSeverity": "High",
+    "status": "Fixed in source and local verification",
+    "resolution": "Node now invokes the same article and case-study renderers as Pages, with a safe local public-asset adapter."
+  },
+  {
+    "id": "08",
+    "title": "Arabic pages lose their language and right-to-left direction",
+    "originalSeverity": "High",
+    "status": "Fixed in source and local verification",
+    "resolution": "Language metadata derives from the route. All six existing Arabic pages retain lang=ar, dir=rtl and their Arabic navigation URLs."
+  },
+  {
+    "id": "09",
+    "title": "Arabic toggle leaves major English content untranslated",
+    "originalSeverity": "Medium",
+    "status": "Behavior changed to supported translations",
+    "resolution": "Partial word-by-word translation was removed. Language links open the existing complete Arabic counterparts; unsupported English pages explicitly link to the Arabic services overview. This does not add translations for every specialized English page."
+  },
+  {
+    "id": "10",
+    "title": "Contact form stores malformed UAE phone numbers",
+    "originalSeverity": "High",
+    "status": "Fixed in source and local verification",
+    "resolution": "Phone numbers use shared libphonenumber parsing on the client and server. National trunk prefixes, international pastes and invalid numbers are covered by tests; the UAE local number test stores +971501234567."
+  },
+  {
+    "id": "11",
+    "title": "Pricing quote links do not scroll to the target form",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Native navigation follows #free-audit after opening Contact, with scroll padding for the fixed header. Package text still prefills correctly."
+  },
+  {
+    "id": "12",
+    "title": "Server-rendered blog articles throw a JavaScript exception",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Article code updates document.title without querying the removed title ID. The template no longer displays raw query parameters in a debug panel. Article SSR no longer removes content through the obsolete debug-panel replacement."
+  },
+  {
+    "id": "13",
+    "title": "Text and CTA contrast fails across the site",
+    "originalSeverity": "High",
+    "status": "Fixed in source and local verification",
+    "resolution": "Yellow buttons now use dark text; active links, metadata, footer text, testimonials and dark/light contextual labels were corrected. All 58 main-page accessibility scans and the supplementary article, case-study, 404 and admin-login scans report no automated violations."
+  },
+  {
+    "id": "14",
+    "title": "Country-code selector has no accessible name",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "The country calling-code selector has an accessible name, and contact field errors are associated with their inputs."
+  },
+  {
+    "id": "15",
+    "title": "Legal-page mobile menus do not manage keyboard focus or close on Escape",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Privacy Policy and Terms use the shared accessible menu implementation, with focus entry, keyboard containment, Escape and focus restoration."
+  },
+  {
+    "id": "16",
+    "title": "Portfolio client view lacks dialog semantics and focus management",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Portfolio client/media views have dialog semantics, background inertness and keyboard containment. Focus enters after the opening frame and returns to the card; modal images use root-resolved URLs."
+  },
+  {
+    "id": "17",
+    "title": "Privacy-policy contact links have undersized, crowded touch targets",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Privacy-policy contact links have larger hit areas and spacing. The original target-size findings no longer occur."
+  },
+  {
+    "id": "18",
+    "title": "Custom-software FAQ heading overflows at 320 pixels",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Long headings wrap within narrow text columns; the custom-software page fits 320 pixels."
+  },
+  {
+    "id": "19",
+    "title": "Social-media hero overflows at 320 pixels",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "The social-media hero reflows at 320 pixels. No document-width overflow was measured across the final 319 checks."
+  },
+  {
+    "id": "20",
+    "title": "Node lead endpoint accepts completely empty submissions",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Node validates required lead fields on the server and rejects an empty body with 400, matching Pages."
+  },
+  {
+    "id": "21",
+    "title": "Backend accepts leads without the contact consent required by the UI",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Both backends require contactConsent === true and generate the consent timestamp server-side."
+  },
+  {
+    "id": "22",
+    "title": "Free-audit form accepts unusable website/Instagram values",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Free-audit submissions validate full HTTP(S) website URLs or supported Instagram handles on both the client and server. A placeholder such as x is rejected."
+  },
+  {
+    "id": "23",
+    "title": "Some dynamic 404 responses have empty bodies",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Dynamic error pages fetch assets with a clean GET, follow same-origin canonical asset redirects, and always return a readable 404 body."
+  },
+  {
+    "id": "24",
+    "title": "Node 404 responses display the homepage",
+    "originalSeverity": "Low",
+    "status": "Fixed in source and local verification",
+    "resolution": "Unknown Node routes return the existing 404 template rather than homepage markup."
+  },
+  {
+    "id": "25",
+    "title": "Node favicon endpoint is missing",
+    "originalSeverity": "Low",
+    "status": "Fixed in source and local verification",
+    "resolution": "Node serves the favicon asset successfully."
+  },
+  {
+    "id": "26",
+    "title": "Work-page contact number differs from the rest of the site",
+    "originalSeverity": "Low",
+    "status": "Fixed in source and local verification",
+    "resolution": "The portfolio footer now uses the primary site number, +971 56 539 0316."
+  },
+  {
+    "id": "27",
+    "title": "Cloudflare admin password-change UI can report success without changing the login password",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "The misleading password-change form was replaced with explicit deployment-managed password instructions. All authentication reads ADMIN_PASSWORD; settings cannot silently override it."
+  },
+  {
+    "id": "28",
+    "title": "Mutable scripts and styles are cached as immutable for one year",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Mutable assets use revalidation headers. Updated CSS/JS references carry ?v=20261108 to bypass prior immutable browser entries on the first fixed release."
+  },
+  {
+    "id": "29",
+    "title": "Known default admin password remains enabled when no override is configured",
+    "originalSeverity": "High",
+    "status": "Code fixed; deployment configuration required",
+    "resolution": "No working default credentials remain. Admin login returns 503 until a 16+ character ADMIN_PASSWORD and 32+ character SESSION_SECRET are configured."
+  },
+  {
+    "id": "30",
+    "title": "Session signing falls back to known source-code values",
+    "originalSeverity": "High",
+    "status": "Code fixed; deployment configuration required",
+    "resolution": "Pages signing requires the configured SESSION_SECRET. Node uses the configured secret, or an unpredictable ephemeral secret while admin access is disabled for missing configuration."
+  },
+  {
+    "id": "31",
+    "title": "Cloudflare API reflects arbitrary credentialed CORS origins",
+    "originalSeverity": "Medium",
+    "status": "Fixed in source and local verification",
+    "resolution": "Pages no longer reflects arbitrary credentialed origins; unknown origins are rejected with 403 and no access-control grant. Node rejects cross-origin POSTs as well."
+  },
+  {
+    "id": "32",
+    "title": "Dependency audit reports eight affected packages",
+    "originalSeverity": "High",
+    "status": "Fixed in source and local verification",
+    "resolution": "Runtime and development dependencies were updated. npm audit reports zero vulnerabilities, including after adding the browser-test dependencies. Node 22+ is now required by the toolchain."
+  },
+  {
+    "id": "33",
+    "title": "Login and lead submission have no application-level throttling",
+    "originalSeverity": "Medium",
+    "status": "Code fixed; deployment configuration required",
+    "resolution": "Login, lead submission and analytics handlers enforce application-level request limits. Node limits are per process; Pages uses immediate per-isolate limits plus best-effort KV carryover. Strict global production quotas still require edge/WAF rules."
+  }
+]

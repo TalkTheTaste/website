@@ -1,0 +1,116 @@
+[
+  {
+    "port": 3199,
+    "route": "/blog/how-to-choose-a-marketing-agency-in-dubai/",
+    "status": 404,
+    "bytes": 81838,
+    "title": "Marketing Agency Dubai | Talk The Taste"
+  },
+  {
+    "port": 3199,
+    "route": "/blog/how-to-market-a-restaurant-in-dubai/",
+    "status": 404,
+    "bytes": 81838,
+    "title": "Marketing Agency Dubai | Talk The Taste"
+  },
+  {
+    "port": 3199,
+    "route": "/blog/what-is-included-in-social-media-management-dubai/",
+    "status": 404,
+    "bytes": 81838,
+    "title": "Marketing Agency Dubai | Talk The Taste"
+  },
+  {
+    "port": 3199,
+    "route": "/blog/what-should-a-dubai-business-website-include/",
+    "status": 404,
+    "bytes": 81838,
+    "title": "Marketing Agency Dubai | Talk The Taste"
+  },
+  {
+    "port": 3199,
+    "route": "/work/on-demand-delivery-app/",
+    "status": 404,
+    "bytes": 81838,
+    "title": "Marketing Agency Dubai | Talk The Taste"
+  },
+  {
+    "port": 3199,
+    "route": "/work/social-growth-campaign-fandb-brand/",
+    "status": 404,
+    "bytes": 81838,
+    "title": "Marketing Agency Dubai | Talk The Taste"
+  },
+  {
+    "port": 3199,
+    "route": "/work/full-brand-launch-dubai-restaurant-group/",
+    "status": 404,
+    "bytes": 81838,
+    "title": "Marketing Agency Dubai | Talk The Taste"
+  },
+  {
+    "port": 8799,
+    "route": "/blog/how-to-choose-a-marketing-agency-in-dubai/",
+    "status": 200,
+    "bytes": 42103,
+    "title": "How to Choose a Marketing Agency in Dubai | Talk The Taste"
+  },
+  {
+    "port": 8799,
+    "route": "/blog/how-to-market-a-restaurant-in-dubai/",
+    "status": 200,
+    "bytes": 42197,
+    "title": "How to Market a Restaurant in Dubai: Practical F&amp;B Plan | Talk The Taste"
+  },
+  {
+    "port": 8799,
+    "route": "/blog/what-is-included-in-social-media-management-dubai/",
+    "status": 200,
+    "bytes": 40711,
+    "title": "What Is Included in Social Media Management in Dubai? | Talk The Taste"
+  },
+  {
+    "port": 8799,
+    "route": "/blog/what-should-a-dubai-business-website-include/",
+    "status": 200,
+    "bytes": 40308,
+    "title": "What Should a Dubai Business Website Include? | Talk The Taste"
+  },
+  {
+    "port": 8799,
+    "route": "/work/on-demand-delivery-app/",
+    "status": 404,
+    "bytes": 0
+  },
+  {
+    "port": 8799,
+    "route": "/work/social-growth-campaign-fandb-brand/",
+    "status": 404,
+    "bytes": 0
+  },
+  {
+    "port": 8799,
+    "route": "/work/full-brand-launch-dubai-restaurant-group/",
+    "status": 404,
+    "bytes": 0
+  },
+  {
+    "test": "rendered dynamic links",
+    "route": "/blog",
+    "links": [
+      "/blog/how-to-market-a-restaurant-in-dubai/",
+      "/blog/how-to-choose-a-marketing-agency-in-dubai/",
+      "/blog/what-is-included-in-social-media-management-dubai/",
+      "/blog/what-should-a-dubai-business-website-include/"
+    ]
+  },
+  {
+    "test": "rendered dynamic links",
+    "route": "/work",
+    "links": [
+      "/work/on-demand-delivery-app/",
+      "/work/social-growth-campaign-f-and-b-brand/",
+      "/work/full-brand-launch-dubai-restaurant-group/"
+    ]
+  }
+]

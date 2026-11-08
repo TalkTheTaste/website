@@ -1,0 +1,14 @@
+{
+  "date": "2026-11-08",
+  "build": "passed",
+  "backendTests": 13,
+  "browserRegressionCases": 17,
+  "browserExecution": "16-case complete suite plus a two-case targeted rerun after the final article change (one new case, one existing case)",
+  "pageViewportChecks": 319,
+  "uniquePageViewportPairs": 319,
+  "pageViewportFailures": 0,
+  "accessibilityScans": 58,
+  "accessibilityViolations": 0,
+  "npmVulnerabilities": 0,
+  "productionDeployed": false
+}

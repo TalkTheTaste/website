@@ -32,11 +32,14 @@ const TTT = {
             instagram:     'https://www.instagram.com/talkthetaste',
             linkedin:      '#',
             tiktok:        '#',
-            adminPass:     'ttt2025',
             web3formsKey:  '',
         };
         try {
             const saved = JSON.parse(localStorage.getItem(this.KEYS.settings) || '{}');
+            if (Object.hasOwn(saved, 'adminPass')) {
+                delete saved.adminPass;
+                try { localStorage.setItem(this.KEYS.settings, JSON.stringify(saved)); } catch {}
+            }
             return { ...defaults, ...saved };
         } catch { return defaults; }
     },
@@ -47,14 +50,6 @@ const TTT = {
     // ── AUTH ─────────────────────────────────────────────────────
     isLoggedIn() {
         return sessionStorage.getItem(this.KEYS.auth) === 'true';
-    },
-    login(pass) {
-        const s = this.getSettings();
-        if (pass === s.adminPass) {
-            sessionStorage.setItem(this.KEYS.auth, 'true');
-            return true;
-        }
-        return false;
     },
     logout() {
         sessionStorage.removeItem(this.KEYS.auth);
@@ -367,10 +362,13 @@ TTT.API = {
 
     // ── Auth ─────────────────────────────────────────────────
     async login(password) {
+        this.lastAuthError = '';
         try {
-            const r = await this.post('/api/auth/login', { password });
-            return r.ok === true;
-        } catch { return false; }
+            const response = await fetch('/api/auth/login', { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password }) });
+            const body = await response.json();
+            if (!response.ok) this.lastAuthError = body.error || 'Unable to sign in.';
+            return response.ok && body.ok === true;
+        } catch { this.lastAuthError = 'Unable to connect. Please try again.'; return false; }
     },
     async logout() {
         try { await this.post('/api/auth/logout', {}); } catch {}

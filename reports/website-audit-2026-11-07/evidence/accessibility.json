@@ -1,0 +1,2566 @@
+[
+  {
+    "route": "/about",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-menu > li:nth-child(2) > .active[aria-current=\"page\"][href$=\"about\"]"
+            ],
+            "html": "<a href=\"/about\" class=\"active\" aria-current=\"page\">About</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".office-card.in.reveal-delay-1 > .office-flag"
+            ],
+            "html": "<span class=\"office-flag\">Dubai, UAE</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #e3d134, background color: #fafaf8, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".office-card.reveal-delay-2.in > .office-flag"
+            ],
+            "html": "<span class=\"office-flag\">Irvine, California</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #e3d134, background color: #fafaf8, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\" style=\"color:rgba(250,250,248,.35);justify-content:center;\">Let's Talk</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #5f5f5d, background color: #0c0c0a, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[href$=\"contact#free-audit\"]"
+            ],
+            "html": "<a href=\"/contact#free-audit\" class=\"btn-primary reveal reveal-delay-3\" style=\"background:var(--gold);color:var(--text);\" data-track=\"audit_cta_click\" data-track-label=\"About bottom CTA\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/about",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/blog",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/blog",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/branding-agency-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Branding landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=branding#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Branding landing hero\">Get free brand audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Dubai Restaurant Group, brand identity and launch</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=branding#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Branding landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/branding-agency-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Branding landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=branding#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Branding landing hero\">Get free brand audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Dubai Restaurant Group, brand identity and launch</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=branding#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Branding landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/contact",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".badge"
+            ],
+            "html": "<div class=\"badge\"><span class=\"badge-dot\"></span>Currently accepting new projects</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.47 (foreground color: #e3d134, background color: #fcf9e7, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "button[data-track=\"audit_submit_click\"]"
+            ],
+            "html": "<button type=\"submit\" class=\"btn-gold\" data-track=\"audit_submit_click\" data-track-label=\"Contact audit form\">Request Free Audit →</button>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#submitBtn"
+            ],
+            "html": "<button type=\"submit\" class=\"btn-gold form-submit\" id=\"submitBtn\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 11.3pt (15px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "select-name",
+        "impact": "critical",
+        "help": "Select element must have an accessible name",
+        "nodes": [
+          {
+            "target": [
+              "#countryCode"
+            ],
+            "html": "<select class=\"form-select\" id=\"countryCode\" required=\"\">",
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/contact",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".badge"
+            ],
+            "html": "<div class=\"badge\"><span class=\"badge-dot\"></span>Currently accepting new projects</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.47 (foreground color: #e3d134, background color: #fcf9e7, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "button[data-track=\"audit_submit_click\"]"
+            ],
+            "html": "<button type=\"submit\" class=\"btn-gold\" data-track=\"audit_submit_click\" data-track-label=\"Contact audit form\">Request Free Audit →</button>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#submitBtn"
+            ],
+            "html": "<button type=\"submit\" class=\"btn-gold form-submit\" id=\"submitBtn\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 11.3pt (15px), font weight: bold). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "select-name",
+        "impact": "critical",
+        "help": "Select element must have an accessible name",
+        "nodes": [
+          {
+            "target": [
+              "#countryCode"
+            ],
+            "html": "<select class=\"form-select\" id=\"countryCode\" required=\"\">",
+            "summary": "Fix any of the following:\n  Element does not have an implicit (wrapped) <label>\n  Element does not have an explicit <label>\n  aria-label attribute does not exist or is empty\n  aria-labelledby attribute does not exist, references elements that do not exist or references elements that are empty\n  Element has no title attribute\n  Element's default semantics were not overridden with role=\"none\" or role=\"presentation\""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/content-creation-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Content landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=content%20creation#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Content landing hero\">Get free content audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  F&amp;B brand, content and social growth</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=content%20creation#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Content landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/content-creation-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Content landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=content%20creation#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Content landing hero\">Get free content audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  F&amp;B brand, content and social growth</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=content%20creation#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Content landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/custom-software-development-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Software landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=custom%20software#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Software landing hero\">Get free scoping call →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Multi-client SaaS platform, backend optimization</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=custom%20software#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Software landing bottom\">Request free scoping call →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/custom-software-development-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Software landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=custom%20software#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Software landing hero\">Get free scoping call →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Multi-client SaaS platform, backend optimization</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=custom%20software#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Software landing bottom\">Request free scoping call →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/food-photography-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Food photography hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=food%20photography#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Food photography hero\">Get free shoot audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=food%20photography#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Food photography bottom\">Request free shoot audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/food-photography-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Food photography hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=food%20photography#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Food photography hero\">Get free shoot audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=food%20photography#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Food photography bottom\">Request free shoot audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Homepage hero audit\"]"
+            ],
+            "html": "<a href=\"/contact#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Homepage hero audit\">Get a free growth audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".operator-label"
+            ],
+            "html": "<div class=\"operator-label\">Project Lead</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.13 (foreground color: #676765, background color: #181816, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".btn-primary[href$=\"services\"]"
+            ],
+            "html": "<a href=\"/services\" class=\"btn-primary\" style=\"display: inline-flex; margin-top: 40px\">See what we do →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".about-stat:nth-child(1) > .about-stat-label"
+            ],
+            "html": "<span class=\"about-stat-label\">Brands we've helped grow</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.59 (foreground color: #6f6f6d, background color: #161614, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".about-stat:nth-child(2) > .about-stat-label"
+            ],
+            "html": "<span class=\"about-stat-label\">Years operating in Dubai</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.59 (foreground color: #6f6f6d, background color: #161614, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".about-stat:nth-child(3) > .about-stat-label"
+            ],
+            "html": "<span class=\"about-stat-label\">Content views delivered</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.59 (foreground color: #6f6f6d, background color: #161614, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".about-stat:nth-child(4) > .about-stat-label"
+            ],
+            "html": "<span class=\"about-stat-label\">Average client rating</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.59 (foreground color: #6f6f6d, background color: #161614, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-menu > li:nth-child(1) > .active[aria-current=\"page\"][href=\"/\"]"
+            ],
+            "html": "<a href=\"/\" class=\"active\" aria-current=\"page\">Home</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".operator-label"
+            ],
+            "html": "<div class=\"operator-label\">Project Lead</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.13 (foreground color: #676765, background color: #181816, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".btn-primary[href$=\"services\"]"
+            ],
+            "html": "<a href=\"/services\" class=\"btn-primary\" style=\"display: inline-flex; margin-top: 40px\">See what we do →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".about-stat:nth-child(1) > .about-stat-label"
+            ],
+            "html": "<span class=\"about-stat-label\">Brands we've helped grow</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.59 (foreground color: #6f6f6d, background color: #161614, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".about-stat:nth-child(2) > .about-stat-label"
+            ],
+            "html": "<span class=\"about-stat-label\">Years operating in Dubai</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.59 (foreground color: #6f6f6d, background color: #161614, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".about-stat:nth-child(3) > .about-stat-label"
+            ],
+            "html": "<span class=\"about-stat-label\">Content views delivered</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.59 (foreground color: #6f6f6d, background color: #161614, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".about-stat:nth-child(4) > .about-stat-label"
+            ],
+            "html": "<span class=\"about-stat-label\">Average client rating</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.59 (foreground color: #6f6f6d, background color: #161614, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/marketing-agency-orange-county",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".landing-actions > .btn-primary"
+            ],
+            "html": "<a href=\"/contact?service=orange%20county%20marketing#free-audit\" class=\"btn-primary\">Request a growth audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=orange%20county%20marketing#free-audit\" class=\"btn-primary cta-btn-gold\">Request a growth audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/marketing-agency-orange-county",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-actions > .btn-primary"
+            ],
+            "html": "<a href=\"/contact?service=orange%20county%20marketing#free-audit\" class=\"btn-primary\">Request a growth audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=orange%20county%20marketing#free-audit\" class=\"btn-primary cta-btn-gold\">Request a growth audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/marketing-strategy-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Strategy landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=marketing%20strategy#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Strategy landing hero\">Get free marketing audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Dubai Restaurant Group, brand and marketing strategy</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=marketing%20strategy#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Strategy landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/marketing-strategy-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Strategy landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=marketing%20strategy#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Strategy landing hero\">Get free marketing audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Dubai Restaurant Group, brand and marketing strategy</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=marketing%20strategy#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Strategy landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/mobile-app-development-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Mobile app landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=mobile%20app%20development#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Mobile app landing hero\">Get free app scoping call →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  On-demand delivery platform, MVP to full launch</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=mobile%20app%20development#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Mobile app landing bottom\">Request free scoping call →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/mobile-app-development-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Mobile app landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=mobile%20app%20development#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Mobile app landing hero\">Get free app scoping call →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  On-demand delivery platform, MVP to full launch</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=mobile%20app%20development#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Mobile app landing bottom\">Request free scoping call →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/pricing",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".pricing-hero > .in.eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal in\">Transparent Pricing</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(6) > .in.eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal in\">Social Media Management</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(6) > .packages-grid.reveal > .featured.pkg-card > .pkg-price > .pkg-price-period"
+            ],
+            "html": "<div class=\"pkg-price-period\">per month</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.7 (foreground color: #747371, background color: #1a1917, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(7) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">Photography &amp; Videography</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".shoot-card:nth-child(1) > .shoot-tier"
+            ],
+            "html": "<div class=\"shoot-tier\">Bronze</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.86 (foreground color: #9c9892, background color: #ffffff, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".shoot-card:nth-child(2) > .shoot-tier"
+            ],
+            "html": "<div class=\"shoot-tier\">Silver</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.86 (foreground color: #9c9892, background color: #ffffff, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".shoot-card:nth-child(3) > .shoot-tier"
+            ],
+            "html": "<div class=\"shoot-tier\">Gold</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.86 (foreground color: #9c9892, background color: #ffffff, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(8) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">Website Development</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(8) > .packages-grid.reveal > .featured.pkg-card > .pkg-price > .pkg-price-period"
+            ],
+            "html": "<div class=\"pkg-price-period\">starting price</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.7 (foreground color: #747371, background color: #1a1917, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(9) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">SEO Services</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(9) > .packages-grid.reveal > .featured.pkg-card > .pkg-price > .pkg-price-period"
+            ],
+            "html": "<div class=\"pkg-price-period\">per month</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.7 (foreground color: #747371, background color: #1a1917, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(10) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">Creator Network</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".ugc-top > div:nth-child(1) > p"
+            ],
+            "html": "<p style=\"font-size:15px;color:var(--gray);line-height:1.7;max-width:460px;\">End-to-end management of local content creators who visit your location, create authentic content, and post it to their real audiences on TikTok and Instagram.</p>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.12 (foreground color: #6b6760, background color: #1a1917, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(11) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">Easy Global Payment</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div:nth-child(1) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\" style=\"justify-content:center;\">Pricing FAQ</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-cta > div:nth-child(2) > .reveal-delay-1"
+            ],
+            "html": "<p class=\"reveal reveal-delay-1\">Message us on WhatsApp or send us a note. Wherever you are, we will recommend the right package for your budget and goals.</p>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.33 (foreground color: #7f7e7c, background color: #1a1917, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Pricing unsure CTA\"]"
+            ],
+            "html": "<a href=\"/contact#free-audit\" class=\"btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Pricing unsure CTA\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 10.5pt (14px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".btn-ghost"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-ghost\">\n                Send a Message →\n            </a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.33 (foreground color: #7f7e7c, background color: #1a1917, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".footer-brand-desc"
+            ],
+            "html": "<p class=\"footer-brand-desc\">\n            Dubai's creative agency for brands ready to grow.\n          </p>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.33 (foreground color: #7f7e7c, background color: #1a1917, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div:nth-child(2) > .footer-heading"
+            ],
+            "html": "<div class=\"footer-heading\">Services</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.14 (foreground color: #686866, background color: #1a1917, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div:nth-child(3) > .footer-heading"
+            ],
+            "html": "<div class=\"footer-heading\">Company</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.14 (foreground color: #686866, background color: #1a1917, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div:nth-child(4) > .footer-heading"
+            ],
+            "html": "<div class=\"footer-heading\">Contact</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.14 (foreground color: #686866, background color: #1a1917, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".footer-bottom > span"
+            ],
+            "html": "<span>© 2026 Talk The Taste. All rights reserved.\n          <a href=\"/privacy-policy\">Privacy Policy</a> ·\n          <a href=\"/terms-and-conditions\">Terms &amp; Conditions</a></span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.65 (foreground color: #5d5d5a, background color: #1a1917, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "span > a[href$=\"privacy-policy\"]"
+            ],
+            "html": "<a href=\"/privacy-policy\">Privacy Policy</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.65 (foreground color: #5d5d5a, background color: #1a1917, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "span > a[href$=\"terms-and-conditions\"]"
+            ],
+            "html": "<a href=\"/terms-and-conditions\">Terms &amp; Conditions</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.65 (foreground color: #5d5d5a, background color: #1a1917, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/pricing",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-menu > li:nth-child(5) > .active[aria-current=\"page\"][href$=\"pricing\"]"
+            ],
+            "html": "<a href=\"/pricing\" class=\"active\" aria-current=\"page\">Pricing</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.49 (foreground color: #e3d134, background color: #fafaf8, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-hero > .in.eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal in\">Transparent Pricing</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(6) > .in.eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal in\">Social Media Management</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".packages-grid.in.reveal > .featured.pkg-card > .pkg-price > .pkg-price-period"
+            ],
+            "html": "<div class=\"pkg-price-period\">per month</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.7 (foreground color: #747371, background color: #1a1917, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(7) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">Photography &amp; Videography</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".shoot-card:nth-child(1) > .shoot-tier"
+            ],
+            "html": "<div class=\"shoot-tier\">Bronze</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.86 (foreground color: #9c9892, background color: #ffffff, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".shoot-card:nth-child(2) > .shoot-tier"
+            ],
+            "html": "<div class=\"shoot-tier\">Silver</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.86 (foreground color: #9c9892, background color: #ffffff, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".shoot-card:nth-child(3) > .shoot-tier"
+            ],
+            "html": "<div class=\"shoot-tier\">Gold</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.86 (foreground color: #9c9892, background color: #ffffff, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(8) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">Website Development</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(8) > .packages-grid.reveal > .featured.pkg-card > .pkg-price > .pkg-price-period"
+            ],
+            "html": "<div class=\"pkg-price-period\">starting price</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.7 (foreground color: #747371, background color: #1a1917, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(9) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">SEO Services</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(9) > .packages-grid.reveal > .featured.pkg-card > .pkg-price > .pkg-price-period"
+            ],
+            "html": "<div class=\"pkg-price-period\">per month</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.7 (foreground color: #747371, background color: #1a1917, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(10) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">Creator Network</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".ugc-top > div:nth-child(1) > p"
+            ],
+            "html": "<p style=\"font-size:15px;color:var(--gray);line-height:1.7;max-width:460px;\">End-to-end management of local content creators who visit your location, create authentic content, and post it to their real audiences on TikTok and Instagram.</p>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.12 (foreground color: #6b6760, background color: #1a1917, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-sec:nth-child(11) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\">Easy Global Payment</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div:nth-child(1) > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\" style=\"justify-content:center;\">Pricing FAQ</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.74 (foreground color: #9c9892, background color: #fafaf8, font size: 7.5pt (10px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pricing-cta > div:nth-child(2) > .reveal-delay-1"
+            ],
+            "html": "<p class=\"reveal reveal-delay-1\">Message us on WhatsApp or send us a note. Wherever you are, we will recommend the right package for your budget and goals.</p>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.33 (foreground color: #7f7e7c, background color: #1a1917, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Pricing unsure CTA\"]"
+            ],
+            "html": "<a href=\"/contact#free-audit\" class=\"btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Pricing unsure CTA\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 10.5pt (14px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".btn-ghost"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-ghost\">\n                Send a Message →\n            </a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.33 (foreground color: #7f7e7c, background color: #1a1917, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".footer-brand-desc"
+            ],
+            "html": "<p class=\"footer-brand-desc\">\n            Dubai's creative agency for brands ready to grow.\n          </p>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.33 (foreground color: #7f7e7c, background color: #1a1917, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div:nth-child(2) > .footer-heading"
+            ],
+            "html": "<div class=\"footer-heading\">Services</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.14 (foreground color: #686866, background color: #1a1917, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div:nth-child(3) > .footer-heading"
+            ],
+            "html": "<div class=\"footer-heading\">Company</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.14 (foreground color: #686866, background color: #1a1917, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div:nth-child(4) > .footer-heading"
+            ],
+            "html": "<div class=\"footer-heading\">Contact</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.14 (foreground color: #686866, background color: #1a1917, font size: 8.3pt (11px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".footer-bottom > span"
+            ],
+            "html": "<span>© 2026 Talk The Taste. All rights reserved.\n          <a href=\"/privacy-policy\">Privacy Policy</a> ·\n          <a href=\"/terms-and-conditions\">Terms &amp; Conditions</a></span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.65 (foreground color: #5d5d5a, background color: #1a1917, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "span > a[href$=\"privacy-policy\"]"
+            ],
+            "html": "<a href=\"/privacy-policy\">Privacy Policy</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.65 (foreground color: #5d5d5a, background color: #1a1917, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "span > a[href$=\"terms-and-conditions\"]"
+            ],
+            "html": "<a href=\"/terms-and-conditions\">Terms &amp; Conditions</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.65 (foreground color: #5d5d5a, background color: #1a1917, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/privacy-policy",
+    "width": 390,
+    "violations": [
+      {
+        "id": "target-size",
+        "impact": "serious",
+        "help": "All touch targets must be 24px large, or leave sufficient space",
+        "nodes": [
+          {
+            "target": [
+              ".policy-contact > a[href=\"mailto:hi@talkthetaste.com\"]"
+            ],
+            "html": "<a href=\"mailto:hi@talkthetaste.com\">hi@talkthetaste.com</a>",
+            "summary": "Fix any of the following:\n  Target has insufficient size (125.4px by 16px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px."
+          },
+          {
+            "target": [
+              ".policy-contact > a[href=\"tel:+971565390316\"]"
+            ],
+            "html": "<a href=\"tel:+971565390316\">+971 56 539 0316</a>",
+            "summary": "Fix any of the following:\n  Target has insufficient size (109.2px by 16px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/restaurant-branding-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".landing-actions > .btn-primary"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20branding#free-audit\" class=\"btn-primary\">Request a brand audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20branding#free-audit\" class=\"btn-primary cta-btn-gold\">Request a brand audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/privacy-policy",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      },
+      {
+        "id": "target-size",
+        "impact": "serious",
+        "help": "All touch targets must be 24px large, or leave sufficient space",
+        "nodes": [
+          {
+            "target": [
+              ".policy-contact > a[href=\"mailto:hi@talkthetaste.com\"]"
+            ],
+            "html": "<a href=\"mailto:hi@talkthetaste.com\">hi@talkthetaste.com</a>",
+            "summary": "Fix any of the following:\n  Target has insufficient size (125.4px by 16px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px."
+          },
+          {
+            "target": [
+              ".policy-contact > a[href=\"tel:+971565390316\"]"
+            ],
+            "html": "<a href=\"tel:+971565390316\">+971 56 539 0316</a>",
+            "summary": "Fix any of the following:\n  Target has insufficient size (109.2px by 16px, should be at least 24px by 24px)\n  Target has insufficient space to its closest neighbors. Safe clickable space has a diameter of 23px instead of at least 24px."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/restaurant-branding-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-actions > .btn-primary"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20branding#free-audit\" class=\"btn-primary\">Request a brand audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20branding#free-audit\" class=\"btn-primary cta-btn-gold\">Request a brand audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/restaurant-launch-marketing-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Restaurant launch hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20launch%20marketing#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Restaurant launch hero\">Plan your launch →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20launch%20marketing#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Restaurant launch bottom\">Request launch audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/restaurant-launch-marketing-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Restaurant launch hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20launch%20marketing#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Restaurant launch hero\">Plan your launch →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20launch%20marketing#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Restaurant launch bottom\">Request launch audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/restaurant-marketing-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".btn-primary[data-track=\"audit_cta_click\"][data-track-label=\"Restaurant landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20marketing#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Restaurant landing hero\">Get free restaurant audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Dubai Restaurant Group, full brand launch and go-to-market</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20marketing#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Restaurant landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/restaurant-marketing-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".btn-primary[data-track=\"audit_cta_click\"][data-track-label=\"Restaurant landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20marketing#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Restaurant landing hero\">Get free restaurant audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Dubai Restaurant Group, full brand launch and go-to-market</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=restaurant%20marketing#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Restaurant landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/services",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".btn-gold"
+            ],
+            "html": "<a href=\"/contact#free-audit\" class=\"btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Services CTA\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".sec:nth-child(10) > div:nth-child(1) > h2 > .gold"
+            ],
+            "html": "<span class=\"gold\">clear execution.</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 31.5pt (42px), font weight: bold). Expected contrast ratio of 3:1"
+          },
+          {
+            "target": [
+              ".sec:nth-child(11) > div:nth-child(1) > h2 > .gold"
+            ],
+            "html": "<span class=\"gold\">Launch</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 31.5pt (42px), font weight: bold). Expected contrast ratio of 3:1"
+          },
+          {
+            "target": [
+              "section:nth-child(13) > div > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\" style=\"color:rgba(250,250,248,.35);justify-content:center;\">\n            <span style=\"background:rgba(250,250,248,.1);width:20px;height:1px;display:inline-block;margin-right:10px;\"></span>\n            Ready to Start?\n        </div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #5f5f5d, background color: #0c0c0a, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Services bottom CTA\"]"
+            ],
+            "html": "<a href=\"/contact#free-audit\" class=\"btn-primary\" style=\"background:var(--gold);color:var(--text);\" data-track=\"audit_cta_click\" data-track-label=\"Services bottom CTA\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/services",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-menu > li:nth-child(3) > .active[href$=\"services\"][aria-current=\"page\"]"
+            ],
+            "html": "<a href=\"/services\" class=\"active\" aria-current=\"page\">Services</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".btn-gold"
+            ],
+            "html": "<a href=\"/contact#free-audit\" class=\"btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Services CTA\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".sec:nth-child(10) > div:nth-child(1) > h2 > .gold"
+            ],
+            "html": "<span class=\"gold\">clear execution.</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 54.0pt (72px), font weight: bold). Expected contrast ratio of 3:1"
+          },
+          {
+            "target": [
+              ".sec:nth-child(11) > div:nth-child(1) > h2 > .gold"
+            ],
+            "html": "<span class=\"gold\">Launch</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 54.0pt (72px), font weight: bold). Expected contrast ratio of 3:1"
+          },
+          {
+            "target": [
+              "section:nth-child(13) > div > .eyebrow.reveal"
+            ],
+            "html": "<div class=\"eyebrow reveal\" style=\"color:rgba(250,250,248,.35);justify-content:center;\">\n            <span style=\"background:rgba(250,250,248,.1);width:20px;height:1px;display:inline-block;margin-right:10px;\"></span>\n            Ready to Start?\n        </div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.05 (foreground color: #5f5f5d, background color: #0c0c0a, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Services bottom CTA\"]"
+            ],
+            "html": "<a href=\"/contact#free-audit\" class=\"btn-primary\" style=\"background:var(--gold);color:var(--text);\" data-track=\"audit_cta_click\" data-track-label=\"Services bottom CTA\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/social-media-marketing-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Social landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=social%20media#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Social landing hero\">Get free social audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  F&amp;B brand, social media management</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=social%20media#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Social landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/social-media-marketing-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Social landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=social%20media#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Social landing hero\">Get free social audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  F&amp;B brand, social media management</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=social%20media#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Social landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/terms-and-conditions",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "#client-terms > .terms-section-head > .eyebrow"
+            ],
+            "html": "<div class=\"eyebrow\">Section One</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.36 (foreground color: #777775, background color: #0c0c0a, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#workforce-terms > .terms-section-head > .eyebrow"
+            ],
+            "html": "<div class=\"eyebrow\">Section Two</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.36 (foreground color: #777775, background color: #0c0c0a, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/terms-and-conditions",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#client-terms > .terms-section-head > .eyebrow"
+            ],
+            "html": "<div class=\"eyebrow\">Section One</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.36 (foreground color: #777775, background color: #0c0c0a, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#workforce-terms > .terms-section-head > .eyebrow"
+            ],
+            "html": "<div class=\"eyebrow\">Section Two</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.36 (foreground color: #777775, background color: #0c0c0a, font size: 7.5pt (10px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ttt-client-intake",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "#step-0 > .step-desc"
+            ],
+            "html": "<p class=\"step-desc\">Here is exactly what you're getting as part of your free first month with us. No catch, no hidden fees - just results. This form walks you through everything we need to get started.</p>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.25 (foreground color: #7a7868, background color: #111109, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(1)"
+            ],
+            "html": "<div class=\"pkg-item\">Brand audit and marketing consultation</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(2)"
+            ],
+            "html": "<div class=\"pkg-item\">Website optimization support</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(3)"
+            ],
+            "html": "<div class=\"pkg-item\">Standard SEO optimization</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(4)"
+            ],
+            "html": "<div class=\"pkg-item\">Strategic content and posting plan</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(5)"
+            ],
+            "html": "<div class=\"pkg-item\">10-12 professional photos</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(6)"
+            ],
+            "html": "<div class=\"pkg-item\">4 professionally edited video reels</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(7)"
+            ],
+            "html": "<div class=\"pkg-item\">10 static social media posts</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(8)"
+            ],
+            "html": "<div class=\"pkg-item\">15 creative story posts</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(9)"
+            ],
+            "html": "<div class=\"pkg-item\">Full account management</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(10)"
+            ],
+            "html": "<div class=\"pkg-item\">Limited Meta ads support (guidance)</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#step-0 > div:nth-child(5)"
+            ],
+            "html": "<div style=\"font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin:20px 0 12px\">Optional add-ons</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.71 (foreground color: #5a5a50, background color: #111109, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".addon-mini:nth-child(1) > .addon-mini-price"
+            ],
+            "html": "<div class=\"addon-mini-price\">From 500 AED</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".addon-mini:nth-child(2) > .addon-mini-price"
+            ],
+            "html": "<div class=\"addon-mini-price\">500 AED</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#step-0 > div:nth-child(7)"
+            ],
+            "html": "<div style=\"margin-top:20px;padding:14px 16px;background:var(--dark2);border:1px solid var(--border);border-left:3px solid var(--yellow);border-radius:0 6px 6px 0;font-size:13px;color:var(--muted);line-height:1.6\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".language-float"
+            ],
+            "html": "<a class=\"language-float\" href=\"#\" lang=\"ar\" dir=\"rtl\" aria-label=\"التبديل إلى العربية\">العربية</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.01 (foreground color: #0000ee, background color: #111109, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ttt-client-intake",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "div[data-step=\"1\"] > .sb-step-label"
+            ],
+            "html": "<div class=\"sb-step-label\">Business details</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div[data-step=\"2\"] > .sb-step-label"
+            ],
+            "html": "<div class=\"sb-step-label\">Social media</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div[data-step=\"3\"] > .sb-step-label"
+            ],
+            "html": "<div class=\"sb-step-label\">Brand and content</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div[data-step=\"4\"] > .sb-step-label"
+            ],
+            "html": "<div class=\"sb-step-label\">Add-ons</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div[data-step=\"5\"] > .sb-step-label"
+            ],
+            "html": "<div class=\"sb-step-label\">Account access</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div[data-step=\"6\"] > .sb-step-label"
+            ],
+            "html": "<div class=\"sb-step-label\">Payment</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "div[data-step=\"7\"] > .sb-step-label"
+            ],
+            "html": "<div class=\"sb-step-label\">Review and submit</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".sb-footer"
+            ],
+            "html": "<div class=\"sb-footer\">Your information is kept strictly confidential and never shared with third parties.</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.5 (foreground color: #5a5a50, background color: #1a1a17, font size: 8.3pt (11px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#step-0 > .step-desc"
+            ],
+            "html": "<p class=\"step-desc\">Here is exactly what you're getting as part of your free first month with us. No catch, no hidden fees - just results. This form walks you through everything we need to get started.</p>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 4.25 (foreground color: #7a7868, background color: #111109, font size: 11.3pt (15px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(1)"
+            ],
+            "html": "<div class=\"pkg-item\">Brand audit and marketing consultation</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(2)"
+            ],
+            "html": "<div class=\"pkg-item\">Website optimization support</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(3)"
+            ],
+            "html": "<div class=\"pkg-item\">Standard SEO optimization</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(4)"
+            ],
+            "html": "<div class=\"pkg-item\">Strategic content and posting plan</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(5)"
+            ],
+            "html": "<div class=\"pkg-item\">10-12 professional photos</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(6)"
+            ],
+            "html": "<div class=\"pkg-item\">4 professionally edited video reels</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(7)"
+            ],
+            "html": "<div class=\"pkg-item\">10 static social media posts</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(8)"
+            ],
+            "html": "<div class=\"pkg-item\">15 creative story posts</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(9)"
+            ],
+            "html": "<div class=\"pkg-item\">Full account management</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".pkg-item:nth-child(10)"
+            ],
+            "html": "<div class=\"pkg-item\">Limited Meta ads support (guidance)</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#step-0 > div:nth-child(5)"
+            ],
+            "html": "<div style=\"font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted2);margin:20px 0 12px\">Optional add-ons</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.71 (foreground color: #5a5a50, background color: #111109, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".addon-mini:nth-child(1) > .addon-mini-price"
+            ],
+            "html": "<div class=\"addon-mini-price\">From 500 AED</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".addon-mini:nth-child(2) > .addon-mini-price"
+            ],
+            "html": "<div class=\"addon-mini-price\">500 AED</div>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "#step-0 > div:nth-child(7)"
+            ],
+            "html": "<div style=\"margin-top:20px;padding:14px 16px;background:var(--dark2);border:1px solid var(--border);border-left:3px solid var(--yellow);border-radius:0 6px 6px 0;font-size:13px;color:var(--muted);line-height:1.6\">",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.91 (foreground color: #7a7868, background color: #1a1a17, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".language-float"
+            ],
+            "html": "<a class=\"language-float\" href=\"#\" lang=\"ar\" dir=\"rtl\" aria-label=\"التبديل إلى العربية\">العربية</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 2.01 (foreground color: #0000ee, background color: #111109, font size: 12.0pt (16px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/video-production-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Video landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=video%20production#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Video landing hero\">Get free video audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  F&amp;B brand, video content and social growth</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=video%20production#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Video landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/video-production-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Video landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=video%20production#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Video landing hero\">Get free video audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  F&amp;B brand, video content and social growth</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=video%20production#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Video landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/web-design-dubai",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              "a[data-track-label=\"Web landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=web%20design#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Web landing hero\">Get free website audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Dubai Restaurant Group, website and go-to-market</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(1) > .website-sample-head > span"
+            ],
+            "html": "<span>From AED 2,000</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".reveal-delay-1 > .website-sample-head > span"
+            ],
+            "html": "<span>From AED 5,000</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".reveal-delay-2 > .website-sample-head > span"
+            ],
+            "html": "<span>From AED 20,000</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".reveal-delay-3 > .website-sample-head > span"
+            ],
+            "html": "<span>From AED 25,000</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=web%20design#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Web landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/web-design-dubai",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "a[data-track-label=\"Web landing hero\"]"
+            ],
+            "html": "<a href=\"/contact?service=web%20design#free-audit\" class=\"btn-primary\" data-track=\"audit_cta_click\" data-track-label=\"Web landing hero\">Get free website audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".landing-quote > footer"
+            ],
+            "html": "<footer> -  Dubai Restaurant Group, website and go-to-market</footer>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.06 (foreground color: #615f5a, background color: #0c0c0a, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              "article:nth-child(1) > .website-sample-head > span"
+            ],
+            "html": "<span>From AED 2,000</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".reveal-delay-1 > .website-sample-head > span"
+            ],
+            "html": "<span>From AED 5,000</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".reveal-delay-2 > .website-sample-head > span"
+            ],
+            "html": "<span>From AED 20,000</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".reveal-delay-3 > .website-sample-head > span"
+            ],
+            "html": "<span>From AED 25,000</span>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.0pt (12px), font weight: bold). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact?service=web%20design#free-audit\" class=\"btn-primary cta-btn-gold\" data-track=\"audit_cta_click\" data-track-label=\"Web landing bottom\">Request free audit →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/work",
+    "width": 390,
+    "violations": []
+  },
+  {
+    "route": "/work",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".nav-menu > li:nth-child(3) > .active[aria-current=\"page\"][href$=\"work\"]"
+            ],
+            "html": "<a href=\"/work\" class=\"active\" aria-current=\"page\">Work</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".nav-cta"
+            ],
+            "html": "<a href=\"/contact\" class=\"nav-cta\">Let's Talk</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.0pt (12px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".ar-actions > .btn-primary[href$=\"contact\"]"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary\">احصل على تدقيق مجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary cta-btn-gold\">اطلب التدقيق المجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".ar-actions > .btn-primary[href$=\"contact\"]"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary\">احصل على تدقيق مجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary cta-btn-gold\">اطلب التدقيق المجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/about/",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".ar-actions > .btn-primary[href$=\"contact\"]"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary\">تحدث معنا →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary cta-btn-gold\">اطلب التدقيق المجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/about/",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".ar-actions > .btn-primary[href$=\"contact\"]"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary\">تحدث معنا →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary cta-btn-gold\">اطلب التدقيق المجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/contact/",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".btn-primary[href=\"https://wa.me/971565390316\"][target=\"_blank\"]"
+            ],
+            "html": "<a href=\"https://wa.me/971565390316\" target=\"_blank\" rel=\"noopener\" class=\"btn-primary\">راسلنا على واتساب →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/contact/",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".btn-primary[href=\"https://wa.me/971565390316\"][target=\"_blank\"]"
+            ],
+            "html": "<a href=\"https://wa.me/971565390316\" target=\"_blank\" rel=\"noopener\" class=\"btn-primary\">راسلنا على واتساب →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/services/",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".ar-actions > .btn-primary[href$=\"contact\"]"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary\">اطلب تدقيقا مجانيا →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary cta-btn-gold\">ابدأ بتدقيق مجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/services/",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".active[aria-current=\"page\"][href$=\"services\"]"
+            ],
+            "html": "<a href=\"/services\" class=\"active\" aria-current=\"page\">الخدمات</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #e3d134, background color: #ffffff, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".ar-actions > .btn-primary[href$=\"contact\"]"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary\">اطلب تدقيقا مجانيا →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary cta-btn-gold\">ابدأ بتدقيق مجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/restaurant-marketing-dubai/",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".ar-actions > .btn-primary[href$=\"contact\"]"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary\">اطلب تدقيق مطعمك →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary cta-btn-gold\">اطلب التدقيق المجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/restaurant-marketing-dubai/",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".ar-actions > .btn-primary[href$=\"contact\"]"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary\">اطلب تدقيق مطعمك →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": [
+              ".cta-btn-gold"
+            ],
+            "html": "<a href=\"/contact\" class=\"btn-primary cta-btn-gold\">اطلب التدقيق المجاني →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/blog/restaurant-marketing-dubai/",
+    "width": 390,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".btn-primary"
+            ],
+            "html": "<a href=\"/restaurant-marketing-dubai\" class=\"btn-primary\">استعرض خدمة تسويق المطاعم →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "route": "/ar/blog/restaurant-marketing-dubai/",
+    "width": 1920,
+    "violations": [
+      {
+        "id": "color-contrast",
+        "impact": "serious",
+        "help": "Elements must meet minimum color contrast ratio thresholds",
+        "nodes": [
+          {
+            "target": [
+              ".btn-primary"
+            ],
+            "html": "<a href=\"/restaurant-marketing-dubai\" class=\"btn-primary\">استعرض خدمة تسويق المطاعم →</a>",
+            "summary": "Fix any of the following:\n  Element has insufficient color contrast of 1.56 (foreground color: #ffffff, background color: #e3d134, font size: 9.8pt (13px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    ]
+  }
+]

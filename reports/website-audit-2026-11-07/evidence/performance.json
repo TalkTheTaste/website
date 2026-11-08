@@ -1,0 +1,222 @@
+[
+  {
+    "route": "/",
+    "vitals": {
+      "cls": 0.013344045155656882,
+      "lcp": 2044
+    },
+    "timing": [
+      {
+        "domContentLoaded": 1282.5,
+        "load": 2172.100000143051,
+        "bytes": 16412
+      }
+    ],
+    "resources": [
+      {
+        "url": "http://localhost:8799/assets/site/hero-unmasked-umair.webp",
+        "bytes": 66360,
+        "duration": 1022.5999999046326
+      },
+      {
+        "url": "http://localhost:8799/assets/site/hero-masked-umair.webp",
+        "bytes": 97748,
+        "duration": 1186.1999998092651
+      },
+      {
+        "url": "http://localhost:8799/css/main.min.css?v=3",
+        "bytes": 5193,
+        "duration": 255.90000009536743
+      },
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap",
+        "bytes": 1147,
+        "duration": 856.7000000476837
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-7B481RG9KT",
+        "bytes": 0,
+        "duration": 844.2000000476837
+      },
+      {
+        "url": "http://localhost:8799/assets/logo.png",
+        "bytes": 2656,
+        "duration": 221
+      },
+      {
+        "url": "http://localhost:8799/js/transitions.min.js",
+        "bytes": 3410,
+        "duration": 248.19999980926514
+      },
+      {
+        "url": "http://localhost:8799/js/conversion.min.js",
+        "bytes": 1954,
+        "duration": 457.2000000476837
+      },
+      {
+        "url": "http://localhost:8799/js/language-switcher.min.js",
+        "bytes": 21038,
+        "duration": 697.5
+      },
+      {
+        "url": "http://localhost:8799/api/analytics/track",
+        "bytes": 331,
+        "duration": 183.29999995231628
+      },
+      {
+        "url": "http://localhost:8799/api/analytics/track",
+        "bytes": 331,
+        "duration": 179.40000009536743
+      },
+      {
+        "url": "http://localhost:8799/assets/logo.png",
+        "bytes": 2656,
+        "duration": 171
+      }
+    ],
+    "preloaderVisible": false
+  },
+  {
+    "route": "/pricing",
+    "vitals": {
+      "lcp": 1736,
+      "cls": 0.0017983086633274186
+    },
+    "timing": [
+      {
+        "domContentLoaded": 983,
+        "load": 1733.7000000476837,
+        "bytes": 13420
+      }
+    ],
+    "resources": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap",
+        "bytes": 1374,
+        "duration": 561.3999998569489
+      },
+      {
+        "url": "http://localhost:8799/css/main.css?v=2",
+        "bytes": 6656,
+        "duration": 223
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-7B481RG9KT",
+        "bytes": 0,
+        "duration": 452.10000014305115
+      },
+      {
+        "url": "http://localhost:8799/assets/logo.png",
+        "bytes": 2656,
+        "duration": 179
+      },
+      {
+        "url": "http://localhost:8799/js/transitions.js",
+        "bytes": 4487,
+        "duration": 195.10000014305115
+      },
+      {
+        "url": "http://localhost:8799/js/language-switcher.js",
+        "bytes": 21777,
+        "duration": 412.40000009536743
+      },
+      {
+        "url": "http://localhost:8799/favicon.ico",
+        "bytes": 0,
+        "duration": 0.7999999523162842
+      }
+    ],
+    "preloaderVisible": false
+  },
+  {
+    "route": "/contact",
+    "vitals": {
+      "lcp": 1608
+    },
+    "timing": [
+      {
+        "domContentLoaded": 935,
+        "load": 1673.7999999523163,
+        "bytes": 11182
+      }
+    ],
+    "resources": [
+      {
+        "url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap",
+        "bytes": 1374,
+        "duration": 562
+      },
+      {
+        "url": "http://localhost:8799/css/main.css?v=2",
+        "bytes": 6656,
+        "duration": 208.79999995231628
+      },
+      {
+        "url": "https://www.googletagmanager.com/gtag/js?id=G-7B481RG9KT",
+        "bytes": 0,
+        "duration": 554.2999999523163
+      },
+      {
+        "url": "http://localhost:8799/assets/logo.png",
+        "bytes": 2656,
+        "duration": 176.20000004768372
+      },
+      {
+        "url": "http://localhost:8799/js/data.js?v=6",
+        "bytes": 5904,
+        "duration": 210.70000004768372
+      },
+      {
+        "url": "http://localhost:8799/js/conversion.js",
+        "bytes": 2398,
+        "duration": 321.59999990463257
+      },
+      {
+        "url": "http://localhost:8799/js/transitions.js",
+        "bytes": 4487,
+        "duration": 390.2000000476837
+      },
+      {
+        "url": "http://localhost:8799/js/language-switcher.js",
+        "bytes": 21777,
+        "duration": 592.8000001907349
+      },
+      {
+        "url": "http://localhost:8799/api/projects",
+        "bytes": 1292,
+        "duration": 161.10000014305115
+      },
+      {
+        "url": "http://localhost:8799/api/settings",
+        "bytes": 510,
+        "duration": 167.70000004768372
+      },
+      {
+        "url": "http://localhost:8799/api/posts",
+        "bytes": 8201,
+        "duration": 213.10000014305115
+      },
+      {
+        "url": "http://localhost:8799/assets/site/umair-linkedin.webp",
+        "bytes": 20036,
+        "duration": 264.7000000476837
+      },
+      {
+        "url": "http://localhost:8799/api/analytics/track",
+        "bytes": 331,
+        "duration": 173.59999990463257
+      },
+      {
+        "url": "http://localhost:8799/api/analytics/track",
+        "bytes": 331,
+        "duration": 162.10000014305115
+      },
+      {
+        "url": "http://localhost:8799/favicon.ico",
+        "bytes": 0,
+        "duration": 0.7000000476837158
+      }
+    ],
+    "preloaderVisible": false
+  }
+]

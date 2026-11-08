@@ -1,0 +1,47 @@
+[
+  {
+    "route": "/blog/how-to-market-a-restaurant-in-dubai/",
+    "status": 200,
+    "title": "How to Market a Restaurant in Dubai: Practical F&B Plan | Talk The Taste",
+    "errors": [],
+    "http": [
+      {
+        "url": "http://localhost:8899/blog/how-to-market-a-restaurant-in-dubai/assets/site/restaurant-brand-launch.jpg",
+        "status": 404
+      }
+    ],
+    "a11y": []
+  },
+  {
+    "route": "/work/on-demand-delivery-app/",
+    "status": 200,
+    "title": "On-Demand Delivery App | Talk The Taste",
+    "errors": [],
+    "http": [],
+    "a11y": []
+  },
+  {
+    "route": "/work/social-growth-campaign-f-and-b-brand/",
+    "status": 200,
+    "title": "Social Growth Campaign - F&B Brand | Talk The Taste",
+    "errors": [],
+    "http": [],
+    "a11y": []
+  },
+  {
+    "route": "/404.html",
+    "status": 200,
+    "title": "Page Not Found | Talk The Taste",
+    "errors": [],
+    "http": [],
+    "a11y": []
+  },
+  {
+    "route": "/admin",
+    "status": 200,
+    "title": "TTT Admin Panel",
+    "errors": [],
+    "http": [],
+    "a11y": []
+  }
+]

@@ -1,0 +1,119 @@
+[
+  {
+    "port": 3299,
+    "route": "/blog/how-to-choose-a-marketing-agency-in-dubai/",
+    "status": 200,
+    "bytes": 42118,
+    "title": "How to Choose a Marketing Agency in Dubai | Talk The Taste"
+  },
+  {
+    "port": 3299,
+    "route": "/blog/how-to-market-a-restaurant-in-dubai/",
+    "status": 200,
+    "bytes": 42147,
+    "title": "How to Market a Restaurant in Dubai: Practical F&amp;B Plan | Talk The Taste"
+  },
+  {
+    "port": 3299,
+    "route": "/blog/what-is-included-in-social-media-management-dubai/",
+    "status": 200,
+    "bytes": 40776,
+    "title": "What Is Included in Social Media Management in Dubai? | Talk The Taste"
+  },
+  {
+    "port": 3299,
+    "route": "/blog/what-should-a-dubai-business-website-include/",
+    "status": 200,
+    "bytes": 40351,
+    "title": "What Should a Dubai Business Website Include? | Talk The Taste"
+  },
+  {
+    "port": 3299,
+    "route": "/work/on-demand-delivery-app/",
+    "status": 200,
+    "bytes": 8916,
+    "title": "On-Demand Delivery App | Talk The Taste"
+  },
+  {
+    "port": 3299,
+    "route": "/work/social-growth-campaign-f-and-b-brand/",
+    "status": 200,
+    "bytes": 9214,
+    "title": "Social Growth Campaign - F&amp;B Brand | Talk The Taste"
+  },
+  {
+    "port": 3299,
+    "route": "/work/full-brand-launch-dubai-restaurant-group/",
+    "status": 200,
+    "bytes": 9345,
+    "title": "Full Brand Launch - Dubai Restaurant Group | Talk The Taste"
+  },
+  {
+    "port": 8899,
+    "route": "/blog/how-to-choose-a-marketing-agency-in-dubai/",
+    "status": 200,
+    "bytes": 42053,
+    "title": "How to Choose a Marketing Agency in Dubai | Talk The Taste"
+  },
+  {
+    "port": 8899,
+    "route": "/blog/how-to-market-a-restaurant-in-dubai/",
+    "status": 200,
+    "bytes": 42147,
+    "title": "How to Market a Restaurant in Dubai: Practical F&amp;B Plan | Talk The Taste"
+  },
+  {
+    "port": 8899,
+    "route": "/blog/what-is-included-in-social-media-management-dubai/",
+    "status": 200,
+    "bytes": 40661,
+    "title": "What Is Included in Social Media Management in Dubai? | Talk The Taste"
+  },
+  {
+    "port": 8899,
+    "route": "/blog/what-should-a-dubai-business-website-include/",
+    "status": 200,
+    "bytes": 40258,
+    "title": "What Should a Dubai Business Website Include? | Talk The Taste"
+  },
+  {
+    "port": 8899,
+    "route": "/work/on-demand-delivery-app/",
+    "status": 200,
+    "bytes": 8916,
+    "title": "On-Demand Delivery App | Talk The Taste"
+  },
+  {
+    "port": 8899,
+    "route": "/work/social-growth-campaign-f-and-b-brand/",
+    "status": 200,
+    "bytes": 9214,
+    "title": "Social Growth Campaign - F&amp;B Brand | Talk The Taste"
+  },
+  {
+    "port": 8899,
+    "route": "/work/full-brand-launch-dubai-restaurant-group/",
+    "status": 200,
+    "bytes": 9345,
+    "title": "Full Brand Launch - Dubai Restaurant Group | Talk The Taste"
+  },
+  {
+    "test": "rendered dynamic links",
+    "route": "/blog",
+    "links": [
+      "/blog/how-to-market-a-restaurant-in-dubai/",
+      "/blog/how-to-choose-a-marketing-agency-in-dubai/",
+      "/blog/what-is-included-in-social-media-management-dubai/",
+      "/blog/what-should-a-dubai-business-website-include/"
+    ]
+  },
+  {
+    "test": "rendered dynamic links",
+    "route": "/work",
+    "links": [
+      "/work/on-demand-delivery-app/",
+      "/work/social-growth-campaign-f-and-b-brand/",
+      "/work/full-brand-launch-dubai-restaurant-group/"
+    ]
+  }
+]

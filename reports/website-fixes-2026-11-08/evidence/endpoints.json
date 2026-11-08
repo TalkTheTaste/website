@@ -1,0 +1,447 @@
+[
+  {
+    "port": 3299,
+    "route": "/api/settings",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "bytes": 271,
+    "containsAdminPass": false,
+    "jsonKeys": [
+      "siteName",
+      "tagline",
+      "email",
+      "phone",
+      "instagram",
+      "linkedin",
+      "tiktok",
+      "web3formsKey"
+    ],
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/data/settings.json",
+    "status": 404,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/data/leads.json",
+    "status": 404,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/data/analytics.json",
+    "status": 404,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/data/shortlinks.json",
+    "status": 404,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/server.js",
+    "status": 404,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/package.json",
+    "status": 404,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/console.log",
+    "status": 404,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/api/leads",
+    "status": 401,
+    "type": "application/json; charset=utf-8",
+    "bytes": 24,
+    "containsAdminPass": false,
+    "jsonKeys": [
+      "error"
+    ],
+    "error": "Unauthorized",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/api/sync",
+    "status": 401,
+    "type": "application/json; charset=utf-8",
+    "bytes": 24,
+    "containsAdminPass": false,
+    "jsonKeys": [
+      "error"
+    ],
+    "error": "Unauthorized",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/api/portfolio",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "bytes": 2365,
+    "containsAdminPass": false,
+    "jsonKeys": [
+      "source",
+      "configured",
+      "env",
+      "projects",
+      "message"
+    ],
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/favicon.ico",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 2313,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/not-a-real-page-audit",
+    "status": 404,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/blog/not-a-real-post",
+    "status": 404,
+    "type": "text/html; charset=utf-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/work/not-a-real-client",
+    "status": 404,
+    "type": "text/html; charset=utf-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/ar/contact/",
+    "status": 200,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 8363,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "اتصل بنا | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/ar/about/",
+    "status": 200,
+    "type": "text/html; charset=UTF-8",
+    "bytes": 6243,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "عن الوكالة | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 3299,
+    "route": "/api/leads/submit EMPTY",
+    "status": 400,
+    "body": {
+      "ok": false,
+      "error": "Validation failed",
+      "fields": [
+        "fname",
+        "lname",
+        "email",
+        "phone",
+        "message",
+        "contactConsent"
+      ]
+    }
+  },
+  {
+    "port": 3299,
+    "route": "CORS untrusted Origin",
+    "allowOrigin": null,
+    "allowCredentials": null
+  },
+  {
+    "port": 8899,
+    "route": "/api/settings",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "bytes": 271,
+    "containsAdminPass": false,
+    "jsonKeys": [
+      "siteName",
+      "tagline",
+      "email",
+      "phone",
+      "instagram",
+      "linkedin",
+      "tiktok",
+      "web3formsKey"
+    ],
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/data/settings.json",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": 9,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/data/leads.json",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": 9,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/data/analytics.json",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": 9,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/data/shortlinks.json",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": 9,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/server.js",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": 9,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/package.json",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": 9,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/console.log",
+    "status": 404,
+    "type": "text/plain;charset=UTF-8",
+    "bytes": 9,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/api/leads",
+    "status": 401,
+    "type": "application/json; charset=utf-8",
+    "bytes": 24,
+    "containsAdminPass": false,
+    "jsonKeys": [
+      "error"
+    ],
+    "error": "Unauthorized",
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/api/sync",
+    "status": 401,
+    "type": "application/json; charset=utf-8",
+    "bytes": 24,
+    "containsAdminPass": false,
+    "jsonKeys": [
+      "error"
+    ],
+    "error": "Unauthorized",
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/api/portfolio",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "bytes": 2365,
+    "containsAdminPass": false,
+    "jsonKeys": [
+      "source",
+      "configured",
+      "env",
+      "projects",
+      "message"
+    ],
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/favicon.ico",
+    "status": 200,
+    "type": "image/png",
+    "bytes": 2313,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "cors": "*"
+  },
+  {
+    "port": 8899,
+    "route": "/not-a-real-page-audit",
+    "status": 404,
+    "type": "text/html; charset=utf-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": "*"
+  },
+  {
+    "port": 8899,
+    "route": "/blog/not-a-real-post",
+    "status": 404,
+    "type": "text/html; charset=utf-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/work/not-a-real-client",
+    "status": 404,
+    "type": "text/html; charset=utf-8",
+    "bytes": 10220,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "Page Not Found | Talk The Taste",
+    "cors": null
+  },
+  {
+    "port": 8899,
+    "route": "/ar/contact/",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 8363,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "اتصل بنا | Talk The Taste",
+    "cors": "*"
+  },
+  {
+    "port": 8899,
+    "route": "/ar/about/",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "bytes": 6243,
+    "containsAdminPass": false,
+    "jsonKeys": null,
+    "title": "عن الوكالة | Talk The Taste",
+    "cors": "*"
+  },
+  {
+    "port": 8899,
+    "route": "/api/leads/submit EMPTY",
+    "status": 400,
+    "body": {
+      "ok": false,
+      "error": "Validation failed",
+      "fields": [
+        "fname",
+        "lname",
+        "email",
+        "phone",
+        "message",
+        "contactConsent"
+      ]
+    }
+  },
+  {
+    "port": 8899,
+    "route": "CORS untrusted Origin",
+    "allowOrigin": null,
+    "allowCredentials": null
+  }
+]

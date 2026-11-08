@@ -1,0 +1,176 @@
+[
+  {
+    "route": "/",
+    "motion": "no-preference",
+    "bodyTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "bodyAnimation": "0.44s cubic-bezier(0.16, 1, 0.3, 1) both tttPageIn",
+    "navTop": 0,
+    "menu": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 10116.125,
+      "top": 0,
+      "right": 390,
+      "bottom": 10116.125,
+      "left": 0
+    },
+    "firstLink": {
+      "x": 40,
+      "y": 4848.5625,
+      "width": 310,
+      "height": 62,
+      "top": 4848.5625,
+      "right": 350,
+      "bottom": 4910.5625,
+      "left": 40
+    },
+    "overflow": "hidden",
+    "scrollY": 0
+  },
+  {
+    "route": "/about",
+    "motion": "no-preference",
+    "bodyTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "bodyAnimation": "0.44s cubic-bezier(0.16, 1, 0.3, 1) both tttPageIn",
+    "navTop": 0,
+    "menu": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 7500.609375,
+      "top": 0,
+      "right": 390,
+      "bottom": 7500.609375,
+      "left": 0
+    },
+    "firstLink": {
+      "x": 40,
+      "y": 3553.296875,
+      "width": 310,
+      "height": 57,
+      "top": 3553.296875,
+      "right": 350,
+      "bottom": 3610.296875,
+      "left": 40
+    },
+    "overflow": "hidden",
+    "scrollY": 0
+  },
+  {
+    "route": "/pricing",
+    "motion": "no-preference",
+    "bodyTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "bodyAnimation": "0.44s cubic-bezier(0.16, 1, 0.3, 1) both tttPageIn",
+    "navTop": 0,
+    "menu": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 14350.90625,
+      "top": 0,
+      "right": 390,
+      "bottom": 14350.90625,
+      "left": 0
+    },
+    "firstLink": {
+      "x": 40,
+      "y": 6978.453125,
+      "width": 310,
+      "height": 57,
+      "top": 6978.453125,
+      "right": 350,
+      "bottom": 7035.453125,
+      "left": 40
+    },
+    "overflow": "hidden",
+    "scrollY": 0
+  },
+  {
+    "route": "/",
+    "motion": "reduce",
+    "bodyTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "bodyAnimation": "0.44s cubic-bezier(0.16, 1, 0.3, 1) both tttPageIn",
+    "navTop": 0,
+    "menu": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 10116.125,
+      "top": 0,
+      "right": 390,
+      "bottom": 10116.125,
+      "left": 0
+    },
+    "firstLink": {
+      "x": 40,
+      "y": 4848.5625,
+      "width": 310,
+      "height": 62,
+      "top": 4848.5625,
+      "right": 350,
+      "bottom": 4910.5625,
+      "left": 40
+    },
+    "overflow": "hidden",
+    "scrollY": 0
+  },
+  {
+    "route": "/about",
+    "motion": "reduce",
+    "bodyTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "bodyAnimation": "0.44s cubic-bezier(0.16, 1, 0.3, 1) both tttPageIn",
+    "navTop": 0,
+    "menu": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 7500.609375,
+      "top": 0,
+      "right": 390,
+      "bottom": 7500.609375,
+      "left": 0
+    },
+    "firstLink": {
+      "x": 40,
+      "y": 3553.296875,
+      "width": 310,
+      "height": 57,
+      "top": 3553.296875,
+      "right": 350,
+      "bottom": 3610.296875,
+      "left": 40
+    },
+    "overflow": "hidden",
+    "scrollY": 0
+  },
+  {
+    "route": "/pricing",
+    "motion": "reduce",
+    "bodyTransform": "matrix(1, 0, 0, 1, 0, 0)",
+    "bodyAnimation": "0.44s cubic-bezier(0.16, 1, 0.3, 1) both tttPageIn",
+    "navTop": 0,
+    "menu": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 14350.90625,
+      "top": 0,
+      "right": 390,
+      "bottom": 14350.90625,
+      "left": 0
+    },
+    "firstLink": {
+      "x": 40,
+      "y": 6978.453125,
+      "width": 310,
+      "height": 57,
+      "top": 6978.453125,
+      "right": 350,
+      "bottom": 7035.453125,
+      "left": 40
+    },
+    "overflow": "hidden",
+    "scrollY": 0
+  }
+]

@@ -1,4 +1,5 @@
 'use strict';
+import { notFound } from '../../lib/page-assets.mjs';
 
 const SITE_URL = 'https://talkthetaste.com';
 const DEFAULT_IMAGE = `${SITE_URL}/assets/site/social-card.jpg`;
@@ -9,7 +10,13 @@ export async function onRequestGet({ request, env }) {
 
   if (!slug) return Response.redirect(`${SITE_URL}/work`, 301);
 
-  if (!isOneDriveConfigured(env)) return notFound(request, env);
+  if (!isOneDriveConfigured(env)) {
+    const response = await fetch(new URL('/api/portfolio', request.url), { headers: { Accept: 'application/json' } });
+    if (!response.ok) return notFound(request, env);
+    const data = await response.json();
+    const project = (data.projects || []).find(item => item.id === slug || slugify(String(item.title || '').replace(/&/g, ' and ')) === slug);
+    return project ? htmlResponse(renderCaseStudy(project, slug)) : notFound(request, env);
+  }
 
   let client;
   try {
@@ -34,14 +41,6 @@ export async function onRequestHead(context) {
   const getRequest = new Request(context.request.url, { method: 'GET', headers: context.request.headers });
   const response = await onRequestGet({ ...context, request: getRequest });
   return new Response(null, { status: response.status, headers: response.headers });
-}
-
-async function notFound(request, env) {
-  const url = new URL('/404.html', request.url);
-  const res = env.ASSETS?.fetch ? await env.ASSETS.fetch(new Request(url.toString(), request)) : await fetch(url.toString());
-  const headers = new Headers(res.headers);
-  headers.set('Content-Type', 'text/html; charset=utf-8');
-  return new Response(await res.text(), { status: 404, headers });
 }
 
 async function findClientBySlug(env, slug) {
@@ -96,7 +95,7 @@ async function loadClientDetail(env, client) {
 
 function renderCaseStudy(project, slug) {
   const canonicalUrl = `${SITE_URL}/work/${slug}/`;
-  const image = project.image ? `${SITE_URL}${project.image}` : DEFAULT_IMAGE;
+  const image = project.image ? new URL(project.image, SITE_URL + '/').href : DEFAULT_IMAGE;
   const title = `${project.title} | Talk The Taste`;
   const description = escapeHtml(`${project.title} - ${project.description || 'client work'} by Talk The Taste.`);
   const media = Array.isArray(project.media) ? project.media : [];
@@ -156,7 +155,7 @@ function renderCaseStudy(project, slug) {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Space+Grotesk:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/main.css?v=2">
+<link rel="stylesheet" href="/css/main.css?v=20261108">
 <style>
 .crumbs{font-size:13px;color:var(--text-xmuted);padding:132px 80px 0;}
 .crumbs a{color:var(--text-xmuted);}
@@ -188,7 +187,8 @@ function renderCaseStudy(project, slug) {
         <li><a href="/services">Services</a></li>
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
-      </ul><div class="nav-right"><a href="https://wa.me/971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp &#8599;</a><a href="/contact" class="nav-cta">Let's Talk</a></div></nav>
+      </ul><div class="nav-right"><a href="https://wa.me/971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp &#8599;</a><a href="/contact" class="nav-cta">Let's Talk</a></div><button class="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button></nav>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert><button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">×</button><ul class="mobile-menu-links"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/services">Services</a></li><li><a href="/work">Work</a></li><li><a href="/pricing">Pricing</a></li></ul><div class="mobile-menu-bottom"><a href="/contact" class="btn-primary">Let's Talk →</a></div></div>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/work">Work</a> / ${escapeHtml(project.title)}</nav>
 <section class="client-hero">
   <div class="client-hero-media">${project.image ? `<img src="${escapeAttr(image)}" alt="${escapeAttr(project.title)}">` : ''}</div>
@@ -215,7 +215,7 @@ function renderCaseStudy(project, slug) {
   </div>
   <div class="footer-bottom"><span>&copy; 2026 Talk The Taste. All rights reserved.</span><span>Dubai, UAE &middot; Irvine, CA</span></div>
 </footer>
-</body>
+<script src="/js/transitions.js?v=20261108"></script><script src="/js/language-switcher.js?v=20261108"></script></body>
 </html>`;
 }
 
