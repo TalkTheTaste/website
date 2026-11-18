@@ -53,52 +53,118 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css?v=20261108">
-    <style>
-        .about-hero { padding:168px 80px 64px; max-width:980px; }
-        .about-hero h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(40px,6vw,76px); font-weight:700; letter-spacing:-2px; line-height:1.05; margin:18px 0 24px; color:var(--text); }
-        .about-hero p { font-size:17px; color:var(--text-muted); line-height:1.75; max-width:680px; }
-
-        .offices-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:36px; border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-        .office-card { background:var(--surface); padding:36px; }
-        .office-card h3 { font-family:'Cormorant Garamond',serif; font-size:22px; margin-bottom:10px; color:var(--text); }
-        .office-card p { font-size:14px; color:var(--text-muted); line-height:1.7; margin:0; }
-        .office-flag { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; display:block; }
-
-        .founder-wrap { display:grid; grid-template-columns:.85fr 1.15fr; gap:64px; align-items:center; margin-top:36px; }
-        .founder-photo { border-radius:16px; overflow:hidden; aspect-ratio:4/5; background:var(--bg-off); }
-        .founder-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-        .founder-copy h3 { font-family:'Cormorant Garamond',serif; font-size:28px; margin-bottom:4px; color:var(--text); }
-        .founder-role { font-size:13px; color:var(--text-xmuted); letter-spacing:.5px; margin-bottom:20px; display:block; }
-        .founder-copy p { font-size:15px; color:var(--text-muted); line-height:1.8; margin-bottom:16px; }
-        .founder-links { display:flex; gap:12px; margin-top:20px; }
-        .founder-creds-label { font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--text-xmuted); margin-bottom:10px !important; }
-        .founder-creds { list-style:none; display:grid; gap:8px; margin:0 0 20px; padding:0; }
-        .founder-creds li { font-size:13px; color:var(--text-muted); line-height:1.5; padding-left:18px; position:relative; }
-        .founder-creds li::before { content:'\2022'; position:absolute; left:2px; color:var(--gold); }
-
-        .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:2px; margin-top:36px; border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-        .stat-cell { background:var(--surface); padding:32px 24px; text-align:center; }
-        .stat-cell .num { font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:700; color:var(--text); display:block; }
-        .stat-cell .lbl { font-size:12px; color:var(--text-muted); margin-top:6px; }
-
-        .values-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:36px; border:1px solid var(--border); border-radius:16px; overflow:hidden; }
-        .value-card { background:var(--surface); padding:36px; }
-        .value-card h3 { font-family:'Cormorant Garamond',serif; font-size:20px; margin-bottom:10px; color:var(--text); }
-        .value-card p { font-size:14px; color:var(--text-muted); line-height:1.7; margin:0; }
-
-        .sister-band { background:var(--dark); color:#fff; border-radius:16px; padding:48px; margin-top:36px; display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
-        .sister-band h3 { font-family:'Cormorant Garamond',serif; font-size:26px; margin-bottom:8px; }
-        .sister-band p { color:rgba(250,250,248,.6); max-width:520px; line-height:1.7; margin:0; }
-
-        @media(max-width:900px){
-            .about-hero { padding:132px 24px 40px; }
-            .offices-grid, .values-grid { grid-template-columns:1fr; }
-            .founder-wrap { grid-template-columns:1fr; gap:32px; }
-            .stat-row { grid-template-columns:repeat(2,1fr); }
-            .sister-band { padding:32px 24px; }
-        }
-        body{cursor:auto} a,button{cursor:pointer}
-    </style>
+    <style id="about-page-styles">
+/* About uses one spacing, type and border system, scoped to this page. */
+#about-page { --ap-line: #deddd7; --ap-paper: #f5f4f1; color:var(--text); }
+#about-page .ap-shell { width:calc(100% - 160px); max-width:1360px; margin-inline:auto; }
+#about-page .ap-kicker { display:block; font:600 11px/1.5 'Inter',sans-serif; letter-spacing:2px; text-transform:uppercase; color:var(--text-muted); }
+#about-page h1,#about-page h2,#about-page h3 { font-family:'Space Grotesk','Inter',sans-serif; color:var(--text); font-weight:600; }
+#about-page h1 { font-size:clamp(54px,6.4vw,100px); line-height:1.02; letter-spacing:-.065em; margin:24px 0; }
+#about-page h2 { font-size:clamp(34px,3.4vw,54px); line-height:1.1; letter-spacing:-.045em; margin:20px 0 24px; }
+#about-page h3 { font-size:24px; line-height:1.2; letter-spacing:-.035em; }
+#about-page p { font-size:16px; line-height:1.8; color:var(--text-muted); }
+#about-page .ap-hero { padding-block:164px 64px; display:grid; grid-template-columns:1.2fr 1fr; gap:clamp(40px,6vw,100px); align-items:center; }
+#about-page .ap-crumbs { display:flex; align-items:center; gap:10px; margin-bottom:32px; font-size:12px; color:var(--text-muted); }
+#about-page .ap-crumbs a:hover { text-decoration:underline; }
+#about-page .ap-intro { max-width:490px; }
+#about-page .ap-actions { display:flex; flex-wrap:wrap; align-items:center; gap:18px; margin-top:28px; }
+#about-page .ap-link { display:inline-flex; align-items:center; gap:18px; min-height:44px; font-size:13px; font-weight:600; border-bottom:1px solid var(--text); }
+#about-page .ap-link:hover { border-color:var(--gold); }
+#about-page .ap-portrait { position:relative; background:var(--ap-paper); }
+#about-page .ap-portrait img { display:block; width:100%; height:auto; aspect-ratio:1/1.05; object-fit:cover; }
+#about-page .ap-photo-caption { display:flex; justify-content:space-between; align-items:center; gap:12px; padding:20px 22px; background:var(--gold); color:var(--text); font-size:12px; }
+#about-page .ap-photo-caption strong { display:block; font-size:15px; margin-bottom:4px; }
+#about-page .ap-photo-caption .ap-arrow { font-size:28px; }
+#about-page .ap-facts { display:grid; grid-template-columns:repeat(4,1fr); border-block:1px solid var(--ap-line); }
+#about-page .ap-fact { padding:30px 24px; border-right:1px solid var(--ap-line); }
+#about-page .ap-fact:first-child { padding-left:0; }
+#about-page .ap-fact:last-child { border-right:0; }
+#about-page .ap-fact strong { display:block; font:600 clamp(30px,3.2vw,48px)/1.1 'Space Grotesk','Inter',sans-serif; letter-spacing:-.05em; }
+#about-page .ap-fact span { display:block; margin-top:9px; color:var(--text-muted); font-size:12px; line-height:1.5; }
+#about-page .ap-section { padding-block:88px; }
+#about-page .ap-split { display:grid; grid-template-columns:1fr 1fr; gap:clamp(32px,7vw,112px); }
+#about-page .ap-prose p+p { margin-top:18px; }
+#about-page .ap-prose .ap-lead { font-size:clamp(19px,1.7vw,24px); line-height:1.6; color:var(--text); }
+#about-page .ap-tags { display:flex; flex-wrap:wrap; gap:8px; margin-top:28px; list-style:none; }
+#about-page .ap-tags li { font-size:11px; padding:10px 13px; border:1px solid var(--ap-line); border-radius:2px; }
+#about-page .ap-tinted { background:var(--ap-paper); }
+#about-page .ap-founder-note { padding:32px; background:var(--gold); align-self:start; }
+#about-page .ap-founder-note p { color:var(--text); font:500 clamp(25px,2.6vw,38px)/1.3 'Space Grotesk','Inter',sans-serif; letter-spacing:-.035em; margin-top:26px; }
+#about-page .ap-founder-note .ap-kicker,#about-page .ap-cta .ap-kicker { color:var(--text-mid); }
+#about-page .ap-founder-note small { display:block; margin-top:24px; font-size:12px; line-height:1.6; }
+#about-page .ap-details { border-block:1px solid var(--ap-line); margin-top:24px; }
+#about-page .ap-details+.ap-details { margin-top:0; border-top:0; }
+#about-page summary { display:flex; justify-content:space-between; align-items:center; gap:20px; cursor:pointer; padding:22px 0; font-size:14px; font-weight:600; list-style:none; }
+#about-page summary::-webkit-details-marker { display:none; }
+#about-page summary::after { content:'+'; font-size:24px; font-weight:400; }
+#about-page details[open] summary::after { content:'−'; }
+#about-page .ap-detail-body { padding-bottom:24px; }
+#about-page .ap-detail-body p { font-size:14px; }
+#about-page .ap-credentials { padding-left:18px; display:grid; gap:12px; font-size:13px; line-height:1.7; color:var(--text-muted); }
+#about-page .ap-section-head { display:flex; justify-content:space-between; align-items:end; gap:32px; margin-bottom:36px; }
+#about-page .ap-section-head h2 { margin-bottom:0; }
+#about-page .ap-section-head p { max-width:350px; font-size:14px; }
+#about-page .ap-locations { display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--ap-line); }
+#about-page .ap-location { padding:36px; }
+#about-page .ap-location+.ap-location { border-left:1px solid var(--ap-line); }
+#about-page .ap-location-top { display:flex; justify-content:space-between; gap:12px; font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:var(--text-muted); margin-bottom:36px; }
+#about-page .ap-location h3 { font-size:36px; margin-bottom:8px; }
+#about-page .ap-location address { font-style:normal; font-size:13px; line-height:1.8; color:var(--text-muted); margin-bottom:20px; }
+#about-page .ap-location p { font-size:14px; max-width:450px; }
+#about-page .ap-location .ap-link { margin-top:20px; }
+#about-page .ap-principles { display:grid; grid-template-columns:repeat(3,1fr); border-block:1px solid var(--ap-line); }
+#about-page .ap-principle { padding:32px 28px; border-right:1px solid var(--ap-line); }
+#about-page .ap-principle:first-child { padding-left:0; }
+#about-page .ap-principle:last-child { border-right:0; }
+#about-page .ap-number { display:block; color:var(--text-muted); font-size:11px; margin-bottom:30px; }
+#about-page .ap-principle h3 { margin-bottom:16px; }
+#about-page .ap-principle p { font-size:14px; }
+#about-page .ap-sister { display:flex; justify-content:space-between; align-items:center; gap:28px; border-bottom:1px solid var(--ap-line); padding:36px 0 0; }
+#about-page .ap-sister p { max-width:650px; font-size:13px; margin:8px 0 32px; }
+#about-page .ap-sister h3 { font-size:20px; }
+#about-page .ap-sister .ap-link { flex-shrink:0; }
+#about-page .ap-cta { background:var(--gold); padding-block:72px; }
+#about-page .ap-cta-inner { display:flex; justify-content:space-between; align-items:center; gap:36px; }
+#about-page .ap-cta h2 { max-width:680px; margin-bottom:16px; }
+#about-page .ap-cta p { color:var(--text-mid); }
+#about-page .ap-cta .btn-primary { background:var(--text); color:#fff; flex-shrink:0; }
+@media(min-width:1600px) { #about-page .ap-hero { padding-top:180px; } }
+@media(max-width:1100px) { #about-page .ap-shell { width:calc(100% - 96px); } #about-page .ap-hero { gap:40px; } }
+@media(max-width:900px) {
+ #about-page .ap-shell { width:calc(100% - 48px); }
+ #about-page .ap-hero { padding-block:120px 40px; gap:36px; }
+ #about-page h1 { font-size:clamp(44px,7vw,66px); }
+ #about-page .ap-section { padding-block:60px; }
+ #about-page .ap-split { gap:36px; }
+ #about-page .ap-location { padding:26px; }
+ #about-page .ap-section-head { align-items:start; }
+ #about-page .ap-principle { padding:26px 20px; }
+ #about-page .ap-cta { padding-block:56px; }
+}
+@media(max-width:640px) {
+ #about-page .ap-hero,#about-page .ap-split,#about-page .ap-locations,#about-page .ap-principles { grid-template-columns:1fr; }
+ #about-page .ap-hero { gap:32px; }
+ #about-page h1 { font-size:clamp(44px,11.5vw,66px); }
+ #about-page .ap-crumbs { margin-bottom:26px; }
+ #about-page .ap-portrait img { aspect-ratio:1.15; object-position:center 34%; }
+ #about-page .ap-facts { grid-template-columns:1fr 1fr; }
+ #about-page .ap-fact { padding:24px 16px; }
+ #about-page .ap-fact:nth-child(2) { border-right:0; }
+ #about-page .ap-fact:nth-child(3) { padding-left:0; }
+ #about-page .ap-fact:nth-child(-n+2) { border-bottom:1px solid var(--ap-line); }
+ #about-page .ap-section-head,#about-page .ap-cta-inner,#about-page .ap-sister { display:flex; flex-direction:column; align-items:start; gap:24px; }
+ #about-page .ap-founder-note { padding:26px; }
+ #about-page .ap-location+.ap-location { border-left:0; border-top:1px solid var(--ap-line); }
+ #about-page .ap-location-top { margin-bottom:24px; }
+ #about-page .ap-principle,#about-page .ap-principle:first-child { padding:26px 0; border-right:0; }
+ #about-page .ap-principle+.ap-principle { border-top:1px solid var(--ap-line); }
+ #about-page .ap-number { margin-bottom:18px; }
+ #about-page .ap-sister { padding-bottom:28px; gap:0; }
+ #about-page .ap-sister p { margin-bottom:12px; }
+ #about-page .ap-cta h2 { font-size:36px; }
+}
+body{cursor:auto} a,button{cursor:pointer}
+</style>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B481RG9KT"></script>
     <script>
@@ -204,46 +270,37 @@
       </div>
     </div>
 
-<section class="about-hero">
-    <nav class="crumbs reveal" aria-label="Breadcrumb" style="font-size:13px;color:var(--text-xmuted);margin-bottom:10px;">
-        <a href="/" style="color:var(--text-xmuted);">Home</a> / About
-    </nav>
-    <div class="eyebrow reveal">About Talk The Taste</div>
-    <h1 class="reveal reveal-delay-1">Helping brands grow beyond limits, from Dubai to Irvine.</h1>
-    <p class="reveal reveal-delay-2"><strong>Talk The Taste Marketing Management</strong> is a marketing agency specializing in restaurant, café, hospitality and food &amp; beverage brands, with operations in Dubai and the United States. We provide restaurant branding, social media marketing, content production, food photography, website development, SEO and digital marketing, delivered by senior people without layers of account-management handoffs.</p>
-</section>
-
-<section class="sec" style="padding-top:0;">
-    <div class="eyebrow reveal">Where We Work From</div>
-    <h2 class="sec-title reveal reveal-delay-1">Two offices, one team.</h2>
-    <div class="offices-grid">
-        <div class="office-card reveal reveal-delay-1">
-            <span class="office-flag">Dubai, UAE</span>
-            <h3>Al Quoz Studio</h3>
-            <p>3B 22nd St, Al Quoz Industrial 4, Dubai, United Arab Emirates.<br>Home base for our F&amp;B, hospitality and UAE client work - where most of our shoots, launches and on-the-ground campaigns happen.</p>
-        </div>
-        <div class="office-card reveal reveal-delay-2">
-            <span class="office-flag">Irvine, California</span>
-            <h3>Park Place Studio</h3>
-            <p>Park Place, 3349 Michelson Dr, Irvine, CA 92612.<br>Our base for United States clients, supporting brands across Southern California and beyond with the same senior team on every account. See our <a href="/marketing-agency-orange-county">Orange County marketing agency services</a>.</p>
-        </div>
+<main id="main-content">
+<div id="about-page">
+  <header class="ap-shell ap-hero">
+    <div>
+      <nav class="ap-crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">About</span></nav>
+      <span class="ap-kicker">Independent thinking. Shared ambition.</span>
+      <h1>A small team.<br>A bigger picture.</h1>
+      <p class="ap-intro">We're Talk The Taste. A senior team bringing strategy, content and digital together, from Dubai to Irvine. We help brands look sharper, connect with people and grow.</p>
+      <div class="ap-actions"><a href="/contact" class="btn-primary">Meet your next team <span aria-hidden="true">↗</span></a><a href="/work" class="ap-link">Explore our work <span aria-hidden="true">→</span></a></div>
     </div>
-</section>
-
-<section class="sec" style="padding-top:0;">
-    <div class="eyebrow reveal">Founder &amp; Project Lead</div>
-    <h2 class="sec-title reveal reveal-delay-1">The person who reviews every enquiry.</h2>
-    <div class="founder-wrap">
-        <div class="founder-photo reveal">
-            <picture><source srcset="assets/site/umair-profile.webp" type="image/webp" /><img src="assets/site/umair-profile.jpg" width="640" height="640" alt="Umair Dada, Founder and Project Lead at Talk The Taste" loading="lazy"></picture>
-        </div>
-        <div class="founder-copy reveal reveal-delay-1">
-            <h3>Umair Dada</h3>
-            <span class="founder-role">Founder &amp; Project Lead, Talk The Taste</span>
-            <p>Umair founded Talk The Taste on a simple premise: strategy and execution should sit with the same person, not get lost between a strategist, a designer and an account manager who never talk to each other. He holds a Marketing Management and Digital Strategy Graduate Certificate from Harvard University, along with a run of Harvard executive courses covering AI in marketing, brand strategy, consumer neuromarketing, marketing analytics and product management - the toolkit behind how TTT plans campaigns, not just how it executes them.</p>
-            <p>What sets him apart from most agency leads is the other half of his background: several years building backend systems and full-stack products, including API work on a multi-client SaaS platform and systems engineered to handle event crowds of 100,000&#43; in real time. He holds a Bachelor's in Information Technology from Middlesex University Dubai (First Class Honours) and is completing a Master's in Computer Science at MIT. That means the person shaping your marketing strategy can also architect and ship the website, app or platform it runs on.</p>
-            <p class="founder-creds-label">Harvard executive credentials</p>
-            <ul class="founder-creds">
+    <figure class="ap-portrait">
+      <picture><source srcset="/assets/site/umair-profile.webp" type="image/webp"><img src="/assets/site/umair-profile.jpg" width="640" height="640" alt="Umair Dada, founder of Talk The Taste" fetchpriority="high"></picture>
+      <figcaption class="ap-photo-caption"><div><strong>Umair Dada</strong>Founder &amp; Project Lead</div><span class="ap-arrow" aria-hidden="true">↗</span></figcaption>
+    </figure>
+  </header>
+  <div class="ap-shell ap-facts" aria-label="Talk The Taste at a glance">
+    <div class="ap-fact"><strong>80+</strong><span>Brands grown</span></div>
+    <div class="ap-fact"><strong>4.9</strong><span>Client rating</span></div>
+    <div class="ap-fact"><strong>02</strong><span>Studios. One team.</span></div>
+    <div class="ap-fact"><strong>7.8K+</strong><span>Community following</span></div>
+  </div>
+  <section class="ap-shell ap-section ap-split" aria-labelledby="ap-story-title">
+    <div><span class="ap-kicker">01 / The idea behind TTT</span><h2 id="ap-story-title">Good thinking.<br>Better execution.</h2></div>
+    <div class="ap-prose"><p class="ap-lead">Your strategy, your content and your website should tell the same story.</p><p>Talk The Taste Marketing Management brings those pieces together. We plan campaigns, create photography and video, manage social media, and build websites, ecommerce stores and custom applications.</p><p>From the first conversation to the final delivery, you work directly with the senior people shaping your brand. One team, with a clear view of the whole project.</p><ul class="ap-tags" aria-label="Our capabilities"><li>Strategy</li><li>Social media</li><li>Photography &amp; film</li><li>Branding</li><li>Web &amp; software</li></ul><div class="ap-actions"><a href="/services" class="ap-link">What we can do for you <span aria-hidden="true">→</span></a></div></div>
+  </section>
+  <section class="ap-tinted" aria-labelledby="ap-founder-title">
+    <div class="ap-shell ap-section ap-split">
+      <div><span class="ap-kicker">02 / Meet the founder</span><h2 id="ap-founder-title">The person behind<br>the first hello.</h2><div class="ap-founder-note"><span class="ap-kicker">A direct connection</span><p>Strategy and execution belong at the same table.</p><small>Umair Dada<br>Founder &amp; Project Lead</small></div></div>
+      <div class="ap-prose"><p class="ap-lead">A marketer who can build.<br>A developer who understands brands.</p><p>Umair brings marketing strategy and a background in backend systems and full-stack products to every project. That mix connects the creative idea with the technology needed to deliver it.</p><p>He personally reviews every enquiry and stays involved through delivery. You speak directly with the person responsible for the work.</p>
+        <details class="ap-details"><summary>Background &amp; experience</summary><div class="ap-detail-body"><p>Umair founded Talk The Taste on a simple premise: strategy and execution should sit with the same person, not get lost between a strategist, a designer and an account manager who never talk to each other. He holds a Marketing Management and Digital Strategy Graduate Certificate from Harvard University, along with a run of Harvard executive courses covering AI in marketing, brand strategy, consumer neuromarketing, marketing analytics and product management - the toolkit behind how TTT plans campaigns, not just how it executes them.</p><p>What sets him apart from most agency leads is the other half of his background: several years building backend systems and full-stack products, including API work on a multi-client SaaS platform and systems engineered to handle event crowds of 100,000&#43; in real time. He holds a Bachelor's in Information Technology from Middlesex University Dubai (First Class Honours) and is completing a Master's in Computer Science at MIT. That means the person shaping your marketing strategy can also architect and ship the website, app or platform it runs on.</p></div></details>
+        <details class="ap-details"><summary>Education &amp; executive credentials</summary><div class="ap-detail-body"><ul class="ap-credentials">
                 <li>Marketing Management and Digital Strategy Graduate Certificate</li>
                 <li>Certificate of Leadership Excellence in Marketing &amp; Communications</li>
                 <li>Transforming Strategies with Generative AI</li>
@@ -254,68 +311,30 @@
                 <li>Product Management: From Design to Launch</li>
                 <li>Strategic Marketing for Executives: Accelerate Growth and Competitive Advantage</li>
                 <li>AI in Marketing</li>
-            </ul>
-            <p>Umair personally reviews every enquiry that comes through the site and replies with the clearest next step - no account manager relaying between you and the people actually doing the work.</p>
-            <div class="founder-links">
-                <a href="https://www.linkedin.com/in/umairdada/" target="_blank" rel="noopener" class="btn-ghost">LinkedIn &rarr;</a>
-                <a href="/contact" class="btn-ghost">Get in touch &rarr;</a>
-            </div>
-        </div>
+            </ul></div></details>
+        <div class="ap-actions"><a href="https://www.linkedin.com/in/umairdada/" target="_blank" rel="noopener" class="ap-link">Connect on LinkedIn <span aria-hidden="true">↗</span></a><a href="/contact" class="ap-link">Say hello <span aria-hidden="true">→</span></a></div>
+      </div>
     </div>
-</section>
-
-<section class="sec" style="padding-top:0;">
-    <div class="eyebrow reveal">By The Numbers</div>
-    <h2 class="sec-title reveal reveal-delay-1">What the team has built so far.</h2>
-    <div class="stat-row">
-        <div class="stat-cell reveal"><span class="num">80+</span><span class="lbl">Brands grown</span></div>
-        <div class="stat-cell reveal reveal-delay-1"><span class="num">4.9</span><span class="lbl">Client rating</span></div>
-        <div class="stat-cell reveal reveal-delay-2"><span class="num">2</span><span class="lbl">Studios - Dubai &amp; Irvine</span></div>
-        <div class="stat-cell reveal reveal-delay-3"><span class="num">7.8K+</span><span class="lbl">Community following</span></div>
+  </section>
+  <section class="ap-shell ap-section" aria-labelledby="ap-studios-title">
+    <div class="ap-section-head"><div><span class="ap-kicker">03 / Where we work</span><h2 id="ap-studios-title">Two places.<br>One way of working.</h2></div><p>Based in Dubai and Irvine. Working with businesses across the UAE, Southern California and beyond.</p></div>
+    <div class="ap-locations">
+      <article class="ap-location"><div class="ap-location-top"><span>United Arab Emirates</span><span>Studio 01</span></div><h3>Dubai</h3><address>Al Quoz Studio<br>3B 22nd St, Al Quoz Industrial 4<br>Dubai, United Arab Emirates</address><p>Our home base for social media, photography, videography, websites and campaigns across the UAE.</p><a href="/contact" class="ap-link">Talk to our team <span aria-hidden="true">→</span></a></article>
+      <article class="ap-location"><div class="ap-location-top"><span>California, United States</span><span>Studio 02</span></div><h3>Irvine</h3><address>Park Place Studio<br>3349 Michelson Dr<br>Irvine, CA 92612</address><p>Supporting brands across Southern California and beyond, with the same team and creative standards.</p><a href="/marketing-agency-orange-county" class="ap-link">Explore our California work <span aria-hidden="true">→</span></a></article>
     </div>
-</section>
-
-<section class="sec" style="padding-top:0;">
-    <div class="eyebrow reveal">How We Work</div>
-    <h2 class="sec-title reveal reveal-delay-1">No juniors, no outsourcing, no hand-offs.</h2>
-    <div class="values-grid">
-        <div class="value-card reveal">
-            <h3>Senior team only</h3>
-            <p>Every account is run by the people who actually do strategy, design, content and development - not a junior account handler routing your requests elsewhere.</p>
-        </div>
-        <div class="value-card reveal reveal-delay-1">
-            <h3>Nothing outsourced</h3>
-            <p>Photography, design, development and campaign management stay in-house, across our Dubai and Irvine studios, so quality and timelines stay in our control.</p>
-        </div>
-        <div class="value-card reveal reveal-delay-2">
-            <h3>Direct access</h3>
-            <p>You talk to the person building your project. Umair reviews every enquiry personally and stays involved through delivery, not just the pitch.</p>
-        </div>
+  </section>
+  <section class="ap-shell ap-section" aria-labelledby="ap-principles-title" style="padding-top:0">
+    <div class="ap-section-head"><div><span class="ap-kicker">04 / What you can expect</span><h2 id="ap-principles-title">Close to the work.<br>Closer to your brand.</h2></div></div>
+    <div class="ap-principles">
+      <article class="ap-principle"><span class="ap-number">01</span><h3>Senior people.<br>From day one.</h3><p>The people planning your strategy are the people creating and building it. Experience stays involved throughout your project.</p></article>
+      <article class="ap-principle"><span class="ap-number">02</span><h3>Made together.<br>Kept in-house.</h3><p>Photography, design, development and campaigns stay with our team, keeping quality and timelines connected.</p></article>
+      <article class="ap-principle"><span class="ap-number">03</span><h3>Direct access.<br>Clear ownership.</h3><p>You know who is doing the work and who to speak to. Umair reviews every enquiry and stays close to delivery.</p></article>
     </div>
-</section>
-
-<section class="sec" style="padding-top:0;">
-    <div class="sister-band reveal">
-        <div>
-            <h3>Vynora Marketing</h3>
-            <p>Vynora Marketing is our sister brand - the same team, strategy and production standards, focused on brand-building work outside our core F&amp;B and hospitality specialty.</p>
-        </div>
-        <a href="https://www.instagram.com/vynoramarketing/" target="_blank" rel="noopener" class="btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.3);">See Vynora on Instagram &rarr;</a>
-    </div>
-</section>
-
-<section style="background:var(--dark);padding:128px 64px;text-align:center;">
-    <div style="max-width:600px;margin:0 auto;">
-        <div class="eyebrow reveal" style="color:rgba(250,250,248,.7);justify-content:center;">Let's Talk</div>
-        <h2 class="reveal reveal-delay-1" style="font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);color:#fff;letter-spacing:-1px;margin:14px 0 24px;">Ready to work with a senior team?</h2>
-        <p class="reveal reveal-delay-2" style="color:rgba(250,250,248,.55);margin-bottom:32px;">Tell us about your brand and we'll reply personally with next steps.</p>
-        <a href="/contact#free-audit" class="btn-primary reveal reveal-delay-3" style="background:var(--gold);color:var(--text);" data-track="audit_cta_click" data-track-label="About bottom CTA">
-            Get a free audit
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-    </div>
-</section>
-
+    <aside class="ap-sister"><div><span class="ap-kicker">Also in the family</span><h3>Vynora Marketing</h3><p>Our sister brand shares the same team, strategy and production standards across complementary creative projects.</p></div><a href="https://www.instagram.com/vynoramarketing/" target="_blank" rel="noopener" class="ap-link">Meet Vynora <span aria-hidden="true">↗</span></a></aside>
+  </section>
+  <section class="ap-cta" aria-labelledby="ap-cta-title"><div class="ap-shell ap-cta-inner"><div><span class="ap-kicker">Your next chapter</span><h2 id="ap-cta-title">Let's make something<br>worth talking about.</h2><p>Tell us where you are, and where you want to go.</p></div><a href="/contact" class="btn-primary" data-track="contact_cta_click" data-track-label="About closing CTA">Start a conversation <span aria-hidden="true">↗</span></a></div></section>
+</div>
+</main>
 <footer>
       <div class="footer-top">
         <div>
