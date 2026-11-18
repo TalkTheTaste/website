@@ -156,11 +156,12 @@
     </a>
     <ul class="nav-menu">
         <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
         <li><a href="/services">Services</a></li>
         <li><a href="/work" class="active">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/blog">Blog</a></li>
-    </ul>
+        <li><a href="/blog">Journal</a></li>
+      </ul>
     <div class="nav-right">
         <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
         <a href="/contact" class="nav-cta">Let's Talk</a>
@@ -175,11 +176,12 @@
     <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
     <ul class="mobile-menu-links">
         <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
         <li><a href="/services">Services</a></li>
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
-        <li><a href="/blog">Blog</a></li>
-    </ul>
+        <li><a href="/blog">Journal</a></li>
+      </ul>
     <div class="mobile-menu-bottom">
         <a href="/contact" class="btn-primary">Let's Talk →</a>
         <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
@@ -250,7 +252,7 @@
             <div class="footer-heading">Company</div>
             <ul class="footer-links">
                 <li><a href="/work">Our Work</a></li>
-                <li><a href="/blog">Blog</a></li>
+                <li><a href="/blog">Journal</a></li>
                 <li><a href="/contact">Contact</a></li>
             </ul>
         </div>

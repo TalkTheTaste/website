@@ -187,8 +187,16 @@ function renderCaseStudy(project, slug) {
         <li><a href="/services">Services</a></li>
         <li><a href="/work">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/blog">Journal</a></li>
       </ul><div class="nav-right"><a href="https://wa.me/971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp &#8599;</a><a href="/contact" class="nav-cta">Let's Talk</a></div><button class="hamburger" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false"><span></span><span></span><span></span></button></nav>
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert><button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">×</button><ul class="mobile-menu-links"><li><a href="/">Home</a></li><li><a href="/about">About</a></li><li><a href="/services">Services</a></li><li><a href="/work">Work</a></li><li><a href="/pricing">Pricing</a></li></ul><div class="mobile-menu-bottom"><a href="/contact" class="btn-primary">Let's Talk →</a></div></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert><button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">×</button><ul class="mobile-menu-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/work">Work</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/blog">Journal</a></li>
+      </ul><div class="mobile-menu-bottom"><a href="/contact" class="btn-primary">Let's Talk →</a></div></div>
 <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/work">Work</a> / ${escapeHtml(project.title)}</nav>
 <section class="client-hero">
   <div class="client-hero-media">${project.image ? `<img src="${escapeAttr(image)}" alt="${escapeAttr(project.title)}">` : ''}</div>
@@ -210,7 +218,7 @@ function renderCaseStudy(project, slug) {
   <div class="footer-top">
     <div><a href="/" class="footer-logo nav-logo"><img src="/assets/logo.png" class="logo-img" alt="Talk The Taste"></a><p class="footer-brand-desc">Dubai's creative agency. Marketing, branding, web, apps, and video, all under one roof.</p></div>
     <div><div class="footer-heading">Services</div><ul class="footer-links"><li><a href="/restaurant-marketing-dubai">Restaurant Marketing</a></li><li><a href="/social-media-marketing-dubai">Social Media Marketing</a></li><li><a href="/web-design-dubai">Web Design</a></li><li><a href="/branding-agency-dubai">Branding</a></li></ul></div>
-    <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="/about">About</a></li><li><a href="/work">Our Work</a></li><li><a href="/blog">Blog</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li></ul></div>
+    <div><div class="footer-heading">Company</div><ul class="footer-links"><li><a href="/about">About</a></li><li><a href="/work">Our Work</a></li><li><a href="/blog">Journal</a></li><li><a href="/contact">Contact</a></li><li><a href="/privacy-policy">Privacy Policy</a></li><li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li></ul></div>
     <div><div class="footer-heading">Contact</div><ul class="footer-links"><li><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></li><li><a href="tel:+971565390316">+971 56 539 0316</a></li><li>3B 22nd St, Al Quoz Industrial 4, Dubai, UAE</li></ul></div>
   </div>
   <div class="footer-bottom"><span>&copy; 2026 Talk The Taste. All rights reserved.</span><span>Dubai, UAE &middot; Irvine, CA</span></div>
