@@ -3,7 +3,7 @@ import { fetchAsset, notFound } from '../../lib/page-assets.mjs';
 
 const SITE_URL = 'https://talkthetaste.com';
 const POST_TEMPLATE_PATH = '/post-template.asset';
-const DEFAULT_IMAGE = `${SITE_URL}/assets/site/social-card.jpg`;
+const DEFAULT_IMAGE = `${SITE_URL}/assets/brand/share-card-v2.png`;
 
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
@@ -66,9 +66,9 @@ function renderPost(html, post) {
   next = replaceMeta(next, 'property', 'og:title', post.title);
   next = replaceMeta(next, 'property', 'og:description', description);
   next = replaceMeta(next, 'property', 'og:url', canonicalUrl);
-  next = replaceMeta(next, 'property', 'og:image', image);
-  next = replaceMeta(next, 'property', 'og:image:secure_url', image);
-  next = replaceMeta(next, 'property', 'og:image:type', 'image/jpeg');
+  next = replaceMeta(next, 'property', 'og:image', `${SITE_URL}/assets/brand/share-card-v2.png`);
+  next = replaceMeta(next, 'property', 'og:image:secure_url', `${SITE_URL}/assets/brand/share-card-v2.png`);
+  next = replaceMeta(next, 'property', 'og:image:type', 'image/png');
   next = replaceMeta(next, 'property', 'og:image:width', '1200');
   next = replaceMeta(next, 'property', 'og:image:height', '630');
   next = replaceMeta(next, 'property', 'og:image:alt', post.title);
@@ -77,7 +77,7 @@ function renderPost(html, post) {
   next = replaceMeta(next, 'name', 'twitter:card', 'summary_large_image');
   next = replaceMeta(next, 'name', 'twitter:title', post.title);
   next = replaceMeta(next, 'name', 'twitter:description', description);
-  next = replaceMeta(next, 'name', 'twitter:image', image);
+  next = replaceMeta(next, 'name', 'twitter:image', `${SITE_URL}/assets/brand/share-card-v2.png`);
   next = replaceMeta(next, 'name', 'twitter:image:alt', post.title);
 
   next = replaceBreadcrumbSchema(next, post, canonicalUrl);

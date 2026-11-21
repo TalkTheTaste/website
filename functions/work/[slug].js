@@ -2,7 +2,7 @@
 import { notFound } from '../../lib/page-assets.mjs';
 
 const SITE_URL = 'https://talkthetaste.com';
-const DEFAULT_IMAGE = `${SITE_URL}/assets/site/social-card.jpg`;
+const DEFAULT_IMAGE = `${SITE_URL}/assets/brand/share-card-v2.png`;
 
 export async function onRequestGet({ request, env }) {
   const url = new URL(request.url);
@@ -143,14 +143,15 @@ function renderCaseStudy(project, slug) {
 <meta property="og:title" content="${escapeAttr(title)}">
 <meta property="og:description" content="${description}">
 <meta property="og:url" content="${escapeAttr(canonicalUrl)}">
-<meta property="og:image" content="${escapeAttr(image)}">
-<meta property="og:image:secure_url" content="${escapeAttr(image)}">
+<meta property="og:image" content="${SITE_URL}/assets/brand/share-card-v2.png">
+<meta property="og:image:secure_url" content="${SITE_URL}/assets/brand/share-card-v2.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escapeAttr(title)}">
 <meta name="twitter:description" content="${description}">
-<meta name="twitter:image" content="${escapeAttr(image)}">
+<meta name="twitter:image" content="${SITE_URL}/assets/brand/share-card-v2.png">
 <script type="application/ld+json">${JSON.stringify(schema)}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
