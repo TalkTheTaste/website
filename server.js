@@ -245,10 +245,7 @@ app.get(['/terms-and-conditions', '/terms-and-conditions/'], (req, res) => {
     res.type('html');
     res.sendFile(path.join(PUBLIC, 'terms-and-conditions.html'));
 });
-app.get(['/work', '/work/'], (req, res) => {
-    res.type('html');
-    res.sendFile(path.join(PUBLIC, 'assets/pages/portfolio-source.txt'));
-});
+app.get(['/work', '/work/'], (req, res) => renderDetail(req, res, './functions/work/index.js'));
 
 // Public: live portfolio from Microsoft OneDrive
 app.get('/api/portfolio', async (req, res) => {
@@ -263,7 +260,7 @@ app.get('/api/portfolio', async (req, res) => {
                 message: 'OneDrive portfolio is not configured.',
             });
         }
-        const cacheKey = 'portfolio_index:v4';
+        const cacheKey = 'portfolio_index:work-20261123';
         const cached = readMemoryCache(cacheKey);
         if (cached) {
             res.set('Cache-Control', 'public, max-age=120, s-maxage=120, stale-while-revalidate=120');
@@ -282,9 +279,9 @@ app.get('/api/portfolio', async (req, res) => {
             const imageCount = photographyFolder?.folder?.childCount || 0;
             const videoCount = videographyFolder?.folder?.childCount || 0;
             const banner = await findBannerMedia(process.env, token, categoryFolders).catch(() => null);
-            const firstImage = !banner && photographyFolder ? await firstMediaFromFolder(process.env, token, photographyFolder.id, 'Photography') : null;
-            const firstVideo = !banner && !firstImage && videographyFolder ? await firstMediaFromFolder(process.env, token, videographyFolder.id, 'Videography') : null;
-            const hero = banner || firstImage || firstVideo || null;
+            const firstImage = photographyFolder ? await firstMediaFromFolder(process.env, token, photographyFolder.id, 'Photography') : null;
+            const firstVideo = !firstImage && videographyFolder ? await firstMediaFromFolder(process.env, token, videographyFolder.id, 'Videography') : null;
+            const hero = firstImage || firstVideo || banner || null;
             const tags = [imageCount ? 'Photography' : '', videoCount ? 'Videography' : ''].filter(Boolean);
             return {
                 id: client.id,
@@ -362,6 +359,20 @@ app.get('/onedrive/:slug', (req, res, next) => {
     if (!link) return next();
     res.set('Cache-Control', 'no-store');
     return res.redirect(302, link.target);
+});
+
+// Public, crawlable portfolio images and its image sitemap.
+app.get('/portfolio-sitemap.xml', (req, res) => renderDetail(req, res, './functions/portfolio-sitemap.xml.js'));
+app.get('/portfolio-images/:client/:id/:filename', async (req, res) => {
+    try {
+        const renderer = await import('./functions/portfolio-images/[client]/[id]/[filename].js');
+        const request = new Request(`http://127.0.0.1:${PORT}${req.originalUrl}`, { method: req.method });
+        const response = await renderer.onRequest({ request, params: req.params });
+        res.status(response.status);
+        response.headers.forEach((value, key) => res.set(key, value));
+        if (req.method === 'HEAD') return res.end();
+        res.send(Buffer.from(await response.arrayBuffer()));
+    } catch { res.status(503).set('Cache-Control', 'no-store').send('Image temporarily unavailable'); }
 });
 
 app.get('/favicon.ico', (req, res) => res.sendFile(path.join(PUBLIC, 'assets/logo.png')));

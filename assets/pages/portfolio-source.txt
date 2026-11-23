@@ -2,19 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Talk The Taste">
-    <meta name="geo.region" content="AE-DU">
-    <meta name="geo.placename" content="Dubai">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Work | Creative Projects &amp; Case Studies | Talk The Taste Dubai</title>
-    <meta name="description" content="Browse TTT's portfolio of creative work - brand identities, websites, social media campaigns, mobile apps, and video productions for Dubai businesses.">
+    <title>Selected Work | Photography, Film &amp; Creative | Talk The Taste</title>
+    <meta name="description" content="A selection of real client photography, film and creative work by Talk The Taste. Explore projects, images and films from our team.">
     <link rel="canonical" href="https://talkthetaste.com/work">
     <meta property="og:locale" content="en_AE">
     <meta property="og:site_name" content="Talk The Taste">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Creative Agency Work &amp; Case Studies | Talk The Taste Dubai">
-    <meta property="og:description" content="Selected branding, web design, mobile app and social media campaign work from Talk The Taste in Dubai.">
+    <meta property="og:title" content="Selected Work | Photography, Film &amp; Creative | Talk The Taste">
+    <meta property="og:description" content="A selection of real client photography, film and creative work by Talk The Taste. Explore projects, images and films from our team.">
     <meta property="og:url" content="https://talkthetaste.com/work">
     <meta property="og:image" content="https://talkthetaste.com/assets/brand/share-card-v2.png">
     <meta property="og:image:secure_url" content="https://talkthetaste.com/assets/brand/share-card-v2.png">
@@ -23,138 +21,54 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Talk The Taste — Strategy. Content. Digital.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Creative Agency Work &amp; Case Studies | Talk The Taste Dubai">
-    <meta name="twitter:description" content="Explore selected creative, digital and content projects for Dubai brands.">
+    <meta name="twitter:title" content="Selected Work | Photography, Film &amp; Creative | Talk The Taste">
+    <meta name="twitter:description" content="A selection of real client photography, film and creative work by Talk The Taste. Explore projects, images and films from our team.">
     <meta name="twitter:image" content="https://talkthetaste.com/assets/brand/share-card-v2.png">
     <meta name="twitter:image:alt" content="Talk The Taste — Strategy. Content. Digital.">
-    <link rel="preload" href="/api/portfolio" as="fetch" type="application/json" crossorigin="anonymous">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "Talk The Taste Work",
-      "url": "https://talkthetaste.com/work",
-      "description": "Creative agency case studies covering branding, social media, web design, mobile apps and video production in Dubai."
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://talkthetaste.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://talkthetaste.com/work" }
-      ]
-    }
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://talkthetaste.com/"},{"@type":"ListItem","position":2,"name":"Work","item":"https://talkthetaste.com/work"}]},{"@type":"CollectionPage","name":"Selected client work | Talk The Taste","url":"https://talkthetaste.com/work","mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://talkthetaste.com/work/aurantis-cafe/","name":"Aurantis Cafe","image":"https://talkthetaste.com/portfolio-images/aurantis-cafe/01RKFSMLOCLIS26IHVVVGJ7K6I7BLMD7PQ/aurantis-cafe-portfolio-7blmd7pq.jpg"},{"@type":"ListItem","position":2,"url":"https://talkthetaste.com/work/beat-gourmet/","name":"Beat Gourmet","image":"https://talkthetaste.com/portfolio-images/beat-gourmet/01RKFSMLPJEQ3Y2DBUDFCYRPE7E3FPX63T/beat-gourmet-portfolio-e3fpx63t.jpg"},{"@type":"ListItem","position":3,"url":"https://talkthetaste.com/work/desi-village/","name":"Desi Village","image":"https://talkthetaste.com/portfolio-images/desi-village/01RKFSMLL6YWLSXKVSDBELKTS6XVWMLKIA/desi-village-portfolio-xvwmlkia.jpg"},{"@type":"ListItem","position":4,"url":"https://talkthetaste.com/work/jetime/","name":"Jetime","image":"https://talkthetaste.com/portfolio-images/jetime/01RKFSMLPEVALZSTRHNVGIQ5KSJSXWOK3L/jetime-portfolio-jsxwok3l.jpg"},{"@type":"ListItem","position":5,"url":"https://talkthetaste.com/work/kebbabaro/","name":"Kebbabaro","image":"https://talkthetaste.com/portfolio-images/kebbabaro/01RKFSMLNNL3EFNKHDWFH2TKH7XKPEAQ44/kebbabaro-portfolio-xkpeaq44.jpg"},{"@type":"ListItem","position":6,"url":"https://talkthetaste.com/work/la-perle/","name":"La Perle","image":"https://talkthetaste.com/portfolio-images/la-perle/01RKFSMLMACFP2JCDJXFBZV46ZKPGWNJ74/la-perle-portfolio-kpgwnj74.jpg"},{"@type":"ListItem","position":7,"url":"https://talkthetaste.com/work/luua-caffe/","name":"Luua Caffe","image":"https://talkthetaste.com/portfolio-images/luua-caffe/01RKFSMLN5EE3C26QDM5CKW5QC2IBB2C3I/luua-caffe-portfolio-2ibb2c3i.jpg"},{"@type":"ListItem","position":8,"url":"https://talkthetaste.com/work/m10-resto/","name":"M10 Resto","image":"https://talkthetaste.com/portfolio-images/m10-resto/01RKFSMLPLKMD7E2FBTNAZNRWHDDLHVBUF/m10-resto-portfolio-ddlhvbuf.jpg"},{"@type":"ListItem","position":9,"url":"https://talkthetaste.com/work/maybach/","name":"Maybach","image":"https://talkthetaste.com/portfolio-images/maybach/01RKFSMLK37QYN5NCJKVHLTKXNDFHRUEO5/maybach-portfolio-dfhrueo5.jpg"},{"@type":"ListItem","position":10,"url":"https://talkthetaste.com/work/mils-cafe/","name":"Mils Cafe","image":"https://talkthetaste.com/portfolio-images/mils-cafe/01RKFSMLMJOI7LTEHM2BEI7ENEH3AKGRLY/mils-cafe-portfolio-h3akgrly.jpg"},{"@type":"ListItem","position":11,"url":"https://talkthetaste.com/work/ramen-nagi/","name":"Ramen Nagi","image":"https://talkthetaste.com/portfolio-images/ramen-nagi/01RKFSMLPEOEXIKNKJJFBKUDCOTHVCM7OE/ramen-nagi-portfolio-thvcm7oe.jpg"}]}}]}</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/main.css?v=20261108">
-    <!-- Google Analytics 4, replace G-XXXXXXXXXX with your Measurement ID -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script> -->
-    <style>
-        .filter-bar { display:flex;gap:8px;flex-wrap:wrap;margin-bottom:56px; }
-        .filter-btn { background:transparent;border:1px solid var(--border);color:var(--text-muted);font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:600;letter-spacing:.5px;padding:8px 18px;border-radius:100px;cursor:none;transition:all .25s; }
-        .filter-btn:hover { border-color:var(--text);color:var(--text); }
-        .filter-btn.active { background:var(--text);border-color:var(--text);color:var(--bg); }
+    <link rel="stylesheet" href="/css/main.css?v=20261108">
+    <link rel="stylesheet" href="/css/work.css?v=c67a1a86b9">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7B481RG9KT"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        .projects-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px; }
-        .proj-card { min-height:420px;border-radius:8px;overflow:hidden;position:relative;cursor:pointer;background:var(--dark);transition:transform .3s,box-shadow .3s; }
-        .proj-card.proj-featured { grid-row:span 2;min-height:858px; }
-        .proj-card:hover { transform:translateY(-3px);box-shadow:0 24px 60px rgba(12,12,10,.16); }
-        .proj-thumb { position:absolute;inset:0;overflow:hidden; }
-        .proj-thumb-bg { position:absolute;inset:0;transition:transform .7s cubic-bezier(.16,1,.3,1);overflow:hidden; }
-        .proj-thumb-bg img { width:100%;height:100%;object-fit:cover;display:block; }
-        .proj-card:hover .proj-thumb-bg { transform:scale(1.04); }
-        .proj-thumb-overlay { position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,10,.84) 0%,rgba(12,12,10,.2) 55%,rgba(12,12,10,.08) 100%); }
-        .proj-thumb-placeholder { position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-xmuted);background:var(--bg-alt); }
-        .proj-arrow { position:absolute;top:22px;right:22px;width:42px;height:42px;border:1px solid rgba(250,250,248,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:.85;transform:scale(.9);transition:all .3s;color:var(--bg);background:rgba(12,12,10,.22);backdrop-filter:blur(8px); }
-        .proj-card:hover .proj-arrow { opacity:1;transform:scale(1); }
-        .proj-body { position:absolute;left:0;right:0;bottom:0;padding:34px;z-index:2; }
-        .proj-cat { font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(250,250,248,.58);margin-bottom:10px; }
-        .proj-title { font-family:'Cormorant Garamond',serif;font-size:clamp(30px,3vw,46px);font-weight:700;line-height:1.02;margin-bottom:12px;color:var(--bg);letter-spacing:-.8px; }
-        .proj-desc { font-size:14px;color:rgba(250,250,248,.72);line-height:1.65;margin-bottom:18px; }
-        .proj-tags { display:flex;flex-wrap:wrap;gap:8px; }
-        .proj-tag { background:rgba(250,250,248,.1);border:1px solid rgba(250,250,248,.16);color:rgba(250,250,248,.72);font-size:11px;padding:5px 12px;border-radius:100px; }
-        .portfolio-note { grid-column:1/-1;font-size:12px;color:var(--text-muted);margin:0 0 4px; }
-        .portfolio-skeleton { pointer-events:none; }
-        .portfolio-skeleton .proj-thumb-bg { background:linear-gradient(110deg,#ece9e2 8%,#f7f5ef 18%,#ece9e2 33%);background-size:220% 100%;animation:skeletonShift 1.05s linear infinite; }
-        .portfolio-skeleton .proj-title,.portfolio-skeleton .proj-desc,.portfolio-skeleton .proj-cat,.portfolio-skeleton .proj-tags { display:block;border-radius:100px;background:rgba(255,255,255,.22);color:transparent;overflow:hidden; }
-        .portfolio-skeleton .proj-title { width:64%;height:44px; }
-        .portfolio-skeleton .proj-desc { width:82%;height:16px;margin-top:18px; }
-        .portfolio-skeleton .proj-cat { width:120px;height:11px; }
-        .portfolio-skeleton .proj-tags { width:190px;height:28px;margin-top:18px; }
-        @keyframes skeletonShift { to { background-position-x:-220%; } }
-
-        /* Client view */
-        .client-view { position:fixed;inset:0;background:var(--bg);z-index:2000;opacity:0;visibility:hidden;transform:translateY(18px);transition:opacity .32s,transform .42s cubic-bezier(.16,1,.3,1);overflow-y:auto; }
-        .client-view.open { opacity:1;visibility:visible;transform:none; }
-        .client-close { position:fixed;top:24px;right:28px;width:44px;height:44px;border:1px solid rgba(255,255,255,.34);border-radius:50%;background:rgba(12,12,10,.42);color:#fff;display:flex;align-items:center;justify-content:center;z-index:6;font-size:20px;line-height:1;backdrop-filter:blur(12px);transition:background .25s,transform .25s; }
-        .client-close:hover { background:rgba(12,12,10,.72);transform:scale(1.04); }
-        .client-share { position:fixed;top:24px;right:84px;height:44px;border:1px solid rgba(255,255,255,.34);border-radius:100px;background:rgba(12,12,10,.42);color:#fff;display:flex;align-items:center;justify-content:center;gap:8px;z-index:6;font-size:12px;font-weight:700;padding:0 16px;line-height:1;backdrop-filter:blur(12px);transition:background .25s,transform .25s; }
-        .client-share:hover { background:rgba(12,12,10,.72);transform:translateY(-1px); }
-        .client-share svg { width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2; }
-        .client-hero { min-height:70vh;position:relative;display:flex;align-items:flex-end;padding:120px 80px 64px;background:var(--dark);overflow:hidden; }
-        .client-hero-media { position:absolute;inset:0; }
-        .client-hero-media img { width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none; }
-        .client-view.open .client-hero-media img { animation:client-hero-in .75s cubic-bezier(.16,1,.3,1) both; }
-        .client-hero::after { content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,10,.88),rgba(12,12,10,.18) 55%,rgba(12,12,10,.28)); }
-        .client-hero-copy { position:relative;z-index:2;max-width:760px;color:#fff; }
-        .client-kicker { font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(250,250,248,.58);margin-bottom:16px; }
-        .client-title { font-family:'Cormorant Garamond',serif;font-size:clamp(54px,7vw,112px);font-weight:700;line-height:.88;letter-spacing:-1.6px;margin-bottom:20px; }
-        .client-desc { font-size:16px;color:rgba(250,250,248,.72);line-height:1.75; }
-        .client-body { padding:72px 80px 110px; }
-        .client-section-head { display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:28px; }
-        .client-section-head h3 { font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3vw,46px);line-height:1;font-weight:700;letter-spacing:-1px;color:var(--text); }
-        .client-status { font-size:13px;color:var(--text-muted);line-height:1.7; }
-        .media-gallery { display:grid;grid-template-columns:repeat(4,1fr);gap:12px; }
-        .media-item { width:100%;min-height:220px;padding:0;background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;position:relative;text-align:left;cursor:pointer;font:inherit;transition:transform .25s,box-shadow .25s,border-color .25s; }
-        .client-view.open .media-item { animation:media-rise .48s cubic-bezier(.16,1,.3,1) both; }
-        .media-item:hover,.media-item:focus-visible { transform:translateY(-2px);box-shadow:0 18px 48px rgba(12,12,10,.1);border-color:var(--border-dark);outline:none; }
-        .media-item img { width:100%;height:100%;aspect-ratio:4/5;object-fit:cover;display:block;background:var(--bg-alt);user-select:none;-webkit-user-drag:none;pointer-events:none; }
-        .media-item.media-video img { aspect-ratio:16/10; }
-        .media-label { position:absolute;left:12px;bottom:12px;background:rgba(12,12,10,.62);color:#fff;border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:7px 11px;font-size:11px;font-weight:600;backdrop-filter:blur(8px); }
-        .media-viewer { position:fixed;inset:0;background:rgba(6,6,5,.94);z-index:3000;opacity:0;visibility:hidden;display:flex;align-items:center;justify-content:center;padding:72px 48px 48px;transition:opacity .25s,visibility .25s; }
-        .media-viewer.open { opacity:1;visibility:visible; }
-        .media-viewer-close { position:fixed;top:24px;right:28px;width:44px;height:44px;border:1px solid rgba(255,255,255,.28);border-radius:50%;background:rgba(255,255,255,.08);color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center;z-index:2; }
-        .media-viewer-stage { width:100%;height:100%;display:flex;align-items:center;justify-content:center; }
-        .media-viewer-stage img,.media-viewer-stage video { max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;background:#000;box-shadow:0 24px 90px rgba(0,0,0,.38);user-select:none;-webkit-user-drag:none; }
-        .media-viewer-stage video.is-portrait { max-width:min(520px,94vw); }
-        .media-viewer-stage video.is-landscape { width:min(1280px,94vw);height:auto; }
-        .portfolio-loading { padding:48px;border:1px solid var(--border);background:var(--surface);border-radius:8px;color:var(--text-muted);line-height:1.7;position:relative;overflow:hidden; }
-        .portfolio-loading::after { content:'';position:absolute;inset:0;transform:translateX(-100%);background:linear-gradient(90deg,transparent,rgba(255,255,255,.72),transparent);animation:gallery-shimmer 1.15s infinite; }
-        @keyframes gallery-shimmer { to { transform:translateX(100%); } }
-        @keyframes client-hero-in { from { transform:scale(1.04);filter:blur(6px); } to { transform:scale(1);filter:blur(0); } }
-        @keyframes media-rise { from { opacity:0;transform:translateY(18px); } to { opacity:1;transform:none; } }
-        .portfolio-note { grid-column:1/-1;font-size:13px;color:var(--text-muted);line-height:1.7;margin-bottom:18px; }
-        .protected-media { user-select:none;-webkit-user-select:none;-webkit-touch-callout:none; }
-
-        @media(max-width:1100px) { .media-gallery{grid-template-columns:repeat(3,1fr)} }
-        @media(max-width:900px) { .projects-grid{grid-template-columns:1fr}.proj-card,.proj-card.proj-featured{min-height:440px;grid-row:auto}.client-hero{padding:110px 36px 48px}.client-body{padding:52px 36px 90px}.media-gallery{grid-template-columns:repeat(2,1fr)} }
-        @media(max-width:640px) { .projects-grid,.media-gallery{grid-template-columns:1fr}.proj-card,.proj-card.proj-featured{min-height:360px}.proj-body{padding:24px}.client-close,.media-viewer-close{top:18px;right:18px}.client-share{top:18px;right:72px;height:44px;padding:0 13px}.client-share span{display:none}.client-hero{min-height:62vh;padding:96px 22px 36px}.client-body{padding:40px 20px 72px}.client-section-head{display:block}.client-status{margin-top:12px}.media-viewer{padding:76px 16px 28px} }
-    </style>
+      gtag('config', 'G-7B481RG9KT');
+    </script>
 </head>
 <body>
 
-<div class="cursor" id="cur"></div>
-<div class="cursor-ring" id="cur-ring"></div>
-
 <nav id="nav">
-        <a href="https://wa.me/+971565390316" class="nav-wa-mobile" target="_blank" rel="noopener" aria-label="WhatsApp">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-    </a>
-    <a href="/" class="nav-logo">
-        <img src="assets/logo.png" alt="TTT" class="logo-img" onerror="this.style.display='none'">
+      <a
+        href="https://wa.me/+971565390316"
+        class="nav-wa-mobile"
+        target="_blank"
+        rel="noopener"
+        aria-label="Contact Talk The Taste on WhatsApp"
+      >
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
+          />
+        </svg>
+      </a>
+      <a href="/" class="nav-logo">
+        <img
+          src="/assets/logo.png"
+          alt="TTT"
+          width="512"
+          height="512"
+          class="logo-img"
+          onerror="this.style.display = 'none'"
+        />
         <!--<span class="nav-logo-text">TTT</span>-->
-    </a>
-    <ul class="nav-menu">
+      </a>
+      <ul class="nav-menu">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/services">Services</a></li>
@@ -162,604 +76,241 @@
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/blog">Journal</a></li>
       </ul>
-    <div class="nav-right">
-        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+      <div class="nav-right">
+        <a
+          href="https://wa.me/+971565390316"
+          class="nav-wa-link"
+          target="_blank"
+          rel="noopener"
+          aria-label="Contact Talk The Taste on WhatsApp"
+          >WhatsApp ↗</a
+        >
+        <a href="/ar/" class="ar-lang" hreflang="ar" lang="ar" dir="rtl" rel="alternate">العربية</a>
         <a href="/contact" class="nav-cta">Let's Talk</a>
-    </div>
-    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      </div>
+      <button
+        class="hamburger"
+        aria-label="Open menu"
+        aria-controls="mobileMenu"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
-    </button>
-</nav>
+      </button>
+    </nav>
 
-<!-- Mobile menu overlay -->
-<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-    <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Close menu">&#10005;</button>
-    <ul class="mobile-menu-links">
+    <!-- Mobile menu overlay -->
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Site menu"
+      aria-hidden="true"
+      inert
+    >
+      <button
+        class="mobile-menu-close"
+        id="mobileMenuClose"
+        aria-label="Close menu"
+      >
+        &#10005;
+      </button>
+      <ul class="mobile-menu-links">
         <li><a href="/">Home</a></li>
         <li><a href="/about">About</a></li>
         <li><a href="/services">Services</a></li>
-        <li><a href="/work">Work</a></li>
+        <li><a href="/work" class="active">Work</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/blog">Journal</a></li>
       </ul>
-    <div class="mobile-menu-bottom">
+      <div class="mobile-menu-bottom">
         <a href="/contact" class="btn-primary">Let's Talk →</a>
-        <a href="https://wa.me/+971565390316" class="nav-wa-link" target="_blank" rel="noopener">WhatsApp ↗</a>
+        <a
+          href="https://wa.me/+971565390316"
+          class="nav-wa-link"
+          target="_blank"
+          rel="noopener"
+          aria-label="Contact Talk The Taste on WhatsApp"
+          >WhatsApp ↗</a
+        >
+      </div>
     </div>
-</div>
 
-<!-- PAGE HERO -->
-<section class="page-hero">
-    <div class="eyebrow reveal">Our Portfolio</div>
-    <h1 class="reveal">Selected<br>client work.</h1>
-    <p class="reveal reveal-delay-1">From full brand launches to viral social campaigns, every project we take on is built to move the needle. Here's a selection of what we've done.</p>
-</section>
-
-<!-- PROJECTS -->
-<section class="sec">
-    <div class="filter-bar reveal" id="filterBar"></div>
-    <div class="projects-grid" id="projectsGrid"></div>
-</section>
-
-<!-- CLIENT VIEW -->
-<div class="client-view" id="clientView" role="dialog" aria-modal="true" aria-labelledby="clientTitle" aria-hidden="true" inert>
-    <button class="client-share" id="clientShare" aria-label="Copy client link">
-        <svg viewBox="0 0 24 24"><path d="M4 12v7a1 1 0 001 1h14a1 1 0 001-1v-7"/><path d="M16 6l-4-4-4 4"/><path d="M12 2v14"/></svg>
-        <span>Share</span>
-    </button>
-    <button class="client-close" id="clientClose" aria-label="Close client view">×</button>
-    <section class="client-hero">
-        <div class="client-hero-media" id="clientHeroMedia"></div>
-        <div class="client-hero-copy">
-            <div class="client-kicker" id="clientKicker"></div>
-            <h2 class="client-title" id="clientTitle"></h2>
-            <p class="client-desc" id="clientDesc"></p>
-        </div>
-    </section>
-    <section class="client-body">
-        <div class="client-section-head">
-            <h3>Project Gallery</h3>
-            <div class="client-status" id="clientStatus"></div>
-        </div>
-        <div id="clientGallery"></div>
-    </section>
-</div>
-
-<div class="media-viewer" id="mediaViewer" role="dialog" aria-modal="true" aria-label="Project media" aria-hidden="true" inert>
-    <button class="media-viewer-close" id="mediaViewerClose" aria-label="Close media">×</button>
-    <div class="media-viewer-stage" id="mediaViewerStage"></div>
-</div>
-
-<!-- FOOTER -->
+<main id="main-content"><div id="work-page"><header class="wk-shell wk-hero"><nav aria-label="Breadcrumb"><ol class="wk-crumbs"><li><a href="/">Home</a></li><li><span aria-current="page">Work</span></li></ol></nav><div class="wk-hero-grid"><div><span class="wk-label">Selected client work</span><h1>The work.<br>In good company.</h1></div><p>A closer look at the photography, films and creative work we make for our clients. Real brands, real places, and the details that make each one different.</p></div></header><section class="wk-shell" aria-label="Client projects"><div class="wk-toolbar"><div class="wk-filters" role="group" aria-label="Filter projects"><button class="wk-filter" data-work-filter="all" aria-pressed="true">All work</button><button class="wk-filter" data-work-filter="Photography" aria-pressed="false">Photography</button><button class="wk-filter" data-work-filter="Videography" aria-pressed="false">Film</button></div><p class="wk-count" data-work-count role="status">11 projects</p></div><div class="wk-grid" data-work-grid><a class="wk-card" data-work-card data-types="Photography Videography" href="/work/aurantis-cafe/"><div class="wk-card-media"><img src="/portfolio-images/aurantis-cafe/01RKFSMLOCLIS26IHVVVGJ7K6I7BLMD7PQ/aurantis-cafe-portfolio-7blmd7pq.jpg" alt="Aurantis Cafe — photography / film by Talk The Taste" width="1200" height="900" loading="eager" fetchpriority="high"><span class="wk-card-number" aria-hidden="true">01</span></div><div class="wk-card-top"><div><h2>Aurantis Cafe</h2><p>Photography / Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Videography" href="/work/beat-gourmet/"><div class="wk-card-media"><img src="/portfolio-images/beat-gourmet/01RKFSMLPJEQ3Y2DBUDFCYRPE7E3FPX63T/beat-gourmet-portfolio-e3fpx63t.jpg" alt="Beat Gourmet — film by Talk The Taste" width="1200" height="900" loading="eager"><span class="wk-card-number" aria-hidden="true">02</span></div><div class="wk-card-top"><div><h2>Beat Gourmet</h2><p>Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Photography Videography" href="/work/desi-village/"><div class="wk-card-media"><img src="/portfolio-images/desi-village/01RKFSMLL6YWLSXKVSDBELKTS6XVWMLKIA/desi-village-portfolio-xvwmlkia.jpg" alt="Desi Village — photography / film by Talk The Taste" width="1200" height="900" loading="lazy"><span class="wk-card-number" aria-hidden="true">03</span></div><div class="wk-card-top"><div><h2>Desi Village</h2><p>Photography / Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Photography Videography" href="/work/jetime/"><div class="wk-card-media"><img src="/portfolio-images/jetime/01RKFSMLPEVALZSTRHNVGIQ5KSJSXWOK3L/jetime-portfolio-jsxwok3l.jpg" alt="Jetime — photography / film by Talk The Taste" width="1200" height="900" loading="lazy"><span class="wk-card-number" aria-hidden="true">04</span></div><div class="wk-card-top"><div><h2>Jetime</h2><p>Photography / Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Photography Videography" href="/work/kebbabaro/"><div class="wk-card-media"><img src="/portfolio-images/kebbabaro/01RKFSMLNNL3EFNKHDWFH2TKH7XKPEAQ44/kebbabaro-portfolio-xkpeaq44.jpg" alt="Kebbabaro — photography / film by Talk The Taste" width="1200" height="900" loading="lazy"><span class="wk-card-number" aria-hidden="true">05</span></div><div class="wk-card-top"><div><h2>Kebbabaro</h2><p>Photography / Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Photography Videography" href="/work/la-perle/"><div class="wk-card-media"><img src="/portfolio-images/la-perle/01RKFSMLMACFP2JCDJXFBZV46ZKPGWNJ74/la-perle-portfolio-kpgwnj74.jpg" alt="La Perle — photography / film by Talk The Taste" width="1200" height="900" loading="lazy"><span class="wk-card-number" aria-hidden="true">06</span></div><div class="wk-card-top"><div><h2>La Perle</h2><p>Photography / Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Videography" href="/work/luua-caffe/"><div class="wk-card-media"><img src="/portfolio-images/luua-caffe/01RKFSMLN5EE3C26QDM5CKW5QC2IBB2C3I/luua-caffe-portfolio-2ibb2c3i.jpg" alt="Luua Caffe — film by Talk The Taste" width="1200" height="900" loading="lazy"><span class="wk-card-number" aria-hidden="true">07</span></div><div class="wk-card-top"><div><h2>Luua Caffe</h2><p>Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Photography Videography" href="/work/m10-resto/"><div class="wk-card-media"><img src="/portfolio-images/m10-resto/01RKFSMLPLKMD7E2FBTNAZNRWHDDLHVBUF/m10-resto-portfolio-ddlhvbuf.jpg" alt="M10 Resto — photography / film by Talk The Taste" width="1200" height="900" loading="lazy"><span class="wk-card-number" aria-hidden="true">08</span></div><div class="wk-card-top"><div><h2>M10 Resto</h2><p>Photography / Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Photography Videography" href="/work/maybach/"><div class="wk-card-media"><img src="/portfolio-images/maybach/01RKFSMLK37QYN5NCJKVHLTKXNDFHRUEO5/maybach-portfolio-dfhrueo5.jpg" alt="Maybach — photography / film by Talk The Taste" width="1200" height="900" loading="lazy"><span class="wk-card-number" aria-hidden="true">09</span></div><div class="wk-card-top"><div><h2>Maybach</h2><p>Photography / Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Photography Videography" href="/work/mils-cafe/"><div class="wk-card-media"><img src="/portfolio-images/mils-cafe/01RKFSMLMJOI7LTEHM2BEI7ENEH3AKGRLY/mils-cafe-portfolio-h3akgrly.jpg" alt="Mils Cafe — photography / film by Talk The Taste" width="1200" height="900" loading="lazy"><span class="wk-card-number" aria-hidden="true">10</span></div><div class="wk-card-top"><div><h2>Mils Cafe</h2><p>Photography / Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a><a class="wk-card" data-work-card data-types="Videography" href="/work/ramen-nagi/"><div class="wk-card-media"><img src="/portfolio-images/ramen-nagi/01RKFSMLPEOEXIKNKJJFBKUDCOTHVCM7OE/ramen-nagi-portfolio-thvcm7oe.jpg" alt="Ramen Nagi — film by Talk The Taste" width="1200" height="900" loading="lazy"><span class="wk-card-number" aria-hidden="true">11</span></div><div class="wk-card-top"><div><h2>Ramen Nagi</h2><p>Film</p></div><span class="wk-card-arrow" aria-hidden="true">↗</span></div></a></div></section><section class="wk-cta"><div class="wk-shell wk-cta-inner"><div><span class="wk-label">Your project, next</span><h2>Have something in mind?</h2><p>Tell us what you are working on. We will take it from there.</p></div><a href="/contact" class="btn-primary">Start a conversation <span aria-hidden="true">↗</span></a></div></section></div></main>
 <footer>
-    <div class="footer-top">
+      <div class="footer-top">
         <div>
-            <a href="/" class="footer-logo nav-logo">
-                <img src="assets/logo.png" class="logo-img" alt="Talk The Taste">
-            </a>
-            <p class="footer-brand-desc">Dubai's creative agency. Marketing, branding, web, apps, and video, all under one roof.</p>
+          <a href="/" class="footer-logo">
+            <img
+              src="/assets/logo.png"
+              alt="Talk The Taste"
+              width="512"
+              height="512"
+              class="logo-img"
+              onerror="
+                this.style.display = 'none';
+                this.insertAdjacentHTML(
+                  'afterend',
+                  '<span class=\'logo-text\'>TTT</span>',
+                );
+              "
+            />
+          </a>
+          <p class="footer-brand-desc">
+            Dubai's creative agency for brands ready to grow.
+          </p>
         </div>
         <div>
-            <div class="footer-heading">Services</div>
-            <ul class="footer-links">
-                <li><a href="/services">Marketing</a></li>
-                <li><a href="/services">Social Media</a></li>
-                <li><a href="/services">Web Design</a></li>
-                <li><a href="/services">Mobile Apps</a></li>
-            </ul>
+          <div class="footer-heading">Services</div>
+          <ul class="footer-links">
+            <li>
+              <a href="/restaurant-marketing-dubai">Restaurant Marketing</a>
+            </li>
+            <li>
+              <a href="/social-media-marketing-dubai">Social Media Marketing</a>
+            </li>
+            <li><a href="/web-design-dubai">Web Design</a></li>
+            <li><a href="/branding-agency-dubai">Branding</a></li>
+            <li><a href="/video-production-dubai">Video Production</a></li>
+            <li>
+              <a href="/mobile-app-development-dubai">Mobile App Development</a>
+            </li>
+            <li>
+              <a href="/custom-software-development-dubai">Custom Software</a>
+            </li>
+            <li><a href="/marketing-agency-orange-county">Orange County Marketing</a></li>
+          </ul>
         </div>
         <div>
-            <div class="footer-heading">Company</div>
-            <ul class="footer-links">
-                <li><a href="/work">Our Work</a></li>
-                <li><a href="/blog">Journal</a></li>
-                <li><a href="/contact">Contact</a></li>
-            </ul>
+          <div class="footer-heading">Company</div>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/work" class="active">Work</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+            <li><a href="/blog">Journal</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/privacy-policy">Privacy Policy</a></li>
+            <li><a href="/terms-and-conditions">Terms &amp; Conditions</a></li>
+          </ul>
         </div>
         <div>
-            <div class="footer-heading">Contact</div>
-            <ul class="footer-links">
-                <li><a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a></li>
-                <li><a href="tel:+971565390316">+971 56 539 0316</a></li>
-                <li>Dubai, UAE</li>
-            </ul>
+          <div class="footer-heading">Contact</div>
+          <ul class="footer-links">
+            <li>
+              <a
+                href="https://wa.me/+971565390316"
+                target="_blank"
+                rel="noopener"
+                aria-label="Contact Talk The Taste on WhatsApp"
+                >WhatsApp ↗</a
+              >
+            </li>
+            <li>
+              <a href="mailto:hi@talkthetaste.com">hi@talkthetaste.com</a>
+            </li>
+            <li>
+              <a href="https://share.google/uguVGldzYMAuxDFz7"
+                >3B 22nd St, Al Quoz Industrial 4, Dubai, UAE</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/talkthetaste/"
+                target="_blank"
+                rel="noopener"
+                >Instagram</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/ttt-mm/"
+                target="_blank"
+                rel="noopener"
+                >LinkedIn</a
+              >
+            </li>
+          </ul>
         </div>
-    </div>
-    <div class="footer-bottom">
-        <span>© 2026 Talk The Taste. All rights reserved.</span>
+      </div>
+      <div class="footer-bottom">
+        <span
+          >© 2026 Talk The Taste. All rights reserved.
+          <a href="/privacy-policy">Privacy Policy</a> ·
+          <a href="/terms-and-conditions">Terms &amp; Conditions</a></span
+        >
         <div class="footer-socials">
-            <a href="https://www.instagram.com/talkthetaste/" target="_blank" class="social-btn" title="Instagram">
-                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/company/ttt-mm/" class="social-btn" title="LinkedIn" target="_blank" rel="noopener">
-                <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z" stroke="currentColor" stroke-width="1.8" fill="none"/><rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.8" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.8" fill="none"/></svg>
-            </a>
+          <a
+            href="https://www.instagram.com/talkthetaste/"
+            class="social-btn"
+            title="Instagram"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
+            </svg>
+          </a>
+          <a
+            href="https://www.linkedin.com/company/ttt-mm/"
+            class="social-btn"
+            title="LinkedIn"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg viewBox="0 0 24 24">
+              <path
+                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+              />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a
+            href="https://wa.me/+971565390316"
+            class="social-btn"
+            title="WhatsApp"
+            target="_blank"
+            rel="noopener"
+            aria-label="Contact Talk The Taste on WhatsApp"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"
+              />
+            </svg>
+          </a>
         </div>
-        <span>Dubai, UAE · California, USA</span>
-    </div>
-</footer>
+      </div>
+    </footer>
 
-<script src="js/data.js?v=20261108"></script>
+<div class="cursor" id="cur"></div>
+<div class="cursor-ring" id="cur-ring"></div>
+
+<script src="/js/data.js?v=20261108"></script>
+<script src="/js/conversion.js?v=20261108"></script>
 <script>
-(function() {
-    const cur = document.getElementById('cur'), ring = document.getElementById('cur-ring');
+(function(){
+    const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
     let mx=0,my=0,rx=0,ry=0;
-    window.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
+    window.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
     (function follow(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(follow);})();
-    window.addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 64), {passive:true});
-    const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} }), {threshold:.08});
-    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-    document.addEventListener('mouseover', e => {
-        if (e.target.closest('a,button,.proj-card,.filter-btn,.media-item')) { cur.classList.add('active'); ring.classList.add('active'); }
-        else { cur.classList.remove('active'); ring.classList.remove('active'); }
+    window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',window.scrollY>64),{passive:true});
+    const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}}),{threshold:.08});
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+    document.addEventListener('mouseover',e=>{
+        if(e.target.closest('a,button,summary')){cur.classList.add('active');ring.classList.add('active');}
+        else{cur.classList.remove('active');ring.classList.remove('active');}
     });
-    document.addEventListener('contextmenu', e => {
-        if (e.target.closest('.protected-media,.media-item,.client-hero-media,.media-viewer-stage')) e.preventDefault();
-    });
-    document.addEventListener('dragstart', e => {
-        if (e.target.closest('.protected-media,.media-item,.client-hero-media,.media-viewer-stage')) e.preventDefault();
-    });
-
-    let allProjects = [];
-    let activeFilter = 'all';
-    let portfolioSource = 'loading';
-    let activeClientId = '';
-    let activeClientSlug = '';
-    let activeMedia = [];
-    const clientDetailPromises = new Map();
-    const CLIENT_CACHE_TTL = 30 * 60 * 1000;
-    const PORTFOLIO_CACHE_TTL = 2 * 60 * 1000;
-
-    const filterBar = document.getElementById('filterBar');
-
-    function renderSkeleton() {
-        filterBar.innerHTML = `<button class="filter-btn active" type="button">Loading Work</button>`;
-        const grid = document.getElementById('projectsGrid');
-        grid.innerHTML = Array.from({ length: 5 }).map((_, i) => `
-            <div class="proj-card portfolio-skeleton ${i === 0 ? 'proj-featured' : ''}" aria-hidden="true">
-                <div class="proj-thumb">
-                    <div class="proj-thumb-bg"></div>
-                    <div class="proj-thumb-overlay"></div>
-                </div>
-                <div class="proj-body">
-                    <div class="proj-cat">&nbsp;</div>
-                    <div class="proj-title">&nbsp;</div>
-                    <div class="proj-desc">&nbsp;</div>
-                    <div class="proj-tags">&nbsp;</div>
-                </div>
-            </div>
-        `).join('');
-    }
-
-    function renderFilters() {
-        const cats = ['all', ...new Set(allProjects.map(p => p.category).filter(Boolean))];
-        if (!cats.includes(activeFilter)) activeFilter = 'all';
-        filterBar.innerHTML = cats.map(c =>
-            `<button class="filter-btn ${c === activeFilter ? 'active' : ''}" data-cat="${c}">${c === 'all' ? 'All Projects' : c}</button>`
-        ).join('');
-        filterBar.querySelectorAll('.filter-btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeFilter = btn.dataset.cat;
-                renderProjects();
-            });
-        });
-    }
-
-    function renderProjects() {
-        const grid = document.getElementById('projectsGrid');
-        const filtered = activeFilter === 'all' ? allProjects : allProjects.filter(p => p.category === activeFilter);
-        if (!filtered.length) {
-            grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📂</div><h3>No client work yet</h3><p>Add client folders in OneDrive and they will appear here automatically.</p></div>`;
-            return;
-        }
-        const arrowSVG = `<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M7 17L17 7M7 7h10v10"/></svg>`;
-        const note = portfolioSource === 'onedrive' ? `<p class="portfolio-note">Live from Talk The Taste's OneDrive portfolio.</p>` : '';
-        grid.innerHTML = note + filtered.map((p, i) => {
-            const thumbContent = p.image
-                ? `<img src="${escapeAttr(p.image)}" alt="${escapeAttr(p.title)}" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;">`
-                : `<div class="proj-deco"><span class="proj-deco-text">${String(i+1).padStart(2,'0')}</span></div>`;
-            const bgStyle = p.image
-                ? 'background:#111;'
-                : `background:linear-gradient(135deg,${escapeAttr(p.color1||'#0c0c24')} 0%,${escapeAttr(p.color2||'#18103c')} 60%);`;
-            return `
-            <a class="proj-card ${i === 0 ? 'proj-featured' : ''} reveal" data-id="${escapeAttr(p.id)}" href="/work/${escapeAttr(clientSlug(p))}/" style="transition-delay:${(i%3)*0.1}s">
-                <div class="proj-thumb">
-                    <div class="proj-thumb-bg" style="${bgStyle}">
-                        ${thumbContent}
-                    </div>
-                    <div class="proj-thumb-overlay"></div>
-                    <div class="proj-arrow">${arrowSVG}</div>
-                </div>
-                <div class="proj-body">
-                    <div class="proj-cat">${escapeHtml(p.category || '')}</div>
-                    <div class="proj-title">${escapeHtml(p.title)}</div>
-                <div class="proj-desc">${escapeHtml(p.description || '')}</div>
-                <div class="proj-tags">${(p.tags||[]).map(t => `<span class="proj-tag">${escapeHtml(t)}</span>`).join('')}</div>
-                </div>
-            </a>`;
-        }).join('');
-        grid.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-        grid.querySelectorAll('.proj-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-                e.preventDefault();
-                openModal(card.dataset.id);
-            });
-        });
-    }
-
-    function refreshProjectData() {
-        if (portfolioSource === 'onedrive' || portfolioSource === 'loading') return;
-        allProjects = TTT.getProjects();
-        portfolioSource = 'local';
-        renderFilters();
-        renderProjects();
-    }
-
-    hydratePortfolioCache();
-    loadOneDrivePortfolio();
-    document.addEventListener('ttt:data:ready', refreshProjectData);
-
-    let pendingClientParam = new URLSearchParams(location.search).get('client') || new URLSearchParams(location.search).get('id') || '';
-    if (pendingClientParam) setTimeout(() => openClientFromParam(pendingClientParam, true), 600);
-
-    let clientReturnFocus = null;
-    let mediaReturnFocus = null;
-    function setBackgroundInert(activeDialog) {
-        [...document.body.children].forEach(el => {
-            if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') return;
-            el.inert = activeDialog ? el !== activeDialog : ['mobileMenu', 'clientView', 'mediaViewer'].includes(el.id);
-        });
-    }
-    function trapDialogTab(event) {
-        if (event.key !== 'Tab') return;
-        const dialog = document.querySelector('#mediaViewer.open') || document.querySelector('#clientView.open');
-        if (!dialog) return;
-        const items = [...dialog.querySelectorAll('a[href], button, video[controls], [tabindex="0"]')].filter(el => el.getClientRects().length && !el.disabled);
-        const first = items[0], last = items[items.length - 1];
-        if (event.shiftKey && (document.activeElement === first || !dialog.contains(document.activeElement))) { event.preventDefault(); last?.focus(); }
-        else if (!event.shiftKey && (document.activeElement === last || !dialog.contains(document.activeElement))) { event.preventDefault(); first?.focus(); }
-    }
-    document.addEventListener('keydown', trapDialogTab);
-    async function openModal(id, replaceUrl = false) {
-        let p = allProjects.find(project => project.id === id);
-        if (!p) return;
-        activeClientId = id;
-        activeClientSlug = clientSlug(p);
-        updateClientUrl(p, replaceUrl);
-        renderClientView(p, portfolioSource === 'onedrive' && !p.media?.length);
-        clientReturnFocus = document.activeElement;
-        document.getElementById('clientView').inert = false;
-        document.getElementById('clientView').classList.add('open');
-        document.getElementById('clientView').setAttribute('aria-hidden', 'false');
-        setBackgroundInert(document.getElementById('clientView'));
-        requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById('clientClose').focus({ preventScroll: true })));
-        document.body.style.overflow = 'hidden';
-        if (portfolioSource === 'onedrive' && !p.media?.length) {
-            try {
-                const detail = await loadClientDetail(id);
-                p = { ...p, ...detail };
-                allProjects = allProjects.map(project => project.id === id ? p : project);
-                if (activeClientId === id && document.getElementById('clientView').classList.contains('open')) renderClientView(p, false);
-            } catch (error) {
-                document.getElementById('clientGallery').innerHTML = `<div class="portfolio-loading">This client gallery could not be loaded right now.</div>`;
-            }
-        }
-    }
-
-    async function loadOneDrivePortfolio() {
-        const grid = document.getElementById('projectsGrid');
-        try {
-            const response = await fetch('/api/portfolio', { headers: { Accept: 'application/json' } });
-            if (!response.ok) throw new Error('Portfolio request failed');
-            const data = await response.json();
-            if (!Array.isArray(data.projects) || data.source !== 'onedrive') throw new Error('OneDrive portfolio unavailable');
-            allProjects = data.projects;
-            portfolioSource = data.source;
-            setPortfolioCache(data);
-            renderFilters();
-            renderProjects();
-            prefetchClientDetails();
-            if (pendingClientParam) {
-                openClientFromParam(pendingClientParam, true);
-                pendingClientParam = '';
-            }
-        } catch (error) {
-            if (!allProjects.length) {
-                portfolioSource = 'local';
-                allProjects = TTT.getProjects();
-                if (allProjects.length) {
-                    renderFilters();
-                    renderProjects();
-                } else {
-                    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div class="empty-icon">📂</div><h3>Portfolio unavailable</h3><p>Client work could not be loaded right now.</p></div>`;
-                }
-            }
-        }
-    }
-
-    function hydratePortfolioCache() {
-        const cached = getPortfolioCache();
-        if (cached?.projects?.length) {
-            allProjects = cached.projects;
-            portfolioSource = 'onedrive';
-            renderFilters();
-            renderProjects();
-            prefetchClientDetails();
-            return;
-        }
-        renderSkeleton();
-    }
-
-    function getPortfolioCache() {
-        try {
-            const raw = localStorage.getItem('ttt_portfolio_index');
-            if (!raw) return null;
-            const cached = JSON.parse(raw);
-            if (!cached || Date.now() - cached.savedAt > PORTFOLIO_CACHE_TTL) return null;
-            return cached.data;
-        } catch {
-            return null;
-        }
-    }
-
-    function setPortfolioCache(data) {
-        try {
-            localStorage.setItem('ttt_portfolio_index', JSON.stringify({ savedAt: Date.now(), data }));
-        } catch {}
-    }
-
-    function openClientFromParam(param, replaceUrl = false) {
-        const target = String(param || '').trim();
-        if (!target) return;
-        const project = allProjects.find(item => item.id === target || clientSlug(item) === target);
-        if (project) openModal(project.id, replaceUrl);
-    }
-
-    function prefetchClientDetails() {
-        if (portfolioSource !== 'onedrive') return;
-        const clients = allProjects.filter(project => project.id && !project.media?.length).slice(0, 10);
-        let index = 0;
-        const runNext = () => {
-            const project = clients[index++];
-            if (!project) return;
-            loadClientDetail(project.id)
-                .then(detail => {
-                    allProjects = allProjects.map(item => item.id === project.id ? { ...item, ...detail } : item);
-                    if (activeClientId === project.id && document.getElementById('clientView').classList.contains('open')) {
-                        renderClientView(allProjects.find(item => item.id === project.id), false);
-                    }
-                })
-                .catch(() => {})
-                .finally(() => setTimeout(runNext, 350));
-        };
-        const start = () => {
-            runNext();
-            setTimeout(runNext, 220);
-        };
-        if ('requestIdleCallback' in window) requestIdleCallback(start, { timeout: 1400 });
-        else setTimeout(start, 800);
-    }
-
-    function loadClientDetail(id) {
-        const cached = getClientCache(id);
-        if (cached) return Promise.resolve(cached);
-        if (clientDetailPromises.has(id)) return clientDetailPromises.get(id);
-        const promise = fetch(`/api/portfolio/client?id=${encodeURIComponent(id)}`, { headers: { Accept: 'application/json' } })
-            .then(response => {
-                if (!response.ok) throw new Error('Client gallery request failed');
-                return response.json();
-            })
-            .then(detail => {
-                setClientCache(id, detail);
-                return detail;
-            })
-            .finally(() => clientDetailPromises.delete(id));
-        clientDetailPromises.set(id, promise);
-        return promise;
-    }
-
-    function getClientCache(id) {
-        try {
-            const raw = sessionStorage.getItem(`ttt_client_${id}`);
-            if (!raw) return null;
-            const cached = JSON.parse(raw);
-            if (!cached || Date.now() - cached.savedAt > CLIENT_CACHE_TTL) return null;
-            return cached.detail;
-        } catch {
-            return null;
-        }
-    }
-
-    function setClientCache(id, detail) {
-        try {
-            sessionStorage.setItem(`ttt_client_${id}`, JSON.stringify({ savedAt: Date.now(), detail }));
-        } catch {}
-    }
-
-    function renderClientView(project, loading) {
-        activeMedia = Array.isArray(project.media) ? project.media : [];
-        document.getElementById('clientHeroMedia').innerHTML = project.image
-            ? `<img class="protected-media" src="${escapeAttr(new URL(project.image, location.origin + '/').href)}" alt="${escapeAttr(project.title)}" draggable="false">`
-            : '';
-        document.getElementById('clientKicker').textContent = project.category || 'Client Work';
-        document.getElementById('clientTitle').textContent = project.title;
-        document.getElementById('clientDesc').textContent = project.description || '';
-        document.getElementById('clientStatus').textContent = loading ? 'Loading gallery...' : cleanCountText(project, activeMedia);
-        document.getElementById('clientGallery').innerHTML = loading
-            ? `<div class="portfolio-loading">Loading ${escapeHtml(project.title)} gallery...</div>`
-            : projectContent(project);
-    }
-
-    function projectContent(project) {
-        const media = Array.isArray(project.media) ? project.media : [];
-        if (!media.length) return project.fullDesc || `<p>${escapeHtml(project.description || '')}</p>`;
-        return `
-            <div class="media-gallery">
-                ${media.map((item, index) => mediaItem(item, project.title, mediaIndex(media, item, index), index)).join('')}
-            </div>
-        `;
-    }
-
-    function mediaItem(item, clientTitle, cleanIndex, index) {
-        const isVideo = item.type === 'Videography' || /^video\//i.test(item.mimeType || '');
-        const label = `${clientTitle} ${isVideo ? 'Video' : 'Photo'} ${cleanIndex}`;
-        return `<button type="button" class="media-item ${isVideo ? 'media-video' : 'media-photo'}" data-media-index="${index}" aria-label="${escapeAttr(label)}" style="animation-delay:${Math.min(index, 18) * 0.025}s">
-            <img class="protected-media" src="${escapeAttr(item.thumb || item.url)}" alt="${escapeAttr(label)}" loading="lazy" draggable="false">
-            <span class="media-label">${escapeHtml(isVideo ? `Video ${cleanIndex}` : `Photo ${cleanIndex}`)}</span>
-        </button>`;
-    }
-
-    function mediaIndex(media, item, index) {
-        const isVideo = item.type === 'Videography' || /^video\//i.test(item.mimeType || '');
-        return media.slice(0, index + 1).filter(current => {
-            const currentIsVideo = current.type === 'Videography' || /^video\//i.test(current.mimeType || '');
-            return currentIsVideo === isVideo;
-        }).length;
-    }
-
-    function cleanCountText(project, media) {
-        const photos = media.filter(item => !(item.type === 'Videography' || /^video\//i.test(item.mimeType || ''))).length;
-        const videos = media.length - photos;
-        if (photos || videos) return [photos ? `${photos} photo${photos === 1 ? '' : 's'}` : '', videos ? `${videos} video${videos === 1 ? '' : 's'}` : ''].filter(Boolean).join(' and ');
-        return project.description || '';
-    }
-
-    function openMediaViewer(index) {
-        const item = activeMedia[index];
-        if (!item) return;
-        const isVideo = item.type === 'Videography' || /^video\//i.test(item.mimeType || '');
-        const stage = document.getElementById('mediaViewerStage');
-        if (isVideo) {
-            stage.innerHTML = `<video class="protected-media" src="${escapeAttr(item.url)}" poster="${escapeAttr(item.thumb || '')}" controls controlsList="nodownload noremoteplayback" disablepictureinpicture playsinline autoplay draggable="false"></video>`;
-            const video = stage.querySelector('video');
-            video.addEventListener('loadedmetadata', () => {
-                video.classList.toggle('is-portrait', video.videoHeight > video.videoWidth);
-                video.classList.toggle('is-landscape', video.videoWidth >= video.videoHeight);
-            }, { once:true });
-        } else {
-            stage.innerHTML = `<img class="protected-media" src="${escapeAttr(item.url)}" alt="" draggable="false">`;
-        }
-        mediaReturnFocus = document.activeElement;
-        document.getElementById('mediaViewer').inert = false;
-        document.getElementById('mediaViewer').classList.add('open');
-        document.getElementById('mediaViewer').setAttribute('aria-hidden', 'false');
-        setBackgroundInert(document.getElementById('mediaViewer'));
-        requestAnimationFrame(() => requestAnimationFrame(() => document.getElementById('mediaViewerClose').focus({ preventScroll: true })));
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMediaViewer() {
-        const wasOpen = document.getElementById('mediaViewer').classList.contains('open');
-        document.getElementById('mediaViewer').classList.remove('open');
-        if (wasOpen) { setBackgroundInert(document.getElementById('clientView')); mediaReturnFocus?.focus(); }
-        document.getElementById('mediaViewer').setAttribute('aria-hidden', 'true');
-        document.getElementById('mediaViewer').inert = true;
-        document.getElementById('mediaViewerStage').innerHTML = '';
-        document.body.style.overflow = document.getElementById('clientView').classList.contains('open') ? 'hidden' : '';
-    }
-
-    function escapeHtml(value) {
-        return String(value || '').replace(/[&<>"']/g, char => ({
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            '"': '&quot;',
-            "'": '&#39;',
-        }[char]));
-    }
-
-    function escapeAttr(value) {
-        return escapeHtml(value);
-    }
-
-    function closeModal(updateUrl = true) {
-        closeMediaViewer();
-        document.getElementById('clientView').classList.remove('open');
-        setBackgroundInert(null);
-        const returnTarget = clientReturnFocus?.isConnected ? clientReturnFocus : document.querySelector(`.proj-card[data-id="${CSS.escape(activeClientId)}"]`);
-        returnTarget?.focus({ preventScroll: true });
-        document.getElementById('clientView').setAttribute('aria-hidden', 'true');
-        document.getElementById('clientView').inert = true;
-        activeClientId = '';
-        activeClientSlug = '';
-        activeMedia = [];
-        document.body.style.overflow = '';
-        const hasPathSlug = /^\/work\/.+/.test(location.pathname);
-        const hasQueryParam = new URLSearchParams(location.search).has('client') || new URLSearchParams(location.search).has('id');
-        if (updateUrl && (hasPathSlug || hasQueryParam)) {
-            history.pushState({}, '', '/work');
-        }
-    }
-
-    document.getElementById('clientClose').addEventListener('click', closeModal);
-    document.getElementById('clientShare').addEventListener('click', copyClientLink);
-    document.getElementById('mediaViewerClose').addEventListener('click', closeMediaViewer);
-    document.getElementById('mediaViewer').addEventListener('click', e => { if(e.target === document.getElementById('mediaViewer')) closeMediaViewer(); });
-    document.getElementById('clientGallery').addEventListener('click', e => {
-        const item = e.target.closest('.media-item');
-        if (item) openMediaViewer(Number(item.dataset.mediaIndex));
-    });
-    document.addEventListener('keydown', e => {
-        if (e.key !== 'Escape') return;
-        if (document.getElementById('mediaViewer').classList.contains('open')) closeMediaViewer();
-        else if (document.getElementById('clientView').classList.contains('open')) closeModal();
-    });
-    window.addEventListener('popstate', () => {
-        const pathSlug = location.pathname.replace(/^\/work\/+/, '').replace(/\/+$/, '');
-        const queryParam = new URLSearchParams(location.search).get('client') || new URLSearchParams(location.search).get('id') || '';
-        const param = pathSlug || queryParam;
-        if (param) openClientFromParam(param, true);
-        else if (document.getElementById('clientView').classList.contains('open')) closeModal(false);
-    });
-
-    async function copyClientLink() {
-        if (!activeClientSlug) return;
-        const url = `${location.origin}/work/${encodeURIComponent(activeClientSlug)}/`;
-        try {
-            await navigator.clipboard.writeText(url);
-            setShareLabel('Copied');
-        } catch {
-            const input = document.createElement('input');
-            input.value = url;
-            input.style.position = 'fixed';
-            input.style.opacity = '0';
-            document.body.appendChild(input);
-            input.select();
-            document.execCommand('copy');
-            input.remove();
-            setShareLabel('Copied');
-        }
-    }
-
-    function setShareLabel(text) {
-        const label = document.querySelector('#clientShare span');
-        if (!label) return;
-        const original = 'Share';
-        label.textContent = text;
-        clearTimeout(setShareLabel.timer);
-        setShareLabel.timer = setTimeout(() => { label.textContent = original; }, 1600);
-    }
-
-    function updateClientUrl(project, replace = false) {
-        const url = `/work/${encodeURIComponent(clientSlug(project))}/`;
-        if (replace) history.replaceState({}, '', url);
-        else history.pushState({}, '', url);
-    }
-
-    function clientSlug(project) {
-        return String(project.title || project.id || '')
-            .toLowerCase()
-            .replace(/&/g, ' and ')
-            .replace(/[^a-z0-9]+/g, '-')
-            .replace(/^-|-$/g, '') || String(project.id || '');
-    }
-
 })();
 </script>
-<script src="js/conversion.js?v=20261108"></script>
-<script src="js/transitions.js?v=20261108"></script>
-</body>
+<script src="/js/transitions.js?v=20261123-work1"></script><script src="/js/language-switcher.js?v=20261108"></script>
+<script src="/js/work.js?v=c67a1a86b9" data-ttt-page></script></body>
 </html>

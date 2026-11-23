@@ -189,7 +189,7 @@ async function portfolioIndex(env) {
     });
   }
 
-  const cacheKey = 'portfolio_index:v4';
+  const cacheKey = 'portfolio_index:work-20261123';
   const cached = await readJsonCache(env, cacheKey);
   if (cached) return portfolioJson({ ...cached, cached: true }, 120);
 
@@ -206,9 +206,9 @@ async function portfolioIndex(env) {
     const imageCount = photographyFolder?.folder?.childCount || 0;
     const videoCount = videographyFolder?.folder?.childCount || 0;
     const banner = await findBannerMedia(env, token, categoryFolders).catch(() => null);
-    const firstImage = !banner && photographyFolder ? await firstMediaFromFolder(env, token, photographyFolder.id, 'Photography') : null;
-    const firstVideo = !banner && !firstImage && videographyFolder ? await firstMediaFromFolder(env, token, videographyFolder.id, 'Videography') : null;
-    const hero = banner || firstImage || firstVideo || null;
+    const firstImage = photographyFolder ? await firstMediaFromFolder(env, token, photographyFolder.id, 'Photography') : null;
+    const firstVideo = !firstImage && videographyFolder ? await firstMediaFromFolder(env, token, videographyFolder.id, 'Videography') : null;
+    const hero = firstImage || firstVideo || banner || null;
     const tags = [
       imageCount ? 'Photography' : '',
       videoCount ? 'Videography' : '',

@@ -11,7 +11,7 @@
         const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
         document.querySelectorAll('#nav .nav-menu a, .mobile-menu-links a').forEach(link => {
             const linkPath = new URL(link.getAttribute('href'), window.location.origin).pathname.replace(/\/$/, '') || '/';
-            const isActive = (linkPath === '/services' && !!document.getElementById('service-page')) || currentPath === linkPath || (linkPath !== '/' && linkPath !== '/ar' && currentPath.startsWith(linkPath + '/'));
+            const isActive = (linkPath === '/work' && !!document.getElementById('work-page')) || (linkPath === '/services' && !!document.getElementById('service-page')) || currentPath === linkPath || (linkPath !== '/' && linkPath !== '/ar' && currentPath.startsWith(linkPath + '/'));
             link.classList.toggle('active', isActive);
             if (isActive) link.setAttribute('aria-current', currentPath === linkPath ? 'page' : 'location');
             else link.removeAttribute('aria-current');

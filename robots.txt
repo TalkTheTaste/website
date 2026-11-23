@@ -48,3 +48,5 @@ Disallow: /ttt-client-intake
 
 Sitemap: https://talkthetaste.com/sitemap.xml
 Host: https://talkthetaste.com
+
+Sitemap: https://talkthetaste.com/portfolio-sitemap.xml
