@@ -260,7 +260,7 @@ app.get('/api/portfolio', async (req, res) => {
                 message: 'OneDrive portfolio is not configured.',
             });
         }
-        const cacheKey = 'portfolio_index:work-20261123';
+        const cacheKey = 'portfolio_index:banner-20261123';
         const cached = readMemoryCache(cacheKey);
         if (cached) {
             res.set('Cache-Control', 'public, max-age=120, s-maxage=120, stale-while-revalidate=120');
@@ -279,9 +279,9 @@ app.get('/api/portfolio', async (req, res) => {
             const imageCount = photographyFolder?.folder?.childCount || 0;
             const videoCount = videographyFolder?.folder?.childCount || 0;
             const banner = await findBannerMedia(process.env, token, categoryFolders).catch(() => null);
-            const firstImage = photographyFolder ? await firstMediaFromFolder(process.env, token, photographyFolder.id, 'Photography') : null;
-            const firstVideo = !firstImage && videographyFolder ? await firstMediaFromFolder(process.env, token, videographyFolder.id, 'Videography') : null;
-            const hero = firstImage || firstVideo || banner || null;
+            const firstImage = !banner && photographyFolder ? await firstMediaFromFolder(process.env, token, photographyFolder.id, 'Photography') : null;
+            const firstVideo = !banner && !firstImage && videographyFolder ? await firstMediaFromFolder(process.env, token, videographyFolder.id, 'Videography') : null;
+            const hero = banner || firstImage || firstVideo || null;
             const tags = [imageCount ? 'Photography' : '', videoCount ? 'Videography' : ''].filter(Boolean);
             return {
                 id: client.id,

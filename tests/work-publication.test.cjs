@@ -31,3 +31,15 @@ test('upstream failure falls back to real published work, never invented seed pr
  const {loadWorkIndex}=await import('../lib/work-data.mjs');const {WORK_CATALOG}=await import('../lib/work-catalog.mjs');const original=global.fetch;global.fetch=async()=>Response.json({source:'default',projects:[{title:'Invented example'}]});
  try{const projects=await loadWorkIndex(request());assert.equal(projects.length,WORK_CATALOG.projects.length);assert.ok(!projects.some(p=>p.title==='Invented example'));}finally{global.fetch=original;}
 });
+test('a configured client Banner wins over gallery photos in cards, detail headers and image discovery',async()=>{
+ const {imageId,imageURL,imageItems}=await import('../lib/work-data.mjs');
+ const {renderWorkIndex,renderWorkDetail}=await import('../lib/work-view.mjs');
+ const banner={...project,image:'/api/portfolio/thumb?id=PUBLICBANNER001'};
+ const template=fs.readFileSync(path.join(__dirname,'../assets/pages/work-shell.txt'),'utf8');
+ assert.equal(imageId(banner),'PUBLICBANNER001');
+ for(const html of [renderWorkIndex(template,[banner]),renderWorkDetail(template,banner,[banner])])assert.ok(html.includes('src="'+imageURL(banner)+'"'));
+ assert.deepEqual(imageItems(banner).map(i=>i.id),['PUBLICBANNER001','PUBLICIMAGE001']);
+ assert.equal(imageId({...banner,image:'/assets/optimized-banner.webp',imageOriginal:banner.image}),'PUBLICBANNER001');
+ assert.equal(imageId({...project,image:''}),'PUBLICIMAGE001');
+ assert.equal(imageId({media:[{id:'PUBLICVIDEO001',type:'Videography'}]}),'PUBLICVIDEO001');
+});

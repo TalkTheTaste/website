@@ -6,7 +6,7 @@ OneDrive remains the live source. The Work index and client galleries render pro
 
 Production used `/api/portfolio/thumb?id=...` image URLs while its robots.txt disallowed `/api/`. Those endpoints redirected to temporary Microsoft media URLs. The index also populated cards in JavaScript. The new pages consistently use `/portfolio-images/{client}/{item-id}/{descriptive-name}.jpg` instead. This route checks that the item belongs to a published project, fetches the image on the server, and returns its actual image bytes and Content-Type with no signed Location header. The filename is stable; the response MIME type describes the source format (which can be PNG or JPEG).
 
-The public route caches bytes for an hour, supports HEAD, and never forwards Graph credentials or signed URLs to the browser. Private API paths remain blocked in the production robots.txt. Project covers select actual photography or a film still before using a banner.
+The public route caches bytes for an hour, supports HEAD, and never forwards Graph credentials or signed URLs to the browser. Private API paths remain blocked in the production robots.txt. Project covers use each client’s configured Banner file or Banner folder first, matching the existing OneDrive setup. Photography or a film still is used only when no Banner is available.
 
 ## Discovery and SEO
 
