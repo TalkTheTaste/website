@@ -1,0 +1,126 @@
+/* Pricing follows the shared About / Services editorial system. */
+#pricing-page { --pp-line:#deddd7; --pp-paper:#f5f4f1; color:var(--text); }
+#pricing-page .pp-shell { width:calc(100% - 160px); max-width:1360px; margin-inline:auto; }
+#pricing-page h1,#pricing-page h2,#pricing-page h3,#pricing-page .pp-price { font-family:'Space Grotesk','Inter',sans-serif; font-weight:600; color:var(--text); }
+#pricing-page h1 { font-size:clamp(50px,6.3vw,94px); line-height:1.04; letter-spacing:-.06em; margin:24px 0; }
+#pricing-page h2 { font-size:clamp(32px,3.5vw,50px); line-height:1.12; letter-spacing:-.045em; }
+#pricing-page h3 { font-size:26px; line-height:1.2; letter-spacing:-.035em; }
+#pricing-page p { font-size:15px; line-height:1.8; color:var(--text-muted); }
+#pricing-page .pp-label { display:block; font:600 10px/1.6 'Inter',sans-serif; text-transform:uppercase; letter-spacing:1.8px; color:var(--text-muted); }
+#pricing-page .pp-crumbs { display:flex; gap:10px; margin-bottom:30px; font-size:12px; color:var(--text-muted); }
+#pricing-page .pp-hero { padding-block:150px 44px; }
+#pricing-page .pp-hero-grid { display:grid; grid-template-columns:1.5fr 1fr; align-items:end; gap:70px; }
+#pricing-page .pp-hero-grid p { max-width:460px; }
+#pricing-page .pp-index { display:flex; flex-wrap:wrap; gap:8px 28px; padding-block:20px; border-block:1px solid var(--pp-line); }
+#pricing-page .pp-index a { font-size:12px; min-height:28px; display:flex; align-items:center; }
+#pricing-page .pp-index a:hover { text-decoration:underline; text-underline-offset:5px; }
+#pricing-page .pp-section { padding-block:72px; scroll-margin-top:96px; }
+#pricing-page .pp-heading { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:end; margin-bottom:32px; }
+#pricing-page .pp-heading h2 { margin-top:16px; }
+#pricing-page .pp-heading p { max-width:520px; font-size:14px; }
+#pricing-page .pp-offer { display:grid; grid-template-columns:.9fr 1.2fr; border:1px solid var(--pp-line); }
+#pricing-page .pp-offer-intro { background:var(--gold); padding:36px; }
+#pricing-page .pp-offer-intro .pp-label,#pricing-page .pp-offer-intro p { color:var(--text-mid); }
+#pricing-page .pp-offer-intro h2 { font-size:clamp(32px,3.4vw,48px); margin:20px 0 28px; }
+#pricing-page .pp-price { font-size:clamp(40px,4.3vw,64px); line-height:1.1; letter-spacing:-.055em; margin-top:20px; }
+#pricing-page .pp-price small { font:500 12px/1.5 'Inter',sans-serif; letter-spacing:0; margin-right:8px; }
+#pricing-page .pp-period { display:block; font-size:12px; color:var(--text-muted); margin:8px 0 22px; }
+#pricing-page .pp-offer-intro .pp-period { color:var(--text-mid); }
+#pricing-page .pp-offer-intro .pp-commitment { font-size:12px; margin-bottom:18px; }
+#pricing-page .pp-audience { font-size:13px; margin-top:22px; }
+#pricing-page .pp-audience strong { display:block; color:var(--text); margin-bottom:4px; }
+#pricing-page .pp-button { display:inline-flex; justify-content:center; align-items:center; gap:14px; min-height:48px; padding:15px 20px; background:var(--text); color:#fff; border:1px solid var(--text); font:600 12px/1.6 'Inter',sans-serif; cursor:pointer; text-align:left; }
+#pricing-page .pp-button:hover { background:#363533; }
+#pricing-page .pp-offer-intro .pp-button { margin-top:28px; width:100%; }
+#pricing-page .pp-copy { background:transparent; color:var(--text); border:0; border-bottom:1px solid var(--text); padding:12px 0; margin-top:8px; font:500 12px/1.5 'Inter',sans-serif; cursor:pointer; min-height:44px; }
+#pricing-page .pp-copy-status { font-size:12px; min-height:20px; margin-top:8px; }
+#pricing-page .pp-offer-scope { padding:36px; }
+#pricing-page .pp-offer-scope>p { font-size:14px; margin-bottom:28px; }
+#pricing-page .pp-inclusions { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+#pricing-page .pp-inclusions h3 { font-size:16px; line-height:1.4; letter-spacing:-.02em; margin-bottom:8px; }
+#pricing-page .pp-inclusions p { font-size:12px; line-height:1.75; }
+#pricing-page .pp-offer-terms { grid-column:1/-1; padding:22px 30px; border-top:1px solid var(--pp-line); background:var(--pp-paper); }
+#pricing-page .pp-offer-terms p { font-size:12px; line-height:1.8; }
+#pricing-page .pp-offer-terms p+p { margin-top:8px; }
+#pricing-page .pp-copy-fallback { margin-top:18px; }
+#pricing-page .pp-copy-fallback label { display:block; font-size:12px; margin-bottom:8px; }
+#pricing-page textarea { width:100%; resize:vertical; padding:16px; border:1px solid var(--pp-line); font:400 13px/1.7 'Inter',sans-serif; background:#fff; color:var(--text); min-height:220px; }
+#pricing-page .pp-compare { margin-top:48px; }
+#pricing-page .pp-compare h3 { margin-bottom:12px; }
+#pricing-page .pp-compare>p { max-width:720px; font-size:14px; margin-bottom:22px; }
+#pricing-page table { border-collapse:collapse; width:100%; table-layout:fixed; font-size:14px; }
+#pricing-page caption { text-align:left; font-size:12px; color:var(--text-muted); padding-bottom:16px; }
+#pricing-page th,#pricing-page td { border-block:1px solid var(--pp-line); text-align:left; padding:18px 20px; line-height:1.6; vertical-align:top; }
+#pricing-page thead th { font-weight:600; background:var(--pp-paper); }
+#pricing-page th:first-child { width:38%; }
+#pricing-page tbody th { font-weight:500; }
+#pricing-page td:nth-child(2) { background:#f9f7e9; }
+#pricing-page .pp-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:start; }
+#pricing-page .pp-card { border:1px solid var(--pp-line); padding:28px; min-width:0; background:#fff; }
+#pricing-page .pp-card h3 { min-height:64px; }
+#pricing-page .pp-card>p { min-height:70px; font-size:13px; margin-top:16px; }
+#pricing-page .pp-card .pp-price { font-size:46px; }
+#pricing-page .pp-stats { display:grid; grid-template-columns:1fr 1fr; margin:24px 0; border-top:1px solid var(--pp-line); }
+#pricing-page .pp-stats div { padding:14px 8px 14px 0; border-bottom:1px solid var(--pp-line); }
+#pricing-page .pp-stats dt { font-size:10px; color:var(--text-muted); margin-bottom:4px; }
+#pricing-page .pp-stats dd { font-size:15px; font-weight:500; line-height:1.5; margin:0; }
+#pricing-page .pp-card .pp-button { width:100%; margin-top:22px; }
+#pricing-page details { border-block:1px solid var(--pp-line); margin-top:22px; }
+#pricing-page summary { display:flex; justify-content:space-between; gap:18px; padding:18px 0; cursor:pointer; font-size:13px; font-weight:600; list-style:none; line-height:1.6; }
+#pricing-page summary::-webkit-details-marker { display:none; }
+#pricing-page summary::after { content:'+'; font-size:20px; font-weight:400; }
+#pricing-page details[open] summary::after { content:'−'; }
+#pricing-page .pp-features { list-style:none; margin:0; padding:0 0 18px; display:grid; gap:12px; }
+#pricing-page .pp-features li { padding-left:14px; position:relative; font-size:12px; line-height:1.75; color:var(--text-muted); }
+#pricing-page .pp-features li::before { content:'·'; position:absolute; left:0; color:var(--text); }
+#pricing-page .pp-paper { background:var(--pp-paper); }
+#pricing-page .pp-note { margin-top:24px; max-width:860px; font-size:12px; line-height:1.8; color:var(--text-muted); }
+#pricing-page .pp-simple .pp-price { font-size:40px; }
+#pricing-page .pp-simple h3 { min-height:60px; }
+#pricing-page .pp-simple>p { min-height:0; }
+#pricing-page .pp-simple .pp-features { margin-top:24px; }
+#pricing-page .pp-ugc { display:grid; grid-template-columns:.8fr 1.2fr; gap:50px; border-block:1px solid var(--pp-line); padding-block:32px; }
+#pricing-page .pp-ugc h3 { margin-bottom:16px; }
+#pricing-page .pp-ugc .pp-features { grid-template-columns:1fr 1fr; gap:24px; padding:0; }
+#pricing-page .pp-ugc .pp-features strong { display:block; color:var(--text); margin-bottom:6px; }
+#pricing-page .pp-payment { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; border-block:1px solid var(--pp-line); padding-block:28px; }
+#pricing-page .pp-payment h3 { font-size:20px; margin-bottom:14px; }
+#pricing-page .pp-payment p { font-size:13px; }
+#pricing-page .pp-faq { display:grid; grid-template-columns:.9fr 1.1fr; gap:60px; }
+#pricing-page .pp-faq h2 { margin-top:16px; }
+#pricing-page .pp-faq details { margin-top:0; border-top:0; }
+#pricing-page .pp-faq details:first-child { border-top:1px solid var(--pp-line); }
+#pricing-page .pp-faq details p { font-size:14px; padding-bottom:22px; }
+#pricing-page .pp-cta { background:var(--gold); padding-block:64px; }
+#pricing-page .pp-cta-inner { display:flex; justify-content:space-between; align-items:center; gap:40px; }
+#pricing-page .pp-cta h2 { margin:16px 0; }
+#pricing-page .pp-cta p,#pricing-page .pp-cta .pp-label { color:var(--text-mid); }
+#pricing-page [id] { scroll-margin-top:100px; }
+#pricing-page [id] { scroll-margin-top:100px; }
+#pricing-page [hidden] { display:none !important; }
+@media(max-width:1100px) { #pricing-page .pp-shell { width:calc(100% - 96px); } #pricing-page .pp-offer-intro,#pricing-page .pp-offer-scope { padding:26px; } #pricing-page .pp-card { padding:22px; } #pricing-page .pp-card .pp-price { font-size:38px; } }
+@media(max-width:900px) {
+ #pricing-page .pp-shell { width:calc(100% - 48px); }
+ #pricing-page .pp-hero { padding-block:120px 36px; }
+ #pricing-page textarea { font-size:16px; }
+ #pricing-page .pp-hero-grid { grid-template-columns:1fr; gap:8px; }
+ #pricing-page .pp-section { padding-block:52px; }
+ #pricing-page .pp-offer { grid-template-columns:1fr; }
+ #pricing-page .pp-grid { grid-template-columns:1fr; }
+ #pricing-page .pp-card h3,#pricing-page .pp-card>p { min-height:0; }
+ #pricing-page .pp-card .pp-price { font-size:48px; }
+ #pricing-page .pp-faq { grid-template-columns:1fr; gap:32px; }
+ #pricing-page .pp-heading { gap:28px; }
+}
+@media(max-width:640px) {
+ #pricing-page h1 { font-size:clamp(42px,11vw,66px); }
+ #pricing-page .pp-heading,#pricing-page .pp-inclusions,#pricing-page .pp-ugc,#pricing-page .pp-payment { grid-template-columns:1fr; gap:24px; }
+ #pricing-page .pp-offer-intro,#pricing-page .pp-offer-scope { padding:26px 22px; }
+ #pricing-page .pp-offer-terms { padding:22px; }
+ #pricing-page .pp-compare { margin-top:36px; }
+ #pricing-page th,#pricing-page td { padding:14px 9px; font-size:11px; }
+ #pricing-page th:first-child { width:34%; }
+ #pricing-page .pp-ugc .pp-features { grid-template-columns:1fr; }
+ #pricing-page .pp-cta-inner { flex-direction:column; align-items:start; gap:24px; }
+ #pricing-page .pp-cta { padding-block:48px; }
+}
