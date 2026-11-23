@@ -106,3 +106,47 @@
  #consultation-page iframe { height:1500px; }
  #consultation-page .cp-calendar-heading h2 { font-size:25px; }
 }
+/* Native consultation booking */
+#consultation-page .bk-section { border-top:1px solid var(--cp-rule); padding-block:36px 56px; }
+#consultation-page .bk-widget { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:64px; align-items:start; }
+#consultation-page .bk-picker { background:var(--cp-paper); padding:32px; min-width:0; }
+#consultation-page .bk-heading h2 { font-size:32px; margin:12px 0 28px; }
+#consultation-page .bk-label,#consultation-page .bk-field label { display:block; font-size:14px; line-height:1.7; font-weight:500; margin-bottom:8px; }
+#consultation-page .bk-input { width:100%; min-width:0; min-height:48px; padding:12px 14px; border:1px solid var(--cp-rule); border-radius:0; background:#fff; color:var(--text); font:400 16px/1.6 'Inter',sans-serif; }
+#consultation-page .bk-input:disabled { opacity:.7; }
+#consultation-page .bk-note { font-size:13px; line-height:1.7; margin:10px 0 20px; }
+#consultation-page .bk-month { display:flex; align-items:center; justify-content:space-between; gap:12px; margin:28px 0 16px; }
+#consultation-page .bk-month h3 { font-size:22px; letter-spacing:-.03em; }
+#consultation-page .bk-month button { width:44px; height:44px; border:1px solid var(--cp-rule); background:#fff; font:400 24px/1 'Inter',sans-serif; color:var(--text); cursor:pointer; }
+#consultation-page button:disabled { opacity:.4; cursor:default; }
+#consultation-page .bk-calendar table { width:100%; table-layout:fixed; border-collapse:separate; border-spacing:2px 5px; }
+#consultation-page .bk-calendar th { font-size:12px; font-weight:500; padding-bottom:10px; color:var(--text-muted); }
+#consultation-page .bk-day { width:100%; min-height:44px; border:1px solid transparent; background:transparent; font:500 14px/1.5 'Inter',sans-serif; cursor:pointer; color:var(--text); }
+#consultation-page .bk-day:not(:disabled):hover { border-color:var(--text); }
+#consultation-page .bk-day[aria-pressed="true"] { background:var(--gold); color:var(--text); }
+#consultation-page .bk-times { margin-top:28px; padding-top:24px; border-top:1px solid var(--cp-rule); }
+#consultation-page .bk-times h3 { font-size:20px; }
+#consultation-page .bk-slot-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; }
+#consultation-page .bk-slot { min-height:46px; padding:10px 8px; border:1px solid var(--cp-rule); background:#fff; color:var(--text); font:500 14px/1.5 'Inter',sans-serif; cursor:pointer; }
+#consultation-page .bk-slot[aria-pressed="true"] { border-color:var(--text); background:var(--text); color:#fff; }
+#consultation-page fieldset { border:0; padding:0; margin:0; min-width:0; }
+#consultation-page .bk-selection { padding:18px 0; border-block:1px solid var(--cp-rule); font-size:15px; color:var(--text-mid); margin-bottom:28px; }
+#consultation-page .bk-field { margin-bottom:22px; min-width:0; }
+#consultation-page .bk-field label span { color:var(--text-muted); font-weight:400; }
+#consultation-page .bk-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+#consultation-page .bk-row+.bk-note { margin-top:-10px; }
+#consultation-page textarea { resize:vertical; }
+#consultation-page .bk-consent { display:flex; align-items:start; gap:12px; font-size:13px; line-height:1.8; color:var(--text-muted); margin:8px 0 20px; }
+#consultation-page .bk-consent input { flex:0 0 auto; width:18px; height:18px; accent-color:var(--text); margin-top:3px; }
+#consultation-page .bk-consent a,#consultation-page .bk-fallback a { text-decoration:underline; text-underline-offset:4px; }
+#consultation-page .bk-submit { width:100%; }
+#consultation-page .bk-error { color:#9a2020; font-size:14px; line-height:1.7; margin-top:18px; }
+#consultation-page .bk-notice { padding:22px 24px; border-left:3px solid var(--gold); margin-bottom:28px; background:var(--cp-paper); font-size:15px; line-height:1.8; }
+#consultation-page .bk-trap { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0); }
+#consultation-page .bk-fallback { border-top:1px solid var(--cp-rule); margin-top:36px; padding-top:24px; font-size:14px; }
+#consultation-page .bk-success { border-top:3px solid var(--gold); background:var(--cp-paper); padding:48px; }
+#consultation-page .bk-success h2 { margin:16px 0 24px; }
+#consultation-page .bk-success p { margin-bottom:24px; }
+@media(max-width:1100px) { #consultation-page .bk-widget { gap:36px; } #consultation-page .bk-picker { padding:24px; } #consultation-page .bk-row { grid-template-columns:1fr; gap:0; } }
+@media(max-width:900px) { #consultation-page .bk-widget { grid-template-columns:1fr; gap:40px; } #consultation-page .bk-picker { max-width:600px; width:100%; margin-inline:auto; } }
+@media(max-width:640px) { #consultation-page .bk-picker { padding:24px 12px; } #consultation-page .bk-day { min-height:38px; } #consultation-page .bk-slot-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } #consultation-page .bk-success { padding:28px 24px; } }

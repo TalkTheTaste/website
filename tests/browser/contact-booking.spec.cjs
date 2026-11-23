@@ -4,17 +4,18 @@ const bookingURL='https://bookings.cloud.microsoft/book/BookaMeetingwithUs@talkt
 test.beforeEach(async({page})=>{
  await page.route(/fonts\.googleapis\.com|fonts\.gstatic\.com/,r=>r.abort());
  await page.route(/google-analytics\.com|googletagmanager\.com/,r=>r.abort());
- // Keep automated form tests independent of Microsoft's changing availability.
- await page.route('https://bookings.cloud.microsoft/**',r=>r.fulfill({contentType:'text/html',body:'<!doctype html><html lang="en"><title>Bookings test fixture</title><body><h1>Calendar fixture</h1></body></html>'}));
+ // Keep form tests independent of live availability and never create real appointments.
+ await require('./booking-fixture.cjs')(page,{questions:false});
 });
-test('free consultation starts at the embedded calendar and keeps package context',async({page})=>{
+test('free consultation starts at the native calendar and keeps package context',async({page})=>{
  await page.goto('/pricing',{waitUntil:'domcontentloaded'});
  await page.locator('#social-essentials a').filter({hasText:'Get Started'}).click();
  await expect(page).toHaveURL(/\/book-consultation\?package=Social%20Essentials&service=Social%20Media$/);
  await expect(page.locator('h1')).toHaveText('Book Your Free Marketing Consultation');
  await expect(page.locator('[data-booking-context]')).toContainText('Social Essentials');
- await expect(page.locator('iframe')).toHaveAttribute('src',bookingURL);
- await expect(page.getByRole('link',{name:'Schedule online',exact:true})).toHaveAttribute('href',bookingURL);
+ expect(await page.locator('iframe').count()).toBe(0);
+ await expect(page.locator('#booking-form')).toBeVisible();
+ await expect(page.locator('[data-booking-external]')).toHaveAttribute('href',bookingURL);
  await expect(page.locator('.cp-help a')).toHaveAttribute('href','/contact?package=Social+Essentials&service=Social+Media#contactForm');
 });
 test('enquiries require consent, preserve context and report server errors before retry',async({page})=>{

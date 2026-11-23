@@ -15,3 +15,7 @@ dist/
 !.dev.vars.example
 test-results/
 playwright-report/
+
+# Private local booking state
+data/*.sqlite
+data/*.sqlite-*

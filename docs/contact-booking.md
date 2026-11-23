@@ -1,15 +1,30 @@
-# Contact and consultation
+# Custom consultation booking
 
-`npm run build:contact` renders `contact.html` and `book-consultation.html` from the existing About shell. It runs in the normal production build. Edit `scripts/render-contact.cjs`, `scripts/contact-forms.cjs`, `css/contact.css`, `js/contact.js` and `js/consultation.js` rather than generated HTML.
+`npm run build:contact` renders Contact and `/book-consultation`. The booking page uses our own calendar, time-zone picker and form. It contains no Microsoft iframe. Microsoft Graph v1.0 supplies service details, custom questions, availability and appointment creation. The public Microsoft scheduling link remains a secondary fallback.
 
-Contact makes a free 30-minute consultation the primary action. Existing project enquiries, free growth audits, phone normalization, explicit contact consent, server lead submission and optional email notifications remain supported. Errors stay on the page and allow retry; success appears only after the server accepts the lead. Automated submissions use intercepted test responses and never send actual enquiries.
+## Microsoft administrator setup
 
-The new `/book-consultation` page uses the supplied headline and subheading, the existing brand share image, its own canonical URL, structured data, a sitemap entry and an accessible Microsoft Bookings iframe. The `Schedule online` link always opens the same public calendar directly as a fallback. Meeting availability, time zones, custom questions and confirmation are managed in Microsoft Bookings; the website does not invent slots or intercept bookings.
+The application needs Microsoft Graph **application permissions** `Bookings.Read.All` and `BookingsAppointment.ReadWrite.All`, with tenant administrator consent. OneDrive permissions alone do not enable Bookings. In Microsoft Entra admin center: App registrations → the website's application → API permissions → Add a permission → Microsoft Graph → Application permissions. Add both permissions and select Grant admin consent.
 
-Public calendar: https://bookings.cloud.microsoft/book/BookaMeetingwithUs@talkthetaste.com/?ismsaljsauthenabled
+The backend reuses Cloudflare's existing `MS_TENANT_ID`, `MS_CLIENT_ID` and `MS_CLIENT_SECRET`. For a separate app, set server secrets `BOOKINGS_TENANT_ID`, `BOOKINGS_CLIENT_ID` and `BOOKINGS_CLIENT_SECRET`. Never put secrets in browser code, Git or chat.
 
-Microsoft's iframe response requires HTTPS ancestors (`frame-ancestors https:`). Use an HTTPS preview to test the real embed; ordinary HTTP localhost is blocked by Microsoft. The production site already uses HTTPS. Do not commit local preview certificates or disable the provider's security policy.
+Defaults: business `BookaMeetingwithUs@talkthetaste.com`, service name `Free Marketing Consultation`, business time zone `Asia/Dubai`. Verify the time zone against the business's working hours in Microsoft. `BOOKING_SERVICE_ID` can pin the consultation's GUID. Only a published, visible, free, individual 30-minute service with assigned staff is supported. Unknown configurations or time zones fail closed. Common Windows and IANA staff time zones are supported.
 
-Pricing consultation buttons and copied Social Essentials details link to the new page. Package/service query parameters are displayed as plain text reminders and preserved in the contact link. They are not assumed to prefill Microsoft's custom fields. Other package enquiry buttons retain the contact-form route.
+The existing `SESSION_SECRET` signs short-lived selected times; `BOOKING_SIGNING_SECRET` may provide a separate 32+ character key. Cloudflare D1 binding `BOOKING_DB` stores request fingerprints, opaque references, confirmation state/timestamps, locks and rate limits. Plaintext customer contact details and answers go to Microsoft rather than this database. Node previews use private SQLite files under `DATA_DIR` and require Node 22.13+.
 
-Validated 23 November 2026: production build, Cloudflare Functions bundle and existing Node checks; six browser tests in Chrome and WebKit for consultation routing, package context, consent/phone validation, failed submission/retry, audits, script-free fallback, accessible layouts, responsive widths and mobile menus. Real Microsoft calendars were checked separately through HTTPS in both engines without submitting an appointment. Local AJAX page lifecycle remains compatible and is excluded from the production release.
+## Endpoints and safeguards
+
+- `GET /api/booking/config`: public service details and assigned custom questions.
+- `GET /api/booking/availability?date=YYYY-MM-DD&timeZone=Asia/Dubai`: signed selections calculated using business/staff hours, availability overrides, lead times, intervals, buffers and busy periods.
+- `POST /api/booking/appointments`: validates contact permission and required answers, serializes creation with a database lock, rechecks availability and creates the appointment with the service settings/reminders. It records the website reference and consent time in Microsoft's private booking notes.
+- `GET /api/booking/status?id=UUID`: minimal confirmation state without customer contact details.
+
+Repeated request references cannot create twice. If Microsoft's response is lost, the website keeps an uncertain state across reloads and directs the visitor to contact the team rather than assuming success or automatically creating again. External Microsoft booking channels can still change availability between the final check and creation; our database cannot lock those external channels.
+
+Requests have same-origin checks, size limits, signed selections, a spam field and database rate limits. A failed API connection disables confirmation and offers contact/direct scheduling. Package context is included in booking notes and preserved in contact links. Existing project enquiries and audits continue to work.
+
+## Validation
+
+Backend tests cover scheduling policy/buffers, occupied/tampered/expired times, consent/custom answers, replay protection, uncertain outcomes, concurrent requests, origin checks, DST and Microsoft's documented response shape. Twelve browser tests in Chrome and WebKit cover native booking, conflicts, pending reloads, time-zone changes, keyboard dates, six responsive widths, accessibility, contact forms and failure fallbacks. Tests use mocked/intercepted Microsoft responses and never create a real appointment or send a notification.
+
+Official contracts: [creation](https://learn.microsoft.com/en-us/graph/api/bookingbusiness-post-appointments), [availability](https://learn.microsoft.com/en-us/graph/api/bookingbusiness-getstaffavailability), [business rules](https://learn.microsoft.com/en-us/graph/bookingsbusiness-business-rules).
