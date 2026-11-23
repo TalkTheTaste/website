@@ -12,7 +12,7 @@ The comparison uses the supplied Signature scope: AED 4,000/month, 10 posts, fou
 
 ## Enquiries and copying
 
-The Social Essentials CTA opens the existing contact form with `package=Social Essentials`, `service=Social Media` and the `#contactForm` anchor. The form preselects the service and includes the package name in the message. This requests a free consultation; it does not add a payment checkout or calendar booking system.
+The Social Essentials CTA opens `/book-consultation` with `package=Social Essentials` and `service=Social Media`. The page shows the selected package as a reminder alongside the embedded Microsoft Bookings calendar. Its contact link preserves the same context for the enquiry form. Other package enquiry buttons continue to use the contact form.
 
 Copy package details copies a plain-text summary including the full limits, exclusions, commitment and consultation link. Where browser clipboard access is unavailable, it reveals and selects a labelled read-only text field for manual copying. Mobile text fields use at least 16px to avoid iOS focus zoom.
 

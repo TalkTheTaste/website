@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://talkthetaste.com/contact</loc>
-    <lastmod>2026-08-26</lastmod>
+    <lastmod>2026-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://talkthetaste.com/contact"/>
@@ -244,4 +244,10 @@
   </url>
   <url><loc>https://talkthetaste.com/paid-advertising-dubai</loc><lastmod>2026-11-21</lastmod></url>
   <url><loc>https://talkthetaste.com/marketing-agency-orange-county</loc><lastmod>2026-11-21</lastmod></url>
+  <url>
+    <loc>https://talkthetaste.com/book-consultation</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>

@@ -5,7 +5,7 @@ test('Social Essentials publishes the agreed monthly price, limits and consultat
  const html=page();
  const block=html.slice(html.indexOf('id="social-essentials"'),html.indexOf('class="pp-compare"'));
  for(const text of ['Social Essentials','1,999','8 Social Media Posts','2 Edited Reels','8 Instagram Stories','Monthly Content Calendar','Captions &amp; Hashtags','Account Management','Basic Content Strategy','Monthly Performance Report','30 seconds each','2 carousels included within the 8 posts','3-month minimum','1 social media platform','Client-provided photos and footage','1 revision round per deliverable','No on-site shoot, ads support or basic SEO included.','Copy package details'])assert.ok(block.includes(text),text);
- assert.ok(html.includes('/contact?package=Social%20Essentials&amp;service=Social%20Media#contactForm'));
+ assert.ok(html.includes('/book-consultation?package=Social%20Essentials&amp;service=Social%20Media'));
  const schema=[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
  const catalog=schema.flatMap(s=>s['@graph']||[]).find(s=>s['@type']==='OfferCatalog');
  const offer=catalog.itemListElement.find(s=>s.name==='Social Essentials');
