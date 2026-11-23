@@ -375,6 +375,13 @@ app.get('/portfolio-images/:client/:id/:filename', async (req, res) => {
     } catch { res.status(503).set('Cache-Control', 'no-store').send('Image temporarily unavailable'); }
 });
 
+app.get('/journal-images/:slug', async (req, res) => {
+ try { const renderer=await import('./functions/journal-images/[slug].js');
+ const response=await renderer.onRequest({request:new Request(`http://127.0.0.1:${PORT}${req.originalUrl}`,{method:req.method}),params:req.params});
+ res.status(response.status);response.headers.forEach((value,key)=>res.set(key,value));
+ if(req.method==='HEAD')return res.end();res.send(Buffer.from(await response.arrayBuffer()));
+ }catch {res.status(503).set('Cache-Control','no-store').send('Image temporarily unavailable');}
+});
 app.get('/favicon.ico', (req, res) => res.sendFile(path.join(PUBLIC, 'assets/logo.png')));
 async function renderDetail(req, res, modulePath) {
     try {
@@ -396,6 +403,7 @@ async function renderDetail(req, res, modulePath) {
         res.status(500).sendFile(path.join(PUBLIC, '404.html'));
     }
 }
+app.get(['/blog', '/blog/'], (req, res) => renderDetail(req, res, './functions/blog/index.js'));
 app.get('/blog/:slug', (req, res) => renderDetail(req, res, './functions/blog/[slug].js'));
 app.get('/work/:slug', (req, res) => renderDetail(req, res, './functions/work/[slug].js'));
 app.get('*', (req, res) => {
