@@ -11,3 +11,6 @@ preview_id = "07d9ef6e85c14b69b8d3c97fcff358fa"
 binding = "BOOKING_DB"
 database_name = "ttt-bookings"
 database_id = "f50a04b2-5899-457f-b3b6-8d7d23bf6615"
+
+[vars]
+BOOKING_BUSINESS_TIME_ZONE = "Asia/Riyadh"
