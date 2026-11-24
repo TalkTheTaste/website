@@ -66,7 +66,8 @@ test('Microsoft may return a different customer ID while preserving the correct 
 test('recovery verifies an alternate customer ID against the existing directory customer email',async()=>{
  const f=await fixture(),id=crypto.randomUUID(),{reserveAttempt,finishAttempt}=await import('../lib/booking-store.mjs');
  await reserveAttempt(f.env.BOOKING_DB,id,'fingerprint',now()-60000);await finishAttempt(f.env.BOOKING_DB,id,'uncertain',{start:'2026-11-24T05:00:00.000Z',end:'2026-11-24T05:30:00.000Z',timeZone:'Asia/Dubai',serviceId:'consultation',customerId:'directory-id',appointmentId:'appointment'});
- f.graph.call=async(path,args)=>{assert.equal(args,undefined);if(path==='/customers/directory-id')return {id:'directory-id',emailAddress:'booking-test@example.invalid'};assert.equal(path,'/appointments/appointment');return {id:'appointment',serviceId:'consultation',startDateTime:{dateTime:'2026-11-24T05:00:00Z'},endDateTime:{dateTime:'2026-11-24T05:30:00Z'},customers:[{customerId:'appointment-customer-id',emailAddress:'BOOKING-TEST@example.invalid'}]};};
+ f.graph.collection=async path=>{assert.equal(path,'/customers');return [{id:'directory-id',emailAddress:'booking-test@example.invalid'}];};
+ f.graph.call=async(path,args)=>{assert.equal(args,undefined);assert.equal(path,'/appointments/appointment');return {id:'appointment',serviceId:'consultation',startDateTime:{dateTime:'2026-11-24T05:00:00Z'},endDateTime:{dateTime:'2026-11-24T05:30:00Z'},customers:[{customerId:'appointment-customer-id',emailAddress:'BOOKING-TEST@example.invalid'}]};};
  const response=await(await f.call('status?id='+id)).json();assert.equal(response.state,'confirmed');assert.equal(f.writes.length,0);assert(!JSON.stringify(response).includes('booking-test'));
 });
 test('an unrelated attendee with a different ID and email cannot confirm the attempt',async()=>{
