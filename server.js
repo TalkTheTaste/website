@@ -10,6 +10,9 @@ const security = require('./lib/security.cjs');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 const ROOT = __dirname;
+// Explicit local previews bind to loopback and never relax deployed admin access.
+const localPreview = process.env.LOCAL_PREVIEW === '1' && process.env.NODE_ENV !== 'production';
+const localAdminPassword = localPreview && process.env.LOCAL_ADMIN_PASSWORD;
 const DATA = process.env.DATA_DIR || path.join(ROOT, 'data');
 const PUBLIC = path.join(ROOT, 'dist');
 const memoryCache = new Map();
@@ -104,9 +107,9 @@ const auth = (req, res, next) => req.session.admin ? next() : res.status(401).js
 
 // ── AUTH ROUTES ──────────────────────────────────────────────
 app.post('/api/auth/login', (req, res) => {
-    if (!security.adminConfigured(process.env)) return res.status(503).json({ error: 'Admin access requires ADMIN_PASSWORD (16+ characters) and SESSION_SECRET (32+ characters).' });
+    if (!localAdminPassword && !security.adminConfigured(process.env)) return res.status(503).json({ error: 'Admin access requires ADMIN_PASSWORD (16+ characters) and SESSION_SECRET (32+ characters).' });
     const supplied = typeof req.body.password === 'string' ? req.body.password : '';
-    const expected = process.env.ADMIN_PASSWORD;
+    const expected = localAdminPassword || process.env.ADMIN_PASSWORD;
     if (crypto.timingSafeEqual(crypto.createHash('sha256').update(supplied).digest(), crypto.createHash('sha256').update(expected).digest())) {
         req.session.regenerate(error => {
             if (error) return res.status(500).json({ error: 'Unable to start session' });
@@ -140,6 +143,13 @@ app.get('/api/sync', auth, (req, res) => {
 // ── PROJECTS ────────────────────────────────────────────────
 // Booking endpoints share the Cloudflare handler and use SQLite for Node previews.
 let bookingDB;
+app.get('/api/consultations', auth, async (req, res) => {
+ try {
+  if(!bookingDB)bookingDB=require('./lib/booking-node-db.cjs')(path.join(DATA,'booking.sqlite'));
+  const {listConsultations}=await import('./lib/booking-admin.mjs');
+  res.json(await listConsultations(bookingDB,new URL(req.originalUrl,`${req.protocol}://${req.get('host')}`)));
+ } catch { res.status(503).json({error:'Consultations are temporarily unavailable.'}); }
+});
 app.all('/api/booking/*', async (req,res) => {
  try {
   if(!bookingDB)bookingDB=require('./lib/booking-node-db.cjs')(path.join(DATA,'booking.sqlite'));
@@ -427,7 +437,7 @@ app.get('*', (req, res) => {
     else res.status(404).sendFile(path.join(PUBLIC, '404.html'));
 });
 
-app.listen(PORT, () => console.log(`TTT running → http://localhost:${PORT}`));
+app.listen(PORT, localPreview ? '127.0.0.1' : undefined, () => console.log(`TTT running → http://localhost:${PORT}`));
 
 function normalizeShortlinkSlug(value) {
     return String(value || '').trim().toLowerCase();

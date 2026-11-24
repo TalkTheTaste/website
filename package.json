@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "node server.js",
+    "dev": "node scripts/dev.cjs",
     "build": "npm run build:services && npm run build:work && npm run build:pricing && npm run build:journal && npm run build:contact && npm run build:css && npm run build:js && npm run build:forms && npm run prepare:public",
     "build:css": "cleancss -O2 css/main.css -o css/main.min.css",
     "build:js": "terser js/transitions.js -c -m -o js/transitions.min.js && terser js/language-switcher.js -c -m -o js/language-switcher.min.js && terser js/conversion.js -c -m -o js/conversion.min.js",

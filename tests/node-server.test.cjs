@@ -7,7 +7,7 @@ const path = require('node:path');
 const net = require('node:net');
 const crypto = require('node:crypto');
 let configured, unconfigured;
-async function fixture(enabled) {
+async function fixture(enabled, overrides = {}) {
     const data = fs.mkdtempSync(path.join(os.tmpdir(), 'ttt-server-fixture-'));
     const reserved = net.createServer();
     await new Promise(resolve => reserved.listen(0, '127.0.0.1', resolve));
@@ -15,7 +15,9 @@ async function fixture(enabled) {
     await new Promise(resolve => reserved.close(resolve));
     const env = { ...process.env, NODE_ENV: 'test', PORT: String(port), DATA_DIR: data };
     delete env.ADMIN_PASSWORD; delete env.SESSION_SECRET;
+    delete env.LOCAL_PREVIEW; delete env.LOCAL_ADMIN_PASSWORD;
     if (enabled) { env.ADMIN_PASSWORD = 'node-test-only-admin-password'; env.SESSION_SECRET = crypto.randomBytes(32).toString('hex'); }
+    Object.assign(env, overrides);
     const child = spawn(process.execPath, ['server.js'], { cwd: path.resolve(__dirname, '..'), env, stdio: ['ignore', 'pipe', 'pipe'] });
     await new Promise((resolve, reject) => {
         const timer = setTimeout(() => reject(new Error('Server startup timed out')), 10000);
@@ -38,6 +40,27 @@ after(async () => {
 test('Node serves public pages while unconfigured admin access fails closed', async () => {
     assert.equal((await call(unconfigured, '/')).status, 200);
     assert.equal((await call(unconfigured, '/api/auth/login', { password: 'ttt2025' })).status, 503);
+    assert.equal((await call(unconfigured, '/api/consultations')).status, 401);
+});
+test('explicit local preview supports a local password and production ignores it', async () => {
+    const servers = [];
+    try {
+        const preview = await fixture(false, { LOCAL_PREVIEW: '1', LOCAL_ADMIN_PASSWORD: 'local-short' });
+        servers.push(preview);
+        assert.equal((await call(preview, '/api/auth/login', { password: 'wrong' })).status, 401);
+        const login = await call(preview, '/api/auth/login', { password: 'local-short' });
+        assert.equal(login.status, 200);
+        const Cookie = login.headers.get('Set-Cookie').split(';')[0];
+        assert.equal((await call(preview, '/api/sync', undefined, { Cookie })).status, 200);
+        const production = await fixture(false, { NODE_ENV: 'production', LOCAL_PREVIEW: '1', LOCAL_ADMIN_PASSWORD: 'local-short' });
+        servers.push(production);
+        assert.equal((await call(production, '/api/auth/login', { password: 'local-short' })).status, 503);
+    } finally {
+        for (const server of servers) {
+            await new Promise(resolve => { server.child.once('exit', resolve); server.child.kill(); });
+            fs.rmSync(server.data, { recursive: true, force: true });
+        }
+    }
 });
 test('Node rejects private files and returns a readable custom 404', async () => {
     for (const route of ['/data/settings.json', '/data/leads.json', '/server.js', '/package.json']) {
@@ -63,6 +86,9 @@ test('Node blocks cross-origin writes and defaults, authenticates configured adm
     const sync = await call(configured, '/api/sync', undefined, { Cookie });
     assert.equal(sync.status, 200);
     assert.equal(Object.hasOwn((await sync.json()).settings, 'adminPass'), false);
+    const consultations=await call(configured,'/api/consultations',undefined,{Cookie});
+    assert.equal(consultations.status,200);
+    assert.deepEqual((await consultations.json()).items,[]);
     let limited;
     for (let i = 0; i < 5; i++) limited = await call(configured, '/api/auth/login', { password: 'wrong' });
     assert.equal(limited.status, 429);

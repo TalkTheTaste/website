@@ -1,6 +1,8 @@
 'use strict';
 
 import security from '../../lib/security.cjs';
+import {listConsultations} from '../../lib/booking-admin.mjs';
+import {sendWhatsApp} from '../../lib/callmebot.mjs';
 
 import { DEFAULT_POSTS } from '../../data/default-posts.js';
 
@@ -98,6 +100,10 @@ export async function onRequest(context) {
 }
 
 async function routeRequest(path, request, env) {
+  if (path === '/consultations' && request.method === 'GET') {
+    await requireAuth(request, env);
+    return json(await listConsultations(env.BOOKING_DB, new URL(request.url)));
+  }
   if (path === '/auth/login' && request.method === 'POST') return login(request, env);
   if (path === '/auth/logout' && request.method === 'POST') return logout(request);
   if (path === '/auth/check' && request.method === 'GET') {
@@ -526,22 +532,7 @@ async function notifyCallMeBot(env, lead) {
     `Message: ${lead.message || '-'}`,
   ].join('\n');
 
-  const url = new URL('https://api.callmebot.com/whatsapp.php');
-  url.searchParams.set('phone', phone);
-  url.searchParams.set('text', text);
-  url.searchParams.set('apikey', apikey);
-
-  const response = await fetch(url.toString(), {
-    headers: { 'User-Agent': 'talkthetaste-cloudflare-pages' },
-  });
-  const body = await response.text().catch(() => '');
-
-  if (!response.ok) {
-    console.warn('CallMeBot notification failed', response.status, body);
-    return { ok: false, status: response.status, body: body.slice(0, 300) };
-  }
-
-  return { ok: true, status: response.status, body: body.slice(0, 300) };
+  return sendWhatsApp(env, text);
 }
 
 async function trackAnalytics(request, env) {
