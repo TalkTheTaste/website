@@ -58,6 +58,8 @@ async function cloudflareFixture() {
 test('Cloudflare rejects empty/unconsented leads and unknown origins', async () => {
     const { call } = await cloudflareFixture();
     assert.equal((await call('consultations')).status,401);
+    assert.equal((await call('consultations/capabilities')).status,401);
+    assert.equal((await call('consultations/'+crypto.randomUUID()+'/cancel',{reason:'A real reason',confirm:true})).status,401);
     assert.equal((await call('leads/submit', {})).status, 400);
     assert.equal((await call('leads/submit', { fname: 'Test', lname: 'Lead', email: 'audit@example.com', phone: '+971501234567', message: 'An otherwise valid lead', contactConsent: false })).status, 400);
     const hostile = await call('settings', undefined, { Origin: 'https://attacker.example' });

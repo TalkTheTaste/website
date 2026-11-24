@@ -285,7 +285,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
     <!-- Google tag (gtag.js) -->
     <script defer src="/js/analytics.js?v=20261109"></script>
 <link rel="stylesheet" href="/css/fonts.css?v=20261109">
-<link rel="stylesheet" href="/css/admin.css?v=20261124-consultations1">
+<link rel="stylesheet" href="/css/admin.css?v=20261124-meetings2">
 </head>
 <body>
 
@@ -521,7 +521,7 @@ tr:hover td { background:rgba(255,255,255,.015); }
                  SHORT LINKS
             ─────────────────────────────────────────────── -->
             <div class="view" id="view-consultations">
-                <div class="admin-view-intro"><h1>Consultations</h1><p>Website booking requests, with times shown in Dubai, UAE (UTC+4). Status reflects the website’s last confirmation check; changes made directly in Microsoft Bookings may not appear here.</p></div>
+                <div class="admin-view-intro"><h1>Consultations</h1><p>Website booking requests, with times shown in Dubai, UAE (UTC+4). Open a request to load its latest Microsoft meeting details, join the meeting or cancel it with a reason.</p></div>
                 <div class="consultation-toolbar">
                     <div class="fg"><label for="consultationFilter">Show</label><select id="consultationFilter"><option value="upcoming">Upcoming confirmed</option><option value="all">All requests</option><option value="attention">Needs checking</option></select></div>
                     <div class="fg"><label for="consultationSearch">Search requests</label><input id="consultationSearch" type="search" placeholder="Name, email, business or reference"></div>
@@ -799,7 +799,18 @@ tr:hover td { background:rgba(255,255,255,.015); }
 <div class="toast" id="toast"></div>
 
 <script src="js/data.js?v=20261108"></script>
-<script src="/js/admin-consultations.js?v=20261124-consultations1"></script>
+<dialog id="cancelConsultationDialog" class="consultation-dialog" aria-labelledby="cancelConsultationTitle">
+    <form id="cancelConsultationForm">
+        <h2 id="cancelConsultationTitle">Cancel this meeting?</h2>
+        <p id="cancelConsultationSummary"></p>
+        <p>Microsoft will send your reason to the customer and staff attached to this meeting. This action cannot be undone.</p>
+        <div class="fg"><label for="cancelConsultationReason">Cancellation reason · sent with the notification</label><textarea id="cancelConsultationReason" required minlength="5" maxlength="1000" rows="4" placeholder="Explain why the meeting needs to be cancelled."></textarea></div>
+        <label class="consultation-shared-warning" id="cancelSharedWarning" hidden><input type="checkbox" id="cancelSharedConfirm"> <span>I understand this cancels the shared meeting for all attached customers.</span></label>
+        <p id="cancelConsultationError" role="alert"></p>
+        <div class="consultation-dialog-actions"><button type="button" class="btn-secondary" id="keepConsultation">Keep meeting</button><button type="submit" class="btn-primary consultation-cancel" id="confirmCancelConsultation">Cancel meeting and notify</button></div>
+    </form>
+</dialog>
+<script src="/js/admin-consultations.js?v=20261124-meetings2"></script>
 <script>
 /* ================================================================
    ADMIN PANEL JAVASCRIPT

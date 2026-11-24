@@ -41,6 +41,14 @@ Confirmed appointments send an internal notification to the existing `CALLMEBOT_
 
 No notification tests send a real WhatsApp message. All provider and Microsoft writes are mocked. Anonymous visitor analytics remain separate from submitted contacts; no identity enrichment or contact extraction is implemented.
 
+## Joining and cancelling from the admin
+
+Opening a consultation loads `GET /api/consultations/{reference}` using the administrator session. This reads Microsoft’s latest appointment, all submitted answers and the private online meeting link. Join links are HTTPS only, open with `noopener noreferrer`, and never appear in public booking-status responses. Private appointment identifiers are retained separately in `booking_links`; older records are matched using their attendee/reference and intended time. Records that cannot be uniquely matched are not modified.
+
+`POST /api/consultations/{reference}/cancel` requires a 5–1,000 character reason, explicit notification confirmation and the version of the reviewed meeting. Shared meetings additionally require acknowledgement that all attached customers are affected. The business lock serializes booking and cancellation changes. A persistent cancellation claim prevents repeated provider calls and notifications. Microsoft’s `/appointments/{id}/cancel` action receives `cancellationMessage` verbatim; it sends the cancellation message to the involved customer and staff. Successful cancellation updates linked website records and records the reason and timestamp. An ambiguous timeout is never automatically retried or presented as confirmed cancellation. A definite provider rejection preserves the meeting and permits a deliberate retry.
+
+The cancellation action needs Microsoft Graph APPLICATION permission `Bookings.ReadWrite.All` (or `Bookings.Manage.All`), with tenant admin consent. This is additional to the permissions used for creating appointments. `GET /api/consultations/capabilities` privately checks the app token’s cancellation permission. Tests mock all cancellation calls; no real meeting is cancelled during verification.
+
 Public build preparation replaces decorative Unicode arrow text nodes with inline SVGs, including the saved page shells. Shared CSS provides consistent native select controls with SVG chevrons, focus styling, touch targets and RTL support.
 
 Appointment writes use `startDateTime` and `endDateTime`, each typed as `#microsoft.graph.dateTimeTimeZone`. These names come from the live v1.0 Graph `$metadata` (captured in `tests/fixtures/booking-appointment-schema.json`), despite the reference documentation still showing `start` and `end`. Reads accept both shapes for compatibility. Do not substitute the website's public `start`/`end` response fields directly into the Microsoft request.

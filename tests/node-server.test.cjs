@@ -41,6 +41,7 @@ test('Node serves public pages while unconfigured admin access fails closed', as
     assert.equal((await call(unconfigured, '/')).status, 200);
     assert.equal((await call(unconfigured, '/api/auth/login', { password: 'ttt2025' })).status, 503);
     assert.equal((await call(unconfigured, '/api/consultations')).status, 401);
+    assert.equal((await call(unconfigured, '/api/consultations/'+crypto.randomUUID()+'/cancel',{reason:'A real reason',confirm:true})).status,401);
 });
 test('explicit local preview supports a local password and production ignores it', async () => {
     const servers = [];

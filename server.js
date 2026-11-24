@@ -143,6 +143,16 @@ app.get('/api/sync', auth, (req, res) => {
 // ── PROJECTS ────────────────────────────────────────────────
 // Booking endpoints share the Cloudflare handler and use SQLite for Node previews.
 let bookingDB;
+app.all('/api/consultations/*', auth, async (req,res) => {
+ try {
+  if(!bookingDB)bookingDB=require('./lib/booking-node-db.cjs')(path.join(DATA,'booking.sqlite'));
+  const {manageConsultation}=await import('./lib/booking-management.mjs');
+  const headers=new Headers();for(const [key,value] of Object.entries(req.headers))if(value)headers.set(key,Array.isArray(value)?value.join(','):value);
+  const request=new Request(`${req.protocol}://${req.get('host')}${req.originalUrl}`,{method:req.method,headers,...(!['GET','HEAD'].includes(req.method)?{body:JSON.stringify(req.body)}:{})});
+  const response=await manageConsultation(request,{...process.env,BOOKING_DB:bookingDB});
+  res.status(response.status);response.headers.forEach((value,key)=>res.set(key,value));res.send(await response.text());
+ }catch {res.status(503).json({message:'Meeting management is temporarily unavailable.'});}
+});
 app.get('/api/consultations', auth, async (req, res) => {
  try {
   if(!bookingDB)bookingDB=require('./lib/booking-node-db.cjs')(path.join(DATA,'booking.sqlite'));

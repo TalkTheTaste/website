@@ -2,6 +2,7 @@
 
 import security from '../../lib/security.cjs';
 import {listConsultations} from '../../lib/booking-admin.mjs';
+import {manageConsultation} from '../../lib/booking-management.mjs';
 import {sendWhatsApp} from '../../lib/callmebot.mjs';
 
 import { DEFAULT_POSTS } from '../../data/default-posts.js';
@@ -100,6 +101,10 @@ export async function onRequest(context) {
 }
 
 async function routeRequest(path, request, env) {
+  if (path.startsWith('/consultations/') && ['GET','POST'].includes(request.method)) {
+    await requireAuth(request, env);
+    return manageConsultation(request, env);
+  }
   if (path === '/consultations' && request.method === 'GET') {
     await requireAuth(request, env);
     return json(await listConsultations(env.BOOKING_DB, new URL(request.url)));
