@@ -62,3 +62,8 @@ test('legacy confirmed bookings resolve by private reference and recover previou
 test('concurrent cancellation requests cannot send repeated cancellation notifications',async()=>{
  const f=await fixture(),body=await f.payload();const responses=await Promise.all([f.call(body),f.call(body)]);assert(responses.some(r=>r.status===200));assert.equal(f.writes.length,1);
 });
+test('scheduled meetings remain visible while ongoing and disappear after their end',async()=>{
+ const f=await fixture(),{listConsultations}=await import('../lib/booking-admin.mjs'),url=new URL('https://example.com/api/consultations');
+ const during=await listConsultations(f.db,url,Date.parse('2026-11-25T08:10:00Z'));assert.equal(during.items.length,1);assert.equal(during.upcoming,1);
+ const after=await listConsultations(f.db,url,Date.parse('2026-11-25T08:40:00Z'));assert.equal(after.items.length,0);assert.equal(after.upcoming,0);
+});
