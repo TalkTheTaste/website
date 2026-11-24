@@ -1145,13 +1145,16 @@ html body select:focus-visible{outline:2px solid #716437;outline-offset:3px;bord
 html body select:disabled{cursor:default;opacity:.65}
 html[dir="rtl"] body select:not([multiple]),[dir="rtl"] select:not([multiple]){background-position:left 14px center!important;padding-inline:14px 44px!important}
 .ttt-arrow{display:inline-block;width:1em;height:1em;min-width:1em;vertical-align:-.12em;overflow:visible;flex-shrink:0;pointer-events:none}
-.ttt-phone{display:grid;gap:10px;min-width:0}
+.ttt-phone{display:grid;grid-template-columns:minmax(132px,.9fr) minmax(0,1.1fr);gap:8px;min-width:0;align-items:start;direction:ltr}
 .ttt-phone-number{display:flex;gap:10px;min-width:0;direction:ltr}
 .ttt-phone-number>input{min-width:0;width:100%;flex:1}
-.ttt-dial-code{display:flex!important;align-items:center;gap:6px;flex:0 0 102px;max-width:102px;margin:0!important;font-size:16px!important;color:#34342e}
+.ttt-dial-code{display:flex!important;align-items:center;gap:6px;flex:0 0 66px;max-width:66px;margin:0!important;font-size:16px!important;color:#34342e}
 .ttt-dial-code[hidden]{display:none!important}
 .ttt-dial-code input{min-width:0;width:100%;padding-inline:10px!important}
-.ttt-phone-preview{font-size:13px;line-height:1.5;color:#55564e;overflow-wrap:anywhere;direction:ltr;text-align:start}
+.ttt-phone-preview{grid-column:1/-1;font-size:13px;line-height:1.5;color:#55564e;overflow-wrap:anywhere;direction:ltr;text-align:start}
 .ttt-phone-preview:empty{display:none}
 :is(#contact-page,#consultation-page) .ttt-phone input{border-radius:8px}
 @media(prefers-reduced-motion:reduce){html body select{transition:none!important}}
+
+html body .ttt-phone select:not([multiple]):not([size]) { width:100%;min-width:0;padding:12px 30px 12px 10px!important;background-position:right 10px center!important; }
+.ttt-phone[data-other="true"] { grid-template-columns:90px minmax(0,1fr); }

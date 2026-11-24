@@ -153,3 +153,26 @@
 
 #consultation-page [data-booking-check] { appearance:none; border:0; border-bottom:1px solid currentColor; border-radius:0; background:none; padding:4px 0; color:var(--text); font:inherit; cursor:pointer; margin-top:12px; }
 #consultation-page [data-booking-check]:focus-visible { outline:2px solid var(--gold); outline-offset:5px; }
+
+/* Booking changes view while keeping the entered details and a single request. */
+#consultation-page[data-booking-stage]:not([data-booking-stage="form"]) .bk-section { padding-top:128px; padding-bottom:64px; min-height:calc(100svh - 100px); display:flex; flex-direction:column; justify-content:center; align-items:center; scroll-margin-top:0; }
+#consultation-page .bk-screen { width:100%; max-width:700px; margin-inline:auto; text-align:center; outline:none; }
+#consultation-page .bk-screen h1 { margin:24px 0 20px; font-size:clamp(32px,4.5vw,56px); }
+#consultation-page .bk-screen>p { max-width:500px; margin:16px auto; }
+#consultation-page .bk-loader { width:96px; height:96px; display:block; margin:0 auto 32px; color:#9c853a; }
+#consultation-page .bk-loader-orbit { transform-origin:48px 48px; animation:bk-orbit 1.4s linear infinite; }
+#consultation-page .bk-loader-mark { transform-origin:48px 48px; animation:bk-breathe 1.4s ease-in-out infinite; }
+#consultation-page .bk-confirm-icon { display:block; width:80px; height:80px; margin:0 auto 32px; color:#70602e; }
+#consultation-page .bk-success { border:0; background:transparent; padding:32px 0; }
+#consultation-page .bk-success .cp-button { margin-top:12px; }
+#consultation-page .bk-success .bk-confirmation-time { color:var(--text); font-weight:500; font-size:19px; }
+#consultation-page .bk-success .bk-confirmation-meta { font-size:14px; }
+#consultation-page .bk-screen .bk-reference { font-size:12px; overflow-wrap:anywhere; }
+#consultation-page[data-booking-stage="uncertain"] .bk-notice { border:0; background:none; text-align:center; padding:0; max-width:580px; margin:8px auto 0; }
+#consultation-page[data-booking-stage="uncertain"] .bk-feedback { max-width:580px; margin-inline:auto; text-align:center; }
+#consultation-page[data-booking-stage="uncertain"] .bk-error { color:var(--text-muted); font-size:14px; overflow-wrap:anywhere; }
+#consultation-page[data-booking-stage="loading"] .bk-fallback { visibility:hidden; }
+@keyframes bk-orbit { to { transform:rotate(360deg); } }
+@keyframes bk-breathe { 50% { opacity:.4; transform:scaleY(.75); } }
+@media(max-width:640px) { #consultation-page[data-booking-stage]:not([data-booking-stage="form"]) .bk-section { padding-top:100px; min-height:calc(100svh - 70px); } }
+@media(prefers-reduced-motion:reduce) { #consultation-page .bk-loader-orbit,#consultation-page .bk-loader-mark { animation:none; } }

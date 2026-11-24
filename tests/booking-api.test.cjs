@@ -56,3 +56,19 @@ test('a stale failed write with no matching calendar entries unlocks a fresh sel
  await reserveAttempt(f.env.BOOKING_DB,id,'fingerprint',now()-600000);await finishAttempt(f.env.BOOKING_DB,id,'uncertain',{start:'2026-11-24T05:00:00.000Z',end:'2026-11-24T05:30:00.000Z',timeZone:'Asia/Dubai',serviceId:'consultation',customerId:'customer'});
  f.graph.collection=async path=>{assert(path.startsWith('/calendarView?'));return [];};assert.equal((await(await f.call('status?id='+id)).json()).state,'rejected');assert.equal(f.writes.length,0);
 });
+
+test('Microsoft may return a different customer ID while preserving the correct attendee email',async()=>{
+ const f=await fixture();f.model.service.maximumAttendeesCount=2;let posts=0;
+ f.graph.collection=async()=>[{id:'directory-id',emailAddress:'booking-test@example.invalid'}];
+ f.graph.call=async(path,args)=>{assert.equal(path,'/appointments');posts++;return {id:'appointment',customers:[{customerId:'appointment-customer-id',emailAddress:'BOOKING-TEST@example.invalid'}]};};
+ assert.equal((await f.call('appointments',f.body())).status,201);assert.equal(posts,1);
+});
+test('recovery verifies an alternate customer ID against the existing directory customer email',async()=>{
+ const f=await fixture(),id=crypto.randomUUID(),{reserveAttempt,finishAttempt}=await import('../lib/booking-store.mjs');
+ await reserveAttempt(f.env.BOOKING_DB,id,'fingerprint',now()-60000);await finishAttempt(f.env.BOOKING_DB,id,'uncertain',{start:'2026-11-24T05:00:00.000Z',end:'2026-11-24T05:30:00.000Z',timeZone:'Asia/Dubai',serviceId:'consultation',customerId:'directory-id',appointmentId:'appointment'});
+ f.graph.call=async(path,args)=>{assert.equal(args,undefined);if(path==='/customers/directory-id')return {id:'directory-id',emailAddress:'booking-test@example.invalid'};assert.equal(path,'/appointments/appointment');return {id:'appointment',serviceId:'consultation',startDateTime:{dateTime:'2026-11-24T05:00:00Z'},endDateTime:{dateTime:'2026-11-24T05:30:00Z'},customers:[{customerId:'appointment-customer-id',emailAddress:'BOOKING-TEST@example.invalid'}]};};
+ const response=await(await f.call('status?id='+id)).json();assert.equal(response.state,'confirmed');assert.equal(f.writes.length,0);assert(!JSON.stringify(response).includes('booking-test'));
+});
+test('an unrelated attendee with a different ID and email cannot confirm the attempt',async()=>{
+ const f=await fixture();f.model.service.maximumAttendeesCount=2;f.graph.collection=async()=>[{id:'directory-id',emailAddress:'booking-test@example.invalid'}];f.graph.call=async()=>({id:'appointment',customers:[{customerId:'unrelated-id',emailAddress:'someone-else@example.invalid'}]});assert.equal((await f.call('appointments',f.body())).status,202);
+});
