@@ -1,0 +1,167 @@
+{
+  "source": "https://graph.microsoft.com/v1.0/$metadata",
+  "retrievedAt": "2026-11-24T12:02:50.155Z",
+  "entity": "bookingAppointment",
+  "properties": [
+    {
+      "name": "additionalInformation",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "anonymousJoinWebUrl",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "appointmentLabel",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "createdDateTime",
+      "type": "Edm.DateTimeOffset",
+      "nullable": true
+    },
+    {
+      "name": "customerEmailAddress",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "customerName",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "customerNotes",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "customerPhone",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "customers",
+      "type": "Collection(graph.bookingCustomerInformationBase)",
+      "nullable": false
+    },
+    {
+      "name": "customerTimeZone",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "duration",
+      "type": "Edm.Duration",
+      "nullable": false
+    },
+    {
+      "name": "endDateTime",
+      "type": "graph.dateTimeTimeZone",
+      "nullable": false
+    },
+    {
+      "name": "filledAttendeesCount",
+      "type": "Edm.Int32",
+      "nullable": false
+    },
+    {
+      "name": "isCustomerAllowedToManageBooking",
+      "type": "Edm.Boolean",
+      "nullable": true
+    },
+    {
+      "name": "isLocationOnline",
+      "type": "Edm.Boolean",
+      "nullable": false
+    },
+    {
+      "name": "joinWebUrl",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "lastUpdatedDateTime",
+      "type": "Edm.DateTimeOffset",
+      "nullable": true
+    },
+    {
+      "name": "maximumAttendeesCount",
+      "type": "Edm.Int32",
+      "nullable": false
+    },
+    {
+      "name": "optOutOfCustomerEmail",
+      "type": "Edm.Boolean",
+      "nullable": false
+    },
+    {
+      "name": "postBuffer",
+      "type": "Edm.Duration",
+      "nullable": false
+    },
+    {
+      "name": "preBuffer",
+      "type": "Edm.Duration",
+      "nullable": false
+    },
+    {
+      "name": "price",
+      "type": "Edm.Double",
+      "nullable": false
+    },
+    {
+      "name": "priceType",
+      "type": "graph.bookingPriceType",
+      "nullable": false
+    },
+    {
+      "name": "reminders",
+      "type": "Collection(graph.bookingReminder)",
+      "nullable": true
+    },
+    {
+      "name": "selfServiceAppointmentId",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "serviceId",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "serviceLocation",
+      "type": "graph.location",
+      "nullable": true
+    },
+    {
+      "name": "serviceName",
+      "type": "Edm.String",
+      "nullable": false
+    },
+    {
+      "name": "serviceNotes",
+      "type": "Edm.String",
+      "nullable": true
+    },
+    {
+      "name": "smsNotificationsEnabled",
+      "type": "Edm.Boolean",
+      "nullable": false
+    },
+    {
+      "name": "staffMemberIds",
+      "type": "Collection(Edm.String)",
+      "nullable": true
+    },
+    {
+      "name": "startDateTime",
+      "type": "graph.dateTimeTimeZone",
+      "nullable": false
+    }
+  ]
+}
