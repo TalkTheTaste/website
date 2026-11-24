@@ -84,3 +84,13 @@ test('Cloudflare throttles repeated authentication attempts', async () => {
     for (let i = 0; i < 5; i++) assert.equal((await call('auth/login', { password: 'wrong' }, headers)).status, 401);
     assert.equal((await call('auth/login', { password: 'wrong' }, headers)).status, 429);
 });
+
+test('GCC and other country selections normalize national numbers using numbering metadata',()=>{
+ for(const [input,code,expected]of [['0529972923','+971','+971529972923'],['0551234567','+966','+966551234567'],['55123456','+974','+97455123456'],['91234567','+968','+96891234567'],['36123456','+973','+97336123456'],['51234567','+965','+96551234567'],['02079460018','+44','+442079460018'],['0236618300','+39','+390236618300'],['0212345678','+225','+2250212345678']])assert.equal(normalizePhone(input,code),expected);
+ assert.equal(normalizePhone('12345678','+999'),'');
+});
+
+test('public link arrows use vectors without changing scripts, attributes or metadata',()=>{
+ const vector=require('../scripts/vector-arrows.cjs');const html='<a href="/services?next=→">Services ↗</a><script>const text="→";</script><style>.x{content:"→"}</style>';
+ const result=vector(html);assert(result.includes('class="ttt-arrow"'));assert(result.includes('aria-hidden="true"'));assert(!result.includes('Services ↗'));assert(result.includes('next=→'));assert(result.includes('const text="→"'));assert(result.includes('content:"→"'));
+});

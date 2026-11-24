@@ -10,6 +10,7 @@
   function invalid(id,bad,errorId){const field=root.querySelector('#'+id);field.classList.toggle('invalid',bad);field.setAttribute('aria-invalid',String(bad));if(errorId){const error=root.querySelector('#'+errorId);error.hidden=!bad;field.setAttribute('aria-describedby',errorId);}}
   const data=window.TTT||(typeof TTT!=='undefined'?TTT:null);
   if(!window.TTTForms||!data?.saveLead){status('contactStatus','The form could not load. Please email hi@talkthetaste.com or use WhatsApp.');return;}
+  TTTForms.initPhoneInputs(root,on);
   root.querySelectorAll('[data-contact-fields]').forEach(fieldset=>fieldset.disabled=false);
   const params=new URLSearchParams(location.search),requestedPackage=(params.get('package')||'').slice(0,120),requestedService=(params.get('service')||params.get('interest')||'').slice(0,120);
   if(requestedService){const select=root.querySelector('#service');const option=[...select.options].find(o=>o.text.toLowerCase().includes(requestedService.toLowerCase()));if(option)select.value=option.value;}
@@ -20,7 +21,7 @@
   const form=root.querySelector('#contactForm');
   on(form,'submit',async event=>{
    event.preventDefault();const button=root.querySelector('#submitBtn');if(button.disabled)return;
-   const fname=value('fname'),lname=value('lname'),email=value('email'),countryCode=value('countryCode'),phoneRaw=value('phone'),phone=TTTForms.normalizePhone(phoneRaw,countryCode),company=value('company'),service=value('service'),budget=value('budget'),message=value('message');
+   const fname=value('fname'),lname=value('lname'),email=value('email'),countryCode=value('countryCode')==='other'?'+'+root.querySelector('#phone').closest('[data-phone-field]').querySelector('[data-phone-code]').value:value('countryCode'),phoneRaw=value('phone'),phone=TTTForms.phoneValue(root.querySelector('#phone')),company=value('company'),service=value('service'),budget=value('budget'),message=value('message');
    const errors={fname:!fname,lname:!lname,email:!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email),phone:!phone,message:message.length<10,consent:!checked('contactConsent')};
    for(const id of ['fname','lname','email','phone','message'])invalid(id,errors[id],id+'Error');invalid('countryCode',errors.phone);invalid('contactConsent',errors.consent,'consentError');status('contactStatus','');
    if(Object.values(errors).some(Boolean)){root.querySelector('#contactForm .invalid')?.focus();return;}
@@ -36,7 +37,7 @@
   const audit=root.querySelector('#auditForm');
   on(audit,'submit',async event=>{
    event.preventDefault();const button=audit.querySelector('button');if(button.disabled)return;
-   const name=value('auditName'),phoneRaw=value('auditPhone'),phone=TTTForms.normalizePhone(phoneRaw),url=value('auditUrl'),interest=value('auditInterest'),validUrl=TTTForms.validAuditUrl(url);
+   const name=value('auditName'),phoneRaw=value('auditPhone'),phone=TTTForms.phoneValue(root.querySelector('#auditPhone')),url=value('auditUrl'),interest=value('auditInterest'),validUrl=TTTForms.validAuditUrl(url);
    const input=root.querySelector('#auditUrl');input.setCustomValidity(validUrl?'':'Enter a website URL or an Instagram handle such as @yourbrand.');
    invalid('auditName',!name);invalid('auditPhone',!phone);invalid('auditUrl',!validUrl);invalid('auditConsent',!checked('auditConsent'));status('auditStatus','');
    if(!name||!phone||!validUrl||!checked('auditConsent')){status('auditStatus','Add your name, a valid WhatsApp number, your website or Instagram, and permission to contact you.');audit.querySelector('.invalid')?.focus();if(!validUrl)input.reportValidity();return;}

@@ -1135,3 +1135,23 @@ html { scroll-padding-top: 110px; }
 .landing-quote > footer { color: #b9b7b1 !important; }
 .operator-label, .about-stat-label { color: #b9b7b1 !important; }
 .website-sample-head > span { color: var(--text-muted); }
+
+/* Shared form controls and vector link arrows. Keep native keyboard/mobile selection. */
+html body select:not([multiple]):not([size]),html body select[size="1"] {
+ -webkit-appearance:none;appearance:none;box-sizing:border-box;min-height:48px;max-width:100%;border:1px solid #c9c6bd;border-radius:8px;padding:12px 44px 12px 14px;font:inherit;font-size:16px;line-height:1.45;color:#242420;background-color:#fff;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23565650' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:16px;box-shadow:0 1px 2px #00000005;cursor:pointer;transition:border-color .15s,box-shadow .15s;
+}
+html body select:not([multiple]):hover{border-color:#79766f}
+html body select:focus-visible{outline:2px solid #716437;outline-offset:3px;border-color:#716437;box-shadow:0 0 0 3px #c6b27b24}
+html body select:disabled{cursor:default;opacity:.65}
+html[dir="rtl"] body select:not([multiple]),[dir="rtl"] select:not([multiple]){background-position:left 14px center;padding-inline:14px 44px}
+.ttt-arrow{display:inline-block;width:1em;height:1em;min-width:1em;vertical-align:-.12em;overflow:visible;flex-shrink:0;pointer-events:none}
+.ttt-phone{display:grid;gap:10px;min-width:0}
+.ttt-phone-number{display:flex;gap:10px;min-width:0;direction:ltr}
+.ttt-phone-number>input{min-width:0;width:100%;flex:1}
+.ttt-dial-code{display:flex!important;align-items:center;gap:6px;flex:0 0 102px;max-width:102px;margin:0!important;font-size:16px!important;color:#34342e}
+.ttt-dial-code[hidden]{display:none!important}
+.ttt-dial-code input{min-width:0;width:100%;padding-inline:10px!important}
+.ttt-phone-preview{font-size:13px;line-height:1.5;color:#55564e;overflow-wrap:anywhere;direction:ltr;text-align:start}
+.ttt-phone-preview:empty{display:none}
+.ttt-phone input{border-radius:8px}
+@media(prefers-reduced-motion:reduce){html body select{transition:none!important}}
