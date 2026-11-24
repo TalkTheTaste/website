@@ -11,7 +11,7 @@ test('free consultation starts at the native calendar and keeps package context'
  await page.goto('/pricing',{waitUntil:'domcontentloaded'});
  await page.locator('#social-essentials a').filter({hasText:'Get Started'}).click();
  await expect(page).toHaveURL(/\/book-consultation\?package=Social%20Essentials&service=Social%20Media$/);
- await expect(page.locator('h1')).toHaveText('Book Your Free Marketing Consultation');
+ await expect(page.getByRole('heading',{level:1,name:'Book Your Free Marketing Consultation',exact:true})).toBeVisible();
  await expect(page.locator('[data-booking-context]')).toContainText('Social Essentials');
  expect(await page.locator('iframe').count()).toBe(0);
  await expect(page.locator('#booking-form')).toBeVisible();
