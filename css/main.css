@@ -1148,7 +1148,7 @@ html[dir="rtl"] body select:not([multiple]),[dir="rtl"] select:not([multiple]){b
 .ttt-phone{display:grid;grid-template-columns:minmax(132px,.9fr) minmax(0,1.1fr);gap:8px;min-width:0;align-items:start;direction:ltr}
 .ttt-phone-number{display:flex;gap:10px;min-width:0;direction:ltr}
 .ttt-phone-number>input{min-width:0;width:100%;flex:1}
-.ttt-dial-code{display:flex!important;align-items:center;gap:6px;flex:0 0 66px;max-width:66px;margin:0!important;font-size:16px!important;color:#34342e}
+.ttt-dial-code{display:flex!important;align-items:center;gap:6px;flex:0 0 78px;max-width:78px;margin:0!important;font-size:16px!important;color:#34342e}
 .ttt-dial-code[hidden]{display:none!important}
 .ttt-dial-code input{min-width:0;width:100%;padding-inline:10px!important}
 .ttt-phone-preview{grid-column:1/-1;font-size:13px;line-height:1.5;color:#55564e;overflow-wrap:anywhere;direction:ltr;text-align:start}
