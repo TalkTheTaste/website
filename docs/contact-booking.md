@@ -41,6 +41,10 @@ Confirmed appointments send an internal notification to the existing `CALLMEBOT_
 
 No notification tests send a real WhatsApp message. All provider and Microsoft writes are mocked. Anonymous visitor analytics remain separate from submitted contacts; no identity enrichment or contact extraction is implemented.
 
+WhatsApp sender diagnostics require an explicit queue acknowledgement from CallMeBot, including for HTTP 201 responses. Safe reason codes and HTTP status are stored privately in `booking_notification_diagnostics`; raw provider responses, credentials and recipient numbers are not stored there. Booking cards display the diagnostic description for new alert attempts. Older unconfirmed attempts have no recoverable provider reason.
+
+The authenticated `GET /api/notifications/whatsapp` reports configuration presence and the latest connection-test result. `POST /api/notifications/whatsapp/test` requires `confirm: true` and a UUID prefixed with `test:`. It sends only a fixed, clearly labelled diagnostic message to the configured internal recipient. The request is idempotent and limited to one test per minute. Never use this endpoint without the owner’s permission to send a test. It does not replay booking alerts, create leads or modify meetings.
+
 ## Joining and cancelling from the admin
 
 Opening a consultation loads `GET /api/consultations/{reference}` using the administrator session. This reads Microsoft’s latest appointment, all submitted answers and the private online meeting link. Join links are HTTPS only, open with `noopener noreferrer`, and never appear in public booking-status responses. Private appointment identifiers are retained separately in `booking_links`; older records are matched using their attendee/reference and intended time. Records that cannot be uniquely matched are not modified.

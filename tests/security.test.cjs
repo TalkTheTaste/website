@@ -58,6 +58,8 @@ async function cloudflareFixture() {
 test('Cloudflare rejects empty/unconsented leads and unknown origins', async () => {
     const { call } = await cloudflareFixture();
     assert.equal((await call('consultations')).status,401);
+    assert.equal((await call('notifications/whatsapp')).status,401);
+    assert.equal((await call('notifications/whatsapp/test',{confirm:true,requestId:'test:'+crypto.randomUUID()})).status,401);
     assert.equal((await call('consultations/capabilities')).status,401);
     assert.equal((await call('consultations/'+crypto.randomUUID()+'/cancel',{reason:'A real reason',confirm:true})).status,401);
     assert.equal((await call('leads/submit', {})).status, 400);

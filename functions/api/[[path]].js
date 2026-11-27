@@ -4,6 +4,7 @@ import security from '../../lib/security.cjs';
 import {listConsultations} from '../../lib/booking-admin.mjs';
 import {manageConsultation} from '../../lib/booking-management.mjs';
 import {sendWhatsApp} from '../../lib/callmebot.mjs';
+import {whatsappDiagnostics} from '../../lib/whatsapp-diagnostics.mjs';
 
 import { DEFAULT_POSTS } from '../../data/default-posts.js';
 
@@ -101,6 +102,10 @@ export async function onRequest(context) {
 }
 
 async function routeRequest(path, request, env) {
+  if (path === '/notifications/whatsapp' || path === '/notifications/whatsapp/test') {
+    await requireAuth(request, env);
+    return whatsappDiagnostics(request, env);
+  }
   if (path.startsWith('/consultations/') && ['GET','POST'].includes(request.method)) {
     await requireAuth(request, env);
     return manageConsultation(request, env);
